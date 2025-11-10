@@ -1,3 +1,5 @@
+Access this cheatsheet, updates, resources, workshop projects, and more at https://github.com/eisenbruch/vibe-coding-workshops.
+
 ## Table of Contents
 - [Example Projects](#example-projects)
 - [Vibe Coding Tools](#vibe-coding-tools)
@@ -12,23 +14,27 @@
 
 ### Portfolio of Vibe-Coded Projects
 
-**1. Nerktendo** ([nerktendo.com](https://nerktendo.com))
+**1. Snark AI** ([snark-ai.com](https://snark-ai.com)) 
+- **Type:** Satirical AI email service
+- **Key Learning:** Vibe coding works and its fun!
+
+**2. Nerktendo** ([nerktendo.com](https://nerktendo.com))
 - **Type:** Retro interface and portfolio
 - **Key Learning:** Sometimes AI is really bad at things. This pushed me to try multiple tools and dive deeper into vibe coding.
 
-**2. Linkp.ee** ([linkp.ee](https://linkp.ee))
+**3. Linkp.ee** ([linkp.ee](https://linkp.ee))
 - **Type:** Fully functional "link in bio" service with secure authentication & user profiles
 - **Key Learning:** "Complex" features are absolutely achievable
 
-**3. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
+**4. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
 - **Type:** Interactive game
 - **Key Learning:** Fun and loose iterative projects are great for experimenting with concepts and mechanics and allow you to explore concepts and themes freely.
 
-**4. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
+**5. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
-**5. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live))
+**6. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live))
 - **Type:** Interactive map and database
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
@@ -41,14 +47,16 @@
 ### Essential Tools (Pick One to Start)
 
 #### 1. Browser-Based Tools
-*Best for beginners, quick questions, tests/experiments*
+*Best for beginners, quick questions, tests/experiments, single pages*
+*Limitations: can’t easily save locally, limited to one conversation, bad project management*
 
 - **Claude.ai** - Advanced reasoning and coding
 - **ChatGPT** - General purpose AI assistant
 - **Gemini** - Google's multimodal AI
 
 #### 2. Desktop Applications
-*Just as great for beginners, with extended capabilities*
+*Just as great for beginners, with extended capabilities like local file management*
+*Limitations: not great at editing large files, not code focused*
 
 - **Claude Desktop** - Enhanced with file system access
 - **ChatGPT Desktop** - Integrated workflow tools
@@ -56,11 +64,13 @@
 > **💡 Tip:** Desktop-based tools are great for organizing your files and documents, and communicating with your computer in different ways
 
 #### 3. IDE Integration
-*Professional workflow, best for complex projects and version control*
+*Professional workflow, best for complex projects and version control 
+*Limitations: steeper learning curve*
 
 - **VS Code** + Claude/ChatGPT/Gemini Extensions
 - **Cursor** - AI-native code editor
 
+> **💡 Tip:** Use Git version control!
 ### Specialized Platforms
 
 #### Build & Deploy Platforms
@@ -139,20 +149,11 @@ Most projects fall somewhere in the middle. Weather Worsener and LinkPee are exa
 
 ## Working with Claude Code
 
-### Essential Techniques
-
-#### Interrupt When Needed
-Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap `esc`), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.
-
-#### Self-Checking
-Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
-
----
-
 ### Claude Code Commands
 
 | Command    | Purpose                                                                  |
 | ---------- | ------------------------------------------------------------------------ |
+| `claude`   | Start Claude in your terminal.                                           |
 | `esc esc`  | Go back in conversation and code history.                                |
 | `/init`    | Review codebase and create CLAUDE.md documentation file for AI reference |
 | `#memory`  | Easily add to CLAUDE.md memory                                           |
@@ -160,8 +161,19 @@ Ask your AI to check its own (or your) work for bugs and see if there's room for
 | `/clear`   | Better space clearing but loses memory (or quit/restart Claude Code)     |
 | `/usage`   | Check current usage level                                                |
 | `/resume`  | Resume a previous conversation                                           |
+| `/review`  | Code review                                                              |
 
 > **💡 Tip:** Store important instructions in CLAUDE.md to prevent AI from doing unwanted things (overwriting data, unnecessary builds, etc.). CLAUDE.md files exist for your user and each individual project folder where you use Claude Code. Use this to your advantage - global knowledge vs project specific knowledge.
+
+---
+
+### Essential Techniques
+
+#### Interrupt When Needed
+Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap `esc`), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.
+
+#### Self-Checking
+Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
 
 ---
 
@@ -262,24 +274,6 @@ Model Context Protocol (MCP) servers extend Claude's capabilities by connecting 
 1. Install Node.js if needed: `brew install node` (macOS)
 2. Navigate to Settings → Extensions in Claude Desktop
 3. Click "Browse extensions" to install from directory (one-click)
-4. Or manually configure in `claude_desktop_config.json`:
-```json
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/folder"]
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token"
-      }
-    }
-  }
-}
-```
 
 **Installation - Claude Code:**
 ```bash
@@ -331,7 +325,7 @@ Claude can help with more than just code:
 
 ## Project Ideas
 
-### 🟢 Simple Projects
+### Simple Projects
 
 #### To-Do List
 **Starter Prompt:**
@@ -379,7 +373,7 @@ Make it colorful and fun with emoji reactions to guesses. Add a difficulty selec
 
 ---
 
-### 🟡 Medium Projects
+### Medium Projects
 
 #### Weather App
 **Starter Prompt:**
@@ -438,7 +432,7 @@ Target audience: home cooks looking for meal ideas
 
 ---
 
-### 🔴 Complex Projects
+### Complex Projects
 
 #### Real-Time Chat App
 **Starter Prompt:**
@@ -536,7 +530,7 @@ Example use case: Sales dashboard for e-commerce, social media analytics, or IoT
 
 ---
 
-### 🎁 Bonus Challenge
+### Bonus Challenge
 
 **Open Source Contribution Challenge**
 
@@ -567,11 +561,14 @@ This teaches you about:
 
 ## Extended AI Tools Directory
 
-> **⚠️ Note:** Projects shut down and get acquired frequently. Some tools may no longer exist and may be marked as *(Defunct)*. These are kept on the list for historical and research purposes.
+> **⚠️ Note:** Projects shut down and get acquired frequently. Some tools may no longer exist.
 
 ---
 
-### 🎨 Image Generation & Editing
+### Image Generation & Editing
+
+**Google Nano Banana** - [aistudio.google.com](https://aistudio.google.com/models/gemini-2-5-flash-image)
+One of the newest and best image generation and editing models.
 
 **Midjourney** - [midjourney.com](https://www.midjourney.com/)  
 Discord-based platform creating high-quality artistic images from text prompts
@@ -602,7 +599,7 @@ Free AI tool for instant background removal with transparent PNG output
 
 ---
 
-### 🎬 Video Generation & Editing
+### Video Generation & Editing
 
 **Runway** - [runwayml.com](https://runwayml.com/)  
 Advanced AI video platform with Gen-4 models for text/image-to-video
@@ -642,7 +639,16 @@ Free background removal and replacement tool
 
 ---
 
-### 🎵 Audio & Music
+### Audio & Music
+
+**Hume** - [hume.com](https://www.hume.ai/)
+Text-to-speech and speech-to-speech editor with voice cloning and developer APIS for analyzing emotional expression and generating expressive speech.
+
+**Descript** - [descript.com](https://www.descript.com/)  
+All-in-one editor with text to speech, voice cloning, AI transcription and text-based editing
+
+**ElevenLabs** - [elevenlabs.io](https://elevenlabs.io/)  
+Advanced AI voice cloning and text-to-speech in 30+ languages
 
 **Suno** - [suno.ai](https://suno.ai/)  
 AI music generation with vocals and instruments from text
@@ -653,15 +659,9 @@ Professional-quality music tracks from text descriptions
 **Adobe Podcast Enhance** - [podcast.adobe.com](https://podcast.adobe.com/en/enhance)  
 AI audio enhancement removing background noise
 
-**Descript** - [descript.com](https://www.descript.com/)  
-All-in-one editor with AI transcription and text-based editing
-
-**ElevenLabs** - [elevenlabs.io](https://elevenlabs.io/)  
-Advanced AI voice cloning and text-to-speech in 30+ languages
-
 ---
 
-### 💬 AI Chat & Search
+### AI Chat & Search
 
 **Perplexity** - [perplexity.ai](https://www.perplexity.ai/)  
 AI-powered search with sourced answers and citations
@@ -680,7 +680,7 @@ Free AI chatbot with presentation generation and multimodal capabilities
 
 ---
 
-### 🔧 AI Infrastructure & Development
+### AI Infrastructure & Development
 
 **Replicate** - [replicate.com](https://replicate.com/)  
 Cloud platform for running open-source AI models via API
@@ -696,7 +696,7 @@ Decentralized serverless AI compute platform
 
 ---
 
-### 🧊 3D & Spatial
+### 3D & Spatial
 
 **Depth Anything V2** - [GitHub](https://github.com/DepthAnything/Depth-Anything-V2)  
 Monocular depth estimation for 3D reconstruction
@@ -733,6 +733,12 @@ Desktop app for training NeRF and Gaussian Splatting locally
 ### Agentic Browsers
 AI-native browsers that autonomously navigate websites, complete tasks, and execute workflows.
 
+**BrowserOS** - [github.com/browseros-ai/BrowserOS](https://github.com/browseros-ai/BrowserOS)
+BrowserOS is an open-source chromium fork that runs AI agents natively. Your open-source, privacy-first alternative to ChatGPT Atlas, Perplexity Comet, Dia.
+
+**ChatGPT Atlas** - [chatgpt.com/atlas](https://chatgpt.com/atlas)
+ChatGPT in a browser with memory and automation abilities
+
 **Perplexity Comet** - [perplexity.ai/comet](https://www.perplexity.ai/comet)  
 AI-first browser with autonomous task execution and integrated search
 
@@ -750,7 +756,7 @@ Privacy-first with end-to-end encryption and Deep Research mode
 
 ---
 
-### ⚙️ Specialized Tools
+### Specialized Tools
 
 **ComfyUI** - [comfy.org](https://www.comfy.org/)  
 Node-based workflow platform for multiple AI model types
@@ -778,4 +784,4 @@ noaheisenbruch@gmail.com
 
 ---
 
-*Last updated: November 5, 2025
+*Last updated: November 9, 2025
