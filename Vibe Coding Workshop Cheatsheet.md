@@ -1,12 +1,43 @@
-Access this cheatsheet, updates, resources, workshop projects, and more at https://github.com/eisenbruch/vibe-coding-workshops.
+# Vibe Coding Workshop Cheatsheet
+*Last updated: November 11, 2025*
+<table>
+<tr>
+<td width="70%" valign="top">
+
+Access this cheatsheet, updates, resources, workshop projects, and more at:
+https://github.com/eisenbruch/vibe-coding-workshops
+
+</td>
+<td width="30%" valign="top">
+
+<img src="images/github-qr.png" alt="GitHub QR Code" width="128">
+
+</td>
+</tr>
+<tr>
+<td width="70%" valign="top">
+
+Please fill out our feedback form after the workshop:
+https://forms.gle/3iVRWgUS6o8U51Ut5
+
+</td>
+<td width="30%" valign="top">
+
+<img src="images/feedback-form-qr.png" alt="Feedback Form QR Code" width="128">
+
+</td>
+</tr>
+</table>
 
 ## Table of Contents
-- [Example Projects](#example-projects)
-- [Vibe Coding Tools](#vibe-coding-tools)
-- [Core Approaches](#core-approaches)
-- [Working with Claude Code](#working-with-claude-code)
-- [Project Ideas](#project-ideas)
-- [Extended AI Tools Directory](#extended-ai-tools-directory)
+
+[1. Example Projects](#example-projects) \
+[2. Vibe Coding Tools](#vibe-coding-tools) \
+[3. Core Approaches](#core-approaches) \
+[4. Working with Claude Code](#working-with-claude-code) \
+[5. Project Ideas](#project-ideas) \
+[6. Submitting Your Workshop Project](#submitting-your-workshop-project) \
+[7. Extended AI Tools Directory](#extended-ai-tools-directory) 
 
 ---
 
@@ -16,7 +47,7 @@ Access this cheatsheet, updates, resources, workshop projects, and more at https
 
 **1. Snark AI** ([snark-ai.com](https://snark-ai.com)) 
 - **Type:** Satirical AI email service
-- **Key Learning:** Vibe coding works and its fun!
+- **Key Learning:** Vibe coding works and its fun! 
 
 **2. Nerktendo** ([nerktendo.com](https://nerktendo.com))
 - **Type:** Retro interface and portfolio
@@ -38,7 +69,7 @@ Access this cheatsheet, updates, resources, workshop projects, and more at https
 - **Type:** Interactive map and database
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
-> **💡 Key Takeaway:** Do not limit yourself. If you think it should exist, just try to create it. Vibe coding can make testing concepts easier than creating a mockup.
+> **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup.
 
 ---
 
@@ -76,6 +107,7 @@ Access this cheatsheet, updates, resources, workshop projects, and more at https
 #### Build & Deploy Platforms
 *Build, deploy, and share on their site with social elements*
 
+- **Google AI Studio** - Easily integrates Google's AI tools
 - **Replit** - Collaborative coding environment
 - **v0.dev** - Vercel's AI design tool
 - **Bolt.new** - StackBlitz's AI web development
@@ -314,7 +346,7 @@ claude mcp list
 
 ### Beyond Coding
 
-Claude can help with more than just code:
+Claude and other AI agents can help with more than just code if they have access to the right tools:
 
 - File and document organization
 - Obsidian integration through filesystem
@@ -326,6 +358,8 @@ Claude can help with more than just code:
 ## Project Ideas
 
 ### Simple Projects
+
+*These starter prompts are to give you ideas. Change them to your liking.*
 
 #### To-Do List
 **Starter Prompt:**
@@ -437,95 +471,172 @@ Target audience: home cooks looking for meal ideas
 #### Real-Time Chat App
 **Starter Prompt:**
 ```
-Create a full-stack chat application with:
+Build a chat application where users can message each other in real-time with these features:
 
-Backend:
-- PostgreSQL or MongoDB for storing users and message history
-- REST API or GraphQL for user authentication and data fetching
-- WebSocket (Socket.io) for real-time messaging
-- JWT authentication with secure password hashing
-- Rate limiting and input sanitization
+Core Features:
+- User accounts with secure registration and login
+- Instant messaging that updates without refreshing the page
+- Multiple chat rooms or channels for different conversations
+- See who's online/offline right now
+- "User is typing..." indicators
+- Message history that loads older messages as you scroll up
+- Timestamps showing when each message was sent
+- Read receipts (checkmarks when messages are seen)
+- Emoji picker for reactions
+- Ability to upload and share images/files
 
-Frontend:
-- User registration and login with form validation
-- Real-time message updates without page refresh
-- Online/offline status indicators
-- Typing indicators ("User is typing...")
-- Message timestamps and read receipts
-- Emoji picker and file upload support
-- Responsive design for mobile and desktop
+User Experience:
+- Clean, modern interface similar to Discord or Slack
+- Sidebar showing all available channels
+- Main chat area for conversation
+- Works smoothly on both desktop and mobile
+- Fast and responsive - messages appear instantly
 
-Additional requirements:
-- Messages load quickly with pagination (load older messages on scroll)
-- Implement XSS protection and secure headers
-- Deploy backend to Railway/Render and frontend to Vercel/Netlify
-- Add rooms/channels feature for group conversations
+Technical Requirements:
+- Secure authentication and password storage
+- Protect against common security issues
+- Store all messages and user data in a database
+- Deploy the app so others can access it online
 
-Design: Modern chat interface similar to Discord or Slack with a sidebar for channels and a main message area.
+Target audience: Teams, friend groups, or communities who want their own private chat space.
 ```
 
 #### Restaurant Reservation System
 **Starter Prompt:**
 ```
-Create a full-stack reservation booking system with:
+Build a restaurant reservation platform where customers can book tables and restaurants can manage their bookings:
 
-Backend:
-- PostgreSQL database with tables for restaurants, reservations, users, and time slots
-- RESTful API endpoints for CRUD operations on reservations
-- Admin authentication for restaurant owners
-- Email notifications for booking confirmations (SendGrid or Nodemailer)
-- Availability checking logic to prevent double-booking
+Customer Features:
+- Browse restaurants with photos, menus, and descriptions
+- Search and filter by cuisine type, location, and price range
+- Interactive calendar showing available reservation times
+- See real-time availability (which time slots are open)
+- Book a table by selecting date, time, party size, and adding special requests
+- Receive email confirmation immediately after booking
+- Get SMS reminder 24 hours before the reservation
+- Personal dashboard to view, modify, or cancel upcoming reservations
+- Works perfectly on mobile phones for booking on-the-go
 
-Frontend:
-- Public-facing restaurant page with photo gallery and menu
-- Interactive calendar for selecting date and time
-- Real-time availability display (show open slots)
-- Booking form with party size, special requests, contact info
-- User dashboard to view/modify/cancel reservations
-- Admin panel for restaurant owners to manage bookings and table capacity
-- Responsive design with mobile-first approach
+Restaurant Owner Features:
+- Admin panel to view all bookings for their restaurant
+- Manage table capacity and available time slots
+- See booking details (party size, special requests, contact info)
+- Prevent double-booking automatically
+- Update restaurant information, photos, and menu
 
-Additional requirements:
-- Implement caching for frequently accessed data (Redis)
-- Add search and filter for restaurants by cuisine, location, price range
-- SMS reminders 24 hours before reservation (Twilio)
-- Handle timezone conversions properly
-- Deploy with CI/CD pipeline
+User Experience:
+- Elegant, trustworthy design similar to OpenTable or Resy
+- High-quality imagery that makes restaurants look appealing
+- Fast loading and smooth interactions
+- Handle different time zones correctly
 
-Design: Elegant and trustworthy interface similar to OpenTable or Resy with high-quality imagery.
+Technical Requirements:
+- Secure login for both customers and restaurant owners
+- Store all restaurant data, bookings, and user accounts safely
+- Send automated emails and SMS notifications
+- Deploy online so anyone can use it
+
+Target audience: Diners looking for an easy way to book tables, and restaurant owners who want to manage reservations efficiently.
 ```
 
 #### Interactive Data Visualization Dashboard
 **Starter Prompt:**
 ```
-Create a full-stack data analytics dashboard with:
+Build an analytics dashboard that turns data into beautiful, interactive visualizations:
 
-Backend:
-- MongoDB or PostgreSQL for storing time-series data
-- REST API endpoints for data aggregation and filtering
-- Data processing pipeline for calculating metrics and trends
-- CSV/JSON import functionality for bulk data upload
-- Scheduled jobs for data refresh (cron or queue system)
+Core Features:
+- Display data in multiple chart types: line graphs, bar charts, pie charts, and heatmaps
+- Click and interact with charts to explore details
+- Filter data by date ranges (today, last week, last month, custom range)
+- Watch data update live in real-time as new information comes in
+- Upload data from CSV or JSON files
+- Export visualizations and data to PDF or CSV
+- Customize the dashboard layout by dragging and dropping different widgets
+- Works smoothly on tablets and desktop computers
 
-Frontend:
-- Interactive charts using D3.js, Chart.js, or Recharts
-- Multiple visualization types: line graphs, bar charts, pie charts, heatmaps
-- Date range selector and filtering controls
-- Real-time updates via WebSockets for live data streams
-- Export data to CSV/PDF functionality
-- Customizable dashboard layouts (drag-and-drop widgets)
-- Responsive design that works on tablets
+Data Management:
+- Store historical data so you can analyze trends over time
+- Handle large datasets without slowing down
+- Automatically calculate key metrics and trends
+- Refresh data on a schedule (hourly, daily, etc.)
 
-Additional requirements:
-- Optimize for rendering large datasets (virtualization, aggregation)
-- Implement role-based access control (viewer, editor, admin)
-- Add data caching layer for performance
-- Deploy with auto-scaling capabilities
-- Comprehensive error handling and loading states
+User Roles:
+- Viewers: can only see dashboards
+- Editors: can modify dashboards and settings
+- Admins: full control over users and data
 
-Design: Professional analytics interface similar to Google Analytics or Tableau with clear data hierarchy and intuitive controls.
+User Experience:
+- Professional interface similar to Google Analytics or Tableau
+- Clear visual hierarchy showing what's important
+- Intuitive controls that are easy to understand
+- Fast performance even with lots of data
+- Helpful loading states and error messages
 
-Example use case: Sales dashboard for e-commerce, social media analytics, or IoT sensor monitoring.
+Technical Requirements:
+- Secure user authentication with different permission levels
+- Store data in a reliable database
+- Deploy online for team access
+
+Example use cases:
+- Sales dashboard showing revenue, top products, and customer trends
+- Social media analytics tracking engagement and follower growth
+- IoT sensor monitoring for temperature, humidity, or equipment status
+
+Target audience: Business teams, data analysts, or anyone who needs to understand their data through visual insights.
+```
+
+#### Employee Shift Scheduler
+**Starter Prompt:**
+```
+Build a smart shift scheduling system that creates fair schedules automatically while respecting staff preferences and availability:
+
+Staff Management:
+- Add employees with their qualifications (certifications, skills, roles)
+- Set each person's availability for every day of the week and their shift preferences
+- View each employee's upcoming schedule and total hours
+
+Automatic Scheduling:
+- Generate schedules automatically that:
+  - Only assign people when they're available
+  - Match qualifications to shift requirements
+  - Balance workload fairly across multiple weeks (not just one week at a time)
+  - Avoid scheduling someone for multiple shifts on the same day
+  - Respect people's preferences when possible
+  - Track historical fairness so everyone gets their preferred shifts over time
+
+Shift Templates:
+- Create recurring weekly shift patterns (morning, afternoon, night, weekend)
+- Define how many people are needed for each shift
+- Specify what qualifications are required
+- Handle shifts that span multiple days
+
+Schedule Management:
+- View schedules across multiple weeks at once
+- Manually adjust assignments if needed (drag and drop)
+- Clear entire weeks and regenerate schedules
+- Remove individual assignments and fill them automatically
+- See visual warnings for conflicts or issues
+
+Fairness Dashboard:
+- Show how fairly preferences have been fulfilled across past weeks
+- Look ahead to see projected fairness for future schedules
+- Adjust the time window (1-12 weeks) to analyze different periods
+- Visual indicators for workload balance and preference scores
+
+User Experience:
+- Clean, professional interface focused on clarity
+- Color coding for different shift types
+- Visual indicators showing workload balance
+- Easy to spot scheduling conflicts
+- Export schedules to PDF or CSV for printing/sharing
+- Works on desktop and tablet
+
+Technical Requirements:
+- Store all staff data, shifts, and schedules in a database
+- Smart algorithm that creates fair, conflict-free schedules
+- Fast performance even with many employees and weeks of data
+
+Target audience: Small business managers, healthcare facilities, retail stores, or any organization that needs to create fair employee schedules while managing complex availability and preferences.
 ```
 
 ---
@@ -559,15 +670,72 @@ This teaches you about:
 
 ---
 
+## Submitting Your Workshop Project
+
+If you'd like to share your project with the community:
+
+1. **Fork the repository** at [github.com/eisenbruch/vibe-coding-workshops](https://github.com/eisenbruch/vibe-coding-workshops)
+2. **Create a folder** in the appropriate workshop directory: `workshop-projects/{your-workshop}/{your-project-name}-{your-name}/`
+3. **Add your project files** with all necessary code and assets
+4. **Include a README.md** explaining:
+   - What the project does
+   - How to set it up and run it
+   - Any dependencies or requirements
+   - Technologies used
+5. **Submit a pull request** with a clear description of your project
+
+**Folder naming format**: `{project-name}-{your-name}` (e.g., `todo-app-sarah`, `weather-dashboard-alex`)
+
+> **💡 Tip:** Use AI to help you write a clear README for your project. A good README makes it easy for others to understand and use your work.
+
+---
+
 ## Extended AI Tools Directory
 
 > **⚠️ Note:** Projects shut down and get acquired frequently. Some tools may no longer exist.
 
 ---
 
+### Vibe Coding & Development Tools
+
+**Claude Code** - [claude.ai/code](https://claude.ai/code)  
+Terminal-based AI coding assistant with full codebase context, git integration, and MCP server support
+
+**Cursor** - [cursor.com](https://www.cursor.com/)  
+AI-native code editor built on VS Code with chat, inline editing, and codebase understanding
+
+**GitHub Copilot** - [github.com/features/copilot](https://github.com/features/copilot)  
+AI pair programmer integrated into VS Code, JetBrains IDEs, and other editors
+
+**ChatGPT Codex** - [chatgpt.com/codex](https://chatgpt.com/codex)  
+OpenAI's code-specialized model integrated into ChatGPT for code generation and understanding
+
+**Google AI Studio** - [aistudio.google.com](https://aistudio.google.com/)  
+Google's platform for prototyping with Gemini models, including code generation
+
+**Replit** - [replit.com](https://replit.com/)  
+Collaborative browser-based IDE with AI assistance, instant deployment, and multiplayer coding
+
+**v0.dev** - [v0.dev](https://v0.dev/)  
+Vercel's AI tool for generating React components and UI designs from text descriptions
+
+**Bolt.new** - [bolt.new](https://bolt.new/)  
+StackBlitz's AI web development platform that builds and deploys full-stack apps instantly
+
+**Windsurf** - [codeium.com/windsurf](https://codeium.com/windsurf)  
+AI-powered IDE with Cascade flows for multi-file editing and autonomous task completion
+
+**Supermaven** - [supermaven.com](https://supermaven.com/)  
+Fast AI code completion with 1 million token context window
+
+**Aider** - [aider.chat](https://aider.chat/)  
+Command-line AI coding assistant that edits code in your local git repository
+
+---
+
 ### Image Generation & Editing
 
-**Google Nano Banana** - [aistudio.google.com](https://aistudio.google.com/models/gemini-2-5-flash-image)
+**Google Nano Banana** - [aistudio.google.com](https://aistudio.google.com/models/gemini-2-5-flash-image)  
 One of the newest and best image generation and editing models.
 
 **Midjourney** - [midjourney.com](https://www.midjourney.com/)  
@@ -641,7 +809,7 @@ Free background removal and replacement tool
 
 ### Audio & Music
 
-**Hume** - [hume.com](https://www.hume.ai/)
+**Hume** - [hume.com](https://www.hume.ai/)  
 Text-to-speech and speech-to-speech editor with voice cloning and developer APIS for analyzing emotional expression and generating expressive speech.
 
 **Descript** - [descript.com](https://www.descript.com/)  
@@ -733,10 +901,10 @@ Desktop app for training NeRF and Gaussian Splatting locally
 ### Agentic Browsers
 AI-native browsers that autonomously navigate websites, complete tasks, and execute workflows.
 
-**BrowserOS** - [github.com/browseros-ai/BrowserOS](https://github.com/browseros-ai/BrowserOS)
+**BrowserOS** - [github.com/browseros-ai/BrowserOS](https://github.com/browseros-ai/BrowserOS)  
 BrowserOS is an open-source chromium fork that runs AI agents natively. Your open-source, privacy-first alternative to ChatGPT Atlas, Perplexity Comet, Dia.
 
-**ChatGPT Atlas** - [chatgpt.com/atlas](https://chatgpt.com/atlas)
+**ChatGPT Atlas** - [chatgpt.com/atlas](https://chatgpt.com/atlas)  
 ChatGPT in a browser with memory and automation abilities
 
 **Perplexity Comet** - [perplexity.ai/comet](https://www.perplexity.ai/comet)  
@@ -777,11 +945,7 @@ Developer infrastructure for headless browsers and AI agents
 
 ## Resources & Support
 
-For more resources, tutorials, and community support, visit the workshop materials repository or reach out through the provided channels.
+For more resources, tutorials, and support, visit the workshop materials repository or reach out.
 
-https://github.com/eisenbruch/vibe-coding-workshops
+https://github.com/eisenbruch/vibe-coding-workshops  
 noaheisenbruch@gmail.com
-
----
-
-*Last updated: November 9, 2025
