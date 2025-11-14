@@ -6,13 +6,13 @@
 <td width="70%" valign="top">
 
 Access this cheatsheet, updates, resources, workshop projects, and more at:
-https://github.com/eisenbruch/vibe-coding-workshops
+https://eisenbruch.github.io/vibe-coding-workshops/
 <br/><br/>
 Click *Watch* on the GitHub repository to be notified of Cheatsheet updates and participant project uploads.
 </td>
 <td width="30%" valign="top">
 
-<img src="images/github-qr.png" alt="GitHub QR Code" width="128">
+<img src="images/github-site-qr.png" alt="GitHub QR Code" width="128">
 
 </td>
 </tr>
