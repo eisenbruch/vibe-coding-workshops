@@ -6,7 +6,14 @@ Welcome to the Vibe Coding workshop repository! This is your central hub for lea
 
 ### Workshop Cheatsheet
 
-The [Vibe Coding Workshop Cheatsheet](Vibe%20Coding%20Workshop%20Cheatsheet.md) is your main reference guide covering:
+Your comprehensive reference guide for vibe coding, covering essential tools, AI platforms, coding approaches, project ideas, and advanced techniques.
+
+**View the Cheatsheet:**
+- **[📄 Interactive Viewer](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html)** - Beautiful, formatted version (recommended)
+- **[📝 Markdown File](Vibe%20Coding%20Workshop%20Cheatsheet.md)** - View directly on GitHub
+- **[📥 Download PDF](Vibe%20Coding%20Workshop%20Cheatsheet.pdf)** - Offline reference
+
+**What's Inside:**
 - Essential tools and setup
 - Growing list of AI tools separated by category
 - Vibe Coding approaches
