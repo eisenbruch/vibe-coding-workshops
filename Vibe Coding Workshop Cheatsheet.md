@@ -825,6 +825,9 @@ Advanced video generation with 8-second clips and synchronized native audio
 **Hedra** - [hedra.com](https://www.hedra.com/)<br/>
 Specializes in talking avatar generation with realistic lip-sync
 
+**Higgsfield** - [higgsfield.ai](https://www.higgsfield.ai/)<br/>
+Video and image generation with a focus on impossible effects and transitions
+
 </td>
 <td width="50%" valign="top">
 
