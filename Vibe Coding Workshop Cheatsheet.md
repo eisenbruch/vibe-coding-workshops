@@ -1,5 +1,6 @@
 # Vibe Coding Workshop Cheatsheet
 *Last updated: November 14, 2025*
+
 <table>
 <tr>
 <td width="70%" valign="top">
@@ -50,60 +51,43 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **Type:** QR code generation with a twist
 - **Key Learning:** Vibe coding tools for yourself is fun
 
-<br/>
-
 **2. Snark AI** ([snark-ai.com](https://snark-ai.com)) 
 - **Type:** Satirical AI email service
 - **Key Learning:** Vibe coding actually works to make services and websites
-
-<br/>
 
 **3. Nerktendo** ([nerktendo.com](https://nerktendo.com))
 - **Type:** Retro interface and portfolio
 - **Key Learning:** Sometimes AI is really bad at things. Try different tools and dive deeper into vibe coding.
 
-<br/>
-
-**4. Linkp.ee** ([linkp.ee](https://linkp.ee))
+**4. LinkPee** ([linkp.ee](https://linkp.ee))
 - **Type:** Fully functional "link in bio" service with secure authentication & user profiles
 - **Key Learning:** "Complex" features are absolutely achievable
-
-<br/>
 
 **5. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
 - **Type:** Interactive game
 - **Key Learning:** Fun and loose iterative projects are great for experimenting with concepts and mechanics and allow you to explore concepts and themes freely.
 
-<br/>
-
 **6. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
-
-<br/>
 
 **7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live))
 - **Type:** Interactive map and database
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
-<br/>
-
 **8. Instant Camera with Thermal Printer**
 - **Type:** Raspberry Pi with camera module, button, LED, 3D printed enclosure, and vibe coded software
 - **Key Learning:** AI can assist with hardware prototyping and setup, not just software
 
-<br/>
-
 > **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup. AI can help with more than just  code - it can help prototype your hardware.
 ---
-<br/>
 
 ## Vibe Coding Tools
 
 ### Essential Tools (Pick One to Start)
 
 #### 1. Browser-Based Tools
-*Best for beginners, quick questions, tests/experiments, single pages*
+*Best for beginners, quick questions, tests/experiments, single pages* \
 *Limitations: can’t easily save locally, limited to one conversation, bad project management*
 
 - **Claude.ai** - Advanced reasoning and coding
@@ -111,7 +95,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **Gemini** - Google's multimodal AI
 
 #### 2. Desktop Applications
-*Just as great for beginners, with extended capabilities like local file management*
+*Just as great for beginners, with extended capabilities like local file management* \
 *Limitations: not great at editing large files, not code focused*
 
 - **Claude Desktop** - Enhanced with file system access
@@ -120,7 +104,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 > **💡 Tip:** Desktop-based tools are great for organizing your files and documents, and communicating with your computer in different ways
 
 #### 3. IDE Integration
-*Professional workflow, best for complex projects and version control 
+*Professional workflow, best for complex projects and version control* \
 *Limitations: steeper learning curve*
 
 - **VS Code** + Claude/ChatGPT/Gemini Extensions
@@ -726,248 +710,346 @@ If you'd like to share your project with the community:
 
 ### Vibe Coding & Development Tools
 
-**Claude Code** - [claude.ai/code](https://claude.ai/code)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Claude Code** - [claude.ai/code](https://claude.ai/code)<br/>
 Terminal-based AI coding assistant with full codebase context, git integration, and MCP server support
 
-**Cursor** - [cursor.com](https://www.cursor.com/)  
+**Cursor** - [cursor.com](https://www.cursor.com/)<br/>
 AI-native code editor built on VS Code with chat, inline editing, and codebase understanding
 
-**GitHub Copilot** - [github.com/features/copilot](https://github.com/features/copilot)  
+**GitHub Copilot** - [github.com/features/copilot](https://github.com/features/copilot)<br/>
 AI pair programmer integrated into VS Code, JetBrains IDEs, and other editors
 
-**ChatGPT Codex** - [chatgpt.com/codex](https://chatgpt.com/codex)  
+**ChatGPT Codex** - [chatgpt.com/codex](https://chatgpt.com/codex)<br/>
 OpenAI's code-specialized model integrated into ChatGPT for code generation and understanding
 
-**Google AI Studio** - [aistudio.google.com](https://aistudio.google.com/)  
+**Google AI Studio** - [aistudio.google.com](https://aistudio.google.com/)<br/>
 Google's platform for prototyping with Gemini models, including code generation
 
-**Replit** - [replit.com](https://replit.com/)  
+**Replit** - [replit.com](https://replit.com/)<br/>
 Collaborative browser-based IDE with AI assistance, instant deployment, and multiplayer coding
 
-**v0.dev** - [v0.dev](https://v0.dev/)  
+</td>
+<td width="50%" valign="top">
+
+**v0.dev** - [v0.dev](https://v0.dev/)<br/>
 Vercel's AI tool for generating React components and UI designs from text descriptions
 
-**Bolt.new** - [bolt.new](https://bolt.new/)  
+**Bolt.new** - [bolt.new](https://bolt.new/)<br/>
 StackBlitz's AI web development platform that builds and deploys full-stack apps instantly
 
-**Windsurf** - [codeium.com/windsurf](https://codeium.com/windsurf)  
+**Windsurf** - [codeium.com/windsurf](https://codeium.com/windsurf)<br/>
 AI-powered IDE with Cascade flows for multi-file editing and autonomous task completion
 
-**Supermaven** - [supermaven.com](https://supermaven.com/)  
+**Supermaven** - [supermaven.com](https://supermaven.com/)<br/>
 Fast AI code completion with 1 million token context window
 
-**Aider** - [aider.chat](https://aider.chat/)  
+**Aider** - [aider.chat](https://aider.chat/)<br/>
 Command-line AI coding assistant that edits code in your local git repository
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### Image Generation & Editing
 
-**Google Nano Banana** - [aistudio.google.com](https://aistudio.google.com/models/gemini-2-5-flash-image)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Google Nano Banana** - [aistudio.google.com](https://aistudio.google.com/models/gemini-2-5-flash-image)<br/>
 One of the newest and best image generation and editing models.
 
-**Midjourney** - [midjourney.com](https://www.midjourney.com/)  
+**Midjourney** - [midjourney.com](https://www.midjourney.com/)<br/>
 Discord-based platform creating high-quality artistic images from text prompts
 
-**DALL-E** - [openai.com/dall-e](https://openai.com/dall-e)  
+**DALL-E** - [openai.com/dall-e](https://openai.com/dall-e)<br/>
 OpenAI's image generator for detailed images from natural language
 
-**Decohere** - [decohere.ai](https://www.decohere.ai/)  
+**Decohere** - [decohere.ai](https://www.decohere.ai/)<br/>
 Generates characters, images, and videos from text and image prompts
 
-**Stability AI** - [stability.ai](https://stability.ai/)  
+**Stability AI** - [stability.ai](https://stability.ai/)<br/>
 Creator of Stable Diffusion for multimodal generative AI
 
-**Catbird** - [catbird.ai](https://www.catbird.ai/)  *(Defunct)*
+</td>
+<td width="50%" valign="top">
+
+**Catbird** - [catbird.ai](https://www.catbird.ai/)  *(Defunct)*<br/>
 Multi-model generator creating images from 15+ AI models simultaneously
 
-**Leonardo.ai** - [leonardo.ai](https://leonardo.ai/)  
+**Leonardo.ai** - [leonardo.ai](https://leonardo.ai/)<br/>
 Fine-tuned models for game assets, concept art, and production visuals
 
-**Fooocus** - [GitHub](https://github.com/lllyasviel/Fooocus)  
+**Fooocus** - [GitHub](https://github.com/lllyasviel/Fooocus)<br/>
 Open-source Stable Diffusion interface with advanced inpainting
 
-**AUTOMATIC1111** - [GitHub](https://github.com/AUTOMATIC1111/stable-diffusion-webui)  
+**AUTOMATIC1111** - [GitHub](https://github.com/AUTOMATIC1111/stable-diffusion-webui)<br/>
 Popular web interface for Stable Diffusion with extensive features
 
-**Adobe Express Background Remover** - [adobe.com](https://www.adobe.com/express/feature/ai/image/remove-background)  
+**Adobe Express Background Remover** - [adobe.com](https://www.adobe.com/express/feature/ai/image/remove-background)<br/>
 Free AI tool for instant background removal with transparent PNG output
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### Video Generation & Editing
 
-**Runway** - [runwayml.com](https://runwayml.com/)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Runway** - [runwayml.com](https://runwayml.com/)<br/>
 Advanced AI video platform with Gen-4 models for text/image-to-video
 
-**Pika** - [pika.art](https://pika.art/)  
+**Pika** - [pika.art](https://pika.art/)<br/>
 AI video generator creating cinematic clips up to 10 seconds
 
-**Adobe Firefly Video** - [firefly.adobe.com](https://firefly.adobe.com/upload/video-generation)  
+**Adobe Firefly Video** - [firefly.adobe.com](https://firefly.adobe.com/upload/video-generation)<br/>
 Text/image-to-video with 1080p output and commercially safe generation
 
-**Hailuo AI** - [hailuoai.video](https://hailuoai.video/)  
+**Hailuo AI** - [hailuoai.video](https://hailuoai.video/)<br/>
 Chinese AI video generator creating 5-6 second HD videos
 
-**Google Veo 3** - [deepmind.google](https://deepmind.google/models/veo/)  
+**Google Veo 3** - [deepmind.google](https://deepmind.google/models/veo/)<br/>
 Advanced video generation with 8-second clips and synchronized native audio
 
-**Hedra** - [hedra.com](https://www.hedra.com/)  
+**Hedra** - [hedra.com](https://www.hedra.com/)<br/>
 Specializes in talking avatar generation with realistic lip-sync
 
-**HeyGen** - [heygen.com](https://www.heygen.com/)  
+</td>
+<td width="50%" valign="top">
+
+**HeyGen** - [heygen.com](https://www.heygen.com/)<br/>
 AI avatar platform for professional spokesperson videos
 
-**Synthesia** - [synthesia.io](https://www.synthesia.io/)  
+**Synthesia** - [synthesia.io](https://www.synthesia.io/)<br/>
 AI presenters for training videos and marketing content
 
-**Switchlight** - [switchlight.beeble.ai](https://www.switchlight.beeble.ai/)  
+**Switchlight** - [switchlight.beeble.ai](https://www.switchlight.beeble.ai/)<br/>
 AI-powered video relighting tool with PBR maps
 
-**Adobe Express Video Background Remover** - [adobe.com](https://www.adobe.com/express/feature/ai/video/remove-background)  
+**Adobe Express Video Background Remover** - [adobe.com](https://www.adobe.com/express/feature/ai/video/remove-background)<br/>
 Remove video backgrounds with transparent MP4 output
 
-**VideoBGRemover** - [videobgremover.com](https://videobgremover.com/)  
+**VideoBGRemover** - [videobgremover.com](https://videobgremover.com/)<br/>
 Professional background removal for videos up to 3 hours
 
-**Innova AI Video Background Removal** - [Hugging Face](https://huggingface.co/spaces/innova-ai/video-background-removal)  
+**Innova AI Video Background Removal** - [Hugging Face](https://huggingface.co/spaces/innova-ai/video-background-removal)<br/>
 Free background removal and replacement tool
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### Audio & Music
+<table>
+<tr>
+<td width="50%" valign="top">
 
-**Hume** - [hume.com](https://www.hume.ai/)  
+**Hume** - [hume.com](https://www.hume.ai/)<br/>
 Text-to-speech and speech-to-speech editor with voice cloning and developer APIS for analyzing emotional expression and generating expressive speech.
 
-**Descript** - [descript.com](https://www.descript.com/)  
+**Descript** - [descript.com](https://www.descript.com/)<br/>
 All-in-one editor with text to speech, voice cloning, AI transcription and text-based editing
 
-**ElevenLabs** - [elevenlabs.io](https://elevenlabs.io/)  
+**ElevenLabs** - [elevenlabs.io](https://elevenlabs.io/)<br/>
 Advanced AI voice cloning and text-to-speech in 30+ languages
 
-**Suno** - [suno.ai](https://suno.ai/)  
+</td>
+<td width="50%" valign="top">
+
+**Suno** - [suno.ai](https://suno.ai/)<br/>
 AI music generation with vocals and instruments from text
 
-**Udio** - [udio.com](https://www.udio.com/)  
+**Udio** - [udio.com](https://www.udio.com/)<br/>
 Professional-quality music tracks from text descriptions
 
-**Adobe Podcast Enhance** - [podcast.adobe.com](https://podcast.adobe.com/en/enhance)  
+**Adobe Podcast Enhance** - [podcast.adobe.com](https://podcast.adobe.com/en/enhance)<br/>
 AI audio enhancement removing background noise
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### AI Chat & Search
 
-**Perplexity** - [perplexity.ai](https://www.perplexity.ai/)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Perplexity** - [perplexity.ai](https://www.perplexity.ai/)<br/>
 AI-powered search with sourced answers and citations
 
-**DeepSeek** - [deepseek.com](https://www.deepseek.com/)  
+**DeepSeek** - [deepseek.com](https://www.deepseek.com/)<br/>
 Chinese open-source AI with powerful reasoning (R1 model)
 
-**Venice.ai** - [venice.ai](https://venice.ai/)  
+**Venice.ai** - [venice.ai](https://venice.ai/)<br/>
 Privacy-focused uncensored AI with local data storage
 
-**Maple.ai** - [trymaple.ai](https://trymaple.ai/)  
+</td>
+<td width="50%" valign="top">
+
+**Maple.ai** - [trymaple.ai](https://trymaple.ai/)<br/>
 Privacy-focused with end-to-end encryption and confidential computing
 
-**Z.ai Chat** - [chat.z.ai](https://chat.z.ai/)  
+**Z.ai Chat** - [chat.z.ai](https://chat.z.ai/)<br/>
 Free AI chatbot with presentation generation and multimodal capabilities
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### AI Infrastructure & Development
 
-**Replicate** - [replicate.com](https://replicate.com/)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Replicate** - [replicate.com](https://replicate.com/)<br/>
 Cloud platform for running open-source AI models via API
 
-**Hugging Face** - [huggingface.co](https://huggingface.co/)  
+**Hugging Face** - [huggingface.co](https://huggingface.co/)<br/>
 The GitHub of AI - hub for models, datasets, and applications
 
-**Groq** - [groq.com](https://groq.com/)  
+</td>
+<td width="50%" valign="top">
+
+**Groq** - [groq.com](https://groq.com/)<br/>
 Ultra-fast AI inference with custom LPU chips
 
-**Chutes.ai** - [chutes.ai](https://chutes.ai/)  
+**Chutes.ai** - [chutes.ai](https://chutes.ai/)<br/>
 Decentralized serverless AI compute platform
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### 3D & Spatial
 
-**Depth Anything V2** - [GitHub](https://github.com/DepthAnything/Depth-Anything-V2)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Depth Anything V2** - [GitHub](https://github.com/DepthAnything/Depth-Anything-V2)<br/>
 Monocular depth estimation for 3D reconstruction
 
-**Hyper3D (Rodin AI)** - [hyper3d.ai](https://hyper3d.ai/)  
+**Hyper3D (Rodin AI)** - [hyper3d.ai](https://hyper3d.ai/)<br/>
 Production-ready 3D models from text or images
 
-**Tripo3D** - [tripo3d.ai](https://www.tripo3d.ai/)  
+**Tripo3D** - [tripo3d.ai](https://www.tripo3d.ai/)<br/>
 Fast 3D asset generation in ~10 seconds
 
-**TRELLIS** - [Hugging Face](https://huggingface.co/spaces/JeffreyXiang/TRELLIS)  
+**TRELLIS** - [Hugging Face](https://huggingface.co/spaces/JeffreyXiang/TRELLIS)<br/>
 Microsoft's 3D generation with Radiance Fields and meshes
 
-**HitPaw 3D (Hitem3D)** - [hitem3d.ai](https://hitem3d.ai/)  
+**HitPaw 3D (Hitem3D)** - [hitem3d.ai](https://hitem3d.ai/)<br/>
 Ultra-high resolution 3D models from single images
 
-**Luma Labs** - [lumalabs.ai](https://lumalabs.ai/)  
+</td>
+<td width="50%" valign="top">
+
+**Luma Labs** - [lumalabs.ai](https://lumalabs.ai/)<br/>
 Interactive 3D scenes using NeRF and Gaussian Splatting
 
-**Brush** - [GitHub](https://github.com/ArthurBrussee/brush)  
+**Brush** - [GitHub](https://github.com/ArthurBrussee/brush)<br/>
 Open-source 3D reconstruction with Gaussian Splatting
 
-**COLMAP** - [colmap.github.io](https://colmap.github.io/)  
+**COLMAP** - [colmap.github.io](https://colmap.github.io/)<br/>
 Open-source photogrammetry pipeline for 3D reconstruction
 
-**RealityScan** - [realityscan.com](https://www.realityscan.com/)  
+**RealityScan** - [realityscan.com](https://www.realityscan.com/)<br/>
 Professional photogrammetry by Epic Games
 
-**Postshot** - [jawset.com](https://www.jawset.com/)  
+**Postshot** - [jawset.com](https://www.jawset.com/)<br/>
 Desktop app for training NeRF and Gaussian Splatting locally
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### Agentic Browsers
 AI-native browsers that autonomously navigate websites, complete tasks, and execute workflows.
 
-**BrowserOS** - [github.com/browseros-ai/BrowserOS](https://github.com/browseros-ai/BrowserOS)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**BrowserOS** - [github.com/browseros-ai/BrowserOS](https://github.com/browseros-ai/BrowserOS)<br/>
 BrowserOS is an open-source chromium fork that runs AI agents natively. Your open-source, privacy-first alternative to ChatGPT Atlas, Perplexity Comet, Dia.
 
-**ChatGPT Atlas** - [chatgpt.com/atlas](https://chatgpt.com/atlas)  
+**ChatGPT Atlas** - [chatgpt.com/atlas](https://chatgpt.com/atlas)<br/>
 ChatGPT in a browser with memory and automation abilities
 
-**Perplexity Comet** - [perplexity.ai/comet](https://www.perplexity.ai/comet)  
+**Perplexity Comet** - [perplexity.ai/comet](https://www.perplexity.ai/comet)<br/>
 AI-first browser with autonomous task execution and integrated search
 
-**Dia Browser** - [diabrowser.com](https://www.diabrowser.com/)  
-Tab-aware assistant with Skills system and natural language commands
+</td>
+<td width="50%" valign="top">
 
-**Opera Neon** - [operaneon.com](https://www.operaneon.com/)  
+**Opera Neon** - [operaneon.com](https://www.operaneon.com/)<br/>
 Premium agentic browser with Chat, Do, and Make functions ($19.99/month)
 
-**Fellou** - [fellou.ai](https://fellou.ai/)  
+**Fellou** - [fellou.ai](https://fellou.ai/)<br/>
 Self-driving browser with deep search and agentic memory
 
-**Sigma AI Browser** - [sigmabrowser.com](https://www.sigmabrowser.com)  
+**Sigma AI Browser** - [sigmabrowser.com](https://www.sigmabrowser.com)<br/>
 Privacy-first with end-to-end encryption and Deep Research mode
+
+**Dia Browser** - [diabrowser.com](https://www.diabrowser.com/)<br/>
+Tab-aware assistant with Skills system and natural language commands
+
+</td>
+</tr>
+</table>
 
 ---
 
 ### Specialized Tools
 
-**ComfyUI** - [comfy.org](https://www.comfy.org/)  
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**ComfyUI** - [comfy.org](https://www.comfy.org/)<br/>
 Node-based workflow platform for multiple AI model types
 
-**Cascdr** - [cascdr.xyz](https://cascdr.xyz/)  
+**Cascdr** - [cascdr.xyz](https://cascdr.xyz/)<br/>
 Bitcoin Lightning-powered AI workflow platform
 
-**Manus.im** - [manus.im](https://manus.im/)  
+**Manus.im** - [manus.im](https://manus.im/)<br/>
 Browser-based AI agent platform for autonomous tasks
 
-**Genspark** - [genspark.ai](https://www.genspark.ai/)  
+</td>
+<td width="50%" valign="top">
+
+**Genspark** - [genspark.ai](https://www.genspark.ai/)<br/>
 Many AI tools in one chatbot
 
-**Browserbase** - [browserbase.com](https://www.browserbase.com/)  
+**Browserbase** - [browserbase.com](https://www.browserbase.com/)<br/>
 Developer infrastructure for headless browsers and AI agents
+
+</td>
+</tr>
+</table>
 
 ---
 
