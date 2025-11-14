@@ -1,12 +1,13 @@
 # Vibe Coding Workshop Cheatsheet
-*Last updated: November 11, 2025*
+*Last updated: November 14, 2025*
 <table>
 <tr>
 <td width="70%" valign="top">
 
 Access this cheatsheet, updates, resources, workshop projects, and more at:
 https://github.com/eisenbruch/vibe-coding-workshops
-
+<br/><br/>
+Click *Watch* on the GitHub repository to be notified of Cheatsheet updates and participant project uploads.
 </td>
 <td width="30%" valign="top">
 
@@ -45,33 +46,57 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 ### Portfolio of Vibe-Coded Projects
 
-**1. Snark AI** ([snark-ai.com](https://snark-ai.com)) 
+**1. Glitch QR** ([github.com/eisenbruch/glitch-qr](https://github.com/eisenbruch))
+- **Type:** QR code generation with a twist
+- **Key Learning:** Vibe coding tools for yourself is fun
+
+<br/>
+
+**2. Snark AI** ([snark-ai.com](https://snark-ai.com)) 
 - **Type:** Satirical AI email service
-- **Key Learning:** Vibe coding works and its fun! 
+- **Key Learning:** Vibe coding actually works to make services and websites
 
-**2. Nerktendo** ([nerktendo.com](https://nerktendo.com))
+<br/>
+
+**3. Nerktendo** ([nerktendo.com](https://nerktendo.com))
 - **Type:** Retro interface and portfolio
-- **Key Learning:** Sometimes AI is really bad at things. This pushed me to try multiple tools and dive deeper into vibe coding.
+- **Key Learning:** Sometimes AI is really bad at things. Try different tools and dive deeper into vibe coding.
 
-**3. Linkp.ee** ([linkp.ee](https://linkp.ee))
+<br/>
+
+**4. Linkp.ee** ([linkp.ee](https://linkp.ee))
 - **Type:** Fully functional "link in bio" service with secure authentication & user profiles
 - **Key Learning:** "Complex" features are absolutely achievable
 
-**4. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
+<br/>
+
+**5. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
 - **Type:** Interactive game
 - **Key Learning:** Fun and loose iterative projects are great for experimenting with concepts and mechanics and allow you to explore concepts and themes freely.
 
-**5. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
+<br/>
+
+**6. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
-**6. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live))
+<br/>
+
+**7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live))
 - **Type:** Interactive map and database
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
-> **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup.
+<br/>
 
+**8. Instant Camera with Thermal Printer**
+- **Type:** Raspberry Pi with camera module, button, LED, 3D printed enclosure, and vibe coded software
+- **Key Learning:** AI can assist with hardware prototyping and setup, not just software
+
+<br/>
+
+> **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup. AI can help with more than just  code - it can help prototype your hardware.
 ---
+<br/>
 
 ## Vibe Coding Tools
 
@@ -177,6 +202,8 @@ Most projects fall somewhere in the middle. Weather Worsener and LinkPee are exa
 
 > **💡 Pro Tip:** Use an AI chatbot (not coding assistant) to plan your project in detail, then feed that plan to an AI coding agent. DomainFlip was created with only 1 Claude Code prompt, but it was fed 8 different multi page documents outlining the entire project in extreme detail.
 
+Most of my examples are website related
+
 ---
 
 ## Working with Claude Code
@@ -241,11 +268,12 @@ Shortcuts for common workflows without detailed descriptions each time.
 When you have a bug AI can't solve after multiple attempts:
 
 1. Use Claude thinking levels: `think`, `think hard`, `think harder`, `ultrathink`
-2. Ask 2 different AIs the same question
-3. Give each AI the other's response for analysis
-4. Have both provide updated plans
-5. Give both responses to Claude for comprehensive summary
-6. Have a NEW Claude Code agent read and implement the solution
+1. Try a different coding agent (e.g. ChatGPT Codex)
+1. Ask 2 different AIs the same question
+    1. Give each AI the other's response for analysis
+    1. Have both provide updated plans
+    1. Give both responses to a new agent for comprehensive summary
+    1. Have another new agent read and implement the solution
 
 #### Git Worktrees
 
