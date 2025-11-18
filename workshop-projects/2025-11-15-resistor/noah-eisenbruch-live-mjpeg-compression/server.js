@@ -327,6 +327,7 @@ const server = http.createServer((req, res) => {
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glitch MJPEG Stream</title>
   <style>
     body {
@@ -373,6 +374,7 @@ const server = http.createServer((req, res) => {
       border: 1px solid #333;
       border-radius: 8px;
       padding: 20px;
+      margin-top: 20px;
       margin-bottom: 20px;
       max-width: 900px;
       width: 90%;
@@ -457,7 +459,8 @@ const server = http.createServer((req, res) => {
     }
     img {
       border: 2px solid #333;
-      max-width: 80vw;
+      max-width: 100%;
+      height: auto;
       display: block;
     }
     #webcam {
@@ -476,13 +479,69 @@ const server = http.createServer((req, res) => {
       color: #888;
       text-align: center;
     }
+
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+      #status {
+        font-size: 12px;
+        text-align: center;
+      }
+      .sliders {
+        padding: 15px;
+        width: 95%;
+      }
+      .slider-group {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .slider-control {
+        gap: 6px;
+      }
+      input[type="range"] {
+        height: 8px;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        width: 24px;
+        height: 24px;
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+      }
+      #webcam {
+        width: 100px;
+        height: 75px;
+      }
+      .stream-container {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>Glitch MJPEG Stream</h1>
   <div class="controls">
     <button id="webcamBtn">Enable Webcam</button>
-    <span id="status">Webcam provides source image for glitches</span>
+    <span id="status"></span>
+  </div>
+
+  <video id="webcam" autoplay playsinline></video>
+  <div class="streams" id="streams-container">
+    <div class="stream-container">
+      <div class="container">
+        <img id="stream" src="/stream" alt="Glitch effect">
+      </div>
+    </div>
   </div>
 
   <div class="sliders">
@@ -537,16 +596,6 @@ const server = http.createServer((req, res) => {
         </div>
         <input type="range" id="chromaIntensity" min="0" max="1" step="0.001" value="0.6">
       </div>
-    </div>
-  </div>
-
-  <video id="webcam" autoplay playsinline></video>
-  <div class="streams" id="streams-container">
-    <div class="stream-container">
-      <div class="container">
-        <img id="stream" src="/stream" alt="Glitch effect">
-      </div>
-      <div class="info">Pixel sorting & glitch effects • Uses webcam when enabled</div>
     </div>
   </div>
 
@@ -618,7 +667,7 @@ const server = http.createServer((req, res) => {
         webcamEnabled = false;
         webcamBtn.classList.remove('active');
         webcamBtn.textContent = 'Enable Webcam';
-        status.textContent = 'Move mouse over image to interact';
+        status.textContent = '';
       }
     });
 

@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Vibe Coding Workshop Cheatsheet</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="vibe-coding-workshop-cheatsheet">Vibe Coding Workshop Cheatsheet</h1>
+<p><em>By Noah Eisenbruch - <a href="mailto:noaheisenbruch@gmail.com">noaheisenbruch@gmail.com</a></em> <br>
+<em>Last updated: November 18, 2025</em></p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<p>Access this cheatsheet, updates, resources, workshop projects, and more at:
+<a href="https://eisenbruch.github.io/vibe-coding-workshops/">https://eisenbruch.github.io/vibe-coding-workshops/</a>
+<br/><br/>
+Click <em>Watch</em> on the GitHub repository to be notified of Cheatsheet updates and participant project uploads.</p>
+</td>
+<td width="30%" valign="top">
+<img src="file:////Users/noah/repos/vibe-coding-workshops/images/github-site-qr.png" alt="GitHub QR Code" width="128">
+</td>
+</tr>
+<tr>
+<td width="70%" valign="top">
+<p>Please fill out our feedback form after the workshop:
+<a href="https://forms.gle/3iVRWgUS6o8U51Ut5">https://forms.gle/3iVRWgUS6o8U51Ut5</a></p>
+</td>
+<td width="30%" valign="top">
+<img src="file:////Users/noah/repos/vibe-coding-workshops/images/feedback-form-qr.png" alt="Feedback Form QR Code" width="128">
+</td>
+</tr>
+</table>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p><a href="#example-projects">1. Example Projects</a> <br>
+<a href="#vibe-coding-tools">2. Vibe Coding Tools</a> <br>
+<a href="#core-approaches">3. Core Approaches</a> <br>
+<a href="#working-with-claude-code">4. Working with Claude Code</a> <br>
+<a href="#project-ideas">5. Project Ideas</a> <br>
+<a href="#submitting-your-workshop-project">6. Submitting Your Workshop Project</a> <br>
+<a href="#extended-ai-tools-directory">7. Extended AI Tools Directory</a></p>
+<hr>
+<h2 id="example-projects">Example Projects</h2>
+<h3 id="portfolio-of-vibe-coded-projects">Portfolio of Vibe-Coded Projects</h3>
+<p><strong>1. Glitch QR</strong> (<a href="https://github.com/eisenbruch">github.com/eisenbruch/glitch-qr</a>)</p>
+<ul>
+<li><strong>Type:</strong> QR code generation with a twist</li>
+<li><strong>Key Learning:</strong> You can vibe code a simple tool in minutes, and it's fun</li>
+</ul>
+<p><strong>2. Snark AI</strong> (<a href="https://snark-ai.com">snark-ai.com</a>)</p>
+<ul>
+<li><strong>Type:</strong> Satirical AI email service</li>
+<li><strong>Key Learning:</strong> Vibe coding actually works to make services and websites</li>
+</ul>
+<p><strong>3. Nerktendo</strong> (<a href="https://nerktendo.com">nerktendo.com</a>)</p>
+<ul>
+<li><strong>Type:</strong> Retro interface and portfolio</li>
+<li><strong>Key Learning:</strong> Sometimes AI is really bad at things. Try different tools and dive deeper into vibe coding.</li>
+</ul>
+<p><strong>4. LinkPee</strong> (<a href="https://linkp.ee">linkp.ee</a>)</p>
+<ul>
+<li><strong>Type:</strong> Fully functional &quot;link in bio&quot; service with secure authentication &amp; user profiles</li>
+<li><strong>Key Learning:</strong> &quot;Complex&quot; features are absolutely achievable</li>
+</ul>
+<p><strong>5. Weather Worsener</strong> (<a href="https://nerktendo.com/weather-worsener">nerktendo.com/weather-worsener</a>)</p>
+<ul>
+<li><strong>Type:</strong> Interactive game</li>
+<li><strong>Key Learning:</strong> Fun and loose iterative projects are great for experimenting with concepts and mechanics and allow you to explore concepts and themes freely.</li>
+</ul>
+<p><strong>6. DomainFlip</strong> (<a href="https://nerktendo.com/domainflip">nerktendo.com/domainflip</a>)</p>
+<ul>
+<li><strong>Type:</strong> Investor-ready startup demo</li>
+<li><strong>Key Learning:</strong> Clear vision + detailed context = polished results</li>
+</ul>
+<p><strong>7. TrafficVision.Live</strong> (<a href="https://trafficvision.live">trafficvision.live</a>)</p>
+<ul>
+<li><strong>Type:</strong> Interactive map and database service with user focused features</li>
+<li><strong>Key Learning:</strong> AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.</li>
+</ul>
+<p><strong>8. Instant Camera with Thermal Printer</strong></p>
+<ul>
+<li><strong>Type:</strong> Raspberry Pi with camera module, button, LED, 3D printed enclosure, and vibe coded software</li>
+<li><strong>Key Learning:</strong> AI can assist with hardware prototyping and setup, not just software</li>
+</ul>
+<blockquote>
+<p><strong>💡 Key Takeaway:</strong> Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup.</p>
+</blockquote>
+<blockquote>
+<p><strong>🧠 Remember:</strong> AI can help with more than just  code - it can help prototype your hardware, organize your files, and much more.</p>
+</blockquote>
+<hr>
+<h2 id="vibe-coding-tools">Vibe Coding Tools</h2>
+<h3 id="essential-tools-pick-one-to-start">Essential Tools (Pick One to Start)</h3>
+<h4 id="1-browser-based-tools">1. Browser-Based Tools</h4>
+<p><em>Best for beginners, quick questions, tests/experiments, single pages</em> <br>
+<em>Limitations: can’t easily save locally, limited to one conversation, bad project management</em></p>
+<ul>
+<li><strong><a href="http://Claude.ai">Claude.ai</a></strong> - Advanced reasoning and coding</li>
+<li><strong>ChatGPT</strong> - General purpose AI assistant</li>
+<li><strong>Gemini</strong> - Google's multimodal AI</li>
+</ul>
+<h4 id="2-desktop-applications">2. Desktop Applications</h4>
+<p><em>Just as great for beginners, with extended capabilities like local file management</em> <br>
+<em>Limitations: not great at editing large files, not code focused</em></p>
+<ul>
+<li><strong>Claude Desktop</strong> - Enhanced with file system access</li>
+<li><strong>ChatGPT Desktop</strong> - Integrated workflow tools</li>
+</ul>
+<blockquote>
+<p><strong>💡 Tip:</strong> Desktop-based tools are great for organizing your files and documents, and communicating with your computer in different ways</p>
+</blockquote>
+<h4 id="3-ide-integration">3. IDE Integration</h4>
+<p><em>Professional workflow, best for complex projects and version control</em> <br>
+<em>Limitations: steeper learning curve</em></p>
+<ul>
+<li><strong>VS Code</strong> + Claude/ChatGPT/Gemini Extensions</li>
+<li><strong>Cursor</strong> - AI-native code editor</li>
+</ul>
+<blockquote>
+<p><strong>💡 Tip:</strong> Use Git version control!</p>
+</blockquote>
+<h3 id="specialized-platforms">Specialized Platforms</h3>
+<h4 id="build--deploy-platforms">Build &amp; Deploy Platforms</h4>
+<p><em>Build, deploy, and share on their site with social elements</em></p>
+<ul>
+<li><strong>Google AI Studio</strong> - Easily integrates Google's AI tools</li>
+<li><strong>Replit</strong> - Collaborative coding environment</li>
+<li><strong>v0.dev</strong> - Vercel's AI design tool</li>
+<li><strong>Bolt.new</strong> - StackBlitz's AI web development</li>
+</ul>
+<h4 id="web-agent-platforms">Web Agent Platforms</h4>
+<p><em>Complex tasks with autonomous execution and code generation</em></p>
+<ul>
+<li><strong><a href="http://Manus.im">Manus.im</a></strong> - Browser-based AI agents for workflows (see full list in AI Browser Automation section below)</li>
+</ul>
+<h3 id="tool-selection-framework">Tool Selection Framework</h3>
+<p>Ask yourself these questions:</p>
+<ol>
+<li><strong>What are you building?</strong> Simple tool/visual vs. complex app</li>
+<li><strong>What's your experience level?</strong> Never coded vs. comfortable with code</li>
+<li><strong>What's your timeline?</strong> Quick prototype vs. production-ready</li>
+<li><strong>What's your budget?</strong> Free tier vs. paid subscription</li>
+<li><strong>Do you need automation?</strong> Simple tasks vs. complex multi-step workflows</li>
+</ol>
+<hr>
+<h2 id="core-approaches">Core Approaches</h2>
+<h3 id="the-vibe-coding-spectrum">The Vibe Coding Spectrum</h3>
+<p>All projects exist somewhere on this spectrum between two approaches:</p>
+<h4 id="approach-1-minimal-info--iterative-refinement">Approach 1: Minimal Info → Iterative Refinement</h4>
+<p><strong>Example:</strong> Nerktendo</p>
+<p><strong>How it works:</strong> Start broad, refine through back-and-forth conversation</p>
+<p><strong>✅ Pros:</strong></p>
+<ul>
+<li>Great for exploring possibilities and experimenting</li>
+<li>Sparks creative directions you wouldn't think of</li>
+<li>Lower barrier to starting</li>
+</ul>
+<p><strong>❌ Cons:</strong></p>
+<ul>
+<li>Takes more back-and-forth</li>
+<li>May drift from original vision</li>
+<li>Can be difficult to guide refinement with minimal info</li>
+</ul>
+<hr>
+<h4 id="approach-2-comprehensive-brief--execute">Approach 2: Comprehensive Brief → Execute</h4>
+<p><strong>Example:</strong> DomainFlip</p>
+<p><strong>How it works:</strong> Define everything upfront - features, style, structure, functions, rules, edge cases</p>
+<p><strong>✅ Pros:</strong></p>
+<ul>
+<li>Faster to polished result</li>
+<li>Stays true to vision</li>
+<li>Better for complex requirements</li>
+</ul>
+<p><strong>❌ Cons:</strong></p>
+<ul>
+<li>Requires knowing what you want</li>
+<li>Less room for discovery</li>
+<li>Harder for beginners to write good briefs (but use AI to help)</li>
+</ul>
+<hr>
+<h3 id="finding-your-approach">Finding Your Approach</h3>
+<p>Most projects fall somewhere in the middle. Weather Worsener and LinkPee are examples of balanced approaches.</p>
+<blockquote>
+<p><strong>💡 Pro Tip:</strong> Use an AI chatbot (not coding assistant) to plan your project in detail, then feed that plan to an AI coding agent. DomainFlip was created with only 1 Claude Code prompt, but it was fed 8 different multi page documents outlining the entire project in extreme detail.</p>
+</blockquote>
+<p>Most of my examples are website related</p>
+<hr>
+<h2 id="working-with-claude-code">Working with Claude Code</h2>
+<h3 id="claude-code-cli-commands">Claude Code CLI Commands</h3>
+<p>To install Claude Code CLI, make sure you have Node.js and npm installed, then run:</p>
+<p><code>npm install -g @anthropic-ai/claude-code</code></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>claude</code></td>
+<td>Start Claude in your terminal.</td>
+</tr>
+<tr>
+<td><code>esc esc</code></td>
+<td>Go back in conversation and code history.</td>
+</tr>
+<tr>
+<td><code>/init</code></td>
+<td>Review codebase and create <a href="http://CLAUDE.html">CLAUDE.md</a> documentation file for AI reference</td>
+</tr>
+<tr>
+<td><code>#memory</code></td>
+<td>Easily add to <a href="http://CLAUDE.html">CLAUDE.md</a> memory</td>
+</tr>
+<tr>
+<td><code>/compact</code></td>
+<td>Compact conversation to clear space while keeping some memory</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td>Better space clearing but loses memory (or quit/restart Claude Code)</td>
+</tr>
+<tr>
+<td><code>/usage</code></td>
+<td>Check current usage level</td>
+</tr>
+<tr>
+<td><code>/resume</code></td>
+<td>Resume a previous conversation</td>
+</tr>
+<tr>
+<td><code>/review</code></td>
+<td>Code review</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>💡 Tip:</strong> Store important instructions in <a href="http://CLAUDE.html">CLAUDE.md</a> to prevent AI from doing unwanted things (overwriting data, unnecessary builds, etc.). <a href="http://CLAUDE.html">CLAUDE.md</a> files exist for your user and each individual project folder where you use Claude Code. Use this to your advantage - global knowledge vs project specific knowledge.</p>
+</blockquote>
+<hr>
+<h3 id="essential-techniques">Essential Techniques</h3>
+<h4 id="interrupt-when-needed">Interrupt When Needed</h4>
+<p>Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap <code>esc</code>), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.</p>
+<h4 id="self-checking">Self-Checking</h4>
+<p>Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).</p>
+<h4 id="working-through-stubborn-bugs">Working Through Stubborn Bugs</h4>
+<p>When you have a bug AI can't solve after multiple attempts:</p>
+<ol>
+<li>Use Claude thinking levels: <code>think</code>, <code>think hard</code>, <code>think harder</code>, <code>ultrathink</code></li>
+<li>Try a different coding agent (e.g. ChatGPT Codex)</li>
+<li>Ask 2 different AIs the same question
+<ol>
+<li>Give each AI the other's response for analysis</li>
+<li>Have both provide updated plans</li>
+<li>Give both responses to a new agent for comprehensive summary</li>
+<li>Have another new agent read and implement the solution</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h3 id="debugging-workflow">Debugging Workflow</h3>
+<p>AI agents fix issues best when given all relevant information:</p>
+<ol>
+<li>Use browser DevTool Console to look for errors and warnings: AI agents love reading errors and warnings</li>
+<li>Copy and paste HTML from the DevTool Element Inspector if unsure how to describe an issue</li>
+<li>Describe what you want and what the issue is in detail</li>
+<li>Provide full context especially if debugging in a fresh conversation</li>
+</ol>
+<hr>
+<h3 id="advanced-features">Advanced Features</h3>
+<h4 id="claude-agents-tasks">Claude Agents (Tasks)</h4>
+<p>Multiple Claude Code instances using skills and tools to autonomously complete complex workflows in parallel.</p>
+<p><strong>Use case:</strong> Analyze reports or data sources simultaneously</p>
+<p><strong>How to use:</strong> Just ask Claude to start some agents (tasks)</p>
+<h4 id="custom-commands">Custom Commands</h4>
+<p>Shortcuts for common workflows without detailed descriptions each time.</p>
+<p><strong>Use case:</strong> Super helpful for scraping and cleaning data</p>
+<p><strong>Examples:</strong> <code>/new-source</code> and <code>/commit</code> (TrafficVision.Live)</p>
+<h4 id="git-worktrees">Git Worktrees</h4>
+<p>Git worktrees let you work on multiple branches simultaneously without switching contexts or creating separate repository clones.</p>
+<p><strong>What it solves:</strong> Working on a feature while needing to quickly fix a bug on main, or testing different approaches side-by-side</p>
+<p><strong>How to use:</strong></p>
+<ol>
+<li>Create a new worktree:</li>
+</ol>
+<pre><code class="language-bash">git worktree add ../project-feature-branch feature-branch-name
+</code></pre>
+<ol start="2">
+<li>Claude Code can work across worktrees simultaneously</li>
+<li>Each worktree maintains its own working directory and branch</li>
+<li>Shared git history means commits from any worktree are available everywhere</li>
+</ol>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Developing a new feature while maintaining production bug fixes</li>
+<li>Testing multiple implementation approaches in parallel</li>
+<li>Code review without disrupting your current work</li>
+<li>Running different versions for comparison testing</li>
+</ul>
+<p><strong>Clean up when done:</strong></p>
+<pre><code class="language-bash">git worktree remove ../project-feature-branch
+</code></pre>
+<blockquote>
+<p><strong>💡 Tip:</strong> Name worktree directories clearly (e.g., <code>project-name-feature-name</code>) to avoid confusion when multiple Claude Code instances are running.</p>
+</blockquote>
+<blockquote>
+<p><strong>💡 Tip:</strong> If worktrees are confusing to you (or if any advanced workflow is), ask Claude to do it for you and teach you along the way.</p>
+</blockquote>
+<h4 id="mcp-servers">MCP Servers</h4>
+<p>Model Context Protocol (MCP) servers extend Claude's capabilities by connecting to external tools, APIs, databases, and services through a standardized protocol.</p>
+<p><strong>What it is:</strong> An open standard that lets AI assistants securely connect to external data sources and tools without custom integrations for each service.</p>
+<p><strong>Why use it:</strong></p>
+<ul>
+<li>Access real-time data beyond Claude's training cutoff</li>
+<li>Connect to your tools (GitHub, Slack, databases, file systems)</li>
+<li>Automate workflows across multiple services</li>
+<li>Get specialized functionality (web search, documentation, browser control)</li>
+</ul>
+<p><strong>Common MCP Servers:</strong></p>
+<ul>
+<li><strong>Filesystem</strong> - Read/write local files with permission-based access</li>
+<li><strong>GitHub</strong> - Manage PRs, issues, and repository operations</li>
+<li><strong>Puppeteer</strong> - Browser automation and web scraping</li>
+<li><strong>Context7</strong> - Up-to-date library documentation with version-specific references</li>
+<li><strong>Brave Search</strong> - Real-time web search results</li>
+<li><strong>Sequential Thinking</strong> - Break down complex tasks into structured steps</li>
+<li><strong>Google Drive</strong> - Access and manage Drive documents</li>
+<li><strong>Slack</strong> - Send messages and interact with Slack workspaces</li>
+</ul>
+<p><strong>Installation - Claude Desktop:</strong></p>
+<ol>
+<li>Install Node.js if needed: <code>brew install node</code> (macOS)</li>
+<li>Navigate to Settings → Extensions in Claude Desktop</li>
+<li>Click &quot;Browse extensions&quot; to install from directory (one-click)</li>
+</ol>
+<p><strong>Installation - Claude Code:</strong></p>
+<pre><code class="language-bash"><span class="hljs-comment"># Add server with user scope (available in all projects)</span>
+claude mcp add github --scope user
+
+<span class="hljs-comment"># Add with environment variables</span>
+claude mcp add -e API_KEY=your_key servername -- npx @org/server
+
+<span class="hljs-comment"># List configured servers</span>
+claude mcp list
+
+<span class="hljs-comment"># Check server status</span>
+/mcp
+</code></pre>
+<p><strong>Configuration Scopes:</strong></p>
+<ul>
+<li><strong>Local</strong> (default) - Only available in current directory</li>
+<li><strong>User</strong> (<code>--scope user</code>) - Available globally across all projects</li>
+<li><strong>Project</strong> (<code>.mcp.json</code>) - Shared with team via version control</li>
+</ul>
+<blockquote>
+<p><strong>💡 Tip:</strong> Use user scope for personal tools, project scope for team-shared servers. After adding servers, restart Claude Desktop or Claude Code to activate them.</p>
+</blockquote>
+<p><strong>Config File Locations:</strong></p>
+<ul>
+<li><strong>macOS:</strong> <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+<li><strong>Windows:</strong> <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+<li><strong>Claude Code:</strong> <code>~/.claude.json</code> (user scope) or <code>.mcp.json</code> (project scope)</li>
+</ul>
+<p><strong>Finding More Servers:</strong></p>
+<ul>
+<li>Official servers: <a href="https://github.com/modelcontextprotocol/servers">github.com/modelcontextprotocol/servers</a></li>
+<li>Community directory: <a href="https://mcp.so">mcp.so</a></li>
+<li>Smithery: <a href="https://smithery.ai">smithery.ai</a></li>
+</ul>
+<hr>
+<h3 id="beyond-coding">Beyond Coding</h3>
+<p>Claude and other AI agents can help with more than just code if they have access to the right tools:</p>
+<ul>
+<li>File and document organization</li>
+<li>Obsidian integration through filesystem</li>
+<li>Note analysis and knowledge management</li>
+<li>Similar capabilities to IDE integration</li>
+</ul>
+<hr>
+<h2 id="project-ideas">Project Ideas</h2>
+<h3 id="simple-projects">Simple Projects</h3>
+<p><em>These starter prompts are to give you ideas. Change them to your liking.</em></p>
+<h4 id="to-do-list">To-Do List</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Create a to-do list app with the following features:
+- Add, edit, and delete tasks
+- Mark tasks as complete with a checkbox
+- Filter view by &quot;all&quot;, &quot;active&quot;, and &quot;completed&quot;
+- Tasks persist in localStorage
+Use vanilla JavaScript or React, make it clean and minimal with a soft color palette.
+</code></pre>
+<h4 id="habit-tracker">Habit Tracker</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a habit tracker that lets users:
+- Add custom habits to track
+- Mark habits as complete for each day
+- Show a 7-day streak calendar view
+- Calculate and display current streak
+Use a grid layout with green checkmarks for completed days. Make it motivating and visually rewarding.
+</code></pre>
+<h4 id="custom-calculator">Custom Calculator</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Create a calculator with:
+- Basic operations (+, -, ×, ÷)
+- Clear and backspace functions
+- Keyboard support for number entry
+- Display for current input and result
+Style it like a modern iOS calculator or create a retro/vintage aesthetic. Add smooth button press animations.
+</code></pre>
+<h4 id="basic-game">Basic Game</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a simple guessing game where:
+- Computer picks a random number between 1-100
+- Player gets hints (&quot;higher&quot; or &quot;lower&quot;) after each guess
+- Track number of attempts
+- Show win message and option to play again
+Make it colorful and fun with emoji reactions to guesses. Add a difficulty selector (easy/medium/hard ranges).
+</code></pre>
+<hr>
+<h3 id="medium-projects">Medium Projects</h3>
+<h4 id="weather-app">Weather App</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a weather app that includes:
+- Feature 1: Search for any city and display current weather
+- Feature 2: 5-day forecast with high/low temperatures
+- Feature 3: Display weather icons, humidity, wind speed, and &quot;feels like&quot; temp
+- Feature 4: Geolocation to auto-detect user's location
+Design should be clean and modern with weather-appropriate background gradients (sunny = warm colors, rainy = cool colors).
+Use OpenWeatherMap API or WeatherAPI.
+Target audience: anyone who wants quick weather info at a glance
+</code></pre>
+<h4 id="portfolio-website">Portfolio Website</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a personal portfolio website that includes:
+- Feature 1: Hero section with animated introduction and call-to-action
+- Feature 2: Project showcase with filtering by technology/category
+- Feature 3: About section with skills visualization (progress bars or icons)
+- Feature 4: Contact form with email integration (EmailJS or similar)
+- Feature 5: Dark/light mode toggle
+Design should be modern and professional with smooth scroll animations and transitions.
+Use React or Next.js with Tailwind CSS.
+Target audience: potential employers and clients
+</code></pre>
+<h4 id="pomodoro-timer-app">Pomodoro Timer App</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a productivity timer app that includes:
+- Feature 1: 25-minute work sessions with 5-minute breaks
+- Feature 2: Customizable timer durations
+- Feature 3: Audio notification when timer completes
+- Feature 4: Session counter and daily statistics
+- Feature 5: Pause, resume, and reset controls
+Design should be minimalist and distraction-free with a large, readable timer display.
+Add ambient background sounds (optional toggle).
+Target audience: students and remote workers seeking better focus
+</code></pre>
+<h4 id="recipe-finder">Recipe Finder</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a recipe search app that includes:
+- Feature 1: Search recipes by ingredient or dish name
+- Feature 2: Filter by dietary restrictions (vegetarian, vegan, gluten-free)
+- Feature 3: Display recipe details including ingredients, instructions, and cook time
+- Feature 4: Save favorite recipes to localStorage
+- Feature 5: Random recipe generator for inspiration
+Design should be warm and inviting with food photography and card-based layouts.
+Use Spoonacular API or Edamam API.
+Target audience: home cooks looking for meal ideas
+</code></pre>
+<hr>
+<h3 id="complex-projects">Complex Projects</h3>
+<h4 id="real-time-chat-app">Real-Time Chat App</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a chat application where users can message each other in real-time with these features:
+
+Core Features:
+- User accounts with secure registration and login
+- Instant messaging that updates without refreshing the page
+- Multiple chat rooms or channels for different conversations
+- See who's online/offline right now
+- &quot;User is typing...&quot; indicators
+- Message history that loads older messages as you scroll up
+- Timestamps showing when each message was sent
+- Read receipts (checkmarks when messages are seen)
+- Emoji picker for reactions
+- Ability to upload and share images/files
+
+User Experience:
+- Clean, modern interface similar to Discord or Slack
+- Sidebar showing all available channels
+- Main chat area for conversation
+- Works smoothly on both desktop and mobile
+- Fast and responsive - messages appear instantly
+
+Technical Requirements:
+- Secure authentication and password storage
+- Protect against common security issues
+- Store all messages and user data in a database
+- Deploy the app so others can access it online
+
+Target audience: Teams, friend groups, or communities who want their own private chat space.
+</code></pre>
+<h4 id="restaurant-reservation-system">Restaurant Reservation System</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a restaurant reservation platform where customers can book tables and restaurants can manage their bookings:
+
+Customer Features:
+- Browse restaurants with photos, menus, and descriptions
+- Search and filter by cuisine type, location, and price range
+- Interactive calendar showing available reservation times
+- See real-time availability (which time slots are open)
+- Book a table by selecting date, time, party size, and adding special requests
+- Receive email confirmation immediately after booking
+- Get SMS reminder 24 hours before the reservation
+- Personal dashboard to view, modify, or cancel upcoming reservations
+- Works perfectly on mobile phones for booking on-the-go
+
+Restaurant Owner Features:
+- Admin panel to view all bookings for their restaurant
+- Manage table capacity and available time slots
+- See booking details (party size, special requests, contact info)
+- Prevent double-booking automatically
+- Update restaurant information, photos, and menu
+
+User Experience:
+- Elegant, trustworthy design similar to OpenTable or Resy
+- High-quality imagery that makes restaurants look appealing
+- Fast loading and smooth interactions
+- Handle different time zones correctly
+
+Technical Requirements:
+- Secure login for both customers and restaurant owners
+- Store all restaurant data, bookings, and user accounts safely
+- Send automated emails and SMS notifications
+- Deploy online so anyone can use it
+
+Target audience: Diners looking for an easy way to book tables, and restaurant owners who want to manage reservations efficiently.
+</code></pre>
+<h4 id="interactive-data-visualization-dashboard">Interactive Data Visualization Dashboard</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build an analytics dashboard that turns data into beautiful, interactive visualizations:
+
+Core Features:
+- Display data in multiple chart types: line graphs, bar charts, pie charts, and heatmaps
+- Click and interact with charts to explore details
+- Filter data by date ranges (today, last week, last month, custom range)
+- Watch data update live in real-time as new information comes in
+- Upload data from CSV or JSON files
+- Export visualizations and data to PDF or CSV
+- Customize the dashboard layout by dragging and dropping different widgets
+- Works smoothly on tablets and desktop computers
+
+Data Management:
+- Store historical data so you can analyze trends over time
+- Handle large datasets without slowing down
+- Automatically calculate key metrics and trends
+- Refresh data on a schedule (hourly, daily, etc.)
+
+User Roles:
+- Viewers: can only see dashboards
+- Editors: can modify dashboards and settings
+- Admins: full control over users and data
+
+User Experience:
+- Professional interface similar to Google Analytics or Tableau
+- Clear visual hierarchy showing what's important
+- Intuitive controls that are easy to understand
+- Fast performance even with lots of data
+- Helpful loading states and error messages
+
+Technical Requirements:
+- Secure user authentication with different permission levels
+- Store data in a reliable database
+- Deploy online for team access
+
+Example use cases:
+- Sales dashboard showing revenue, top products, and customer trends
+- Social media analytics tracking engagement and follower growth
+- IoT sensor monitoring for temperature, humidity, or equipment status
+
+Target audience: Business teams, data analysts, or anyone who needs to understand their data through visual insights.
+</code></pre>
+<h4 id="employee-shift-scheduler">Employee Shift Scheduler</h4>
+<p><strong>Starter Prompt:</strong></p>
+<pre><code>Build a smart shift scheduling system that creates fair schedules automatically while respecting staff preferences and availability:
+
+Staff Management:
+- Add employees with their qualifications (certifications, skills, roles)
+- Set each person's availability for every day of the week and their shift preferences
+- View each employee's upcoming schedule and total hours
+
+Automatic Scheduling:
+- Generate schedules automatically that:
+  - Only assign people when they're available
+  - Match qualifications to shift requirements
+  - Balance workload fairly across multiple weeks (not just one week at a time)
+  - Avoid scheduling someone for multiple shifts on the same day
+  - Respect people's preferences when possible
+  - Track historical fairness so everyone gets their preferred shifts over time
+
+Shift Templates:
+- Create recurring weekly shift patterns (morning, afternoon, night, weekend)
+- Define how many people are needed for each shift
+- Specify what qualifications are required
+- Handle shifts that span multiple days
+
+Schedule Management:
+- View schedules across multiple weeks at once
+- Manually adjust assignments if needed (drag and drop)
+- Clear entire weeks and regenerate schedules
+- Remove individual assignments and fill them automatically
+- See visual warnings for conflicts or issues
+
+Fairness Dashboard:
+- Show how fairly preferences have been fulfilled across past weeks
+- Look ahead to see projected fairness for future schedules
+- Adjust the time window (1-12 weeks) to analyze different periods
+- Visual indicators for workload balance and preference scores
+
+User Experience:
+- Clean, professional interface focused on clarity
+- Color coding for different shift types
+- Visual indicators showing workload balance
+- Easy to spot scheduling conflicts
+- Export schedules to PDF or CSV for printing/sharing
+- Works on desktop and tablet
+
+Technical Requirements:
+- Store all staff data, shifts, and schedules in a database
+- Smart algorithm that creates fair, conflict-free schedules
+- Fast performance even with many employees and weeks of data
+
+Target audience: Small business managers, healthcare facilities, retail stores, or any organization that needs to create fair employee schedules while managing complex availability and preferences.
+</code></pre>
+<hr>
+<h3 id="bonus-challenge">Bonus Challenge</h3>
+<p><strong>Open Source Contribution Challenge</strong></p>
+<p>Take a project from GitHub, come up with an improvement, and submit a PR (pull request).</p>
+<p><strong>How to get started:</strong></p>
+<ol>
+<li>Find a project on GitHub that is interesting or useful to you</li>
+<li>Set up the project locally and explore the codebase</li>
+<li>Pick an existing issue or come up with an improvement (bug fix, feature, documentation, tests)</li>
+<li>Fork the repo, create a branch, and make your changes</li>
+<li>Write clear commit messages and test your changes</li>
+<li>Submit a pull request with a detailed description</li>
+</ol>
+<p>This teaches you about:</p>
+<ul>
+<li>Reading and understanding existing codebases</li>
+<li>Contributing to open source communities</li>
+<li>Professional collaboration workflows</li>
+<li>Git and version control best practices</li>
+<li>Code review process and feedback incorporation</li>
+</ul>
+<p><strong>Recommended platforms to find projects:</strong></p>
+<ul>
+<li>GitHub Explore (<a href="http://github.com/explore">github.com/explore</a>)</li>
+<li>First Timers Only (<a href="http://firsttimersonly.com">firsttimersonly.com</a>)</li>
+<li>Good First Issue (goodfirstissue.dev)</li>
+<li>Up For Grabs (<a href="http://up-for-grabs.net">up-for-grabs.net</a>)</li>
+</ul>
+<hr>
+<h2 id="submitting-your-workshop-project">Submitting Your Workshop Project</h2>
+<p>Share your work with the community! View the full submission instructions at:</p>
+<p><strong><a href="https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work">eisenbruch.github.io/vibe-coding-workshops</a></strong></p>
+<p>The workshop repo is designed to be a living archive of our projects. Your AI assistant can guide you through the entire Git/GitHub process—just copy and paste the instructions and ask for help.</p>
+<hr>
+<h2 id="extended-ai-tools-directory">Extended AI Tools Directory</h2>
+<blockquote>
+<p><strong>⚠️ Note:</strong> Projects shut down and get acquired frequently. Some tools may no longer exist.</p>
+</blockquote>
+<hr>
+<h3 id="vibe-coding--development-tools">Vibe Coding &amp; Development Tools</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>Claude Code</strong> - <a href="https://claude.ai/code">claude.ai/code</a><br/>
+Terminal-based AI coding assistant with full codebase context, git integration, and MCP server support</p>
+<p><strong>Cursor</strong> - <a href="https://www.cursor.com/">cursor.com</a><br/>
+AI-native code editor built on VS Code with chat, inline editing, and codebase understanding</p>
+<p><strong>GitHub Copilot</strong> - <a href="https://github.com/features/copilot">github.com/features/copilot</a><br/>
+AI pair programmer integrated into VS Code, JetBrains IDEs, and other editors</p>
+<p><strong>ChatGPT Codex</strong> - <a href="https://chatgpt.com/codex">chatgpt.com/codex</a><br/>
+OpenAI's code-specialized model integrated into ChatGPT for code generation and understanding</p>
+<p><strong>Google AI Studio</strong> - <a href="https://aistudio.google.com/">aistudio.google.com</a><br/>
+Google's platform for prototyping with Gemini models, including code generation</p>
+<p><strong>Replit</strong> - <a href="https://replit.com/">replit.com</a><br/>
+Collaborative browser-based IDE with AI assistance, instant deployment, and multiplayer coding</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>v0.dev</strong> - <a href="https://v0.dev/">v0.dev</a><br/>
+Vercel's AI tool for generating React components and UI designs from text descriptions</p>
+<p><strong>Bolt.new</strong> - <a href="https://bolt.new/">bolt.new</a><br/>
+StackBlitz's AI web development platform that builds and deploys full-stack apps instantly</p>
+<p><strong>Windsurf</strong> - <a href="https://codeium.com/windsurf">codeium.com/windsurf</a><br/>
+AI-powered IDE with Cascade flows for multi-file editing and autonomous task completion</p>
+<p><strong>Supermaven</strong> - <a href="https://supermaven.com/">supermaven.com</a><br/>
+Fast AI code completion with 1 million token context window</p>
+<p><strong>Aider</strong> - <a href="https://aider.chat/">aider.chat</a><br/>
+Command-line AI coding assistant that edits code in your local git repository</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="image-generation--editing">Image Generation &amp; Editing</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>Google Nano Banana</strong> - <a href="https://aistudio.google.com/models/gemini-2-5-flash-image">aistudio.google.com</a><br/>
+One of the newest and best image generation and editing models.</p>
+<p><strong>Midjourney</strong> - <a href="https://www.midjourney.com/">midjourney.com</a><br/>
+Discord-based platform creating high-quality artistic images from text prompts</p>
+<p><strong>DALL-E</strong> - <a href="https://openai.com/dall-e">openai.com/dall-e</a><br/>
+OpenAI's image generator for detailed images from natural language</p>
+<p><strong>Decohere</strong> - <a href="https://www.decohere.ai/">decohere.ai</a><br/>
+Generates characters, images, and videos from text and image prompts</p>
+<p><strong>Stability AI</strong> - <a href="https://stability.ai/">stability.ai</a><br/>
+Creator of Stable Diffusion for multimodal generative AI</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>Catbird</strong> - <a href="https://www.catbird.ai/">catbird.ai</a>  <em>(Defunct)</em><br/>
+Multi-model generator creating images from 15+ AI models simultaneously</p>
+<p><strong><a href="http://Leonardo.ai">Leonardo.ai</a></strong> - <a href="https://leonardo.ai/">leonardo.ai</a><br/>
+Fine-tuned models for game assets, concept art, and production visuals</p>
+<p><strong>Fooocus</strong> - <a href="https://github.com/lllyasviel/Fooocus">GitHub</a><br/>
+Open-source Stable Diffusion interface with advanced inpainting</p>
+<p><strong>AUTOMATIC1111</strong> - <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">GitHub</a><br/>
+Popular web interface for Stable Diffusion with extensive features</p>
+<p><strong>Adobe Express Background Remover</strong> - <a href="https://www.adobe.com/express/feature/ai/image/remove-background">adobe.com</a><br/>
+Free AI tool for instant background removal with transparent PNG output</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="video-generation--editing">Video Generation &amp; Editing</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>Runway</strong> - <a href="https://runwayml.com/">runwayml.com</a><br/>
+Advanced AI video platform with Gen-4 models for text/image-to-video</p>
+<p><strong>Pika</strong> - <a href="https://pika.art/">pika.art</a><br/>
+AI video generator creating cinematic clips up to 10 seconds</p>
+<p><strong>Adobe Firefly Video</strong> - <a href="https://firefly.adobe.com/upload/video-generation">firefly.adobe.com</a><br/>
+Text/image-to-video with 1080p output and commercially safe generation</p>
+<p><strong>Hailuo AI</strong> - <a href="https://hailuoai.video/">hailuoai.video</a><br/>
+Chinese AI video generator creating 5-6 second HD videos</p>
+<p><strong>Google Veo 3</strong> - <a href="https://deepmind.google/models/veo/">deepmind.google</a><br/>
+Advanced video generation with 8-second clips and synchronized native audio</p>
+<p><strong>Hedra</strong> - <a href="https://www.hedra.com/">hedra.com</a><br/>
+Specializes in talking avatar generation with realistic lip-sync</p>
+<p><strong>Higgsfield</strong> - <a href="https://www.higgsfield.ai/">higgsfield.ai</a><br/>
+Video and image generation with a focus on impossible effects and transitions</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>HeyGen</strong> - <a href="https://www.heygen.com/">heygen.com</a><br/>
+AI avatar platform for professional spokesperson videos</p>
+<p><strong>Synthesia</strong> - <a href="https://www.synthesia.io/">synthesia.io</a><br/>
+AI presenters for training videos and marketing content</p>
+<p><strong>Switchlight</strong> - <a href="https://www.switchlight.beeble.ai/">switchlight.beeble.ai</a><br/>
+AI-powered video relighting tool with PBR maps</p>
+<p><strong>Adobe Express Video Background Remover</strong> - <a href="https://www.adobe.com/express/feature/ai/video/remove-background">adobe.com</a><br/>
+Remove video backgrounds with transparent MP4 output</p>
+<p><strong>VideoBGRemover</strong> - <a href="https://videobgremover.com/">videobgremover.com</a><br/>
+Professional background removal for videos up to 3 hours</p>
+<p><strong>Innova AI Video Background Removal</strong> - <a href="https://huggingface.co/spaces/innova-ai/video-background-removal">Hugging Face</a><br/>
+Free background removal and replacement tool</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="audio--music">Audio &amp; Music</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>Hume</strong> - <a href="https://www.hume.ai/">hume.com</a><br/>
+Text-to-speech and speech-to-speech editor with voice cloning and developer APIS for analyzing emotional expression and generating expressive speech.</p>
+<p><strong>Descript</strong> - <a href="https://www.descript.com/">descript.com</a><br/>
+All-in-one editor with text to speech, voice cloning, AI transcription and text-based editing</p>
+<p><strong>ElevenLabs</strong> - <a href="https://elevenlabs.io/">elevenlabs.io</a><br/>
+Advanced AI voice cloning and text-to-speech in 30+ languages</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>Suno</strong> - <a href="https://suno.ai/">suno.ai</a><br/>
+AI music generation with vocals and instruments from text</p>
+<p><strong>Udio</strong> - <a href="https://www.udio.com/">udio.com</a><br/>
+Professional-quality music tracks from text descriptions</p>
+<p><strong>Adobe Podcast Enhance</strong> - <a href="https://podcast.adobe.com/en/enhance">podcast.adobe.com</a><br/>
+AI audio enhancement removing background noise</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="ai-chat--search">AI Chat &amp; Search</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>Perplexity</strong> - <a href="https://www.perplexity.ai/">perplexity.ai</a><br/>
+AI-powered search with sourced answers and citations</p>
+<p><strong>DeepSeek</strong> - <a href="https://www.deepseek.com/">deepseek.com</a><br/>
+Chinese open-source AI with powerful reasoning (R1 model)</p>
+<p><strong><a href="http://Venice.ai">Venice.ai</a></strong> - <a href="https://venice.ai/">venice.ai</a><br/>
+Privacy-focused uncensored AI with local data storage</p>
+</td>
+<td width="50%" valign="top">
+<p><strong><a href="http://Maple.ai">Maple.ai</a></strong> - <a href="https://trymaple.ai/">trymaple.ai</a><br/>
+Privacy-focused with end-to-end encryption and confidential computing</p>
+<p><strong><a href="http://Z.ai">Z.ai</a> Chat</strong> - <a href="https://chat.z.ai/">chat.z.ai</a><br/>
+Free AI chatbot with presentation generation and multimodal capabilities</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="ai-infrastructure--development">AI Infrastructure &amp; Development</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>Replicate</strong> - <a href="https://replicate.com/">replicate.com</a><br/>
+Cloud platform for running open-source AI models via API</p>
+<p><strong>Hugging Face</strong> - <a href="https://huggingface.co/">huggingface.co</a><br/>
+The GitHub of AI - hub for models, datasets, and applications</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>Groq</strong> - <a href="https://groq.com/">groq.com</a><br/>
+Ultra-fast AI inference with custom LPU chips</p>
+<p><strong><a href="http://Chutes.ai">Chutes.ai</a></strong> - <a href="https://chutes.ai/">chutes.ai</a><br/>
+Decentralized serverless AI compute platform</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="3d--spatial">3D &amp; Spatial</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>Depth Anything V2</strong> - <a href="https://github.com/DepthAnything/Depth-Anything-V2">GitHub</a><br/>
+Monocular depth estimation for 3D reconstruction</p>
+<p><strong>Hyper3D (Rodin AI)</strong> - <a href="https://hyper3d.ai/">hyper3d.ai</a><br/>
+Production-ready 3D models from text or images</p>
+<p><strong>Tripo3D</strong> - <a href="https://www.tripo3d.ai/">tripo3d.ai</a><br/>
+Fast 3D asset generation in ~10 seconds</p>
+<p><strong>TRELLIS</strong> - <a href="https://huggingface.co/spaces/JeffreyXiang/TRELLIS">Hugging Face</a><br/>
+Microsoft's 3D generation with Radiance Fields and meshes</p>
+<p><strong>HitPaw 3D (Hitem3D)</strong> - <a href="https://hitem3d.ai/">hitem3d.ai</a><br/>
+Ultra-high resolution 3D models from single images</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>Luma Labs</strong> - <a href="https://lumalabs.ai/">lumalabs.ai</a><br/>
+Interactive 3D scenes using NeRF and Gaussian Splatting</p>
+<p><strong>Brush</strong> - <a href="https://github.com/ArthurBrussee/brush">GitHub</a><br/>
+Open-source 3D reconstruction with Gaussian Splatting</p>
+<p><strong>COLMAP</strong> - <a href="https://colmap.github.io/">colmap.github.io</a><br/>
+Open-source photogrammetry pipeline for 3D reconstruction</p>
+<p><strong>RealityScan</strong> - <a href="https://www.realityscan.com/">realityscan.com</a><br/>
+Professional photogrammetry by Epic Games</p>
+<p><strong>Postshot</strong> - <a href="https://www.jawset.com/">jawset.com</a><br/>
+Desktop app for training NeRF and Gaussian Splatting locally</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="agentic-browsers">Agentic Browsers</h3>
+<p>AI-native browsers that autonomously navigate websites, complete tasks, and execute workflows.</p>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>BrowserOS</strong> - <a href="https://github.com/browseros-ai/BrowserOS">github.com/browseros-ai/BrowserOS</a><br/>
+BrowserOS is an open-source chromium fork that runs AI agents natively. Your open-source, privacy-first alternative to ChatGPT Atlas, Perplexity Comet, Dia.</p>
+<p><strong>ChatGPT Atlas</strong> - <a href="https://chatgpt.com/atlas">chatgpt.com/atlas</a><br/>
+ChatGPT in a browser with memory and automation abilities</p>
+<p><strong>Perplexity Comet</strong> - <a href="https://www.perplexity.ai/comet">perplexity.ai/comet</a><br/>
+AI-first browser with autonomous task execution and integrated search</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>Opera Neon</strong> - <a href="https://www.operaneon.com/">operaneon.com</a><br/>
+Premium agentic browser with Chat, Do, and Make functions ($19.99/month)</p>
+<p><strong>Fellou</strong> - <a href="https://fellou.ai/">fellou.ai</a><br/>
+Self-driving browser with deep search and agentic memory</p>
+<p><strong>Sigma AI Browser</strong> - <a href="https://www.sigmabrowser.com">sigmabrowser.com</a><br/>
+Privacy-first with end-to-end encryption and Deep Research mode</p>
+<p><strong>Dia Browser</strong> - <a href="https://www.diabrowser.com/">diabrowser.com</a><br/>
+Tab-aware assistant with Skills system and natural language commands</p>
+</td>
+</tr>
+</table>
+<hr>
+<h3 id="specialized-tools">Specialized Tools</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<p><strong>ComfyUI</strong> - <a href="https://www.comfy.org/">comfy.org</a><br/>
+Node-based workflow platform for multiple AI model types</p>
+<p><strong>Cascdr</strong> - <a href="https://cascdr.xyz/">cascdr.xyz</a><br/>
+Bitcoin Lightning-powered AI workflow platform</p>
+<p><strong><a href="http://Manus.im">Manus.im</a></strong> - <a href="https://manus.im/">manus.im</a><br/>
+Browser-based AI agent platform for autonomous tasks</p>
+</td>
+<td width="50%" valign="top">
+<p><strong>Genspark</strong> - <a href="https://www.genspark.ai/">genspark.ai</a><br/>
+Many AI tools in one chatbot</p>
+<p><strong>Browserbase</strong> - <a href="https://www.browserbase.com/">browserbase.com</a><br/>
+Developer infrastructure for headless browsers and AI agents</p>
+</td>
+</tr>
+</table>
+<hr>
+<h2 id="resources--support">Resources &amp; Support</h2>
+<p>For more resources, tutorials, and support, visit the workshop materials repository or reach out.</p>
+<p><a href="https://github.com/eisenbruch/vibe-coding-workshops">https://github.com/eisenbruch/vibe-coding-workshops</a><br>
+<a href="mailto:noaheisenbruch@gmail.com">noaheisenbruch@gmail.com</a></p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

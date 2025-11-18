@@ -51,7 +51,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 **1. Glitch QR** ([github.com/eisenbruch/glitch-qr](https://github.com/eisenbruch))
 - **Type:** QR code generation with a twist
-- **Key Learning:** Vibe coding tools for yourself is fun
+- **Key Learning:** You can vibe code a simple tool in minutes, and it's fun
 
 **2. Snark AI** ([snark-ai.com](https://snark-ai.com)) 
 - **Type:** Satirical AI email service
@@ -74,14 +74,16 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **Key Learning:** Clear vision + detailed context = polished results
 
 **7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live))
-- **Type:** Interactive map and database
+- **Type:** Interactive map and database service with user focused features
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
 **8. Instant Camera with Thermal Printer**
 - **Type:** Raspberry Pi with camera module, button, LED, 3D printed enclosure, and vibe coded software
 - **Key Learning:** AI can assist with hardware prototyping and setup, not just software
 
-> **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup. AI can help with more than just  code - it can help prototype your hardware.
+> **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup. 
+
+> **🧠 Remember:** AI can help with more than just  code - it can help prototype your hardware, organize your files, and much more.
 ---
 
 ## Vibe Coding Tools
