@@ -487,11 +487,12 @@
 
             // Custom renderer to add IDs to headings
             const renderer = new marked.Renderer();
-            const originalHeading = renderer.heading.bind(renderer);
 
-            renderer.heading = function(text, level, raw) {
+            renderer.heading = function(token) {
+                const text = this.parser.parseInline(token.tokens);
+                const raw = token.text || '';
                 const id = slugify(raw);
-                return `<h${level} id="${id}">${text}</h${level}>`;
+                return `<h${token.depth} id="${id}">${text}</h${token.depth}>`;
             };
 
             // Configure marked options
