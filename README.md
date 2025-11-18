@@ -27,9 +27,10 @@ Your comprehensive reference guide for vibe coding, covering essential tools, AI
 
 ### Workshop Projects
 
-Browse completed workshop projects in the [`workshop-projects/`](workshop-projects/) directory. Projects are organized by date:
+Browse completed workshop projects in the <a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects" target="_blank">`workshop-projects/`</a> directory. Projects are organized by workshop date:
 
-- [2025-11-15-resistor](workshop-projects/2025-11-15-resistor/) - Resistor project
+- **<a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects/2025-11-15-resistor" target="_blank">2025-11-15-Resistor</a>**:
+  - [Compressed MJPEG Stream with Glitch Effects](workshop-projects/2025-11-15-resistor/noah-eisenbruch-live-mjpeg-compression/index.html) - Noah Eisenbruch - Live webcam MJPEG feed with live compression control and glitch effects like pixel sorting (<a href="" target="_blank">View Code</a>)
 
 ## Submitting Your Workshop Project
 

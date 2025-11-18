@@ -1,0 +1,12 @@
+{
+  "name": "glitch-mjpg",
+  "version": "1.0.0",
+  "description": "Motion JPEG stream of random data",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2"
+  }
+}
