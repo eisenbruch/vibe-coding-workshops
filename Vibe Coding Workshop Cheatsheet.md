@@ -1,5 +1,7 @@
 # Vibe Coding Workshop Cheatsheet
+*By Noah Eisenbruch - noaheisenbruch@gmail.com* \
 *Last updated: November 14, 2025*
+
 
 <table>
 <tr>
