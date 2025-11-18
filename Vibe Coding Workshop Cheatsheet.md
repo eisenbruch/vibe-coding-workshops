@@ -121,8 +121,8 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **v0.dev** - Vercel's AI design tool
 - **Bolt.new** - StackBlitz's AI web development
 
-#### Agent Platforms
-*Complex tasks with autonomous execution*
+#### Web Agent Platforms
+*Complex tasks with autonomous execution and code generation*
 
 - **Manus.im** - Browser-based AI agents for workflows (see full list in AI Browser Automation section below)
 
@@ -192,7 +192,11 @@ Most of my examples are website related
 
 ## Working with Claude Code
 
-### Claude Code Commands
+### Claude Code CLI Commands
+
+To install Claude Code CLI, make sure you have Node.js and npm installed, then run: 
+
+`npm install -g @anthropic-ai/claude-code`
 
 | Command    | Purpose                                                                  |
 | ---------- | ------------------------------------------------------------------------ |
@@ -217,6 +221,19 @@ Sometimes AI goes off the rails. If you see it going down the wrong path, interr
 
 #### Self-Checking
 Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
+
+#### Working Through Stubborn Bugs
+
+When you have a bug AI can't solve after multiple attempts:
+
+1. Use Claude thinking levels: `think`, `think hard`, `think harder`, `ultrathink`
+1. Try a different coding agent (e.g. ChatGPT Codex)
+1. Ask 2 different AIs the same question
+    1. Give each AI the other's response for analysis
+    1. Have both provide updated plans
+    1. Give both responses to a new agent for comprehensive summary
+    1. Have another new agent read and implement the solution
+
 
 ---
 
@@ -246,18 +263,6 @@ Shortcuts for common workflows without detailed descriptions each time.
 **Use case:** Super helpful for scraping and cleaning data
 
 **Examples:** `/new-source` and `/commit` (TrafficVision.Live)
-
-#### UltraThink for Stubborn Bugs
-
-When you have a bug AI can't solve after multiple attempts:
-
-1. Use Claude thinking levels: `think`, `think hard`, `think harder`, `ultrathink`
-1. Try a different coding agent (e.g. ChatGPT Codex)
-1. Ask 2 different AIs the same question
-    1. Give each AI the other's response for analysis
-    1. Have both provide updated plans
-    1. Give both responses to a new agent for comprehensive summary
-    1. Have another new agent read and implement the solution
 
 #### Git Worktrees
 
@@ -684,21 +689,11 @@ This teaches you about:
 
 ## Submitting Your Workshop Project
 
-If you'd like to share your project with the community:
+Share your work with the community! View the full submission instructions at:
 
-1. **Fork the repository** at [github.com/eisenbruch/vibe-coding-workshops](https://github.com/eisenbruch/vibe-coding-workshops)
-2. **Create a folder** in the appropriate workshop directory: `workshop-projects/{your-workshop}/{your-project-name}-{your-name}/`
-3. **Add your project files** with all necessary code and assets
-4. **Include a README.md** explaining:
-   - What the project does
-   - How to set it up and run it
-   - Any dependencies or requirements
-   - Technologies used
-5. **Submit a pull request** with a clear description of your project
+**[eisenbruch.github.io/vibe-coding-workshops](https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work)**
 
-**Folder naming format**: `{project-name}-{your-name}` (e.g., `todo-app-sarah`, `weather-dashboard-alex`)
-
-> **💡 Tip:** Use AI to help you write a clear README for your project. A good README makes it easy for others to understand and use your work.
+The workshop repo is designed to be a living archive of our projects. Your AI assistant can guide you through the entire Git/GitHub process—just copy and paste the instructions and ask for help.
 
 ---
 

@@ -29,17 +29,35 @@ Your comprehensive reference guide for vibe coding, covering essential tools, AI
 
 Browse completed workshop projects in the <a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects" target="_blank">`workshop-projects/`</a> directory. Projects are organized by workshop date:
 
-- **<a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects/2025-11-15-resistor" target="_blank">2025-11-15-Resistor</a>**:
+- **<a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects/2025-11-15-resistor" target="_blank">November 15, 2025 @ NYCResistor</a>**:
   - [Compressed MJPEG Stream with Glitch Effects](workshop-projects/2025-11-15-resistor/noah-eisenbruch-live-mjpeg-compression/index.html) - Noah Eisenbruch - Live webcam MJPEG feed with live compression control and glitch effects like pixel sorting (<a href="" target="_blank">View Code</a>)
 
-## Submitting Your Workshop Project
+## Share Your Work!
 
-If you'd like to submit your project to this repository for others to see:
+The workshop repo is designed to be a living archive of our projects. It will be so much more fun and inspiring when your work is on it!
 
-1. Fork this repository on GitHub
-2. Create a new folder in the appropriate workshop date directory: `workshop-projects/{your-workshop}/{your-project-name}-{your-name}/`
-3. Add your project files
-4. Include a `README.md` explaining how to use your project
-5. Submit a pull request with your changes
+This is a perfect opportunity to practice the collaborative side of coding. If you're new to Git or GitHub, don't worry! You can (and should!) use your AI assistant to guide you through this entire process. Just copy and paste these instructions and ask it to help you.
 
-**Folder naming**: Use the format `{your-project-name}-{your-name}` (e.g., `todo-app-sarah`, `weather-dashboard-alex-winkleberry`)
+### Steps to Submit
+
+1. **Fork** the main repo (this makes your own copy in your GitHub account): <a href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank">github.com/eisenbruch/vibe-coding-workshops</a>
+
+2. **Clone** your new fork to your local computer
+
+3. **Create a new branch** for your project
+
+4. **Add your project files** to the appropriate workshop folder (e.g., `/workshop-projects/2025-11-15-resistor/`)
+   - Name your folder: `your-project-name-your-name` (e.g., `todo-app-sarah`, `weather-dashboard-alex-winkleberry`)
+
+5. **Include a README.md** in your project folder explaining what it is and how to run it
+   - Your AI can analyze your code and write this for you!
+
+6. **Commit and Push** your changes from your local computer back up to your fork on GitHub
+
+7. **Submit a Pull Request (PR)** from your fork to the main repo
+
+I'll then review your project and add it to the site for everyone to see and play with!
+
+### Important Security Note
+
+⚠️ **Please do not submit code that includes sensitive information, like personal API keys.** We want to keep everyone's accounts secure! There are secure ways to deploy those kinds of projects to the web, but this isn't one of them. It's great that some of you are already creating these kinds of projects though! Integrating AI using AI is cool.
