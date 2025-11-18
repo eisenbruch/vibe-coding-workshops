@@ -1,10 +1,10 @@
 # Glitch Stream
 
-Real-time glitch art generator with pixel sorting, RGB shifting, and JPEG compression artifacts.
+Real-time MJPEG webcam stream with compression level control, pixel sorting, and other glitch effects.
 
 ## Browser Version (No Install)
 
-Visit: **<a href="https://eisenbruch.github.io/vibe-coding-workshops/noah-eisenbruch-live-mjpeg-compression/" target="_blank">Live Demo</a>**
+Visit: **<a href="https://eisenbruch.github.io/vibe-coding-workshops/noah-eisenbruch-live-mjpeg-compression/index.html" target="_blank">Live Demo</a>**
 
 ## Server Version - Recommended (Local)
 
