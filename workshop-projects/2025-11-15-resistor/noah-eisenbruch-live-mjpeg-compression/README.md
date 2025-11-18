@@ -4,7 +4,7 @@ Real-time MJPEG webcam stream with compression level control, pixel sorting, and
 
 ## Browser Version (No Install)
 
-Visit: **<a href="https://eisenbruch.github.io/vibe-coding-workshops/noah-eisenbruch-live-mjpeg-compression/index.html" target="_blank">Live Demo</a>**
+Visit: **<a href="https://eisenbruch.github.io/vibe-coding-workshops/workshop-projects/2025-11-15-resistor/noah-eisenbruch-live-mjpeg-compression/index.html" target="_blank">Live Demo</a>**
 
 ## Server Version - Recommended (Local)
 
