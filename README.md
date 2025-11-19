@@ -15,7 +15,7 @@ Your comprehensive reference guide for vibe coding, covering essential tools, AI
 **View the Cheatsheet:**
 - **[📄 Interactive Viewer](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html)** - Beautiful, formatted version (recommended)
 - **<a href="https://github.com/eisenbruch/vibe-coding-workshops/blob/master/Vibe%20Coding%20Workshop%20Cheatsheet.md" target="_blank">📝 Markdown File</a>** - View directly on GitHub
-- **<a href="Vibe%20Coding%20Workshop%20Cheatsheet.pdf" target="_blank">📥 Download PDF</a>** - Offline reference
+- **<a href="https://github.com/eisenbruch/vibe-coding-workshops/blob/master/Vibe%20Coding%20Workshop%20Cheatsheet.pdf" target="_blank">📥 Download PDF</a>** - Offline reference
 
 **What's Inside:**
 - Essential tools and setup
