@@ -1,6 +1,6 @@
 # Vibe Coding Workshop Cheatsheet
 *By Noah Eisenbruch - noaheisenbruch@gmail.com* \
-*Last updated: November 18, 2025*
+*Last updated: November 24, 2025*
 
 
 <table>
@@ -21,6 +21,8 @@ Click *Watch* on the GitHub repository to be notified of Cheatsheet updates and 
 <tr>
 <td width="70%" valign="top">
 
+Your feedback is greatly appreciated and helps shape future workshops.
+<br/><br/>
 Please fill out our feedback form after the workshop:
 https://forms.gle/3iVRWgUS6o8U51Ut5
 
@@ -86,49 +88,123 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 > **🧠 Remember:** AI can help with more than just  code - it can help prototype your hardware, organize your files, and much more.
 ---
 
-## Vibe Coding Tools
+## Essential Vibe Coding Tools
 
-### Essential Tools (Pick One to Start)
+### Choose Your Level
 
-#### 1. Browser-Based Tools
-*Best for beginners, quick questions, tests/experiments, single pages* \
-*Limitations: can’t easily save locally, limited to one conversation, bad project management*
+#### Beginner: Browser-Based Tools
+*Best for first-time coders, quick prototypes, and learning the basics* \
+*No installation required - just open a browser and start*
 
-- **Claude.ai** - Advanced reasoning and coding
-- **ChatGPT** - General purpose AI assistant
-- **Gemini** - Google's multimodal AI
+**Chat Interfaces:**
+- **<a href="https://claude.ai" target="_blank">Claude.ai</a>** - Advanced reasoning and coding
+- **<a href="https://chatgpt.com" target="_blank">ChatGPT</a>** - General purpose AI assistant
+- **<a href="https://gemini.google.com" target="_blank">Gemini</a>** - Google's multimodal AI
 
-#### 2. Desktop Applications
-*Just as great for beginners, with extended capabilities like local file management* \
-*Limitations: not great at editing large files, not code focused*
+**✅ Pros:**
+- No setup required
+- Instant access from any device
+- Great for learning and experimentation
 
-- **Claude Desktop** - Enhanced with file system access
-- **ChatGPT Desktop** - Integrated workflow tools
+**❌ Limitations:**
+- Limited to simple projects
+- Limited version control integration
 
-> **💡 Tip:** Desktop-based tools are great for organizing your files and documents, and communicating with your computer in different ways
+> **💡 Tip:** Start here to test ideas and learn prompting. When you're ready for real projects, move to intermediate or advanced tools.
 
-#### 3. IDE Integration
-*Professional workflow, best for complex projects and version control* \
-*Limitations: steeper learning curve*
+---
 
-- **VS Code** + Claude/ChatGPT/Gemini Extensions
-- **Cursor** - AI-native code editor
+#### Intermediate: Desktop Applications
+*Enhanced AI assistants with file system access* \
+*Best for document management, file organization, and basic coding tasks*
 
-> **💡 Tip:** Use Git version control!
+**Desktop Applications:**
+- **<a href="https://claude.ai/download" target="_blank">Claude Desktop</a>** - Enhanced with file system access via MCP servers
+- **<a href="https://openai.com/chatgpt/desktop" target="_blank">ChatGPT Desktop</a>** - Integrated workflow tools
+
+**✅ Pros:**
+- Full file system access
+- Great for organizing files and documents
+- MCP server support for extended capabilities
+- Easy to use without coding experience
+
+**❌ Limitations:**
+- Not code-focused
+- Slow file editing capabilities
+- Not suited for complex development
+
+> **💡 Tip:** Desktop applications are excellent for organizing files and documents, and communicating with your computer in different ways beyond just coding.
+
+---
+
+#### Advanced: IDEs with AI Extensions & CLI (Command Line Interface) Tools
+*Professional development environments with powerful AI integration* \
+*Maximum power and flexibility for complex projects*
+
+**AI Coding Tools:**
+
+*All tools support full codebase understanding, git integration, MCP servers, and agents* \
+*Each available as both VS Code extension and standalone CLI*
+
+- **<a href="https://claude.ai/code" target="_blank">Claude Code</a>** - Recommended for best overall quality and speed, especially for large projects
+- **<a href="https://chatgpt.com/codex" target="_blank">ChatGPT Codex</a>** - Better at problem-solving with tricky bugs, but slower overall
+- **<a href="https://codeassist.google" target="_blank">Gemini Code Assist</a>** - Recently updated with major improvements, great free option to get started
+
+**AI-Native IDEs:**
+- **<a href="https://cursor.com" target="_blank">Cursor</a>**
+- **<a href="https://antigravity.google" target="_blank">Google Antigravity</a>** 
+
+**✅ Pros:**
+- Entire codebase context at once
+- Powerful automation and agent capabilities
+- Best for large refactoring and complex features
+- Deep git integration
+- Custom commands and workflows
+- MCP server support for extended capabilities
+- Professional development environment
+
+**❌ Limitations:**
+- More setup and configuration
+- Steeper learning curve
+- Requires understanding of general development practices
+- Requires terminal comfort (for CLI tools) 
+
+> **💡 Tip:** IDEs and CLI tools shine for large codebases and complex workflows. The investment in learning pays off quickly on real projects.
+
+> **💡 Tip:** Use Git version control! These tools make it easy to track changes, experiment safely, and collaborate professionally.
+
+> **🧠 Learn More:** See [Working with Claude Code](#working-with-claude-code) for commands and advanced techniques.
+
+> **🧠 Learn More:** See the [Extended AI Tools Directory](#extended-ai-tools-directory) for more specialized vibe coding platforms, web-hosted autonomous agents, and more.
+
+---
+
 ### Specialized Platforms
+*Browser-based IDEs with instant deployment and unique capabilities* \
+*Great for all skill levels - combines ease of use with professional features*
 
-#### Build & Deploy Platforms
-*Build, deploy, and share on their site with social elements*
+- **<a href="https://replit.com" target="_blank">Replit</a>** - Collaborative coding environment with instant deployment, built-in database, and AI assistant
+- **<a href="https://v0.dev" target="_blank">v0.dev</a>** - Vercel's AI design tool that generates React components from text descriptions
+- **<a href="https://bolt.new" target="_blank">Bolt.new</a>** - StackBlitz's AI web development with full-stack support and instant preview
+- **<a href="https://aistudio.google.com" target="_blank">Google AI Studio</a>** - Prototype with Gemini models, including code generation and multimodal AI
 
-- **Google AI Studio** - Easily integrates Google's AI tools
-- **Replit** - Collaborative coding environment
-- **v0.dev** - Vercel's AI design tool
-- **Bolt.new** - StackBlitz's AI web development
+**✅ Pros:**
+- No local setup required
+- Instant deployment and hosting
+- Share projects with a single link
+- Built-in collaboration features
+- Professional capabilities in a browser
+- Great for rapid prototyping
 
-#### Web Agent Platforms
-*Complex tasks with autonomous execution and code generation*
+**❌ Limitations:**
+- Platform-specific workflows
+- Less control over infrastructure
+- May have usage limits on free tiers
+- Dependent on platform's continued existence
 
-- **Manus.im** - Browser-based AI agents for workflows (see full list in AI Browser Automation section below)
+> **💡 Tip:** These platforms are perfect for quickly building and sharing projects without worrying about deployment. Use them alongside other tools depending on your needs.
+
+---
 
 ### Tool Selection Framework
 
@@ -150,7 +226,7 @@ All projects exist somewhere on this spectrum between two approaches:
 
 #### Approach 1: Minimal Info → Iterative Refinement
 
-**Example:** Nerktendo
+**Example:** [Nerktendo](https://nerktendo.com/)
 
 **How it works:** Start broad, refine through back-and-forth conversation
 
@@ -168,12 +244,12 @@ All projects exist somewhere on this spectrum between two approaches:
 
 #### Approach 2: Comprehensive Brief → Execute
 
-**Example:** DomainFlip
+**Example:** [DomainFlip](https://nerktendo.com/domainflip)
 
 **How it works:** Define everything upfront - features, style, structure, functions, rules, edge cases
 
 **✅ Pros:**
-- Faster to polished result
+- Faster to a feature-full, polished result
 - Stays true to vision
 - Better for complex requirements
 
@@ -181,6 +257,22 @@ All projects exist somewhere on this spectrum between two approaches:
 - Requires knowing what you want
 - Less room for discovery
 - Harder for beginners to write good briefs (but use AI to help)
+
+**How to do it:** Use an LLM (not a coding AI) to create comprehensive planning documents before you start coding.
+
+**DomainFlip workflow:**
+1. **Planning phase**: I described my idea with all the details I had to an LLM chatbot
+2. **Document creation**: The AI asked clarifying questions, then developed 8 detailed documents covering:
+   - Project overview and goals
+   - Technical architecture
+   - Design specifications
+   - Feature requirements and edge cases
+3. **Execution phase**: I fed all documents to Claude Code in a single prompt
+4. **Result**: One hour later, the complete site was built exactly to spec
+
+**The key:** comprehensive upfront documentation eliminates ambiguity and reduces iteration.
+
+> **🎁 Bonus:** Read through the [DomainFlip summary and build documents](https://github.com/eisenbruch/vibe-coding-workshops/tree/master/docs/domainflip)
 
 ---
 
@@ -196,11 +288,52 @@ Most of my examples are website related
 
 ## Working with Claude Code
 
+### Getting Started
+
+**Requirement:** Claude Pro/Max subscription or Enterprise access (API credits supported but not recommended)
+
+---
+
+#### Option 1: VS Code Extension
+
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
+3. Search for "Claude Code"
+4. Click Install
+5. Authenticate with your Claude account
+
+---
+
+#### Option 2: CLI Installation
+
+Choose the installation method for your system:
+
+**macOS/Linux (Homebrew):**
+```bash
+brew install --cask claude-code
+```
+*Note: Requires [Homebrew](https://brew.sh) to be installed first*
+
+**macOS/Linux/WSL:**
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+**Windows (CMD):**
+```cmd
+curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
+```
+
+Once installed, navigate to your project directory and run `claude` to start.
+
+---
+
 ### Claude Code CLI Commands
-
-To install Claude Code CLI, make sure you have Node.js and npm installed, then run: 
-
-`npm install -g @anthropic-ai/claude-code`
 
 | Command    | Purpose                                                                  |
 | ---------- | ------------------------------------------------------------------------ |
@@ -693,11 +826,24 @@ This teaches you about:
 
 ## Submitting Your Workshop Project
 
-Share your work with the community! View the full submission instructions at:
+<table>
+<tr>
+<td width="70%" valign="top">
 
+Share your work! The workshop repo is a living archive of our projects.
+
+View submission instructions at:
 **[eisenbruch.github.io/vibe-coding-workshops](https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work)**
 
-The workshop repo is designed to be a living archive of our projects. Your AI assistant can guide you through the entire Git/GitHub process—just copy and paste the instructions and ask for help.
+Your AI assistant can guide you through the Git/GitHub process.
+</td>
+<td width="30%" valign="top">
+<img src="images/github-site-qr.png" alt="GitHub QR Code" width="128">
+</td>
+</tr>
+</table>
+
+
 
 ---
 
@@ -716,23 +862,26 @@ The workshop repo is designed to be a living archive of our projects. Your AI as
 **Claude Code** - [claude.ai/code](https://claude.ai/code)<br/>
 Terminal-based AI coding assistant with full codebase context, git integration, and MCP server support
 
+**Gemini Code Assist** - [codeassist.google](https://codeassist.google/)<br/>
+Google's AI coding assistant available as IDE extension and CLI, recently updated with major improvements
+
+**Google Antigravity** - [antigravity.google](https://antigravity.google/)<br/>
+Agentic development platform with autonomous agents and Manager View for coordinating AI workflows
+
+**ChatGPT Codex** - [chatgpt.com/codex](https://chatgpt.com/codex)<br/>
+OpenAI's code-specialized model integrated into ChatGPT for code generation and understanding
+
 **Cursor** - [cursor.com](https://www.cursor.com/)<br/>
 AI-native code editor built on VS Code with chat, inline editing, and codebase understanding
 
 **GitHub Copilot** - [github.com/features/copilot](https://github.com/features/copilot)<br/>
 AI pair programmer integrated into VS Code, JetBrains IDEs, and other editors
 
-**ChatGPT Codex** - [chatgpt.com/codex](https://chatgpt.com/codex)<br/>
-OpenAI's code-specialized model integrated into ChatGPT for code generation and understanding
+</td>
+<td width="50%" valign="top">
 
 **Google AI Studio** - [aistudio.google.com](https://aistudio.google.com/)<br/>
 Google's platform for prototyping with Gemini models, including code generation
-
-**Replit** - [replit.com](https://replit.com/)<br/>
-Collaborative browser-based IDE with AI assistance, instant deployment, and multiplayer coding
-
-</td>
-<td width="50%" valign="top">
 
 **v0.dev** - [v0.dev](https://v0.dev/)<br/>
 Vercel's AI tool for generating React components and UI designs from text descriptions
@@ -748,6 +897,9 @@ Fast AI code completion with 1 million token context window
 
 **Aider** - [aider.chat](https://aider.chat/)<br/>
 Command-line AI coding assistant that edits code in your local git repository
+
+**Replit** - [replit.com](https://replit.com/)<br/>
+Collaborative browser-based IDE with AI assistance, instant deployment, and multiplayer coding
 
 </td>
 </tr>
@@ -821,11 +973,11 @@ Chinese AI video generator creating 5-6 second HD videos
 **Google Veo 3** - [deepmind.google](https://deepmind.google/models/veo/)<br/>
 Advanced video generation with 8-second clips and synchronized native audio
 
+**Google Flow** - [labs.google/fx/tools/flow](https://labs.google/fx/tools/flow)<br/>
+Google's experimental video generation tool from Google Labs FX
+
 **Hedra** - [hedra.com](https://www.hedra.com/)<br/>
 Specializes in talking avatar generation with realistic lip-sync
-
-**Higgsfield** - [higgsfield.ai](https://www.higgsfield.ai/)<br/>
-Video and image generation with a focus on impossible effects and transitions
 
 </td>
 <td width="50%" valign="top">
@@ -847,6 +999,9 @@ Professional background removal for videos up to 3 hours
 
 **Innova AI Video Background Removal** - [Hugging Face](https://huggingface.co/spaces/innova-ai/video-background-removal)<br/>
 Free background removal and replacement tool
+
+**Higgsfield** - [higgsfield.ai](https://www.higgsfield.ai/)<br/>
+Video and image generation with a focus on impossible effects and transitions
 
 </td>
 </tr>
@@ -1008,7 +1163,7 @@ AI-first browser with autonomous task execution and integrated search
 <td width="50%" valign="top">
 
 **Opera Neon** - [operaneon.com](https://www.operaneon.com/)<br/>
-Premium agentic browser with Chat, Do, and Make functions ($19.99/month)
+Premium agentic browser with Chat, Do, and Make functions
 
 **Fellou** - [fellou.ai](https://fellou.ai/)<br/>
 Self-driving browser with deep search and agentic memory
