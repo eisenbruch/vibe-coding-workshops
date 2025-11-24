@@ -1,3 +1,4 @@
+{% raw %}
 # DomainFlip - Complete Build Guide - PART 3
 ## UI Component Library
 
@@ -961,3 +962,5 @@ This will include all the sample data:
 ---
 
 **✅ Part 3 Complete!** Your UI foundation is ready. Proceed to Part 4 when ready.
+
+{% endraw %}
