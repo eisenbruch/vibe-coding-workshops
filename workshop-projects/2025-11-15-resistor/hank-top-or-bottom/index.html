@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Are You a Top or a Bottom? — Celebrity Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Chewy&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Early 2000s magazine flowchart style */
+    :root {
+      --pink: #ff69b4;
+      --hotpink: #ff1493;
+      --yellow: #ffeb3b;
+      --orange: #ff9800;
+      --purple: #da70d6;
+      --blue: #87ceeb;
+      --green: #98fb98;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 10px,
+        #ffe4e1 10px,
+        #ffe4e1 20px
+      );
+      color: #333;
+      line-height: 1.4;
+      min-height: 100vh;
+    }
+
+    .masthead {
+      text-align: center;
+      padding: 20px 20px 30px;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--hotpink) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .masthead::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 50px,
+        rgba(255,255,255,0.1) 50px,
+        rgba(255,255,255,0.1) 100px
+      );
+    }
+
+    .masthead .title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.8rem;
+      margin: 0;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      text-shadow: 4px 4px 0px rgba(0,0,0,0.2),
+                   -2px -2px 0px rgba(255,255,255,0.5);
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      margin-top: 10px;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 60vh;
+    }
+
+    .card {
+      background: white;
+      border: 4px solid #333;
+      border-radius: 20px;
+      box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    #question {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      margin: 0 0 30px 0;
+      color: #333;
+      text-transform: lowercase;
+      font-weight: 400;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .options button {
+      background: white;
+      color: #333;
+      border: 3px solid #333;
+      border-radius: 15px;
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .options button::before {
+      content: '→';
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .options button::after {
+      content: attr(data-answer);
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 3px 10px;
+      border-radius: 10px;
+      margin-left: 10px;
+    }
+
+    .options button:nth-child(1) {
+      background: var(--pink);
+      border-color: #d4006e;
+    }
+
+    .options button:nth-child(1)::after {
+      background: #fff;
+      color: var(--pink);
+      content: 'yes';
+    }
+
+    .options button:nth-child(2) {
+      background: var(--yellow);
+      border-color: #d4b800;
+    }
+
+    .options button:nth-child(2)::after {
+      background: #fff;
+      color: var(--orange);
+      content: 'yes';
+    }
+
+    .options button:nth-child(3) {
+      background: var(--blue);
+      border-color: #5099c6;
+    }
+
+    .options button:nth-child(3)::after {
+      background: #fff;
+      color: var(--blue);
+      content: 'yes';
+    }
+
+    .options button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* Slide transitions */
+    .slide-out-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .slide-in-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    .slide-center {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* Result styling */
+    #result {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      border: 4px solid #333;
+    }
+
+    #result-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.5rem;
+      margin: 0 0 20px 0;
+      text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+      text-transform: lowercase;
+    }
+
+    #result-description {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    #retry {
+      background: white;
+      color: var(--hotpink);
+      border: 3px solid #333;
+      border-radius: 15px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    }
+
+    #retry:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <h1 class="title">Are You a Top or a Bottom?</h1>
+    <p class="subtitle">Take this quiz to find out! 💕</p>
+  </header>
+
+  <main class="container">
+    <div id="quiz" class="card">
+      <h2 id="question">Loading...</h2>
+      <div id="options" class="options"></div>
+    </div>
+    <div id="result" class="card" style="display: none;">
+      <h2 id="result-title">Your Result</h2>
+      <p id="result-description">You are either a Top, Bottom, or Vers!</p>
+      <button id="retry">Try Again</button>
+    </div>
+  </main>
+
+  <footer class="footer">@y2kmagazines • for entertainment purposes only! 💖</footer>
+
+  <script>
+    const questions = [
+      { question: "Pick a snack:", options: ["Popcorn", "Chocolate", "Gummies"] },
+      { question: "Ideal weekend:", options: ["Gym", "Spa", "Road trip"] },
+      { question: "Favorite accessory:", options: ["Sunglasses", "Bracelet", "Hat"] },
+      { question: "Morning drink:", options: ["Black coffee", "Latte", "Tea"] },
+      { question: "Party song:", options: ["Shots by LMFAO", "Call Me Maybe", "Toxic by Britney"] },
+      { question: "Color to wear:", options: ["Red", "Pink", "Blue"] },
+      { question: "Vacation activity:", options: ["Climbing", "Lounging", "Exploring"] },
+      { question: "Emoji choice:", options: ["🔥", "💖", "🌟"] },
+      { question: "Style description:", options: ["Confident", "Cute", "Relaxed"] },
+      { question: "Late-night show:", options: ["Roast", "Makeover", "Talk show"] },
+    ];
+
+    // Shuffle questions each time the quiz is loaded
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    let currentQuestion = 0;
+    const shuffledQuestions = shuffle([...questions]);
+
+    const quiz = document.getElementById("quiz");
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const result = document.getElementById("result");
+    const resultTitle = document.getElementById("result-title");
+    const resultDescription = document.getElementById("result-description");
+    const retry = document.getElementById("retry");
+
+    function loadQuestion() {
+      const q = shuffledQuestions[currentQuestion];
+
+      if (currentQuestion > 0) {
+        // Slide current question out to the left
+        quiz.classList.remove('slide-center');
+        quiz.classList.add('slide-out-left');
+
+        // Wait for slide-out animation to complete
+        setTimeout(() => {
+          // Update content while off-screen
+          updateQuestionContent(q);
+          
+          // Position new question off-screen to the right
+          quiz.classList.remove('slide-out-left');
+          quiz.classList.add('slide-in-right');
+          
+          // Force a reflow
+          void quiz.offsetWidth;
+          
+          // Slide new question in to center
+          setTimeout(() => {
+            quiz.classList.remove('slide-in-right');
+            quiz.classList.add('slide-center');
+          }, 10);
+        }, 400);
+      } else {
+        // First question - just show it
+        updateQuestionContent(q);
+        quiz.classList.add('slide-center');
+      }
+    }
+
+    function updateQuestionContent(q) {
+      questionEl.textContent = q.question;
+      optionsEl.innerHTML = "";
+      q.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.onclick = () => {
+          currentQuestion++;
+          if (currentQuestion < shuffledQuestions.length) {
+            loadQuestion();
+          } else {
+            showResult();
+          }
+        };
+        optionsEl.appendChild(button);
+      });
+    }
+
+    function showResult() {
+      quiz.style.display = "none";
+      result.style.display = "block";
+
+      // Randomly select one of the three results with fun messages
+      const outcomes = [
+        {
+          type: "Top",
+          message: "You're giving main character energy! Time to take charge and show them who's boss. 👑"
+        },
+        {
+          type: "Bottom",
+          message: "Get some poppers, queen! You know what you want and you're not afraid to ask for it. 💅"
+        },
+        {
+          type: "Vers",
+          message: "The best of both worlds! You're flexible, fun, and always ready for whatever comes your way. ✨"
+        }
+      ];
+      
+      const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+
+      resultTitle.textContent = `You are a ${randomOutcome.type}!`;
+      resultDescription.textContent = randomOutcome.message;
+    }
+
+    retry.onclick = () => {
+      currentQuestion = 0;
+      result.style.display = "none";
+      quiz.style.display = "block";
+      loadQuestion();
+    };
+
+    loadQuestion();
+  </script>
+</body>
+</html>
