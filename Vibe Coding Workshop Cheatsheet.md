@@ -75,7 +75,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
-**7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live))
+**7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
 - **Type:** Interactive map and database service with user focused features
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
