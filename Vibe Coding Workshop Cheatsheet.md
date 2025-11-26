@@ -1,6 +1,6 @@
 # Vibe Coding Workshop Cheatsheet
 *By Noah Eisenbruch - noaheisenbruch@gmail.com* \
-*Last updated: November 24, 2025*
+*Last updated: November 25, 2025*
 
 
 <table>
@@ -799,7 +799,7 @@ Target audience: Small business managers, healthcare facilities, retail stores, 
 
 **Open Source Contribution Challenge**
 
-Take a project from GitHub, come up with an improvement, and submit a PR (pull request).
+Take a project that you use from GitHub, come up with an improvement, and submit a PR (pull request).
 
 **How to get started:**
 1. Find a project on GitHub that is interesting or useful to you
@@ -809,7 +809,7 @@ Take a project from GitHub, come up with an improvement, and submit a PR (pull r
 5. Write clear commit messages and test your changes
 6. Submit a pull request with a detailed description
 
-This teaches you about:
+**This teaches you about:**
 - Reading and understanding existing codebases
 - Contributing to open source communities
 - Professional collaboration workflows
