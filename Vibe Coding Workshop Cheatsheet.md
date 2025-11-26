@@ -331,6 +331,8 @@ curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del in
 
 Once installed, navigate to your project directory and run `claude` to start.
 
+> **🧠 Learn More:** Read Anthropic's official [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices) guide for workflows, optimization tips, and advanced techniques.
+
 ---
 
 ### Claude Code CLI Commands
