@@ -1121,6 +1121,8 @@ Microsoft's 3D generation with Radiance Fields and meshes
 **HitPaw 3D (Hitem3D)** - [hitem3d.ai](https://hitem3d.ai/)<br/>
 Ultra-high resolution 3D models from single images
 
+**Marble (World Labs)** - [marble.worldlabs.ai](https://marble.worldlabs.ai/)<br/>
+Generate 3DGS worlds from text, images, or video.
 </td>
 <td width="50%" valign="top">
 
@@ -1138,7 +1140,6 @@ Professional photogrammetry by Epic Games
 
 **Postshot** - [jawset.com](https://www.jawset.com/)<br/>
 Desktop app for training NeRF and Gaussian Splatting locally
-
 </td>
 </tr>
 </table>
