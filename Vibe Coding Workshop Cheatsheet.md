@@ -93,33 +93,33 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **Type:** QR code generation with a twist
 - **Key Learning:** You can vibe code a simple tool in minutes, and it's fun
 
-**2. Snark AI** ([snark-ai.com](https://snark-ai.com)) 
+**2. Instant Camera with Thermal Printer**
+- **Type:** Raspberry Pi with camera module, button, LED, 3D printed enclosure, and vibe coded software
+- **Key Learning:** AI can assist with hardware prototyping and setup, not just software
+
+**3. Snark AI** ([snark-ai.com](https://snark-ai.com))
 - **Type:** Satirical AI email service
 - **Key Learning:** Vibe coding actually works to make services and websites
 
-**3. Nerktendo** ([nerktendo.com](https://nerktendo.com))
+**4. Nerktendo** ([nerktendo.com](https://nerktendo.com))
 - **Type:** Retro interface and portfolio
 - **Key Learning:** Sometimes AI is really bad at things. Try different tools and dive deeper into vibe coding.
 
-**4. LinkPee** ([linkp.ee](https://linkp.ee))
+**5. LinkPee** ([linkp.ee](https://linkp.ee))
 - **Type:** Fully functional "link in bio" service with secure authentication & user profiles
 - **Key Learning:** "Complex" features are absolutely achievable
 
-**5. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
+**6. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
 - **Type:** Interactive game
 - **Key Learning:** Fun and loose iterative projects are great for experimenting with concepts and mechanics and allow you to explore concepts and themes freely.
 
-**6. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
+**7. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
-**7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
+**8. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
 - **Type:** Interactive map and database service with user focused features
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
-
-**8. Instant Camera with Thermal Printer**
-- **Type:** Raspberry Pi with camera module, button, LED, 3D printed enclosure, and vibe coded software
-- **Key Learning:** AI can assist with hardware prototyping and setup, not just software
 
 > **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup. 
 
