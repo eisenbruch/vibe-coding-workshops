@@ -1,6 +1,6 @@
 # Vibe Coding Workshop Cheatsheet
 *By Noah Eisenbruch - noaheisenbruch@gmail.com* \
-*Last updated: November 25, 2025*
+*Last updated: December 5, 2025*
 
 
 <table>
@@ -37,13 +37,51 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 ## Table of Contents
 
-[1. Example Projects](#example-projects) \
-[2. Vibe Coding Tools](#vibe-coding-tools) \
-[3. Core Approaches](#core-approaches) \
-[4. Working with Claude Code](#working-with-claude-code) \
-[5. Project Ideas](#project-ideas) \
-[6. Submitting Your Workshop Project](#submitting-your-workshop-project) \
-[7. Extended AI Tools Directory](#extended-ai-tools-directory) 
+<table>
+<tr>
+<td width="50%" valign="top">
+
+[1. Example Projects](#example-projects)
+
+[2. Vibe Coding Tools](#essential-vibe-coding-tools)
+   - [Beginner: Browser-Based Tools](#beginner-browser-based-tools)
+   - [Intermediate: Desktop Applications](#intermediate-desktop-applications)
+   - [Advanced: IDEs & CLI Tools](#advanced-ides-with-ai-extensions--cli-command-line-interface-tools)
+   - [Specialized Platforms](#specialized-platforms)
+
+[3. Core Approaches](#core-approaches)
+
+[4. Good Prompts vs Bad Prompts](#good-prompts-vs-bad-prompts)
+
+[5. Working with AI Coding Agents](#working-with-ai-coding-agents)
+   - [CLI Commands](#claude-code-cli-commands)
+   - [Essential Techniques](#vibe-coding-essential-techniques)
+   - [Advanced Features](#claude-code-advanced-features)
+
+</td>
+<td width="50%" valign="top">
+
+[6. Project Ideas](#project-ideas)
+   - [Simple Projects](#simple-projects)
+   - [Medium Projects](#medium-projects)
+   - [Complex Projects](#complex-projects)
+
+[7. Submitting Your Workshop Project](#submitting-your-workshop-project)
+
+[8. Extended AI Tools Directory](#extended-ai-tools-directory)
+   - [Vibe Coding & Development Tools](#vibe-coding--development-tools)
+   - [Image Generation & Editing](#image-generation--editing)
+   - [Video Generation & Editing](#video-generation--editing)
+   - [Audio & Music](#audio--music)
+   - [AI Chat & Search](#ai-chat--search)
+   - [AI Infrastructure & Development](#ai-infrastructure--development)
+   - [3D & Spatial](#3d--spatial)
+   - [Agentic Browsers](#agentic-browsers)
+   - [Specialized Tools](#specialized-tools)
+
+</td>
+</tr>
+</table> 
 
 ---
 
@@ -90,9 +128,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 ## Essential Vibe Coding Tools
 
-### Choose Your Level
-
-#### Beginner: Browser-Based Tools
+### Beginner: Browser-Based Tools
 *Best for first-time coders, quick prototypes, and learning the basics* \
 *No installation required - just open a browser and start*
 
@@ -114,7 +150,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 ---
 
-#### Intermediate: Desktop Applications
+### Intermediate: Desktop Applications
 *Enhanced AI assistants with file system access* \
 *Best for document management, file organization, and basic coding tasks*
 
@@ -137,7 +173,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 ---
 
-#### Advanced: IDEs with AI Extensions & CLI (Command Line Interface) Tools
+### Advanced: IDEs with AI Extensions & CLI (Command Line Interface) Tools
 *Professional development environments with powerful AI integration* \
 *Maximum power and flexibility for complex projects*
 
@@ -173,7 +209,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 > **💡 Tip:** Use Git version control! These tools make it easy to track changes, experiment safely, and collaborate professionally.
 
-> **🧠 Learn More:** See [Working with Claude Code](#working-with-claude-code) for commands and advanced techniques.
+> **🧠 Learn More:** See [Working with AI Coding Agents](#working-with-ai-coding-agents) for commands and advanced techniques.
 
 > **🧠 Learn More:** See the [Extended AI Tools Directory](#extended-ai-tools-directory) for more specialized vibe coding platforms, web-hosted autonomous agents, and more.
 
@@ -224,6 +260,29 @@ Ask yourself these questions:
 
 All projects exist somewhere on this spectrum between two approaches:
 
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         THE VIBE CODING SPECTRUM                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   MINIMAL INFO                                              COMPREHENSIVE   │
+│   Iterative Refinement                                      Brief → Execute │
+│                                                                             │
+│   ○────────────────────────────────────────────────────────────────────○   │
+│   │                              │                                     │   │
+│   ▼                              ▼                                     ▼   │
+│   Nerktendo               Weather Worsener                      DomainFlip  │
+│                               LinkPee                                       │
+│                                                                             │
+│   • Start broad                                         • Define everything │
+│   • Refine through                                        upfront           │
+│     conversation                                        • Features, style,  │
+│   • Great for exploring                                   structure, rules  │
+│   • Lower barrier                                       • Faster to polish  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
 #### Approach 1: Minimal Info → Iterative Refinement
 
 **Example:** [Nerktendo](https://nerktendo.com/)
@@ -272,21 +331,33 @@ All projects exist somewhere on this spectrum between two approaches:
 
 **The key:** comprehensive upfront documentation eliminates ambiguity and reduces iteration.
 
+> **💡 Pro Tip:** Use an AI chatbot (not coding assistant) to plan your project in detail, then feed that plan to an AI coding agent. DomainFlip was created with only 1 Claude Code prompt, but it was fed 8 different multi page documents outlining the entire project in extreme detail.
+
 > **🎁 Bonus:** Read through the [DomainFlip summary and build documents](https://github.com/eisenbruch/vibe-coding-workshops/tree/master/docs/domainflip)
 
 ---
 
-### Finding Your Approach
+### Good Prompts vs Bad Prompts
 
-Most projects fall somewhere in the middle. Weather Worsener and LinkPee are examples of balanced approaches.
+| ❌ Bad Prompt | ✅ Good Prompt |
+|--------------|----------------|
+| "Make me a website" | "Create a single-page portfolio site with a hero section, 3 project cards, and a contact form. Use a dark theme with blue accents." |
+| "Fix it" | "The submit button doesn't work. When I click it, nothing happens. No errors in console. Here's the relevant code: [paste code]" |
+| "Add a database" | "Add a SQLite database to store user tasks. Include fields for: id, title, description, due_date, completed (boolean). Create functions for CRUD operations." |
+| "Make it look better" | "Improve the card component: add subtle shadows, rounded corners (8px), and a hover effect that slightly lifts the card." |
+| "It's broken" | "Expected: clicking 'Save' should show a success message. Actual: page refreshes and data is lost. Browser: Chrome. Error in console: [paste error]" |
 
-> **💡 Pro Tip:** Use an AI chatbot (not coding assistant) to plan your project in detail, then feed that plan to an AI coding agent. DomainFlip was created with only 1 Claude Code prompt, but it was fed 8 different multi page documents outlining the entire project in extreme detail.
-
-Most of my examples are website related
+**Key principles:**
+- Be specific about what you want
+- Include relevant context (tech stack, constraints, goals)
+- When reporting bugs: expected vs actual behavior + any errors
+- Describe the outcome, not just the task
 
 ---
 
-## Working with Claude Code
+## Working with AI Coding Agents
+
+This section focuses on Claude Code but the concepts and techniques apply to all agents.
 
 ### Getting Started
 
@@ -301,6 +372,7 @@ Most of my examples are website related
 3. Search for "Claude Code"
 4. Click Install
 5. Authenticate with your Claude account
+6. The Claude icon will now show up in your window. Click to get started.
 
 ---
 
@@ -340,6 +412,7 @@ Once installed, navigate to your project directory and run `claude` to start.
 | Command    | Purpose                                                                  |
 | ---------- | ------------------------------------------------------------------------ |
 | `claude`   | Start Claude in your terminal.                                           |
+| `esc`      | Interrupt Claude while it's working.                                     |
 | `esc esc`  | Go back in conversation and code history.                                |
 | `/init`    | Review codebase and create CLAUDE.md documentation file for AI reference |
 | `#memory`  | Easily add to CLAUDE.md memory                                           |
@@ -353,19 +426,19 @@ Once installed, navigate to your project directory and run `claude` to start.
 
 ---
 
-### Essential Techniques
+## Vibe Coding Essential Techniques 
 
-#### Interrupt When Needed
+### Interrupt When Needed
 Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap `esc`), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.
 
-#### Self-Checking
+### Self-Checking
 Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
 
-#### Working Through Stubborn Bugs
+### Working Through Stubborn Bugs
 
 When you have a bug AI can't solve after multiple attempts:
 
-1. Use Claude thinking levels: `think`, `think hard`, `think harder`, `ultrathink`
+1. Use Claude thinking levels. Type: `think`, `think hard`, `think harder`, or `ultrathink` 
 1. Try a different coding agent (e.g. ChatGPT Codex)
 1. Ask 2 different AIs the same question
     1. Give each AI the other's response for analysis
@@ -387,7 +460,7 @@ AI agents fix issues best when given all relevant information:
 
 ---
 
-### Advanced Features
+### Claude Code Advanced Features
 
 #### Claude Agents (Tasks)
 Multiple Claude Code instances using skills and tools to autonomously complete complex workflows in parallel.
@@ -513,52 +586,32 @@ Claude and other AI agents can help with more than just code if they have access
 
 ## Project Ideas
 
+*Customize these to your liking. Extended prompts with full details available on the <a href="https://github.com/eisenbruch/vibe-coding-workshops/blob/master/Project%20Idea%20Prompts%20-%20Extended.md" target="_blank">GitHub repo</a>.*
+
 ### Simple Projects
 
-*These starter prompts are to give you ideas. Change them to your liking.*
-
 #### To-Do List
-**Starter Prompt:**
+Task management with add/edit/delete, checkboxes, filters (all/active/completed), localStorage.
 ```
-Create a to-do list app with the following features:
-- Add, edit, and delete tasks
-- Mark tasks as complete with a checkbox
-- Filter view by "all", "active", and "completed"
-- Tasks persist in localStorage
-Use vanilla JavaScript or React, make it clean and minimal with a soft color palette.
+Create a to-do list app with add/edit/delete tasks, checkboxes, filter by all/active/completed, and localStorage persistence. Clean minimal design.
 ```
 
 #### Habit Tracker
-**Starter Prompt:**
+Daily habits with check-offs, 7-day calendar view, streak counter.
 ```
-Build a habit tracker that lets users:
-- Add custom habits to track
-- Mark habits as complete for each day
-- Show a 7-day streak calendar view
-- Calculate and display current streak
-Use a grid layout with green checkmarks for completed days. Make it motivating and visually rewarding.
+Build a habit tracker: add custom habits, mark complete daily, 7-day streak calendar, current streak display. Green checkmarks, motivating design.
 ```
 
-#### Custom Calculator
-**Starter Prompt:**
+#### Calculator
+Basic math (+, -, ×, ÷), keyboard support, iOS or retro style.
 ```
-Create a calculator with:
-- Basic operations (+, -, ×, ÷)
-- Clear and backspace functions
-- Keyboard support for number entry
-- Display for current input and result
-Style it like a modern iOS calculator or create a retro/vintage aesthetic. Add smooth button press animations.
+Create a calculator with basic operations, clear/backspace, keyboard support. Style like iOS calculator or retro aesthetic with button animations.
 ```
 
-#### Basic Game
-**Starter Prompt:**
+#### Guessing Game
+Number guessing 1-100, higher/lower hints, attempt counter, difficulty levels.
 ```
-Build a simple guessing game where:
-- Computer picks a random number between 1-100
-- Player gets hints ("higher" or "lower") after each guess
-- Track number of attempts
-- Show win message and option to play again
-Make it colorful and fun with emoji reactions to guesses. Add a difficulty selector (easy/medium/hard ranges).
+Build a guessing game: random number 1-100, higher/lower hints, track attempts, play again option. Add difficulty selector and emoji reactions.
 ```
 
 ---
@@ -566,263 +619,64 @@ Make it colorful and fun with emoji reactions to guesses. Add a difficulty selec
 ### Medium Projects
 
 #### Weather App
-**Starter Prompt:**
+City search, 5-day forecast, geolocation, weather-themed gradients. **API:** OpenWeatherMap
 ```
-Build a weather app that includes:
-- Feature 1: Search for any city and display current weather
-- Feature 2: 5-day forecast with high/low temperatures
-- Feature 3: Display weather icons, humidity, wind speed, and "feels like" temp
-- Feature 4: Geolocation to auto-detect user's location
-Design should be clean and modern with weather-appropriate background gradients (sunny = warm colors, rainy = cool colors).
-Use OpenWeatherMap API or WeatherAPI.
-Target audience: anyone who wants quick weather info at a glance
+Build a weather app: city search, 5-day forecast, weather icons, humidity, wind, "feels like". Geolocation support. Weather-appropriate background gradients.
 ```
 
-#### Portfolio Website
-**Starter Prompt:**
+#### Portfolio Site
+Hero section, project cards with filtering, contact form, dark/light mode. **API:** EmailJS
 ```
-Build a personal portfolio website that includes:
-- Feature 1: Hero section with animated introduction and call-to-action
-- Feature 2: Project showcase with filtering by technology/category
-- Feature 3: About section with skills visualization (progress bars or icons)
-- Feature 4: Contact form with email integration (EmailJS or similar)
-- Feature 5: Dark/light mode toggle
-Design should be modern and professional with smooth scroll animations and transitions.
-Use React or Next.js with Tailwind CSS.
-Target audience: potential employers and clients
+Build a portfolio: animated hero, project showcase with category filters, skills section, contact form (EmailJS), dark/light toggle. React + Tailwind.
 ```
 
-#### Pomodoro Timer App
-**Starter Prompt:**
+#### Pomodoro Timer
+25/5 min sessions, customizable durations, audio alerts, session stats.
 ```
-Build a productivity timer app that includes:
-- Feature 1: 25-minute work sessions with 5-minute breaks
-- Feature 2: Customizable timer durations
-- Feature 3: Audio notification when timer completes
-- Feature 4: Session counter and daily statistics
-- Feature 5: Pause, resume, and reset controls
-Design should be minimalist and distraction-free with a large, readable timer display.
-Add ambient background sounds (optional toggle).
-Target audience: students and remote workers seeking better focus
+Build a pomodoro timer: 25-min work / 5-min break sessions, customizable durations, audio notifications, session counter, pause/resume/reset. Minimalist design.
 ```
 
 #### Recipe Finder
-**Starter Prompt:**
+Search by ingredient, dietary filters, save favorites, random recipe. **API:** Spoonacular
 ```
-Build a recipe search app that includes:
-- Feature 1: Search recipes by ingredient or dish name
-- Feature 2: Filter by dietary restrictions (vegetarian, vegan, gluten-free)
-- Feature 3: Display recipe details including ingredients, instructions, and cook time
-- Feature 4: Save favorite recipes to localStorage
-- Feature 5: Random recipe generator for inspiration
-Design should be warm and inviting with food photography and card-based layouts.
-Use Spoonacular API or Edamam API.
-Target audience: home cooks looking for meal ideas
+Build a recipe app: search by ingredient/dish, filter by dietary restrictions, show ingredients + instructions + cook time, save favorites, random recipe button.
 ```
 
 ---
 
 ### Complex Projects
 
-#### Real-Time Chat App
-**Starter Prompt:**
+#### Real-Time Chat
+Discord/Slack clone with auth, channels, typing indicators, read receipts, file uploads.
 ```
-Build a chat application where users can message each other in real-time with these features:
-
-Core Features:
-- User accounts with secure registration and login
-- Instant messaging that updates without refreshing the page
-- Multiple chat rooms or channels for different conversations
-- See who's online/offline right now
-- "User is typing..." indicators
-- Message history that loads older messages as you scroll up
-- Timestamps showing when each message was sent
-- Read receipts (checkmarks when messages are seen)
-- Emoji picker for reactions
-- Ability to upload and share images/files
-
-User Experience:
-- Clean, modern interface similar to Discord or Slack
-- Sidebar showing all available channels
-- Main chat area for conversation
-- Works smoothly on both desktop and mobile
-- Fast and responsive - messages appear instantly
-
-Technical Requirements:
-- Secure authentication and password storage
-- Protect against common security issues
-- Store all messages and user data in a database
-- Deploy the app so others can access it online
-
-Target audience: Teams, friend groups, or communities who want their own private chat space.
+Build a real-time chat app: user auth, multiple channels, online/offline status, typing indicators, message history, read receipts, emoji reactions, file uploads. WebSocket-based.
 ```
 
-#### Restaurant Reservation System
-**Starter Prompt:**
+#### Restaurant Reservations
+OpenTable clone with restaurant browsing, table booking, calendar availability, admin panel.
 ```
-Build a restaurant reservation platform where customers can book tables and restaurants can manage their bookings:
-
-Customer Features:
-- Browse restaurants with photos, menus, and descriptions
-- Search and filter by cuisine type, location, and price range
-- Interactive calendar showing available reservation times
-- See real-time availability (which time slots are open)
-- Book a table by selecting date, time, party size, and adding special requests
-- Receive email confirmation immediately after booking
-- Get SMS reminder 24 hours before the reservation
-- Personal dashboard to view, modify, or cancel upcoming reservations
-- Works perfectly on mobile phones for booking on-the-go
-
-Restaurant Owner Features:
-- Admin panel to view all bookings for their restaurant
-- Manage table capacity and available time slots
-- See booking details (party size, special requests, contact info)
-- Prevent double-booking automatically
-- Update restaurant information, photos, and menu
-
-User Experience:
-- Elegant, trustworthy design similar to OpenTable or Resy
-- High-quality imagery that makes restaurants look appealing
-- Fast loading and smooth interactions
-- Handle different time zones correctly
-
-Technical Requirements:
-- Secure login for both customers and restaurant owners
-- Store all restaurant data, bookings, and user accounts safely
-- Send automated emails and SMS notifications
-- Deploy online so anyone can use it
-
-Target audience: Diners looking for an easy way to book tables, and restaurant owners who want to manage reservations efficiently.
+Build a reservation system: browse restaurants with photos/menus, search/filter, interactive availability calendar, booking with party size + special requests, email confirmation, admin panel for owners.
 ```
 
-#### Interactive Data Visualization Dashboard
-**Starter Prompt:**
+#### Data Dashboard
+Analytics visualizer with multiple chart types, date filters, CSV upload, drag-drop layout.
 ```
-Build an analytics dashboard that turns data into beautiful, interactive visualizations:
-
-Core Features:
-- Display data in multiple chart types: line graphs, bar charts, pie charts, and heatmaps
-- Click and interact with charts to explore details
-- Filter data by date ranges (today, last week, last month, custom range)
-- Watch data update live in real-time as new information comes in
-- Upload data from CSV or JSON files
-- Export visualizations and data to PDF or CSV
-- Customize the dashboard layout by dragging and dropping different widgets
-- Works smoothly on tablets and desktop computers
-
-Data Management:
-- Store historical data so you can analyze trends over time
-- Handle large datasets without slowing down
-- Automatically calculate key metrics and trends
-- Refresh data on a schedule (hourly, daily, etc.)
-
-User Roles:
-- Viewers: can only see dashboards
-- Editors: can modify dashboards and settings
-- Admins: full control over users and data
-
-User Experience:
-- Professional interface similar to Google Analytics or Tableau
-- Clear visual hierarchy showing what's important
-- Intuitive controls that are easy to understand
-- Fast performance even with lots of data
-- Helpful loading states and error messages
-
-Technical Requirements:
-- Secure user authentication with different permission levels
-- Store data in a reliable database
-- Deploy online for team access
-
-Example use cases:
-- Sales dashboard showing revenue, top products, and customer trends
-- Social media analytics tracking engagement and follower growth
-- IoT sensor monitoring for temperature, humidity, or equipment status
-
-Target audience: Business teams, data analysts, or anyone who needs to understand their data through visual insights.
+Build an analytics dashboard: line/bar/pie charts + heatmaps, interactive filtering, date range selectors, CSV/JSON upload, drag-drop widget layout, user roles (viewer/editor/admin), PDF export.
 ```
 
-#### Employee Shift Scheduler
-**Starter Prompt:**
+#### Shift Scheduler
+Staff scheduling with availability, auto-scheduling algorithm, fairness tracking.
 ```
-Build a smart shift scheduling system that creates fair schedules automatically while respecting staff preferences and availability:
-
-Staff Management:
-- Add employees with their qualifications (certifications, skills, roles)
-- Set each person's availability for every day of the week and their shift preferences
-- View each employee's upcoming schedule and total hours
-
-Automatic Scheduling:
-- Generate schedules automatically that:
-  - Only assign people when they're available
-  - Match qualifications to shift requirements
-  - Balance workload fairly across multiple weeks (not just one week at a time)
-  - Avoid scheduling someone for multiple shifts on the same day
-  - Respect people's preferences when possible
-  - Track historical fairness so everyone gets their preferred shifts over time
-
-Shift Templates:
-- Create recurring weekly shift patterns (morning, afternoon, night, weekend)
-- Define how many people are needed for each shift
-- Specify what qualifications are required
-- Handle shifts that span multiple days
-
-Schedule Management:
-- View schedules across multiple weeks at once
-- Manually adjust assignments if needed (drag and drop)
-- Clear entire weeks and regenerate schedules
-- Remove individual assignments and fill them automatically
-- See visual warnings for conflicts or issues
-
-Fairness Dashboard:
-- Show how fairly preferences have been fulfilled across past weeks
-- Look ahead to see projected fairness for future schedules
-- Adjust the time window (1-12 weeks) to analyze different periods
-- Visual indicators for workload balance and preference scores
-
-User Experience:
-- Clean, professional interface focused on clarity
-- Color coding for different shift types
-- Visual indicators showing workload balance
-- Easy to spot scheduling conflicts
-- Export schedules to PDF or CSV for printing/sharing
-- Works on desktop and tablet
-
-Technical Requirements:
-- Store all staff data, shifts, and schedules in a database
-- Smart algorithm that creates fair, conflict-free schedules
-- Fast performance even with many employees and weeks of data
-
-Target audience: Small business managers, healthcare facilities, retail stores, or any organization that needs to create fair employee schedules while managing complex availability and preferences.
+Build a shift scheduler: employee profiles with qualifications + availability, auto-generate fair schedules, drag-drop adjustments, conflict warnings, fairness dashboard, PDF/CSV export.
 ```
 
 ---
 
 ### Bonus Challenge
 
-**Open Source Contribution Challenge**
+**Open Source Contribution** - Find a GitHub project you use, pick an issue or improvement, and submit a PR. Great for learning real codebases and professional workflows.
 
-Take a project that you use from GitHub, come up with an improvement, and submit a PR (pull request).
-
-**How to get started:**
-1. Find a project on GitHub that is interesting or useful to you
-2. Set up the project locally and explore the codebase
-3. Pick an existing issue or come up with an improvement (bug fix, feature, documentation, tests)
-4. Fork the repo, create a branch, and make your changes
-5. Write clear commit messages and test your changes
-6. Submit a pull request with a detailed description
-
-**This teaches you about:**
-- Reading and understanding existing codebases
-- Contributing to open source communities
-- Professional collaboration workflows
-- Git and version control best practices
-- Code review process and feedback incorporation
-
-**Recommended platforms to find projects:**
-- GitHub Explore (github.com/explore)
-- First Timers Only (firsttimersonly.com)
-- Good First Issue (goodfirstissue.dev)
-- Up For Grabs (up-for-grabs.net)
+**Find projects:** GitHub Explore, First Timers Only, Good First Issue, Up For Grabs
 
 ---
 
@@ -832,7 +686,7 @@ Take a project that you use from GitHub, come up with an improvement, and submit
 <tr>
 <td width="70%" valign="top">
 
-Share your work! The workshop repo is a living archive of our projects.
+**Share your work! The workshop repo is a living archive of our projects.**
 
 View submission instructions at:
 **[eisenbruch.github.io/vibe-coding-workshops](https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work)**
