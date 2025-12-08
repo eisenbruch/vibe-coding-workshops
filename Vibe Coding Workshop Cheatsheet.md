@@ -70,8 +70,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 [8. Extended AI Tools Directory](#extended-ai-tools-directory)
    - [Vibe Coding & Development Tools](#vibe-coding--development-tools)
-   - [Image Generation & Editing](#image-generation--editing)
-   - [Video Generation & Editing](#video-generation--editing)
+   - [Image & Video Generation](#image--video-generation)
    - [Audio & Music](#audio--music)
    - [AI Chat & Search](#ai-chat--search)
    - [AI Infrastructure & Development](#ai-infrastructure--development)
@@ -763,7 +762,7 @@ Collaborative browser-based IDE with AI assistance, instant deployment, and mult
 
 ---
 
-### Image Generation & Editing
+### Image & Video
 
 <table>
 <tr>
@@ -772,11 +771,26 @@ Collaborative browser-based IDE with AI assistance, instant deployment, and mult
 **Google Nano Banana** - [aistudio.google.com](https://aistudio.google.com/models/gemini-2-5-flash-image)<br/>
 One of the newest and best image generation and editing models.
 
+**Google Veo 3** - [deepmind.google](https://deepmind.google/models/veo/)<br/>
+Advanced video generation with 8-second clips and synchronized native audio
+
+**Google Flow** - [labs.google/fx/tools/flow](https://labs.google/fx/tools/flow)<br/>
+Google's experimental video generation tool from Google Labs FX
+
+**Kling AI** - [klingai.com](https://klingai.com/)<br/>
+Versatile image and video platform with reference-based generation, video restyling, next shot generation, and start/end frame controls
+
+**Runway** - [runwayml.com](https://runwayml.com/)<br/>
+Advanced AI video platform with Gen-4 models for text/image-to-video
+
 **Midjourney** - [midjourney.com](https://www.midjourney.com/)<br/>
 Discord-based platform creating high-quality artistic images from text prompts
 
 **DALL-E** - [openai.com/dall-e](https://openai.com/dall-e)<br/>
 OpenAI's image generator for detailed images from natural language
+
+**Pika** - [pika.art](https://pika.art/)<br/>
+AI video generator creating cinematic clips up to 10 seconds
 
 **Decohere** - [decohere.ai](https://www.decohere.ai/)<br/>
 Generates characters, images, and videos from text and image prompts
@@ -784,53 +798,8 @@ Generates characters, images, and videos from text and image prompts
 **Stability AI** - [stability.ai](https://stability.ai/)<br/>
 Creator of Stable Diffusion for multimodal generative AI
 
-</td>
-<td width="50%" valign="top">
-
-**Catbird** - [catbird.ai](https://www.catbird.ai/)  *(Defunct)*<br/>
-Multi-model generator creating images from 15+ AI models simultaneously
-
 **Leonardo.ai** - [leonardo.ai](https://leonardo.ai/)<br/>
 Fine-tuned models for game assets, concept art, and production visuals
-
-**Fooocus** - [GitHub](https://github.com/lllyasviel/Fooocus)<br/>
-Open-source Stable Diffusion interface with advanced inpainting
-
-**AUTOMATIC1111** - [GitHub](https://github.com/AUTOMATIC1111/stable-diffusion-webui)<br/>
-Popular web interface for Stable Diffusion with extensive features
-
-**Adobe Express Background Remover** - [adobe.com](https://www.adobe.com/express/feature/ai/image/remove-background)<br/>
-Free AI tool for instant background removal with transparent PNG output
-
-</td>
-</tr>
-</table>
-
----
-
-### Video Generation & Editing
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**Runway** - [runwayml.com](https://runwayml.com/)<br/>
-Advanced AI video platform with Gen-4 models for text/image-to-video
-
-**Pika** - [pika.art](https://pika.art/)<br/>
-AI video generator creating cinematic clips up to 10 seconds
-
-**Adobe Firefly Video** - [firefly.adobe.com](https://firefly.adobe.com/upload/video-generation)<br/>
-Text/image-to-video with 1080p output and commercially safe generation
-
-**Hailuo AI** - [hailuoai.video](https://hailuoai.video/)<br/>
-Chinese AI video generator creating 5-6 second HD videos
-
-**Google Veo 3** - [deepmind.google](https://deepmind.google/models/veo/)<br/>
-Advanced video generation with 8-second clips and synchronized native audio
-
-**Google Flow** - [labs.google/fx/tools/flow](https://labs.google/fx/tools/flow)<br/>
-Google's experimental video generation tool from Google Labs FX
 
 **Hedra** - [hedra.com](https://www.hedra.com/)<br/>
 Specializes in talking avatar generation with realistic lip-sync
@@ -844,20 +813,32 @@ AI avatar platform for professional spokesperson videos
 **Synthesia** - [synthesia.io](https://www.synthesia.io/)<br/>
 AI presenters for training videos and marketing content
 
+**Adobe Firefly Video** - [firefly.adobe.com](https://firefly.adobe.com/upload/video-generation)<br/>
+Text/image-to-video with 1080p output and commercially safe generation
+
+**Hailuo AI** - [hailuoai.video](https://hailuoai.video/)<br/>
+Chinese AI video generator creating 5-6 second HD videos
+
+**Higgsfield** - [higgsfield.ai](https://www.higgsfield.ai/)<br/>
+Video and image generation with a focus on impossible effects and transitions
+
+**Fooocus** - [GitHub](https://github.com/lllyasviel/Fooocus)<br/>
+Open-source Stable Diffusion interface with advanced inpainting
+
+**AUTOMATIC1111** - [GitHub](https://github.com/AUTOMATIC1111/stable-diffusion-webui)<br/>
+Popular web interface for Stable Diffusion with extensive features
+
 **Switchlight** - [switchlight.beeble.ai](https://www.switchlight.beeble.ai/)<br/>
 AI-powered video relighting tool with PBR maps
+
+**Adobe Express Image Background Remover** - [adobe.com](https://www.adobe.com/express/feature/ai/image/remove-background)<br/>
+Free AI tool for instant background removal with transparent PNG output
 
 **Adobe Express Video Background Remover** - [adobe.com](https://www.adobe.com/express/feature/ai/video/remove-background)<br/>
 Remove video backgrounds with transparent MP4 output
 
 **VideoBGRemover** - [videobgremover.com](https://videobgremover.com/)<br/>
 Professional background removal for videos up to 3 hours
-
-**Innova AI Video Background Removal** - [Hugging Face](https://huggingface.co/spaces/innova-ai/video-background-removal)<br/>
-Free background removal and replacement tool
-
-**Higgsfield** - [higgsfield.ai](https://www.higgsfield.ai/)<br/>
-Video and image generation with a focus on impossible effects and transitions
 
 </td>
 </tr>
@@ -1060,6 +1041,9 @@ Many AI tools in one chatbot
 
 **Browserbase** - [browserbase.com](https://www.browserbase.com/)<br/>
 Developer infrastructure for headless browsers and AI agents
+
+**n8n** - [n8n.io](https://n8n.io/)<br/>
+Flexible AI workflow automation with visual node-based editor and 400+ integrations
 
 </td>
 </tr>
