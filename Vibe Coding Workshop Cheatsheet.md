@@ -1,6 +1,6 @@
 # Vibe Coding Workshop Cheatsheet
 *By Noah Eisenbruch - noaheisenbruch@gmail.com* \
-*Last updated: December 5, 2025*
+*Last updated: December 11, 2025*
 
 
 <table>
@@ -54,9 +54,10 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 [4. Good Prompts vs Bad Prompts](#good-prompts-vs-bad-prompts)
 
 [5. Working with AI Coding Agents](#working-with-ai-coding-agents)
-   - [CLI Commands](#claude-code-cli-commands)
-   - [Essential Techniques](#vibe-coding-essential-techniques)
-   - [Advanced Features](#claude-code-advanced-features)
+   - [Vibe Coding Essential Techniques](#vibe-coding-essential-techniques)
+   - [Getting Started with Claude Code](#getting-started-with-claude-code)
+   - [Claude Code CLI Commands](#claude-code-cli-commands)
+   - [Claude Code Advanced Features](#claude-code-advanced-features)
 
 </td>
 <td width="50%" valign="top">
@@ -265,19 +266,19 @@ All projects exist somewhere on this spectrum between two approaches:
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │   MINIMAL INFO                                              COMPREHENSIVE   │
-│   Iterative Refinement                                      Brief → Execute │
+│   Iterative Refinement                                    Brief → Execute   │
 │                                                                             │
-│   ○────────────────────────────────────────────────────────────────────○   │
-│   │                              │                                     │   │
-│   ▼                              ▼                                     ▼   │
-│   Nerktendo               Weather Worsener                      DomainFlip  │
-│                               LinkPee                                       │
+│   ○─────────────────────────────────────────────────────────────────────○   │
+│   │                                 │                                   │   │
+│   ▼                                 ▼                                   ▼   │
+│   Nerktendo                  Weather Worsener                  DomainFlip   │
+│                                  LinkPee                                    │
 │                                                                             │
-│   • Start broad                                         • Define everything │
-│   • Refine through                                        upfront           │
-│     conversation                                        • Features, style,  │
-│   • Great for exploring                                   structure, rules  │
-│   • Lower barrier                                       • Faster to polish  │
+│   • Start broad                                        • Define everything  │
+│   • Refine through                                       upfront            │
+│     conversation                                       • Features, style,   │
+│   • Great for exploring                                  structure, rules   │
+│   • Lower barrier                                      • Faster to polish   │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -319,8 +320,8 @@ All projects exist somewhere on this spectrum between two approaches:
 **How to do it:** Use an LLM (not a coding AI) to create comprehensive planning documents before you start coding.
 
 **DomainFlip workflow:**
-1. **Planning phase**: I described my idea with all the details I had to an LLM chatbot
-2. **Document creation**: The AI asked clarifying questions, then developed 8 detailed documents covering:
+1. **Planning phase**: I asked the an AI chatbot to create a comprehensive plan for building a website that is designed to be passed to an AI coding agent so it would know exactly what to build without any room for interpretation. I described my idea with all the details I had thought of so far and asked the chatbot to help build out the idea into a full company and product plan.
+2. **Document creation**: The AI asked clarifying questions to complete the product idea, then developed 8 detailed documents covering:
    - Project overview and goals
    - Technical architecture
    - Design specifications
@@ -358,9 +359,47 @@ All projects exist somewhere on this spectrum between two approaches:
 
 This section focuses on Claude Code but the concepts and techniques apply to all agents.
 
-### Getting Started
+### Vibe Coding Essential Techniques
+---
 
-**Requirement:** Claude Pro/Max subscription or Enterprise access (API credits supported but not recommended)
+### Interrupt When Needed
+Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap `esc`), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.
+
+### Self-Checking
+Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
+
+### Working Through Stubborn Bugs
+
+When you have a bug AI can't solve after multiple attempts:
+
+1. Use Claude thinking levels. Type: `think`, `think hard`, `think harder`, or `ultrathink`
+1. Try a different coding agent (e.g. ChatGPT Codex)
+1. Ask 2 different AIs the same question
+    1. Give each AI the other's response for analysis
+    1. Have both provide updated plans
+    1. Give both responses to a new agent for comprehensive summary
+    1. Have another new agent read and implement the solution
+
+### Debugging Workflow
+
+AI agents fix issues best when given all relevant information:
+
+1. Use browser DevTools Console to find errors and warnings: AI agents love reading errors and warnings
+2. Describe what you want and what the current issue is in full detail
+3. Provide full context especially if debugging in a fresh conversation
+
+### Beyond Coding
+
+Claude and other AI agents can help with more than just code if they have access to the right tools:
+
+- File and document organization
+- Obsidian note organization and project management
+- Data visualization
+- Research and repetitive tasks
+
+---
+
+### Getting Started with Claude Code
 
 ---
 
@@ -422,40 +461,6 @@ Once installed, navigate to your project directory and run `claude` to start.
 | `/review`  | Code review                                                              |
 
 > **💡 Tip:** Store important instructions in CLAUDE.md to prevent AI from doing unwanted things (overwriting data, unnecessary builds, etc.). CLAUDE.md files exist for your user and each individual project folder where you use Claude Code. Use this to your advantage - global knowledge vs project specific knowledge.
-
----
-
-## Vibe Coding Essential Techniques 
-
-### Interrupt When Needed
-Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap `esc`), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.
-
-### Self-Checking
-Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
-
-### Working Through Stubborn Bugs
-
-When you have a bug AI can't solve after multiple attempts:
-
-1. Use Claude thinking levels. Type: `think`, `think hard`, `think harder`, or `ultrathink` 
-1. Try a different coding agent (e.g. ChatGPT Codex)
-1. Ask 2 different AIs the same question
-    1. Give each AI the other's response for analysis
-    1. Have both provide updated plans
-    1. Give both responses to a new agent for comprehensive summary
-    1. Have another new agent read and implement the solution
-
-
----
-
-### Debugging Workflow
-
-AI agents fix issues best when given all relevant information:
-
-1. Use browser DevTool Console to look for errors and warnings: AI agents love reading errors and warnings
-2. Copy and paste HTML from the DevTool Element Inspector if unsure how to describe an issue
-3. Describe what you want and what the issue is in detail
-4. Provide full context especially if debugging in a fresh conversation
 
 ---
 
@@ -569,17 +574,6 @@ claude mcp list
 - Official servers: [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)
 - Community directory: [mcp.so](https://mcp.so)
 - Smithery: [smithery.ai](https://smithery.ai)
-
----
-
-### Beyond Coding
-
-Claude and other AI agents can help with more than just code if they have access to the right tools:
-
-- File and document organization
-- Obsidian integration through filesystem
-- Note analysis and knowledge management
-- Similar capabilities to IDE integration
 
 ---
 

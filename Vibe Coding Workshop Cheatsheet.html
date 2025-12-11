@@ -140,7 +140,7 @@
         <body class="vscode-body vscode-light">
             <h1 id="vibe-coding-workshop-cheatsheet">Vibe Coding Workshop Cheatsheet</h1>
 <p><em>By Noah Eisenbruch - <a href="mailto:noaheisenbruch@gmail.com">noaheisenbruch@gmail.com</a></em> <br>
-<em>Last updated: December 5, 2025</em></p>
+<em>Last updated: December 11, 2025</em></p>
 <table>
 <tr>
 <td width="70%" valign="top">
@@ -181,9 +181,10 @@ Please fill out our feedback form after the workshop:
 <p><a href="#good-prompts-vs-bad-prompts">4. Good Prompts vs Bad Prompts</a></p>
 <p><a href="#working-with-ai-coding-agents">5. Working with AI Coding Agents</a></p>
 <ul>
-<li><a href="#claude-code-cli-commands">CLI Commands</a></li>
-<li><a href="#vibe-coding-essential-techniques">Essential Techniques</a></li>
-<li><a href="#claude-code-advanced-features">Advanced Features</a></li>
+<li><a href="#vibe-coding-essential-techniques">Vibe Coding Essential Techniques</a></li>
+<li><a href="#getting-started-with-claude-code">Getting Started with Claude Code</a></li>
+<li><a href="#claude-code-cli-commands">Claude Code CLI Commands</a></li>
+<li><a href="#claude-code-advanced-features">Claude Code Advanced Features</a></li>
 </ul>
 </td>
 <td width="50%" valign="top">
@@ -401,19 +402,19 @@ Please fill out our feedback form after the workshop:
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │   MINIMAL INFO                                              COMPREHENSIVE   │
-│   Iterative Refinement                                      Brief → Execute │
+│   Iterative Refinement                                    Brief → Execute   │
 │                                                                             │
-│   ○────────────────────────────────────────────────────────────────────○   │
-│   │                              │                                     │   │
-│   ▼                              ▼                                     ▼   │
-│   Nerktendo               Weather Worsener                      DomainFlip  │
-│                               LinkPee                                       │
+│   ○─────────────────────────────────────────────────────────────────────○   │
+│   │                                 │                                   │   │
+│   ▼                                 ▼                                   ▼   │
+│   Nerktendo                  Weather Worsener                  DomainFlip   │
+│                                  LinkPee                                    │
 │                                                                             │
-│   • Start broad                                         • Define everything │
-│   • Refine through                                        upfront           │
-│     conversation                                        • Features, style,  │
-│   • Great for exploring                                   structure, rules  │
-│   • Lower barrier                                       • Faster to polish  │
+│   • Start broad                                        • Define everything  │
+│   • Refine through                                       upfront            │
+│     conversation                                       • Features, style,   │
+│   • Great for exploring                                  structure, rules   │
+│   • Lower barrier                                      • Faster to polish   │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
@@ -451,8 +452,8 @@ Please fill out our feedback form after the workshop:
 <p><strong>How to do it:</strong> Use an LLM (not a coding AI) to create comprehensive planning documents before you start coding.</p>
 <p><strong>DomainFlip workflow:</strong></p>
 <ol>
-<li><strong>Planning phase</strong>: I described my idea with all the details I had to an LLM chatbot</li>
-<li><strong>Document creation</strong>: The AI asked clarifying questions, then developed 8 detailed documents covering:
+<li><strong>Planning phase</strong>: I asked the an AI chatbot to create a comprehensive plan for building a website that is designed to be passed to an AI coding agent so it would know exactly what to build without any room for interpretation. I described my idea with all the details I had thought of so far and asked the chatbot to help build out the idea into a full company and product plan.</li>
+<li><strong>Document creation</strong>: The AI asked clarifying questions to complete the product idea, then developed 8 detailed documents covering:
 <ul>
 <li>Project overview and goals</li>
 <li>Technical architecture</li>
@@ -512,8 +513,43 @@ Please fill out our feedback form after the workshop:
 <hr>
 <h2 id="working-with-ai-coding-agents">Working with AI Coding Agents</h2>
 <p>This section focuses on Claude Code but the concepts and techniques apply to all agents.</p>
-<h3 id="getting-started">Getting Started</h3>
-<p><strong>Requirement:</strong> Claude Pro/Max subscription or Enterprise access (API credits supported but not recommended)</p>
+<h3 id="vibe-coding-essential-techniques">Vibe Coding Essential Techniques</h3>
+<hr>
+<h3 id="interrupt-when-needed">Interrupt When Needed</h3>
+<p>Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap <code>esc</code>), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.</p>
+<h3 id="self-checking">Self-Checking</h3>
+<p>Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).</p>
+<h3 id="working-through-stubborn-bugs">Working Through Stubborn Bugs</h3>
+<p>When you have a bug AI can't solve after multiple attempts:</p>
+<ol>
+<li>Use Claude thinking levels. Type: <code>think</code>, <code>think hard</code>, <code>think harder</code>, or <code>ultrathink</code></li>
+<li>Try a different coding agent (e.g. ChatGPT Codex)</li>
+<li>Ask 2 different AIs the same question
+<ol>
+<li>Give each AI the other's response for analysis</li>
+<li>Have both provide updated plans</li>
+<li>Give both responses to a new agent for comprehensive summary</li>
+<li>Have another new agent read and implement the solution</li>
+</ol>
+</li>
+</ol>
+<h3 id="debugging-workflow">Debugging Workflow</h3>
+<p>AI agents fix issues best when given all relevant information:</p>
+<ol>
+<li>Use browser DevTools Console to find errors and warnings: AI agents love reading errors and warnings</li>
+<li>Describe what you want and what the current issue is in full detail</li>
+<li>Provide full context especially if debugging in a fresh conversation</li>
+</ol>
+<h3 id="beyond-coding">Beyond Coding</h3>
+<p>Claude and other AI agents can help with more than just code if they have access to the right tools:</p>
+<ul>
+<li>File and document organization</li>
+<li>Obsidian note organization and project management</li>
+<li>Data visualization</li>
+<li>Research and repetitive tasks</li>
+</ul>
+<hr>
+<h3 id="getting-started-with-claude-code">Getting Started with Claude Code</h3>
 <hr>
 <h4 id="option-1-vs-code-extension">Option 1: VS Code Extension</h4>
 <ol>
@@ -599,35 +635,6 @@ Please fill out our feedback form after the workshop:
 <blockquote>
 <p><strong>💡 Tip:</strong> Store important instructions in <a href="http://CLAUDE.html">CLAUDE.md</a> to prevent AI from doing unwanted things (overwriting data, unnecessary builds, etc.). <a href="http://CLAUDE.html">CLAUDE.md</a> files exist for your user and each individual project folder where you use Claude Code. Use this to your advantage - global knowledge vs project specific knowledge.</p>
 </blockquote>
-<hr>
-<h2 id="vibe-coding-essential-techniques">Vibe Coding Essential Techniques</h2>
-<h3 id="interrupt-when-needed">Interrupt When Needed</h3>
-<p>Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap <code>esc</code>), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.</p>
-<h3 id="self-checking">Self-Checking</h3>
-<p>Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).</p>
-<h3 id="working-through-stubborn-bugs">Working Through Stubborn Bugs</h3>
-<p>When you have a bug AI can't solve after multiple attempts:</p>
-<ol>
-<li>Use Claude thinking levels. Type: <code>think</code>, <code>think hard</code>, <code>think harder</code>, or <code>ultrathink</code></li>
-<li>Try a different coding agent (e.g. ChatGPT Codex)</li>
-<li>Ask 2 different AIs the same question
-<ol>
-<li>Give each AI the other's response for analysis</li>
-<li>Have both provide updated plans</li>
-<li>Give both responses to a new agent for comprehensive summary</li>
-<li>Have another new agent read and implement the solution</li>
-</ol>
-</li>
-</ol>
-<hr>
-<h3 id="debugging-workflow">Debugging Workflow</h3>
-<p>AI agents fix issues best when given all relevant information:</p>
-<ol>
-<li>Use browser DevTool Console to look for errors and warnings: AI agents love reading errors and warnings</li>
-<li>Copy and paste HTML from the DevTool Element Inspector if unsure how to describe an issue</li>
-<li>Describe what you want and what the issue is in detail</li>
-<li>Provide full context especially if debugging in a fresh conversation</li>
-</ol>
 <hr>
 <h3 id="claude-code-advanced-features">Claude Code Advanced Features</h3>
 <h4 id="claude-agents-tasks">Claude Agents (Tasks)</h4>
@@ -728,15 +735,6 @@ claude mcp list
 <li>Official servers: <a href="https://github.com/modelcontextprotocol/servers">github.com/modelcontextprotocol/servers</a></li>
 <li>Community directory: <a href="https://mcp.so">mcp.so</a></li>
 <li>Smithery: <a href="https://smithery.ai">smithery.ai</a></li>
-</ul>
-<hr>
-<h3 id="beyond-coding">Beyond Coding</h3>
-<p>Claude and other AI agents can help with more than just code if they have access to the right tools:</p>
-<ul>
-<li>File and document organization</li>
-<li>Obsidian integration through filesystem</li>
-<li>Note analysis and knowledge management</li>
-<li>Similar capabilities to IDE integration</li>
 </ul>
 <hr>
 <h2 id="project-ideas">Project Ideas</h2>
