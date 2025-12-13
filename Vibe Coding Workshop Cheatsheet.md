@@ -117,7 +117,10 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
-**8. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
+**8. Optimal Rotation Blender Addon**
+- **Type:** Blender addon that finds the optimal rotation for any 3D object to minimize its bounding box
+
+**9. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
 - **Type:** Interactive map and database service with user focused features
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
@@ -681,10 +684,16 @@ Build a shift scheduler: employee profiles with qualifications + availability, a
 
 **Share your work! The workshop repo is a living archive of our projects.**
 
-View submission instructions at:
-**[eisenbruch.github.io/vibe-coding-workshops](https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work)**
+Choose the method that matches your comfort level. Your AI assistant can help!
 
-Your AI assistant can guide you through the Git/GitHub process.
+**Beginner:** Zip your project → Email to noaheisenbruch@gmail.com
+
+**Intermediate:** Upload to your GitHub → Email the repo link
+
+**Advanced:** Fork the repo → Add your project → Submit a Pull Request
+
+Full instructions: **[eisenbruch.github.io/vibe-coding-workshops](https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work)**
+
 </td>
 <td width="30%" valign="top">
 <img src="images/github-site-qr.png" alt="GitHub QR Code" width="128">
@@ -726,6 +735,9 @@ AI-native code editor built on VS Code with chat, inline editing, and codebase u
 **GitHub Copilot** - [github.com/features/copilot](https://github.com/features/copilot)<br/>
 AI pair programmer integrated into VS Code, JetBrains IDEs, and other editors
 
+**Replit** - [replit.com](https://replit.com/)<br/>
+Collaborative browser-based IDE with AI assistance, instant deployment, and multiplayer coding
+
 </td>
 <td width="50%" valign="top">
 
@@ -746,9 +758,6 @@ Fast AI code completion with 1 million token context window
 
 **Aider** - [aider.chat](https://aider.chat/)<br/>
 Command-line AI coding assistant that edits code in your local git repository
-
-**Replit** - [replit.com](https://replit.com/)<br/>
-Collaborative browser-based IDE with AI assistance, instant deployment, and multiplayer coding
 
 </td>
 </tr>
@@ -798,14 +807,14 @@ Fine-tuned models for game assets, concept art, and production visuals
 **Hedra** - [hedra.com](https://www.hedra.com/)<br/>
 Specializes in talking avatar generation with realistic lip-sync
 
-</td>
-<td width="50%" valign="top">
-
 **HeyGen** - [heygen.com](https://www.heygen.com/)<br/>
 AI avatar platform for professional spokesperson videos
 
 **Synthesia** - [synthesia.io](https://www.synthesia.io/)<br/>
 AI presenters for training videos and marketing content
+
+</td>
+<td width="50%" valign="top">
 
 **Adobe Firefly Video** - [firefly.adobe.com](https://firefly.adobe.com/upload/video-generation)<br/>
 Text/image-to-video with 1080p output and commercially safe generation
@@ -991,11 +1000,11 @@ ChatGPT in a browser with memory and automation abilities
 **Perplexity Comet** - [perplexity.ai/comet](https://www.perplexity.ai/comet)<br/>
 AI-first browser with autonomous task execution and integrated search
 
-</td>
-<td width="50%" valign="top">
-
 **Opera Neon** - [operaneon.com](https://www.operaneon.com/)<br/>
 Premium agentic browser with Chat, Do, and Make functions
+
+</td>
+<td width="50%" valign="top">
 
 **Fellou** - [fellou.ai](https://fellou.ai/)<br/>
 Self-driving browser with deep search and agentic memory

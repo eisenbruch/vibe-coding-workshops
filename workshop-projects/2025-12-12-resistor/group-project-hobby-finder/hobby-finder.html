@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ye Olde Hobby Finder — Discover Thine Pursuits</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #f4e4bc;
+            --parchment-dark: #e8d4a8;
+            --parchment-light: #faf3e3;
+            --ink: #2c1810;
+            --ink-light: #4a3728;
+            --ink-faded: #6b5344;
+            --gold: #c9a227;
+            --gold-dark: #8b6914;
+            --crimson: #8b1538;
+            --forest: #2d5a27;
+            --royal-blue: #1e3a5f;
+            --border-ornate: #8b7355;
+            --shadow-sepia: rgba(44, 24, 16, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IM Fell English', serif;
+            background: var(--parchment);
+            color: var(--ink);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Parchment texture background */
+        .atmosphere {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 21, 56, 0.05) 0%, transparent 50%),
+                linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment) 50%, var(--parchment-dark) 100%);
+        }
+
+        /* Paper grain overlay */
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeUp 0.8s ease-out;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border-ornate);
+            position: relative;
+        }
+
+        header::after {
+            content: '❧';
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--parchment);
+            padding: 0 20px;
+            color: var(--gold-dark);
+            font-size: 1.5rem;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow:
+                0 4px 12px var(--shadow-sepia),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            border: 3px solid var(--gold-dark);
+        }
+
+        .logo-text {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 32px;
+            color: var(--ink);
+            text-shadow: 1px 1px 0 var(--parchment-light);
+        }
+
+        header h1 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--ink);
+        }
+
+        header h1 em {
+            font-style: normal;
+            color: var(--crimson);
+            font-family: 'UnifrakturMaguntia', cursive;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: var(--ink-faded);
+            max-width: 500px;
+            margin: 0 auto;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Navigation Tabs */
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            animation: fadeUp 0.8s ease-out 0.1s both;
+        }
+
+        .nav-pill {
+            padding: 12px 28px;
+            background: var(--parchment-light);
+            border: 2px solid var(--border-ornate);
+            border-radius: 4px;
+            color: var(--ink-light);
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-pill::before {
+            content: '✦';
+            position: absolute;
+            left: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--gold-dark);
+        }
+
+        .nav-pill:hover {
+            background: var(--parchment-dark);
+            color: var(--ink);
+            border-color: var(--gold-dark);
+        }
+
+        .nav-pill.active {
+            background: var(--ink);
+            color: var(--parchment);
+            border-color: var(--ink);
+            box-shadow: 0 4px 12px var(--shadow-sepia);
+        }
+
+        .nav-pill.active::before {
+            opacity: 0;
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            animation: fadeUp 0.5s ease-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Swipe Section */
+        .swipe-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .card-stack {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            height: 520px;
+            perspective: 1000px;
+        }
+
+        .hobby-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--parchment-light);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: grab;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+            will-change: transform;
+            border: 3px solid var(--border-ornate);
+            box-shadow:
+                0 8px 32px var(--shadow-sepia),
+                inset 0 0 60px rgba(139, 115, 85, 0.1);
+        }
+
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--border-ornate);
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .hobby-card:active {
+            cursor: grabbing;
+        }
+
+        .hobby-card.swiping-left {
+            animation: swipeLeft 0.5s ease-out forwards;
+        }
+
+        .hobby-card.swiping-right {
+            animation: swipeRight 0.5s ease-out forwards;
+        }
+
+        @keyframes swipeLeft {
+            to { transform: translateX(-150%) rotate(-30deg); opacity: 0; }
+        }
+
+        @keyframes swipeRight {
+            to { transform: translateX(150%) rotate(30deg); opacity: 0; }
+        }
+
+        .hobby-card:nth-child(1) { z-index: 3; }
+        .hobby-card:nth-child(2) { z-index: 2; transform: scale(0.95) translateY(16px); }
+        .hobby-card:nth-child(3) { z-index: 1; transform: scale(0.9) translateY(32px); }
+
+        .card-image {
+            height: 260px;
+            background: linear-gradient(180deg, var(--parchment-dark) 0%, var(--parchment) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--border-ornate);
+        }
+
+        .card-image::before {
+            content: '✧ ✦ ✧';
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: var(--gold-dark);
+            letter-spacing: 8px;
+        }
+
+        .card-content {
+            padding: 20px 24px;
+            background: var(--parchment-light);
+        }
+
+        .card-category {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--crimson);
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: var(--ink);
+        }
+
+        .card-description {
+            color: var(--ink-faded);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: var(--parchment-dark);
+            border: 1px solid var(--border-ornate);
+            border-radius: 2px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Swipe Buttons */
+        .swipe-actions {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .swipe-btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 3px solid;
+            background: var(--parchment-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px var(--shadow-sepia);
+        }
+
+        .swipe-btn.pass {
+            border-color: var(--crimson);
+            color: var(--crimson);
+        }
+
+        .swipe-btn.pass:hover {
+            background: var(--crimson);
+            color: var(--parchment);
+            transform: scale(1.1);
+        }
+
+        .swipe-btn.like {
+            border-color: var(--forest);
+            color: var(--forest);
+        }
+
+        .swipe-btn.like:hover {
+            background: var(--forest);
+            color: var(--parchment);
+            transform: scale(1.1);
+        }
+
+        .swipe-btn.super {
+            width: 52px;
+            height: 52px;
+            border-color: var(--gold);
+            color: var(--gold-dark);
+            font-size: 22px;
+        }
+
+        .swipe-btn.super:hover {
+            background: var(--gold);
+            color: var(--ink);
+            transform: scale(1.1);
+        }
+
+        /* Decision Section */
+        .decision-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .decision-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .decision-header h2 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+
+        .decision-header p {
+            color: var(--ink-faded);
+            font-style: italic;
+        }
+
+        .matchup {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 700px) {
+            .matchup {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        .choice-card {
+            background: var(--parchment-light);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 3px solid var(--border-ornate);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px var(--shadow-sepia);
+        }
+
+        .choice-card::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border: 1px solid var(--border-ornate);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .choice-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px var(--shadow-sepia);
+        }
+
+        .choice-card .emoji {
+            font-size: 64px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .choice-card h3 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            color: var(--ink);
+        }
+
+        .choice-card p {
+            color: var(--ink-faded);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        .vs-badge {
+            width: 56px;
+            height: 56px;
+            background: var(--ink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.1rem;
+            color: var(--gold);
+            border: 3px solid var(--gold-dark);
+            box-shadow: 0 4px 12px var(--shadow-sepia);
+        }
+
+        .shuffle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto;
+            padding: 14px 32px;
+            background: var(--parchment-light);
+            border: 2px solid var(--border-ornate);
+            border-radius: 4px;
+            color: var(--ink);
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .shuffle-btn:hover {
+            background: var(--ink);
+            color: var(--parchment);
+            border-color: var(--ink);
+            transform: translateY(-2px);
+        }
+
+        /* Liked Section */
+        .liked-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .liked-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .liked-header h2 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+
+        .liked-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: var(--parchment-light);
+            border: 2px solid var(--border-ornate);
+            border-radius: 4px;
+            color: var(--ink-faded);
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .liked-count span {
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        .liked-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .liked-item {
+            background: var(--parchment-light);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            border: 2px solid var(--border-ornate);
+            transition: all 0.3s ease;
+            animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 12px var(--shadow-sepia);
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .liked-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .liked-item .emoji {
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .liked-item-content h4 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.15rem;
+            margin-bottom: 4px;
+            color: var(--ink);
+        }
+
+        .liked-item-content p {
+            color: var(--ink-faded);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .remove-btn {
+            padding: 6px 14px;
+            background: transparent;
+            border: 1px solid var(--crimson);
+            border-radius: 2px;
+            color: var(--crimson);
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .remove-btn:hover {
+            background: var(--crimson);
+            color: var(--parchment);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--ink-faded);
+        }
+
+        .empty-state .emoji {
+            font-size: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.6rem;
+            color: var(--ink-light);
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-style: italic;
+        }
+
+        /* Results Banner */
+        .result-banner {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--parchment-light);
+            border: 3px solid var(--gold);
+            border-radius: 8px;
+            padding: 20px 32px;
+            z-index: 100;
+            animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 60px var(--shadow-sepia);
+        }
+
+        .result-banner.show {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+
+        .result-banner .emoji {
+            font-size: 48px;
+        }
+
+        .result-banner-content h4 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--ink);
+        }
+
+        .result-banner-content p {
+            color: var(--forest);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .result-banner .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            background: var(--parchment-dark);
+            border: 1px solid var(--border-ornate);
+            border-radius: 50%;
+            color: var(--ink-faded);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-banner .close-btn:hover {
+            background: var(--ink);
+            color: var(--parchment);
+        }
+
+        /* Indicator overlays */
+        .swipe-indicator {
+            position: absolute;
+            top: 20px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.3rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+            background: var(--parchment-light);
+        }
+
+        .swipe-indicator.left {
+            left: 20px;
+            border: 3px solid var(--crimson);
+            color: var(--crimson);
+            transform: rotate(-12deg);
+        }
+
+        .swipe-indicator.right {
+            right: 20px;
+            border: 3px solid var(--forest);
+            color: var(--forest);
+            transform: rotate(12deg);
+        }
+
+        .hobby-card.dragging-left .swipe-indicator.left,
+        .hobby-card.dragging-right .swipe-indicator.right {
+            opacity: 1;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            width: 100%;
+            max-width: 380px;
+            margin-bottom: 16px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--parchment-dark);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-ornate);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--ink-faded);
+            margin-top: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="atmosphere"></div>
+    <div class="grain"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">⚔️</div>
+                <span class="logo-text">Ye Olde Hobby Finder</span>
+            </div>
+            <h1>Discover Thine <em>Calling</em></h1>
+            <p>Peruse ye pursuits of leisure, duel thy favourites in noble combat, and uncover what doth truly stir thy spirit.</p>
+        </header>
+
+        <nav class="nav-pills">
+            <button class="nav-pill active" data-section="swipe">Peruse</button>
+            <button class="nav-pill" data-section="decide">Duel</button>
+            <button class="nav-pill" data-section="liked">Thy Collection <span id="liked-badge"></span></button>
+        </nav>
+
+        <!-- Swipe Section -->
+        <section class="section active" id="swipe-section">
+            <div class="swipe-container">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text"><span id="cards-seen">0</span> of <span id="total-cards">0</span> pursuits examined</div>
+                </div>
+
+                <div class="card-stack" id="card-stack">
+                    <!-- Cards injected by JS -->
+                </div>
+
+                <div class="swipe-actions">
+                    <button class="swipe-btn pass" id="btn-pass" title="Not for me">✕</button>
+                    <button class="swipe-btn super" id="btn-super" title="Super like">★</button>
+                    <button class="swipe-btn like" id="btn-like" title="Interested!">♥</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decide Section -->
+        <section class="section" id="decide-section">
+            <div class="decision-container">
+                <div class="decision-header">
+                    <h2>A Noble Duel of Pursuits</h2>
+                    <p>Choose which doth call unto thee with greater fervour</p>
+                </div>
+
+                <div class="matchup" id="matchup">
+                    <!-- Choices injected by JS -->
+                </div>
+
+                <button class="shuffle-btn" id="shuffle-btn">
+                    <span>🎲</span> Summon New Challengers
+                </button>
+            </div>
+        </section>
+
+        <!-- Liked Section -->
+        <section class="section" id="liked-section">
+            <div class="liked-container">
+                <div class="liked-header">
+                    <h2>Thy Royal Collection</h2>
+                    <div class="liked-count">
+                        <span id="saved-count">0</span> pursuits claimed
+                    </div>
+                </div>
+
+                <div class="liked-grid" id="liked-grid">
+                    <!-- Liked items injected by JS -->
+                </div>
+
+                <div class="empty-state" id="empty-state">
+                    <div class="emoji">📜</div>
+                    <h3>Thy Scroll Remains Empty</h3>
+                    <p>Venture forth and peruse ye pursuits! Bestow thy favour upon those which please thee.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Result Banner -->
+    <div class="result-banner" id="result-banner">
+        <button class="close-btn" id="close-banner">×</button>
+        <div class="emoji" id="result-emoji"></div>
+        <div class="result-banner-content">
+            <h4 id="result-title"></h4>
+            <p>Hath been added to thy collection!</p>
+        </div>
+    </div>
+
+    <script>
+        // Hobby database
+        const hobbies = [
+            { id: 1, name: "Photography", emoji: "📷", category: "Creative", description: "Capture moments and tell stories through your lens. Start with your phone and grow from there.", tags: ["Solo", "Outdoors", "Tech"] },
+            { id: 2, name: "Gardening", emoji: "🌱", category: "Nature", description: "Grow your own plants, vegetables, or flowers. Therapeutic and rewarding with visible progress.", tags: ["Solo", "Outdoors", "Relaxing"] },
+            { id: 3, name: "Cooking", emoji: "👨‍🍳", category: "Culinary", description: "Master cuisines from around the world. Feed yourself and impress others.", tags: ["Solo", "Creative", "Practical"] },
+            { id: 4, name: "Rock Climbing", emoji: "🧗", category: "Adventure", description: "Scale walls indoors or outdoors. Full-body workout that's easier on joints than running.", tags: ["Active", "Social", "Challenging"] },
+            { id: 5, name: "Woodworking", emoji: "🪚", category: "Crafts", description: "Build furniture, decor, or art from wood. Satisfying to create lasting, functional pieces.", tags: ["Solo", "Creative", "Hands-on"] },
+            { id: 6, name: "Board Games", emoji: "🎲", category: "Social", description: "Strategy, storytelling, and socializing. Modern board games are incredibly diverse.", tags: ["Social", "Strategic", "Indoor"] },
+            { id: 7, name: "Astronomy", emoji: "🔭", category: "Science", description: "Explore the cosmos from your backyard. Start with just your eyes, then maybe a telescope.", tags: ["Solo", "Educational", "Outdoors"] },
+            { id: 8, name: "Cycling", emoji: "🚴", category: "Fitness", description: "Low-impact cardio that takes you places. Road, mountain, or casual—pick your style.", tags: ["Active", "Outdoors", "Solo/Social"] },
+            { id: 9, name: "Writing", emoji: "✍️", category: "Creative", description: "Journal, blog, fiction, or poetry. Process thoughts and create worlds with words.", tags: ["Solo", "Creative", "Flexible"] },
+            { id: 10, name: "Pottery", emoji: "🏺", category: "Crafts", description: "Shape clay into functional art. Meditative process with tangible results.", tags: ["Creative", "Relaxing", "Hands-on"] },
+            { id: 11, name: "Swimming", emoji: "🏊", category: "Fitness", description: "Zero-impact full-body exercise. Perfect for those whose bodies need gentler activities.", tags: ["Active", "Solo", "Low-impact"] },
+            { id: 12, name: "Learning Languages", emoji: "🗣️", category: "Educational", description: "Open doors to new cultures and connections. Apps make it easier than ever to start.", tags: ["Educational", "Flexible", "Social"] },
+            { id: 13, name: "Brewing", emoji: "🍺", category: "Culinary", description: "Craft your own beer, cider, or kombucha. Science meets art meets delicious results.", tags: ["Creative", "Social", "Hands-on"] },
+            { id: 14, name: "Birdwatching", emoji: "🐦", category: "Nature", description: "Discover the birds around you. Peaceful, gets you outdoors, and surprisingly engaging.", tags: ["Outdoors", "Relaxing", "Educational"] },
+            { id: 15, name: "Music Production", emoji: "🎹", category: "Creative", description: "Create beats, songs, or soundscapes. Software makes entry easier than ever.", tags: ["Creative", "Solo", "Tech"] },
+            { id: 16, name: "Hiking", emoji: "🥾", category: "Adventure", description: "Explore trails near and far. Scalable difficulty from gentle walks to challenging peaks.", tags: ["Active", "Outdoors", "Solo/Social"] },
+            { id: 17, name: "Chess", emoji: "♟️", category: "Strategic", description: "Ancient game, endless depth. Play online or in person, at any skill level.", tags: ["Strategic", "Solo/Social", "Mental"] },
+            { id: 18, name: "Yoga", emoji: "🧘", category: "Wellness", description: "Flexibility, strength, and mindfulness combined. Gentle on joints, good for the mind.", tags: ["Active", "Relaxing", "Flexible"] },
+            { id: 19, name: "Leatherworking", emoji: "🧵", category: "Crafts", description: "Create wallets, belts, bags, and more. Durable projects that last generations.", tags: ["Creative", "Hands-on", "Solo"] },
+            { id: 20, name: "Podcasting", emoji: "🎙️", category: "Creative", description: "Share your voice and ideas. Interview interesting people or explore topics you love.", tags: ["Creative", "Social", "Tech"] },
+            { id: 21, name: "Fishing", emoji: "🎣", category: "Nature", description: "Patience, nature, and occasional triumph. Relaxing way to spend time outdoors.", tags: ["Outdoors", "Relaxing", "Solo/Social"] },
+            { id: 22, name: "Drawing", emoji: "✏️", category: "Creative", description: "Express ideas visually. Pencil and paper is all you need to start.", tags: ["Creative", "Solo", "Flexible"] },
+            { id: 23, name: "Dancing", emoji: "💃", category: "Fitness", description: "Move to music, learn styles from salsa to hip-hop. Great exercise that doesn't feel like it.", tags: ["Active", "Social", "Fun"] },
+            { id: 24, name: "Archery", emoji: "🏹", category: "Sport", description: "Focus, precision, and calm. Meditative sport that builds concentration.", tags: ["Active", "Solo", "Outdoors"] },
+            { id: 25, name: "Aquariums", emoji: "🐠", category: "Nature", description: "Create underwater worlds. Relaxing to maintain and mesmerizing to watch.", tags: ["Creative", "Relaxing", "Indoor"] },
+            { id: 26, name: "Disc Golf", emoji: "🥏", category: "Sport", description: "Golf but with frisbees. Free courses everywhere, walking in nature, low barrier to entry.", tags: ["Active", "Outdoors", "Social"] },
+            { id: 27, name: "Metalworking", emoji: "⚒️", category: "Crafts", description: "Forge, weld, or sculpt metal. Create everything from jewelry to furniture.", tags: ["Creative", "Hands-on", "Challenging"] },
+            { id: 28, name: "Meditation", emoji: "🧘‍♂️", category: "Wellness", description: "Train your mind for calm and focus. Free to start, profound benefits with practice.", tags: ["Relaxing", "Solo", "Flexible"] },
+            { id: 29, name: "Kayaking", emoji: "🛶", category: "Adventure", description: "Paddle through rivers, lakes, or oceans. Upper body workout with stunning views.", tags: ["Active", "Outdoors", "Adventure"] },
+            { id: 30, name: "Volunteering", emoji: "🤝", category: "Social", description: "Give back to your community. Meet people while making a difference.", tags: ["Social", "Meaningful", "Flexible"] }
+        ];
+
+        // State
+        let cardIndex = 0;
+        let likedHobbies = [];
+        let superLikedHobbies = [];
+        let currentDecisionPair = [];
+        let decisionWins = {};
+
+        // DOM elements
+        const cardStack = document.getElementById('card-stack');
+        const progressFill = document.getElementById('progress-fill');
+        const cardsSeen = document.getElementById('cards-seen');
+        const totalCards = document.getElementById('total-cards');
+        const likedGrid = document.getElementById('liked-grid');
+        const emptyState = document.getElementById('empty-state');
+        const savedCount = document.getElementById('saved-count');
+        const likedBadge = document.getElementById('liked-badge');
+        const resultBanner = document.getElementById('result-banner');
+        const matchup = document.getElementById('matchup');
+
+        // Initialize
+        totalCards.textContent = hobbies.length;
+        renderCards();
+        generateMatchup();
+
+        // Navigation
+        document.querySelectorAll('.nav-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                pill.classList.add('active');
+                document.getElementById(`${pill.dataset.section}-section`).classList.add('active');
+            });
+        });
+
+        // Render swipe cards
+        function renderCards() {
+            cardStack.innerHTML = '';
+
+            // Render cards in order: current card first (gets z-index 3 via :nth-child(1))
+            for (let i = cardIndex; i <= Math.min(cardIndex + 2, hobbies.length - 1); i++) {
+                const hobby = hobbies[i];
+                const card = document.createElement('div');
+                card.className = 'hobby-card';
+                card.dataset.id = hobby.id;
+                card.innerHTML = `
+                    <div class="swipe-indicator left">Nay!</div>
+                    <div class="swipe-indicator right">Yea!</div>
+                    <div class="card-image">${hobby.emoji}</div>
+                    <div class="card-content">
+                        <div class="card-category">${hobby.category}</div>
+                        <h3 class="card-title">${hobby.name}</h3>
+                        <p class="card-description">${hobby.description}</p>
+                        <div class="card-tags">
+                            ${hobby.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                cardStack.appendChild(card);
+
+                // Setup gestures on the top card (first one rendered)
+                if (i === cardIndex) {
+                    setupSwipeGestures(card);
+                }
+            }
+
+            updateProgress();
+        }
+
+        // Swipe gesture handling
+        function setupSwipeGestures(card) {
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            const onStart = (e) => {
+                isDragging = true;
+                startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                card.style.transition = 'none';
+            };
+
+            const onMove = (e) => {
+                if (!isDragging) return;
+                currentX = (e.type.includes('mouse') ? e.clientX : e.touches[0].clientX) - startX;
+                const rotation = currentX * 0.05;
+                card.style.transform = `translateX(${currentX}px) rotate(${rotation}deg)`;
+
+                card.classList.remove('dragging-left', 'dragging-right');
+                if (currentX < -50) card.classList.add('dragging-left');
+                if (currentX > 50) card.classList.add('dragging-right');
+            };
+
+            const onEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                card.style.transition = '';
+                card.classList.remove('dragging-left', 'dragging-right');
+
+                if (currentX > 100) {
+                    swipe('right');
+                } else if (currentX < -100) {
+                    swipe('left');
+                } else {
+                    card.style.transform = '';
+                }
+            };
+
+            card.addEventListener('mousedown', onStart);
+            card.addEventListener('touchstart', onStart);
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('touchmove', onMove);
+            document.addEventListener('mouseup', onEnd);
+            document.addEventListener('touchend', onEnd);
+        }
+
+        // Swipe action
+        function swipe(direction, isSuper = false) {
+            // Get the top card (first child, has z-index 3)
+            const card = cardStack.querySelector('.hobby-card');
+            if (!card) return;
+
+            // Get hobby from the card's data-id
+            const hobbyId = parseInt(card.dataset.id);
+            const hobby = hobbies.find(h => h.id === hobbyId);
+
+            card.classList.add(direction === 'left' ? 'swiping-left' : 'swiping-right');
+
+            if (direction === 'right') {
+                if (isSuper) {
+                    superLikedHobbies.push(hobby);
+                }
+                likedHobbies.push(hobby);
+                showResultBanner(hobby);
+            }
+
+            setTimeout(() => {
+                cardIndex++;
+                if (cardIndex < hobbies.length) {
+                    renderCards();
+                } else {
+                    cardStack.innerHTML = `
+                        <div style="text-align: center; padding: 60px 20px;">
+                            <div style="font-size: 64px; margin-bottom: 16px;">🎉</div>
+                            <h3 style="font-family: 'Fraunces', serif; font-size: 1.5rem; margin-bottom: 8px;">All done!</h3>
+                            <p style="color: var(--text-secondary);">Check your saved hobbies to see your matches.</p>
+                        </div>
+                    `;
+                }
+                updateLikedSection();
+            }, 400);
+        }
+
+        // Button controls
+        document.getElementById('btn-pass').addEventListener('click', () => swipe('left'));
+        document.getElementById('btn-like').addEventListener('click', () => swipe('right'));
+        document.getElementById('btn-super').addEventListener('click', () => swipe('right', true));
+
+        // Update progress
+        function updateProgress() {
+            const progress = (cardIndex / hobbies.length) * 100;
+            progressFill.style.width = `${progress}%`;
+            cardsSeen.textContent = cardIndex;
+        }
+
+        // Show result banner
+        function showResultBanner(hobby) {
+            document.getElementById('result-emoji').textContent = hobby.emoji;
+            document.getElementById('result-title').textContent = hobby.name;
+            resultBanner.classList.add('show');
+
+            setTimeout(() => {
+                resultBanner.classList.remove('show');
+            }, 3000);
+        }
+
+        document.getElementById('close-banner').addEventListener('click', () => {
+            resultBanner.classList.remove('show');
+        });
+
+        // Update liked section
+        function updateLikedSection() {
+            savedCount.textContent = likedHobbies.length;
+            likedBadge.textContent = likedHobbies.length > 0 ? `(${likedHobbies.length})` : '';
+
+            if (likedHobbies.length === 0) {
+                emptyState.style.display = 'block';
+                likedGrid.innerHTML = '';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            likedGrid.innerHTML = likedHobbies.map((hobby, index) => `
+                <div class="liked-item" data-index="${index}">
+                    <div class="emoji">${hobby.emoji}</div>
+                    <div class="liked-item-content">
+                        <h4>${hobby.name}</h4>
+                        <p>${hobby.category} · ${hobby.tags[0]}</p>
+                        <button class="remove-btn" onclick="removeHobby(${index})">Banish</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Remove hobby from liked
+        window.removeHobby = function(index) {
+            likedHobbies.splice(index, 1);
+            updateLikedSection();
+        };
+
+        // Decision matchup
+        function generateMatchup() {
+            const pool = likedHobbies.length >= 2 ? likedHobbies : hobbies;
+            const shuffled = [...pool].sort(() => Math.random() - 0.5);
+            currentDecisionPair = [shuffled[0], shuffled[1]];
+            renderMatchup();
+        }
+
+        function renderMatchup() {
+            if (!currentDecisionPair[0] || !currentDecisionPair[1]) {
+                generateMatchup();
+                return;
+            }
+
+            matchup.innerHTML = `
+                <div class="choice-card" onclick="selectChoice(0)">
+                    <div class="emoji">${currentDecisionPair[0].emoji}</div>
+                    <h3>${currentDecisionPair[0].name}</h3>
+                    <p>${currentDecisionPair[0].category}</p>
+                </div>
+                <div class="vs-badge">vs</div>
+                <div class="choice-card" onclick="selectChoice(1)">
+                    <div class="emoji">${currentDecisionPair[1].emoji}</div>
+                    <h3>${currentDecisionPair[1].name}</h3>
+                    <p>${currentDecisionPair[1].category}</p>
+                </div>
+            `;
+        }
+
+        window.selectChoice = function(index) {
+            const winner = currentDecisionPair[index];
+            decisionWins[winner.id] = (decisionWins[winner.id] || 0) + 1;
+
+            // If hobby wins 3 times, suggest it strongly
+            if (decisionWins[winner.id] >= 3 && !likedHobbies.find(h => h.id === winner.id)) {
+                likedHobbies.push(winner);
+                updateLikedSection();
+                showResultBanner(winner);
+            }
+
+            // Animate and generate new matchup
+            const cards = matchup.querySelectorAll('.choice-card');
+            cards[index].style.transform = 'scale(1.1)';
+            cards[1 - index].style.opacity = '0.3';
+
+            setTimeout(() => {
+                generateMatchup();
+            }, 500);
+        };
+
+        document.getElementById('shuffle-btn').addEventListener('click', generateMatchup);
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('swipe-section').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') swipe('left');
+                if (e.key === 'ArrowRight') swipe('right');
+                if (e.key === 'ArrowUp') swipe('right', true);
+            }
+        });
+    </script>
+</body>
+</html>
