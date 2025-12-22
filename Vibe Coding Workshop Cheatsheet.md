@@ -944,9 +944,6 @@ Decentralized serverless AI compute platform
 <tr>
 <td width="50%" valign="top">
 
-**Depth Anything V2** - [GitHub](https://github.com/DepthAnything/Depth-Anything-V2)<br/>
-Monocular depth estimation for 3D reconstruction
-
 **Hyper3D (Rodin AI)** - [hyper3d.ai](https://hyper3d.ai/)<br/>
 Production-ready 3D models from text or images
 
@@ -961,6 +958,9 @@ Ultra-high resolution 3D models from single images
 
 **Marble (World Labs)** - [marble.worldlabs.ai](https://marble.worldlabs.ai/)<br/>
 Generate 3DGS worlds from text, images, or video.
+
+**Echo** - [spaitial.ai](https://www.spaitial.ai/)<br/>
+Generate 3DGS worlds from images.
 </td>
 <td width="50%" valign="top">
 
@@ -978,6 +978,9 @@ Professional photogrammetry by Epic Games
 
 **Postshot** - [jawset.com](https://www.jawset.com/)<br/>
 Desktop app for training NeRF and Gaussian Splatting locally
+
+**Depth Anything V2** - [GitHub](https://github.com/DepthAnything/Depth-Anything-V2)<br/>
+Monocular depth estimation for 3D reconstruction
 </td>
 </tr>
 </table>
