@@ -71,6 +71,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 [8. Extended AI Tools Directory](#extended-ai-tools-directory)
    - [Vibe Coding & Development Tools](#vibe-coding--development-tools)
+   - [UI Design & Prototyping](#ui-design--prototyping)
    - [Image & Video Generation](#image--video-generation)
    - [Audio & Music](#audio--music)
    - [AI Chat & Search](#ai-chat--search)
@@ -93,36 +94,33 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - **Type:** QR code generation with a twist
 - **Key Learning:** You can vibe code a simple tool in minutes, and it's fun
 
-**2. Instant Camera with Thermal Printer**
-- **Type:** Raspberry Pi with camera module, button, LED, 3D printed enclosure, and vibe coded software
-- **Key Learning:** AI can assist with hardware prototyping and setup, not just software
-
-**3. Snark AI** ([snark-ai.com](https://snark-ai.com))
+**2. Snark AI** ([snark-ai.com](https://snark-ai.com))
 - **Type:** Satirical AI email service
 - **Key Learning:** Vibe coding actually works to make services and websites
 
-**4. Nerktendo** ([nerktendo.com](https://nerktendo.com))
+**3. Nerktendo** ([nerktendo.com](https://nerktendo.com))
 - **Type:** Retro interface and portfolio
 - **Key Learning:** Sometimes AI is really bad at things. Try different tools and dive deeper into vibe coding.
 
-**5. LinkPee** ([linkp.ee](https://linkp.ee))
+**4. LinkPee** ([linkp.ee](https://linkp.ee))
 - **Type:** Fully functional "link in bio" service with secure authentication & user profiles
 - **Key Learning:** "Complex" features are absolutely achievable
 
-**6. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
+**5. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
 - **Type:** Interactive game
 - **Key Learning:** Fun and loose iterative projects are great for experimenting with concepts and mechanics and allow you to explore concepts and themes freely.
 
-**7. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
+**6. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
-**8. Optimal Rotation Blender Addon**
-- **Type:** Blender addon that finds the optimal rotation for any 3D object to minimize its bounding box
-
-**9. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
+**7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
 - **Type:** Interactive map and database service with user focused features
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
+
+**Other Projects**
+- Raspberry Pi powered instant camera - prints instant picture stickers with text, current date/time
+- Blender Addon that optimally rotates a 3D object to minimize its bounding box - usefull for manufacturing processes
 
 > **💡 Key Takeaway:** Don't limit yourself. If you think it should exist (no matter how silly), just try to create it. Vibe coding can make testing concepts easier than creating a mockup. 
 
@@ -765,6 +763,33 @@ Command-line AI coding assistant that edits code in your local git repository
 
 ---
 
+### UI Design & Prototyping
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Google Stitch** - [stitch.withgoogle.com](https://stitch.withgoogle.com/)<br/>
+Generate code-ready UI directly from text prompts and mood boards
+
+**Uizard** - [uizard.io](https://uizard.io/)<br/>
+Transform screenshots and text descriptions into editable design prototypes
+
+</td>
+<td width="50%" valign="top">
+
+**Relume** - [library.relume.io](https://library.relume.io/)<br/>
+AI site builder that generates sitemaps and wireframes instantly
+
+**Visily** - [visily.ai](https://visily.ai/)<br/>
+AI-powered wireframing tool that converts sketches and screenshots to editable UIs
+
+</td>
+</tr>
+</table>
+
+---
+
 ### Image & Video
 
 <table>
@@ -804,15 +829,6 @@ Creator of Stable Diffusion for multimodal generative AI
 **Leonardo.ai** - [leonardo.ai](https://leonardo.ai/)<br/>
 Fine-tuned models for game assets, concept art, and production visuals
 
-**Hedra** - [hedra.com](https://www.hedra.com/)<br/>
-Specializes in talking avatar generation with realistic lip-sync
-
-**HeyGen** - [heygen.com](https://www.heygen.com/)<br/>
-AI avatar platform for professional spokesperson videos
-
-**Synthesia** - [synthesia.io](https://www.synthesia.io/)<br/>
-AI presenters for training videos and marketing content
-
 </td>
 <td width="50%" valign="top">
 
@@ -842,6 +858,15 @@ Remove video backgrounds with transparent MP4 output
 
 **VideoBGRemover** - [videobgremover.com](https://videobgremover.com/)<br/>
 Professional background removal for videos up to 3 hours
+
+**Hedra** - [hedra.com](https://www.hedra.com/)<br/>
+Specializes in talking avatar generation with realistic lip-sync
+
+**HeyGen** - [heygen.com](https://www.heygen.com/)<br/>
+AI avatar platform for professional spokesperson videos
+
+**Synthesia** - [synthesia.io](https://www.synthesia.io/)<br/>
+AI presenters for training videos and marketing content
 
 </td>
 </tr>

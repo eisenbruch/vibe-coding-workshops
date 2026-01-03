@@ -20,11 +20,12 @@ echo "Converting HTML to PDF..."
 weasyprint -s <(echo '
 @page { margin: 0.19in 0; }
 pre, code { white-space: pre-wrap; word-wrap: break-word; overflow-wrap: break-word; }
+td { vertical-align: top; }
 .tools-directory { font-size: 11px; line-height: 1.3; }
 .tools-directory p { margin: 0.2em 0; }
 .tools-directory h3 { font-size: 14px; margin: 0.5em 0 0.3em 0; }
-.tools-directory table { margin: 0.5em 0; }
-.tools-directory td { padding: 0.3em 0.5em; }
+.tools-directory table { margin: 0.5em 0; width: 100%; table-layout: fixed; }
+.tools-directory td { padding: 0.3em 0.5em; width: 50%; }
 ') "$TEMP_HTML" "$PDF_OUTPUT"
 
 # Clean up temp file
