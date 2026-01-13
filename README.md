@@ -8,22 +8,21 @@ Welcome to the Vibe Coding workshop repository! This is your central hub for lea
 
 ## Contents
 
-### Workshop Cheatsheet
+### Workshop Guides & Documentation
 
-Your comprehensive reference guide for vibe coding, covering essential tools, AI platforms, coding approaches, project ideas, and advanced techniques.
+Comprehensive reference guides and step-by-step tutorials for vibe coding, project setup, and advanced tools.
 
-**View the Cheatsheet:**
-- **[📄 Interactive Viewer](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html)** - Beautiful, formatted version (recommended)
-- **<a href="https://github.com/eisenbruch/vibe-coding-workshops/blob/master/Vibe%20Coding%20Workshop%20Cheatsheet.md" target="_blank">📝 Markdown File</a>** - View directly on GitHub
-- **<a href="https://github.com/eisenbruch/vibe-coding-workshops/blob/master/Vibe%20Coding%20Workshop%20Cheatsheet.pdf" target="_blank">📥 Download PDF</a>** - Offline reference
+**[📄 Interactive Documentation Viewer](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html)** (Recommended)
+*A beautiful, formatted hub for all the documents listed below.*
 
-**What's Inside:**
-- Essential tools and setup
-- Growing list of AI tools separated by category
-- Vibe Coding approaches
-- Project ideas organized by difficulty
-- Claude Code commands and techniques
-- Advanced workflows and tips
+**Core Materials:**
+- **[Vibe Coding Cheatsheet](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Vibe%20Coding%20Workshop%20Cheatsheet.md)** ([PDF](Vibe%20Coding%20Workshop%20Cheatsheet.pdf)) - Essential tools, approaches, and tips.
+- **[Project Idea Prompts](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Project%20Idea%20Prompts%20-%20Extended.md)** - Full starter prompts for simple, medium, and complex projects.
+- **[AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#AI%20Tools%20Directory.md)** - Comprehensive list of AI tools for every creative need.
+
+**Step-by-Step Workshop Guides:**
+- **[Day 1: Project Setup, Git & GitHub](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Day%201%20-%20Project%20Setup%20Guide.md)** - Essential workflow for saving and sharing your work.
+- **[Day 2: Firebase & Cloud Backend](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Day%202%20-%20Firebase%20Guide.md)** - Connecting your app to a real database and hosting.
 
 ### Workshop Projects
 

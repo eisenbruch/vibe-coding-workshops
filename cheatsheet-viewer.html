@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Coding Workshop Cheatsheet</title>
+    <title>Vibe Coding Workshop - Doc Viewer</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         :root {
-            --primary-color: #6366f1;
-            --secondary-color: #8b5cf6;
-            --bg-color: #0f172a;
-            --surface-color: #1e293b;
-            --text-color: #e2e8f0;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-            --code-bg: #1e1e1e;
-            --accent-color: #22d3ee;
+            --bg-color: #f6f8fa; /* GitHub light gray bg */
+            --surface-color: #ffffff;
+            --text-color: #24292f;
+            --text-muted: #57606a;
+            --border-color: #d0d7de;
+            --primary-color: #0969da; /* GitHub Link Blue */
+            --code-bg: #f6f8fa;
+            --header-border: #d8dee4;
         }
 
         * {
@@ -25,534 +24,411 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, var(--bg-color) 0%, #1a1f3a 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.7;
-            min-height: 100vh;
+            line-height: 1.5;
             padding: 20px;
         }
 
+        /* Top Bar for Navigation */
+        .top-bar {
+            max-width: 980px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface-color);
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        select {
+            padding: 6px 12px;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #f6f8fa;
+            color: var(--text-color);
+            cursor: pointer;
+            min-width: 250px;
+        }
+
+        select:hover {
+            border-color: #b1b9c0;
+        }
+
+        /* Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 980px;
             margin: 0 auto;
             background: var(--surface-color);
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            animation: fadeIn 0.6s ease-out;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 48px;
+            min-height: 80vh;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            padding: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-            animation: drift 20s linear infinite;
-        }
-
-        @keyframes drift {
-            from { transform: translate(0, 0); }
-            to { transform: translate(30px, 30px); }
-        }
-
-        .header h1 {
-            position: relative;
-            z-index: 1;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .header .subtitle {
-            position: relative;
-            z-index: 1;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 60px 40px;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 60px;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-        }
-
-        .spinner {
-            border: 3px solid var(--border-color);
-            border-top: 3px solid var(--primary-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Markdown Styling */
+        /* Markdown Standard Styling (GitHub-like) */
         #markdown-content h1 {
-            font-size: 2.5rem;
-            margin: 40px 0 20px 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border-bottom: 1px solid var(--header-border);
+            padding-bottom: 0.3em;
+            font-size: 2em;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        #markdown-content h1:first-child {
+            margin-top: 0;
         }
 
         #markdown-content h2 {
-            font-size: 2rem;
-            margin: 35px 0 15px 0;
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            border-bottom: 1px solid var(--header-border);
+            padding-bottom: 0.3em;
+            font-size: 1.5em;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
         }
 
         #markdown-content h3 {
-            font-size: 1.5rem;
-            margin: 30px 0 12px 0;
-            color: var(--primary-color);
-        }
-
-        #markdown-content h4 {
-            font-size: 1.2rem;
-            margin: 25px 0 10px 0;
-            color: var(--secondary-color);
+            font-size: 1.25em;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
         }
 
         #markdown-content p {
-            margin: 15px 0;
-            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 16px;
         }
 
         #markdown-content a {
-            color: var(--accent-color);
+            color: var(--primary-color);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
         }
 
         #markdown-content a:hover {
-            border-bottom-color: var(--accent-color);
-        }
-
-        #markdown-content ul, #markdown-content ol {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-
-        #markdown-content li {
-            margin: 8px 0;
+            text-decoration: underline;
         }
 
         #markdown-content code {
-            background: var(--code-bg);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-family: 'Monaco', 'Courier New', monospace;
-            font-size: 0.9em;
-            color: #f472b6;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: rgba(175,184,193,0.2);
+            border-radius: 6px;
+            font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
         }
 
         #markdown-content pre {
-            background: var(--code-bg);
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 20px 0;
-            border-left: 4px solid var(--primary-color);
+            background-color: var(--code-bg);
+            border-radius: 6px;
+            font-size: 85%;
+            line-height: 1.45;
+            overflow: auto;
+            padding: 16px;
+            margin-top: 0;
+            margin-bottom: 16px;
         }
 
         #markdown-content pre code {
-            background: none;
+            background-color: transparent;
             padding: 0;
-            color: #a5d6ff;
+            margin: 0;
+            font-size: 100%;
+            word-break: normal;
+            white-space: pre;
+            border: 0;
+            border-radius: 0;
         }
 
         #markdown-content blockquote {
-            border-left: 4px solid var(--primary-color);
-            padding-left: 20px;
-            margin: 20px 0;
+            padding: 0 1em;
             color: var(--text-muted);
-            font-style: italic;
-            background: rgba(99, 102, 241, 0.05);
-            padding: 15px 20px;
-            border-radius: 4px;
+            border-left: 0.25em solid #d0d7de;
+            margin: 0 0 16px 0;
+        }
+
+        #markdown-content ul, #markdown-content ol {
+            padding-left: 2em;
+            margin-top: 0;
+            margin-bottom: 16px;
         }
 
         #markdown-content table {
-            width: 100%;
+            border-spacing: 0;
             border-collapse: collapse;
-            margin: 25px 0;
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: 8px;
-            overflow: hidden;
+            display: block;
+            margin-top: 0;
+            margin-bottom: 16px;
+            width: max-content;
+            max-width: 100%;
+            overflow: auto;
         }
 
-        #markdown-content thead {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        }
-
-        #markdown-content th {
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        #markdown-content td {
-            padding: 12px 15px;
+        #markdown-content tr {
+            background-color: #fff;
             border-top: 1px solid var(--border-color);
         }
 
-        #markdown-content tr:hover {
-            background: rgba(99, 102, 241, 0.1);
+        #markdown-content tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        #markdown-content th, #markdown-content td {
+            padding: 6px 13px;
+            border: 1px solid var(--border-color);
+        }
+
+        #markdown-content th {
+            font-weight: 600;
         }
 
         #markdown-content img {
             max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 15px 0;
+            box-sizing: border-box;
+            background-color: #fff;
         }
 
-        #markdown-content hr {
-            border: none;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-            margin: 40px 0;
+        /* Loading & Error States */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
         }
 
-        /* Emoji styling */
-        #markdown-content .emoji {
-            font-size: 1.2em;
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .content {
-                padding: 30px 20px;
-            }
-
-            #markdown-content h1 {
-                font-size: 1.8rem;
-            }
-
-            #markdown-content h2 {
-                font-size: 1.5rem;
-            }
-
-            #markdown-content table {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Back to top button */
-        #back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-            z-index: 1000;
-        }
-
-        #back-to-top.visible {
-            opacity: 1;
-        }
-
-        #back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
-        }
-
-        /* Error message styling */
         .error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 2px solid #ef4444;
-            border-radius: 8px;
             padding: 20px;
-            margin: 20px 0;
-            color: #fca5a5;
+            background-color: #fff8c5;
+            border: 1px solid rgba(234,179,8,0.4);
+            border-radius: 6px;
+            color: var(--text-color);
+            margin-bottom: 20px;
         }
 
-        .error h3 {
-            color: #f87171;
-            margin-bottom: 15px;
-        }
-
-        .error code {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 2px 6px;
-            border-radius: 3px;
-            color: #fca5a5;
-        }
-
-        .error ul {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-
-        .error li {
-            margin: 8px 0;
-        }
-
-        /* File upload section */
         .file-upload {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px dashed var(--border-color);
+            border-radius: 6px;
             text-align: center;
-            margin-top: 30px;
-            padding: 30px;
-            background: rgba(99, 102, 241, 0.05);
-            border: 2px dashed var(--primary-color);
-            border-radius: 8px;
         }
 
-        .file-upload input[type="file"] {
-            display: none;
-        }
-
-        .file-upload label {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .file-upload label:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-        }
-
-        .success {
-            background: rgba(34, 197, 94, 0.1);
-            border: 2px solid #22c55e;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            color: #86efac;
-            text-align: center;
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Vibe Coding Workshop Cheatsheet</h1>
-            <div class="subtitle">AI-Assisted Coding Resources & Guide</div>
-        </div>
-        <div class="content">
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Loading cheatsheet...</p>
-            </div>
-            <div id="markdown-content"></div>
-        </div>
+
+    <div class="top-bar">
+        <div class="logo">Vibe Coding Workshop</div>
+        <select id="file-selector" onchange="handleFileSelect(this.value)">
+            <!-- Populated by JS -->
+        </select>
     </div>
 
-    <button id="back-to-top" onclick="scrollToTop()">↑ Top</button>
+    <div class="container">
+        <div class="loading">Loading...</div>
+        <div id="markdown-content"></div>
+    </div>
 
     <script>
-        // Fetch and render markdown
-        async function loadMarkdown() {
-            try {
-                const response = await fetch('Vibe Coding Workshop Cheatsheet.md');
+        // List of available files in the repository
+        const AVAILABLE_FILES = [
+            { name: "Main Cheatsheet", path: "Vibe Coding Workshop Cheatsheet.md" },
+            { name: "Day 1 - Project Setup Guide", path: "Day 1 - Project Setup Guide.md" },
+            { name: "Day 2 - Firebase Guide", path: "Day 2 - Firebase Guide.md" },
+            { name: "AI Tools Directory", path: "AI Tools Directory.md" },
+            { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
+            { name: "Repository README", path: "README.md" }
+        ];
 
+        const selector = document.getElementById('file-selector');
+        const contentDiv = document.getElementById('markdown-content');
+        const loadingDiv = document.querySelector('.loading');
+
+        // Initialize Selector
+        AVAILABLE_FILES.forEach(file => {
+            const option = document.createElement('option');
+            option.value = file.path;
+            option.textContent = file.name;
+            selector.appendChild(option);
+        });
+
+        // Current file state
+        let currentFile = AVAILABLE_FILES[0].path;
+
+        async function loadMarkdown(filePath) {
+            currentFile = filePath;
+            loadingDiv.style.display = 'block';
+            contentDiv.innerHTML = '';
+            
+            // Update URL hash for "routing"
+            window.location.hash = encodeURIComponent(filePath);
+
+            try {
+                const response = await fetch(filePath);
+                
                 if (!response.ok) {
-                    throw new Error(`Failed to load markdown file: ${response.statusText}`);
+                    throw new Error(`Failed to load ${filePath} (${response.status})`);
                 }
 
-                const markdown = await response.text();
-                renderMarkdown(markdown);
+                const text = await response.text();
+                renderMarkdown(text);
+                loadingDiv.style.display = 'none';
 
             } catch (error) {
-                console.error('Error loading markdown:', error);
-                showErrorWithUpload(error.message);
+                console.error(error);
+                showError(error.message);
+                loadingDiv.style.display = 'none';
             }
         }
 
-        function showErrorWithUpload(errorMsg) {
-            document.querySelector('.loading').innerHTML = `
+        function renderMarkdown(markdown) {
+            // Custom renderer for GitHub-style header IDs
+            const renderer = {
+                heading(text, level, raw, slugger) {
+                    // Universal argument handler for different marked versions
+                    // New versions pass an object as the first arg
+                    if (typeof text === 'object' && text !== null) {
+                        const options = text;
+                        raw = options.raw;
+                        level = options.depth;
+                        text = options.text;
+                    }
+                    
+                    // Fallback for safety
+                    const safeText = (raw || text || '').toString();
+                    const safeLevel = level || 1;
+
+                const id = safeText.toString().toLowerCase()
+                    .replace(/[^\w\s-]/g, '') // Remove non-word chars (like #, &)
+                    .trim()                   // Trim whitespace
+                    .replace(/\s/g, '-');     // Replace EACH space with a hyphen (GitHub style)
+                    
+                    console.log(`Generated ID: "${id}" for header: "${safeText}"`);
+                    return `<h${safeLevel} id="${id}">${text}</h${safeLevel}>`;
+                }
+            };
+
+            // Configure marked using .use() (standard for v4+)
+            marked.use({ renderer });
+            marked.setOptions({
+                gfm: true,
+                breaks: true
+            });
+
+            contentDiv.innerHTML = marked.parse(markdown);
+
+            // Handle links
+            contentDiv.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href) return;
+
+                // 1. Markdown file links: intercept and load in viewer
+                if (href.endsWith('.md') || href.endsWith('.markdown')) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Handle encoded URLs if necessary
+                        const targetPath = decodeURIComponent(href);
+                        console.log(`Loading linked markdown file: ${targetPath}`);
+                        loadMarkdown(targetPath);
+                        
+                        // Update selector if the file is in the list
+                        // If it's a relative path (e.g. "docs/file.md"), exact match might fail if list has "./docs/file.md"
+                        // But simple match is good enough for now.
+                        selector.value = targetPath;
+                    });
+                    return; // Skip other checks
+                }
+                
+                // 2. External links: open in new tab
+                if (href.startsWith('http') || href.startsWith('https')) {
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+                
+                // 3. Internal Anchor links (TOC): smooth scroll
+                if (href.startsWith('#')) {
+                    link.addEventListener('click', (e) => {
+                        console.log(`Clicked anchor: ${href}`);
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        console.log(`Looking for target ID: "${targetId}", found:`, targetElement);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            console.warn('Target not found:', targetId);
+                        }
+                    });
+                }
+            });
+        }
+
+        function handleFileSelect(filePath) {
+            loadMarkdown(filePath);
+        }
+
+        function showError(msg) {
+            contentDiv.innerHTML = `
                 <div class="error">
-                    <h3>Unable to Load Markdown File</h3>
-                    <p><strong>Error:</strong> ${errorMsg}</p>
-                    <p>This happens when opening HTML files directly in your browser due to CORS restrictions.</p>
-
-                    <p><strong>Solution 1: Run a Local Web Server (Recommended)</strong></p>
-                    <ul>
-                        <li>Open terminal in this directory</li>
-                        <li>Run: <code>python3 -m http.server 8000</code></li>
-                        <li>Visit: <code>http://localhost:8000/cheatsheet-viewer.html</code></li>
-                    </ul>
-
-                    <p><strong>Solution 2: Upload the Markdown File</strong></p>
+                    <h3>Unable to load file</h3>
+                    <p>${msg}</p>
+                    <p>If you are opening this file directly in a browser (file://), you may need to use a local server or manually upload the file below.</p>
                 </div>
                 <div class="file-upload">
-                    <p style="margin-bottom: 15px;">Select your markdown file to view:</p>
-                    <input type="file" id="md-file" accept=".md,.markdown" onchange="handleFileUpload(event)">
-                    <label for="md-file">Choose Markdown File</label>
+                    <p>Select <strong>${currentFile}</strong> manually:</p>
+                    <input type="file" onchange="handleManualUpload(event)">
                 </div>
             `;
         }
 
-        function handleFileUpload(event) {
+        function handleManualUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(e) {
-                const markdown = e.target.result;
-                renderMarkdown(markdown);
+            reader.onload = (e) => {
+                renderMarkdown(e.target.result);
             };
             reader.readAsText(file);
         }
 
-        function renderMarkdown(markdown) {
-            // Custom slugify function to match TOC anchors
-            function slugify(text) {
-                return text
-                    .toLowerCase()
-                    .trim()
-                    .replace(/[^\w\s-]/g, '')
-                    .replace(/\s+/g, '-')
-                    .replace(/-+/g, '-');
-            }
-
-            // Custom renderer to add IDs to headings
-            const renderer = new marked.Renderer();
-
-            renderer.heading = function(token) {
-                const text = this.parser.parseInline(token.tokens);
-                const raw = token.text || '';
-                const id = slugify(raw);
-                return `<h${token.depth} id="${id}">${text}</h${token.depth}>`;
-            };
-
-            // Configure marked options
-            marked.setOptions({
-                breaks: true,
-                gfm: true,
-                renderer: renderer
-            });
-
-            // Convert markdown to HTML
-            const html = marked.parse(markdown);
-
-            // Hide loading/error, show content
-            document.querySelector('.loading').style.display = 'none';
-            const contentDiv = document.getElementById('markdown-content');
-            contentDiv.innerHTML = html;
-
-            // Make external links open in new tab
-            contentDiv.querySelectorAll('a').forEach(link => {
-                if (link.hostname !== window.location.hostname) {
-                    link.setAttribute('target', '_blank');
-                    link.setAttribute('rel', 'noopener noreferrer');
-                }
-            });
+        // Initialize
+        // Check if hash exists to load specific file
+        const hash = window.location.hash.slice(1); // remove #
+        if (hash) {
+            const decodedPath = decodeURIComponent(hash);
+            // Verify it's in our list or just try loading it
+            currentFile = decodedPath;
+            selector.value = decodedPath;
+            // If the hash didn't match a selector option (e.g. custom file), the selector might be blank, 
+            // but we try loading anyway.
         }
 
-        // Back to top button functionality
-        window.addEventListener('scroll', () => {
-            const backToTop = document.getElementById('back-to-top');
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
+        loadMarkdown(currentFile);
 
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Smooth scrolling for anchor links
-        document.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
-                e.preventDefault();
-                const targetId = e.target.getAttribute('href').slice(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-
-        // Load markdown when page loads
-        window.addEventListener('DOMContentLoaded', loadMarkdown);
     </script>
 </body>
 </html>
