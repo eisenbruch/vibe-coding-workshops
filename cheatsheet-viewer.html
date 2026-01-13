@@ -236,15 +236,100 @@
                 align-items: stretch;
             }
         }
+
+        .print-btn {
+            padding: 6px 16px;
+            background-color: var(--surface-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        
+        .print-btn:hover {
+            background-color: var(--bg-color);
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            
+            .top-bar, #back-to-top, .file-upload, .loading, .error {
+                display: none !important;
+            }
+
+            .container {
+                border: none;
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Optimized Typography for Print */
+            #markdown-content {
+                font-size: 10pt;
+                line-height: 1.3;
+            }
+
+            h1, h2, h3 { 
+                page-break-after: avoid; 
+                page-break-inside: avoid;
+                color: black !important;
+            }
+            
+            h1 { font-size: 16pt; border-bottom: 2px solid #000; margin-top: 0.5em; margin-bottom: 0.5em; }
+            h2 { font-size: 14pt; border-bottom: 1px solid #ccc; margin-top: 1em; margin-bottom: 0.5em; }
+            h3 { font-size: 12pt; margin-top: 0.8em; margin-bottom: 0.4em; }
+            
+            p, ul, ol { margin-bottom: 0.8em; }
+            
+            pre, code {
+                white-space: pre-wrap !important;
+                word-wrap: break-word;
+                border: 1px solid #ddd;
+                background-color: #f5f5f5 !important;
+                font-size: 9pt;
+            }
+            
+            a { text-decoration: none; color: black !important; }
+            
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                page-break-inside: auto; /* Allow tables to break across pages if needed */
+                margin-bottom: 1em;
+            }
+            
+            tr { page-break-inside: avoid; }
+            td, th { vertical-align: top; padding: 4px; border: 1px solid #ddd; }
+            
+            /* Specific formatting for Tools Directory to match PDF script */
+            table td {
+                font-size: 9pt; 
+            }
+
+            /* Hide interactive elements not needed in print */
+            details, summary { display: block; }
+        }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
         <div class="logo">Vibe Coding Workshop</div>
-        <select id="file-selector" onchange="handleFileSelect(this.value)">
-            <!-- Populated by JS -->
-        </select>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <select id="file-selector" onchange="handleFileSelect(this.value)">
+                <!-- Populated by JS -->
+            </select>
+            <button class="print-btn" onclick="window.print()">🖨️ Print / PDF</button>
+        </div>
     </div>
 
     <div class="container">
@@ -255,12 +340,12 @@
     <script>
         // List of available files in the repository
         const AVAILABLE_FILES = [
-            { name: "Main Cheatsheet", path: "Vibe Coding Workshop Cheatsheet.md" },
+            { name: "Vibe Coding Fundamentals", path: "Vibe Coding Fundamentals.md" },
             { name: "Day 1 - Project Setup Guide", path: "Day 1 - Project Setup Guide.md" },
             { name: "Day 2 - Firebase Guide", path: "Day 2 - Firebase Guide.md" },
             { name: "AI Tools Directory", path: "AI Tools Directory.md" },
             { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
-            { name: "Repository README", path: "README.md" }
+            { name: "Repository README", path: "README.md" },
         ];
 
         const selector = document.getElementById('file-selector');

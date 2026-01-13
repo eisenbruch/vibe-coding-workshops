@@ -1,4 +1,4 @@
-# Vibe Coding Workshop Cheatsheet
+# Vibe Coding Fundamentals
 *By Noah Eisenbruch - noaheisenbruch@gmail.com* \
 *Last updated: January 12, 2026*
 

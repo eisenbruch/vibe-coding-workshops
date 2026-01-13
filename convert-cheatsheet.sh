@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Convert Vibe Coding Workshop Cheatsheet from MD to PDF with page numbers
+# Convert Vibe Coding Fundamentals sheet from MD to PDF with page numbers
 
 set -e
 
-HTML_INPUT="Vibe Coding Workshop Cheatsheet.html"
-PDF_OUTPUT="Vibe Coding Workshop Cheatsheet.pdf"
+HTML_INPUT="Vibe Coding Fundamentals.html"
+PDF_OUTPUT="Vibe Coding Fundamentals.pdf"
 TEMP_HTML=$(mktemp)
 
 echo "Preparing HTML with compact tools directory..."
