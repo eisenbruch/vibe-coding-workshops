@@ -7,10 +7,10 @@
 <tr>
 <td width="70%" valign="top">
 
-Access this cheatsheet, updates, resources, workshop projects, and more at:
-https://eisenbruch.github.io/vibe-coding-workshops/
-<br/><br/>
-Click *Watch* on the GitHub repository to be notified of Cheatsheet updates and participant project uploads.
+Access workshop resources, updates, projects, and more at:
+<a href="https://eisenbruch.github.io/vibe-coding-workshops/" target="_blank">https://eisenbruch.github.io/vibe-coding-workshops/</a>
+
+Click *Watch* on the <a href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank">GitHub repository</a> to be notified of resource updates and participant project uploads.
 </td>
 <td width="30%" valign="top">
 
@@ -22,9 +22,9 @@ Click *Watch* on the GitHub repository to be notified of Cheatsheet updates and 
 <td width="70%" valign="top">
 
 Your feedback is greatly appreciated and helps shape future workshops.
-<br/><br/>
+
 Please fill out our feedback form after the workshop:
-https://forms.gle/3iVRWgUS6o8U51Ut5
+<a href="https://forms.gle/3iVRWgUS6o8U51Ut5" target="_blank">https://forms.gle/3iVRWgUS6o8U51Ut5</a>
 
 </td>
 <td width="30%" valign="top">
@@ -70,10 +70,10 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 [7. Submitting Your Workshop Project](#submitting-your-workshop-project)
 
 [8. Workshop Guides & Resources](#workshop-guides--resources)
-   - [Day 1: Project Setup Guide](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Day%201%20-%20Project%20Setup%20Guide.md)
-   - [Day 2: Firebase Guide](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Day%202%20-%20Firebase%20Guide.md)
-   - [Extended AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#AI%20Tools%20Directory.md)
-   - [Project Idea Prompts - Extended](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Project%20Idea%20Prompts%20-%20Extended.md)
+   - [Day 1: Project Setup Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Day%201%20-%20Project%20Setup%20Guide.md)
+   - [Day 2: Firebase Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Day%202%20-%20Firebase%20Guide.md)
+   - [Extended AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md)
+   - [Project Idea Prompts - Extended](https://eisenbruch.github.io/vibe-coding-workshops/#Project%20Idea%20Prompts%20-%20Extended.md)
 
 </td>
 </tr>
@@ -85,31 +85,31 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 
 ### Portfolio of Vibe-Coded Projects
 
-**1. Glitch QR** ([github.com/eisenbruch/glitch-qr](https://github.com/eisenbruch))
+**1. Glitch QR** (<a href="https://github.com/eisenbruch" target="_blank">github.com/eisenbruch/glitch-qr</a>)
 - **Type:** QR code generation with a twist
 - **Key Learning:** You can vibe code a simple tool in minutes, and it's fun
 
-**2. Snark AI** ([snark-ai.com](https://snark-ai.com))
+**2. Snark AI** (<a href="https://snark-ai.com" target="_blank">snark-ai.com</a>)
 - **Type:** Satirical AI email service
 - **Key Learning:** Vibe coding actually works to make services and websites
 
-**3. Nerktendo** ([nerktendo.com](https://nerktendo.com))
+**3. Nerktendo** (<a href="https://nerktendo.com" target="_blank">nerktendo.com</a>)
 - **Type:** Retro interface and portfolio
 - **Key Learning:** Sometimes AI is really bad at things. Try different tools and dive deeper into vibe coding.
 
-**4. LinkPee** ([linkp.ee](https://linkp.ee))
+**4. LinkPee** (<a href="https://linkp.ee" target="_blank">linkp.ee</a>)
 - **Type:** Fully functional "link in bio" service with secure authentication & user profiles
 - **Key Learning:** "Complex" features are absolutely achievable
 
-**5. Weather Worsener** ([nerktendo.com/weather-worsener](https://nerktendo.com/weather-worsener))
+**5. Weather Worsener** (<a href="https://nerktendo.com/weather-worsener" target="_blank">nerktendo.com/weather-worsener</a>)
 - **Type:** Interactive game
 - **Key Learning:** Fun and loose iterative projects are great for experimenting with concepts and mechanics and allow you to explore concepts and themes freely.
 
-**6. DomainFlip** ([nerktendo.com/domainflip](https://nerktendo.com/domainflip))
+**6. DomainFlip** (<a href="https://nerktendo.com/domainflip" target="_blank">nerktendo.com/domainflip</a>)
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
-**7. TrafficVision.Live** ([trafficvision.live](https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project))
+**7. TrafficVision.Live** (<a href="https://trafficvision.live/?utm_source=vibe-coding-cheatsheet&utm_medium=resource&utm_campaign=example-project" target="_blank">trafficvision.live</a>)
 - **Type:** Interactive map and database service with user focused features
 - **Key Learning:** AI takes time to discover things like humans (optimization) and needs to take similar approaches a human would. They may need to be guided towards a solution.
 
@@ -158,7 +158,7 @@ https://forms.gle/3iVRWgUS6o8U51Ut5
 - Full file system access
 - Great for organizing files and documents
 - MCP server support for extended capabilities
-- Easy to use without coding experience
+- Easy to use without coding or IDE experience
 
 **❌ Limitations:**
 - Not code-focused
@@ -281,7 +281,7 @@ All projects exist somewhere on this spectrum between two approaches:
 
 #### Approach 1: Minimal Info → Iterative Refinement
 
-**Example:** [Nerktendo](https://nerktendo.com/)
+**Example:** <a href="https://nerktendo.com/" target="_blank">Nerktendo</a>
 
 **How it works:** Start broad, refine through back-and-forth conversation
 
@@ -299,7 +299,7 @@ All projects exist somewhere on this spectrum between two approaches:
 
 #### Approach 2: Comprehensive Brief → Execute
 
-**Example:** [DomainFlip](https://nerktendo.com/domainflip)
+**Example:** <a href="https://nerktendo.com/domainflip" target="_blank">DomainFlip</a>
 
 **How it works:** Define everything upfront - features, style, structure, functions, rules, edge cases
 
@@ -329,7 +329,7 @@ All projects exist somewhere on this spectrum between two approaches:
 
 > **💡 Pro Tip:** Use an AI chatbot (not coding assistant) to plan your project in detail, then feed that plan to an AI coding agent. DomainFlip was created with only 1 Claude Code prompt, but it was fed 8 different multi page documents outlining the entire project in extreme detail.
 
-> **🎁 Bonus:** Read through the [DomainFlip summary and build documents](https://github.com/eisenbruch/vibe-coding-workshops/tree/master/docs/domainflip)
+> **🎁 Bonus:** Read through the <a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/docs/domainflip" target="_blank">DomainFlip summary and build documents</a>
 
 ---
 
@@ -368,13 +368,15 @@ Ask your AI to check its own (or your) work for bugs and see if there's room for
 
 When you have a bug AI can't solve after multiple attempts:
 
-1. Use Claude thinking levels. Type: `think`, `think hard`, `think harder`, or `ultrathink`
 1. Try a different coding agent (e.g. ChatGPT Codex)
-1. Ask 2 different AIs the same question
+2. Ask 2 different AIs the same question
     1. Give each AI the other's response for analysis
-    1. Have both provide updated plans
+    2. Have both provide updated plans
     1. Give both responses to a new agent for comprehensive summary
-    1. Have another new agent read and implement the solution
+    2. Have another new agent read and implement the solution
+
+*DEPRECATED: Claude now uses max thinking budget by default*
+3. Use Claude thinking levels. Type: `think`, `think hard`, `think harder`, or `ultrathink`
 
 ### Debugging Workflow
 
@@ -418,7 +420,7 @@ Choose the installation method for your system:
 ```bash
 brew install --cask claude-code
 ```
-*Note: Requires [Homebrew](https://brew.sh) to be installed first*
+*Note: Requires <a href="https://brew.sh" target="_blank">Homebrew</a> to be installed first*
 
 **macOS/Linux/WSL:**
 ```bash
@@ -437,7 +439,7 @@ curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del in
 
 Once installed, navigate to your project directory and run `claude` to start.
 
-> **🧠 Learn More:** Read Anthropic's official [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices) guide for workflows, optimization tips, and advanced techniques.
+> **🧠 Learn More:** Read Anthropic's official <a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank">Claude Code Best Practices</a> guide for workflows, optimization tips, and advanced techniques.
 
 ---
 
@@ -567,9 +569,9 @@ claude mcp list
 
 **Finding More Servers:**
 
-- Official servers: [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)
-- Community directory: [mcp.so](https://mcp.so)
-- Smithery: [smithery.ai](https://smithery.ai)
+- Official servers: <a href="https://github.com/modelcontextprotocol/servers" target="_blank">github.com/modelcontextprotocol/servers</a>
+- Community directory: <a href="https://mcp.so" target="_blank">mcp.so</a>
+- Smithery: <a href="https://smithery.ai" target="_blank">smithery.ai</a>
 
 ---
 
@@ -665,7 +667,7 @@ Build a shift scheduler: employee profiles with qualifications + availability, a
 
 **Open Source Contribution** - Find a GitHub project you use, pick an issue or improvement, and submit a PR. Great for learning real codebases and professional workflows.
 
-**Find projects:** GitHub Explore, First Timers Only, Good First Issue, Up For Grabs
+**Find projects:** <a href="https://github.com/explore" target="_blank">GitHub Explore</a>, <a href="https://www.firsttimersonly.com/" target="_blank">First Timers Only</a>, <a href="https://goodfirstissue.dev/" target="_blank">Good First Issue</a>, <a href="https://up-for-grabs.net/" target="_blank">Up For Grabs</a>
 
 ---
 
@@ -685,7 +687,7 @@ Choose the method that matches your comfort level. Your AI assistant can help!
 
 **Advanced:** Fork the repo → Add your project → Submit a Pull Request
 
-Full instructions: **[eisenbruch.github.io/vibe-coding-workshops](https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work)**
+Full instructions: **<a href="https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work" target="_blank">eisenbruch.github.io/vibe-coding-workshops</a>**
 
 </td>
 <td width="30%" valign="top">
@@ -701,14 +703,14 @@ Full instructions: **[eisenbruch.github.io/vibe-coding-workshops](https://eisenb
 ## Workshop Guides & Resources
 
 ### Day 1: Fundamentals
-- **[Project Setup, Git & GitHub Guide](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Day%201%20-%20Project%20Setup%20Guide.md)** - Essential workflow for saving and sharing your work.
+- **[Project Setup, Git & GitHub Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Day%201%20-%20Project%20Setup%20Guide.md)** - Essential workflow for saving and sharing your work.
 
 ### Day 2: Architecture & Cloud
-- **[Firebase Guide](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Day%202%20-%20Firebase%20Guide.md)** - Connecting your app to a real backend, database, and hosting.
+- **[Firebase Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Day%202%20-%20Firebase%20Guide.md)** - Connecting your app to a real backend, database, and hosting.
 
 ### Tools Directory
-- **[Extended AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#AI%20Tools%20Directory.md)** - A comprehensive list of AI tools for every creative need.
-- **[Project Idea Prompts - Extended](https://eisenbruch.github.io/vibe-coding-workshops/cheatsheet-viewer.html#Project%20Idea%20Prompts%20-%20Extended.md)** - Full starter prompts for simple, medium, and complex projects.
+- **[Extended AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md)** - A comprehensive list of AI tools for every creative need.
+- **[Project Idea Prompts - Extended](https://eisenbruch.github.io/vibe-coding-workshops/#Project%20Idea%20Prompts%20-%20Extended.md)** - Full starter prompts for simple, medium, and complex projects.
 
 ---
 
@@ -716,5 +718,5 @@ Full instructions: **[eisenbruch.github.io/vibe-coding-workshops](https://eisenb
 
 For more resources, tutorials, and support, visit the workshop materials repository or reach out.
 
-https://github.com/eisenbruch/vibe-coding-workshops  
-noaheisenbruch@gmail.com
+<a href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank">https://github.com/eisenbruch/vibe-coding-workshops</a>  
+<a href="mailto:noaheisenbruch@gmail.com">noaheisenbruch@gmail.com</a>

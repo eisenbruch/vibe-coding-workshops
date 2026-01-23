@@ -323,7 +323,10 @@
 <body>
 
     <div class="top-bar">
-        <div class="logo">Vibe Coding Workshop</div>
+        <div style="display: flex; gap: 10px; align-items: baseline;">
+            <div class="logo">Vibe Coding Workshop</div>
+            <a href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank" style="text-decoration: none; color: var(--primary-color); font-size: 14px; font-weight: 700;">View GitHub Repo</a>
+        </div>
         <div style="display: flex; gap: 10px; align-items: center;">
             <select id="file-selector" onchange="handleFileSelect(this.value)">
                 <!-- Populated by JS -->
@@ -345,6 +348,7 @@
             { name: "Day 2 - Firebase Guide", path: "Day 2 - Firebase Guide.md" },
             { name: "AI Tools Directory", path: "AI Tools Directory.md" },
             { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
+            { name: "Workshop Projects", path: "Workshop Projects.md" },
             { name: "Repository README", path: "README.md" },
         ];
 
@@ -431,18 +435,31 @@
                 if (!href) return;
 
                 // 1. Markdown file links: intercept and load in viewer
-                if (href.endsWith('.md') || href.endsWith('.markdown')) {
+                // Detects relative paths (file.md), local hash paths (#file.md), 
+                // and full URLs pointing back to the site with a hash (https://.../#file.md)
+                const isMarkdownFile = href.toLowerCase().endsWith('.md') || href.toLowerCase().endsWith('.markdown');
+                const hasMarkdownHash = href.includes('#') && (href.split('#')[1].toLowerCase().endsWith('.md') || href.split('#')[1].toLowerCase().endsWith('.markdown'));
+                
+                // Only intercept if it's relative OR points back to this site
+                const isInternalViewerLink = (isMarkdownFile || hasMarkdownHash) && 
+                    (!href.startsWith('http') || href.includes('eisenbruch.github.io/vibe-coding-workshops/'));
+
+                if (isInternalViewerLink) {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
-                        // Handle encoded URLs if necessary
-                        const targetPath = decodeURIComponent(href);
-                        console.log(`Loading linked markdown file: ${targetPath}`);
-                        loadMarkdown(targetPath);
+                        let targetPath = href;
+                        
+                        // Extract from hash if it's a routing link
+                        if (href.includes('#')) {
+                            targetPath = href.split('#')[1];
+                        }
+                        
+                        const decodedPath = decodeURIComponent(targetPath);
+                        console.log(`Loading linked markdown file: ${decodedPath}`);
+                        loadMarkdown(decodedPath);
                         
                         // Update selector if the file is in the list
-                        // If it's a relative path (e.g. "docs/file.md"), exact match might fail if list has "./docs/file.md"
-                        // But simple match is good enough for now.
-                        selector.value = targetPath;
+                        selector.value = decodedPath;
                     });
                     return; // Skip other checks
                 }
