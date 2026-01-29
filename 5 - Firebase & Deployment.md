@@ -1,10 +1,17 @@
-# Day 2: Architecture & The Cloud (Firebase Guide)
+# Firebase & Deployment
+*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
-*Last updated: January 29, 2026*
 
 This guide covers taking your local project and connecting it to a real backend using Google Firebase.
 
-> **⚠️ Important:** Every project is different. A simple portfolio might only need **Hosting**, while a chat app needs a **Realtime Database** and **Authentication**.
+> **Do you need Firebase?** Not every project does. Firebase is most useful when your app needs:
+> - **User accounts** (login/signup) → Firebase Authentication
+> - **Saving data** (scores, profiles, posts) → Firestore or Realtime Database
+> - **Hosting** (putting your site online) → Firebase Hosting
+>
+> If your project is a static site (portfolio, calculator, game with no saved state), you can deploy it with GitHub Pages or any static host instead.
+
+> **Important:** Every project is different. A simple portfolio might only need **Hosting**, while a chat app needs a **Realtime Database** and **Authentication**.
 >
 > **The best approach is to tell your AI what you want to build, and let it guide you through the specific tools you need.**
 
@@ -46,7 +53,7 @@ Run `firebase init` in your project folder. This creates config files (`firebase
 *   **Auth:** Go to Build > Authentication > Sign-in method > Enable **Google** or **Email/Password**.
 *   **Database:** Go to Build > Firestore/Realtime Database > Create Database > Start in **Test Mode**.
 
-> **⚠️ Note:** Test Mode security rules expire after 30 days and will lock out all access. When you're ready for production, ask your AI to help write proper security rules.
+> **Note:** Test Mode security rules expire after 30 days and will lock out all access. When you're ready for production, ask your AI to help write proper security rules.
 
 ### Phase 4: Add the Firebase SDK
 Your app needs the Firebase SDK to communicate with Firebase services. Ask your AI to handle this — it will add the necessary scripts or packages and configure them with your project's credentials.
@@ -137,7 +144,7 @@ service cloud.firestore {
 *   Rules live in local files (`firestore.rules` or `database.rules.json`) created during `firebase init`.
 *   Edit the file, then deploy: `firebase deploy --only firestore:rules` or `firebase deploy --only database`.
 
-> **💡 Tip:** Ask your AI: *"Look at my database structure and write security rules so users can only read and write their own data."* It will generate rules specific to your app.
+> **Tip:** Ask your AI: *"Look at my database structure and write security rules so users can only read and write their own data."* It will generate rules specific to your app.
 
 ---
 
@@ -165,3 +172,4 @@ When your app works locally (or in emulators), put it online for the world.
 - [ ] Test locally (`firebase emulators:start`)
 - [ ] Set up security rules before deploying
 - [ ] Deploy (`firebase deploy`)
+

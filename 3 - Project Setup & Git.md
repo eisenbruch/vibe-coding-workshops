@@ -1,6 +1,6 @@
-# Day 1: Project Setup, Git, and Github Guide
+# Project Setup & Git
+*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
-*Last updated: January 29, 2026*
 
 This guide covers the fundamental workflow for starting a new vibe coding project, tracking changes with Git, and sharing it on GitHub.
 
@@ -44,11 +44,30 @@ After installing your AI extension, here's how to find and start it:
 1. Open a terminal by right-clicking the **Editor Toolbar** and selecting **New Terminal**.
 2. Type `claude` (for Claude Code) or `gemini` (for Gemini CLI) and press Enter.
 
-> **💡 Tip:** The VS Code extension and CLI tool are two different interfaces to the same AI. The extension gives you a chat panel inside VS Code, while the CLI runs in the terminal. Use whichever feels more comfortable — they have the similar capabilities.
+> **Tip:** The VS Code extension and CLI tool are two different interfaces to the same AI. The extension gives you a chat panel inside VS Code, while the CLI runs in the terminal. Use whichever feels more comfortable — they have the similar capabilities.
+
+#### Claude Code CLI Quick Reference
+
+| Command    | Purpose                                                                  |
+| ---------- | ------------------------------------------------------------------------ |
+| `claude`   | Start Claude in your terminal.                                           |
+| `shift + tab` | Change modes: planning, accept edits, ask for permission (defualt) |
+| ` @ ` | Mention a file within your folder structure (excludes `git ignore` files)
+| `esc`      | Interrupt Claude while it's working.                                     |
+| `esc esc`  | Go back in conversation and code history.                                |
+| `/init`    | Review codebase and create CLAUDE.md documentation file for AI reference |
+| `#memory`  | Easily add to CLAUDE.md memory                                           |
+| `/compact` | Compact conversation to clear space while keeping some memory            |
+| `/clear`   | Better space clearing but loses memory (or quit/restart Claude Code)     |
+| `/usage`   | Check current usage level                                                |
+| `/resume`  | Resume a previous conversation                                           |
+| `/review`  | Code review                                                              |
+
+> **Tip:** Store important instructions in CLAUDE.md to prevent AI from doing unwanted things (overwriting data, unnecessary builds, etc.). CLAUDE.md files exist for your user and each individual project folder where you use Claude Code. Use this to your advantage - global knowledge vs project specific knowledge.
 
 ### Step 4: Install SourceTree (Visual Git Client)
 
-SourceTree gives you a visual interface for Git, so you can see your commits, branches, and changes without using the command line. This can be done in your IDE as well, but SourceTree has a better UI.
+ SourceTree gives you a visual interface for Git, so you can see your commits, branches, and changes without using the command line. This can be done in your IDE as well, but SourceTree has a better UI.
 
 1. Download from [sourcetreeapp.com](https://www.sourcetreeapp.com/).
 2. Run the installer.
@@ -58,7 +77,7 @@ SourceTree gives you a visual interface for Git, so you can see your commits, br
 
 These tools are used by your AI assistant and for running projects.
 
-> **💡 Ask Your AI:** Once you have your code editor and AI assistant set up, you can ask your AI to install the rest:
+> **Ask Your AI:** Once you have your code editor and AI assistant set up, you can ask your AI to install the rest:
 > *"Help me install Homebrew, git, Node.js, the GitHub CLI, and Firebase CLI on my computer."*
 >
 > It will detect your operating system and walk you through each step. The manual instructions below are here if you prefer to do it yourself.
@@ -107,7 +126,7 @@ Then log in to your GitHub account:
 1. Run `gh auth login` in your terminal.
 2. Follow the prompts and choose **"Login with a web browser"**.
 
-#### Firebase CLI (Needed for Day 2)
+#### Firebase CLI (Needed for [Firebase & Deployment](5%20-%20Firebase%20&%20Deployment.md))
 
 1. Open your terminal and run:
    ```bash
@@ -133,10 +152,8 @@ Then log in to your GitHub account:
 3.  Select the folder you just created.
 4.  Open your AI extension or command line tool.
 5.  *Optional:* Open the integrated terminal (`Ctrl+` ` or View > Terminal`).
-   
-> **💡 Now use your AI to create the initial version of your project!** See the [Vibe Coding Fundamentals](Vibe%20Coding%20Fundamentals.md) guide for:
-> - [**Core Approaches**](Vibe%20Coding%20Fundamentals.md#core-approaches) — how to structure your AI workflow, good vs bad prompts
-> - [**Working with AI Coding Agents**](Vibe%20Coding%20Fundamentals.md#working-with-ai-coding-agents) — tips for getting the best results
+
+> **Now use your AI to create the initial version of your project!** See [Vibe Coding Fundamentals](1%20-%20Vibe%20Coding%20Fundamentals.md) for core approaches and good vs bad prompts, and [Building Your Project](4%20-%20Building%20Your%20Project.md) for techniques and the build cycle.
 
 ---
 
@@ -221,7 +238,7 @@ git push -u origin main
 
 You can paste them into your VS Code terminal and hit Enter.
 
-### Using SourceTree 
+### Using SourceTree
 If you prefer a visual interface outside VS Code:
 1.  Click **Repository > Add Remote** in the toolbar to add your GitHub URL (from the step above).
 2.  Click **Push** to send your commits to GitHub.
@@ -243,4 +260,5 @@ The AI will run the necessary `git remote add` and `git push` commands for you.
 4.  **Push:** Sync to GitHub to backup, deploy (for a GitHub hosted site), or share work with others
 5.  **Repeat:** Keep building — commit after every working milestone.
 
-> **💡 Tip:** Commit often! Every time you get a feature working, or even a step in the right direction, commit it. If the AI breaks your code in the next step, you (or your AI) can easily revert to the working state.
+> **Tip:** Commit often! Every time you get a feature working, or even a step in the right direction, commit it. If the AI breaks your code in the next step, you (or your AI) can easily revert to the working state.
+

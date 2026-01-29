@@ -1,4 +1,6 @@
 # Workshop Projects
+*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 Browse completed workshop projects in the <a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects" target="_blank">`workshop-projects/`</a> directory. Projects are organized by workshop date:
 

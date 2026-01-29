@@ -1,6 +1,6 @@
 # Project Idea Prompts - Extended
+*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
-*Last updated: January 29, 2026*
 
 *Full starter prompts for workshop project ideas. Use these as starting points and customize to your liking.*
 

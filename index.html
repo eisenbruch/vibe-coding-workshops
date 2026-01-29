@@ -346,6 +346,45 @@
             left: 0.6em;
         }
 
+        /* Document Navigation */
+        .doc-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .doc-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: border-color 0.15s, background-color 0.15s;
+        }
+
+        .doc-nav a:hover {
+            border-color: var(--primary-color);
+            background-color: var(--bg-color);
+            text-decoration: none;
+        }
+
+        .doc-nav .nav-prev::before {
+            content: '← ';
+        }
+
+        .doc-nav .nav-next::after {
+            content: ' →';
+        }
+
+        .doc-nav .nav-spacer {
+            flex: 1;
+        }
+
         @media print {
             body {
                 background: white;
@@ -353,7 +392,7 @@
                 padding: 0;
             }
             
-            .top-bar, #back-to-top, .file-upload, .loading, .error {
+            .top-bar, #back-to-top, .file-upload, .loading, .error, .doc-nav {
                 display: none !important;
             }
 
@@ -452,6 +491,7 @@
     <div class="container">
         <div class="loading">Loading...</div>
         <div id="markdown-content"></div>
+        <div id="doc-nav" class="doc-nav" style="display: none;"></div>
     </div>
 
     <script>
@@ -488,33 +528,96 @@
             }
         });
 
-        // List of available files in the repository
-        const AVAILABLE_FILES = [
-            { name: "Vibe Coding Fundamentals", path: "Vibe Coding Fundamentals.md" },
-            { name: "Day 1 - Project Setup Guide", path: "Day 1 - Project Setup Guide.md" },
-            { name: "Day 2 - Firebase Guide", path: "Day 2 - Firebase Guide.md" },
-            { name: "AI Tools Directory", path: "AI Tools Directory.md" },
-            { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
-            { name: "Workshop Projects", path: "Workshop Projects.md" },
-            { name: "Repository README", path: "README.md" },
+        // List of available files in the repository, grouped for the dropdown
+        const FILE_GROUPS = [
+            {
+                label: "Workshop Path",
+                files: [
+                    { name: "1 - Vibe Coding Fundamentals", path: "1 - Vibe Coding Fundamentals.md" },
+                    { name: "2 - Choosing Your Tools", path: "2 - Choosing Your Tools.md" },
+                    { name: "3 - Project Setup & Git", path: "3 - Project Setup & Git.md" },
+                    { name: "4 - Building Your Project", path: "4 - Building Your Project.md" },
+                    { name: "5 - Firebase & Deployment", path: "5 - Firebase & Deployment.md" },
+                ]
+            },
+            {
+                label: "Going Further",
+                files: [
+                    { name: "Advanced Techniques", path: "Advanced Techniques.md" },
+                ]
+            },
+            {
+                label: "Reference",
+                files: [
+                    { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
+                    { name: "AI Tools Directory", path: "AI Tools Directory.md" },
+                    { name: "Workshop Projects", path: "Workshop Projects.md" },
+                    { name: "Repository README", path: "README.md" },
+                ]
+            }
         ];
+
+        // Flat list for lookups
+        const AVAILABLE_FILES = FILE_GROUPS.flatMap(g => g.files);
 
         const selector = document.getElementById('file-selector');
         const contentDiv = document.getElementById('markdown-content');
         const loadingDiv = document.querySelector('.loading');
 
-        // Initialize Selector
-        AVAILABLE_FILES.forEach(file => {
-            const option = document.createElement('option');
-            option.value = file.path;
-            option.textContent = file.name;
-            selector.appendChild(option);
+        // Initialize Selector with optgroups
+        FILE_GROUPS.forEach(group => {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = group.label;
+            group.files.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file.path;
+                option.textContent = file.name;
+                optgroup.appendChild(option);
+            });
+            selector.appendChild(optgroup);
         });
 
         // Current file state
         let currentFile = AVAILABLE_FILES[0].path;
         // Track open/closed sections per document: { "file.md": { "section-id": true } }
         const sectionStates = {};
+
+        // Build ordered list of workshop-path files for prev/next navigation
+        const workshopPath = FILE_GROUPS.find(g => g.label === 'Workshop Path');
+        const navSequence = workshopPath ? workshopPath.files.map(f => f.path) : [];
+
+        const docNavDiv = document.getElementById('doc-nav');
+
+        function updateDocNav(filePath) {
+            const idx = navSequence.indexOf(filePath);
+            if (idx === -1) {
+                docNavDiv.style.display = 'none';
+                return;
+            }
+            docNavDiv.style.display = 'flex';
+            const prev = idx > 0 ? AVAILABLE_FILES.find(f => f.path === navSequence[idx - 1]) : null;
+            const next = idx < navSequence.length - 1 ? AVAILABLE_FILES.find(f => f.path === navSequence[idx + 1]) : null;
+
+            let html = '';
+            if (prev) {
+                html += `<a href="#" class="nav-prev" data-path="${prev.path}">${prev.name}</a>`;
+            }
+            html += '<span class="nav-spacer"></span>';
+            if (next) {
+                html += `<a href="#" class="nav-next" data-path="${next.path}">${next.name}</a>`;
+            }
+            docNavDiv.innerHTML = html;
+
+            docNavDiv.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const path = link.dataset.path;
+                    selector.value = path;
+                    loadMarkdown(path);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
 
         async function loadMarkdown(filePath, scrollToId) {
             currentFile = filePath;
@@ -533,6 +636,7 @@
 
                 const text = await response.text();
                 renderMarkdown(text);
+                updateDocNav(filePath);
                 loadingDiv.style.display = 'none';
 
                 if (scrollToId) {

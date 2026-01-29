@@ -8,11 +8,14 @@ Welcome to the Vibe Coding workshop repository! This is your central hub for lea
 
 Reference guides and resources for vibe coding, project setup, and related tools.
 
-**[📄 Resource Viewer](https://eisenbruch.github.io/vibe-coding-workshops/):** 
+**[📄 Resource Viewer](https://eisenbruch.github.io/vibe-coding-workshops/):**
 
-- **[Vibe Coding Fundamentals](https://eisenbruch.github.io/vibe-coding-workshops/#Vibe%20Coding%20Fundamentals.md)** - Essential tools, approaches, and tips.
-- **[Day 1: Project Setup, Git & GitHub](https://eisenbruch.github.io/vibe-coding-workshops/#Day%201%20-%20Project%20Setup%20Guide.md)** - Workflow for starting a project, saving and sharing your work.
-- **[Day 2: Firebase & Cloud Backend](https://eisenbruch.github.io/vibe-coding-workshops/#Day%202%20-%20Firebase%20Guide.md)** - Connecting your app to a real database and hosting.
+- **[1 - Vibe Coding Fundamentals](https://eisenbruch.github.io/vibe-coding-workshops/#1%20-%20Vibe%20Coding%20Fundamentals.md)** - Philosophy, approaches, and good prompting.
+- **[2 - Choosing Your Tools](https://eisenbruch.github.io/vibe-coding-workshops/#2%20-%20Choosing%20Your%20Tools.md)** - Tool categories from browser-based to CLI, with selection framework.
+- **[3 - Project Setup & Git](https://eisenbruch.github.io/vibe-coding-workshops/#3%20-%20Project%20Setup%20%26%20Git.md)** - Workflow for starting a project, saving and sharing your work.
+- **[4 - Building Your Project](https://eisenbruch.github.io/vibe-coding-workshops/#4%20-%20Building%20Your%20Project.md)** - Project ideas, the build cycle, and essential techniques.
+- **[5 - Firebase & Deployment](https://eisenbruch.github.io/vibe-coding-workshops/#5%20-%20Firebase%20%26%20Deployment.md)** - Connecting your app to a real database and hosting.
+- **[Advanced Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Advanced%20Techniques.md)** - Agents, skills, MCP servers, git worktrees.
 - **[Project Idea Prompts](https://eisenbruch.github.io/vibe-coding-workshops/#Project%20Idea%20Prompts%20-%20Extended.md)** - Starter prompts for simple, medium, and complex projects.
 - **[AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md)** - Comprehensive list of AI tools for every need.
 

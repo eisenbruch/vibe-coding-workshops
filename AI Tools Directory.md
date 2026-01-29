@@ -1,6 +1,6 @@
 # Extended AI Tools Directory
+*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
-*Last updated: January 29, 2026*
 
 > **⚠️ Note:** Projects shut down and get acquired frequently. Some tools may no longer exist.
 
