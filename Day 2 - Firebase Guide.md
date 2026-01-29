@@ -1,4 +1,6 @@
 # Day 2: Architecture & The Cloud (Firebase Guide)
+*By Noah Eisenbruch - noaheisenbruch@gmail.com*
+*Last updated: January 29, 2026*
 
 This guide covers taking your local project and connecting it to a real backend using Google Firebase.
 
@@ -8,16 +10,11 @@ This guide covers taking your local project and connecting it to a real backend 
 
 ## 1. The Vibe Coding Approach (Recommended)
 
-Instead of guessing which tools to enable, explain your goal to your AI assistant.
+Tell your AI what you want to build and let it guide the setup. Example prompt:
 
-**Step 1: Define Your Needs**
-Explain to your AI:
-> "I want to connect this project to Firebase. I need to host it online, allow users to log in, and save their high scores. Please walk me through the setup process and update the app accordingly."
+> "I want to connect this project to Firebase. I need to host it online, allow users to log in, and save their high scores. Walk me through the setup and update the app accordingly."
 
-**Step 2: Follow the AI's Lead**
-The AI will tell you:
-1.  Which specific Firebase services to enable in the Console.
-2.  The AI can go through the `firebase init` process and update your app with Firebase integration.
+The AI will tell you which Firebase services to enable, run `firebase init`, and update your app with the integration code.
 
 ---
 
@@ -31,7 +28,7 @@ If you prefer a manual reference, below is the standard setup for a typical **in
 3.  **Login:** Run `firebase login`.
 
 ### Phase 2: Initialization
-Run `firebase init` in your project folder.
+Run `firebase init` in your project folder. This creates config files (`firebase.json`, `.firebaserc`) that your AI can read and modify.
 
 **Common Selections:**
 *   **Hosting:** To put your site online.
@@ -49,7 +46,12 @@ Run `firebase init` in your project folder.
 *   **Auth:** Go to Build > Authentication > Sign-in method > Enable **Google** or **Email/Password**.
 *   **Database:** Go to Build > Firestore/Realtime Database > Create Database > Start in **Test Mode**.
 
-### Phase 4: Coding
+> **⚠️ Note:** Test Mode security rules expire after 30 days and will lock out all access. When you're ready for production, ask your AI to help write proper security rules.
+
+### Phase 4: Add the Firebase SDK
+Your app needs the Firebase SDK to communicate with Firebase services. Ask your AI to handle this — it will add the necessary scripts or packages and configure them with your project's credentials.
+
+### Phase 5: Coding
 *   **Auth:** Ask AI: *"Update the app to integrate Firebase for authentication and storing user data"*
 *   **Database:** Ask AI: *"Write a function to save user data to the database when they click 'Save'."*
 
@@ -57,7 +59,7 @@ Run `firebase init` in your project folder.
 
 ## 3. Testing with Emulators
 
-Before deploying to the real internet, you can run a "fake" Firebase locally to test safely.
+Firebase provides local emulators that run real Firebase services on your machine, so you can test without affecting your live project.
 
 1.  Run in terminal:
     ```bash
@@ -69,7 +71,77 @@ Before deploying to the real internet, you can run a "fake" Firebase locally to 
 
 ---
 
-## 4. Deploy to the Public Web
+## 4. Security Rules (Before You Go Live)
+
+Test Mode leaves your database open to anyone — it's meant for development only. Before deploying, you need security rules that protect your data.
+
+### What Test Mode Rules Look Like
+
+**Firestore (Test Mode) — anyone can read/write everything:**
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+```
+
+**Realtime Database (Test Mode):**
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+
+### Common Production Rule Patterns
+
+**Firestore — authenticated users can only access their own data:**
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+```
+
+**Realtime Database — same pattern:**
+```json
+{
+  "rules": {
+    "users": {
+      "$userId": {
+        ".read": "$userId === auth.uid",
+        ".write": "$userId === auth.uid"
+      }
+    }
+  }
+}
+```
+
+### How to Apply Rules
+
+**Option 1: Firebase Console**
+*   **Firestore:** Go to Build > Firestore Database > Rules tab > Paste your rules > Publish.
+*   **Realtime Database:** Go to Build > Realtime Database > Rules tab > Paste your rules > Publish.
+
+**Option 2: CLI (Recommended)**
+*   Rules live in local files (`firestore.rules` or `database.rules.json`) created during `firebase init`.
+*   Edit the file, then deploy: `firebase deploy --only firestore:rules` or `firebase deploy --only database`.
+
+> **💡 Tip:** Ask your AI: *"Look at my database structure and write security rules so users can only read and write their own data."* It will generate rules specific to your app.
+
+---
+
+## 5. Deploy to the Public Web
 
 When your app works locally (or in emulators), put it online for the world.
 
@@ -82,12 +154,14 @@ When your app works locally (or in emulators), put it online for the world.
 
 ---
 
-## 5. Summary Checklist
+## 6. Summary Checklist
 
 - [ ] Create project in Firebase Console
 - [ ] `npm install -g firebase-tools`
 - [ ] `firebase login`
 - [ ] `firebase init` (Select Hosting + features you need)
-- [ ] Ask AI to update the app to use and store data in Firebase
+- [ ] Enable Auth / Database in Firebase Console
+- [ ] Ask AI to add the Firebase SDK and integrate it with your app
 - [ ] Test locally (`firebase emulators:start`)
+- [ ] Set up security rules before deploying
 - [ ] Deploy (`firebase deploy`)

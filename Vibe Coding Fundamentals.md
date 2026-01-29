@@ -1,5 +1,5 @@
 # Vibe Coding Fundamentals
-*By Noah Eisenbruch - noaheisenbruch@gmail.com* \
+*By Noah Eisenbruch - noaheisenbruch@gmail.com*
 *Last updated: January 12, 2026*
 
 
@@ -55,7 +55,6 @@ Please fill out our feedback form after the workshop:
 
 [5. Working with AI Coding Agents](#working-with-ai-coding-agents)
    - [Vibe Coding Essential Techniques](#vibe-coding-essential-techniques)
-   - [Getting Started with Claude Code](#getting-started-with-claude-code)
    - [Claude Code CLI Commands](#claude-code-cli-commands)
    - [Claude Code Advanced Features](#claude-code-advanced-features)
 
@@ -66,6 +65,9 @@ Please fill out our feedback form after the workshop:
    - [Simple Projects](#simple-projects)
    - [Medium Projects](#medium-projects)
    - [Complex Projects](#complex-projects)
+   - [Bonus Challenge](#bonus-challenge)
+
+
 
 [7. Submitting Your Workshop Project](#submitting-your-workshop-project)
 
@@ -291,8 +293,6 @@ All projects exist somewhere on this spectrum between two approaches:
 - May drift from original vision
 - Can be difficult to guide refinement with minimal info
 
----
-
 #### Approach 2: Comprehensive Brief → Execute
 
 **Example:** <a href="https://nerktendo.com/domainflip" target="_blank">DomainFlip</a>
@@ -387,15 +387,6 @@ Claude and other AI agents can help with more than just code if they have access
 - Data visualization
 - Research and repetitive tasks
 
-### Getting Started with Claude Code
-
-For installation and setup, see the [Day 1: Project Setup Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Day%201%20-%20Project%20Setup%20Guide.md) — it covers installing the VS Code extension or CLI tool, and how to open your AI assistant.
-
-Once set up, navigate to your project directory and start coding. The CLI commands and advanced features below will help you get the most out of Claude Code.
-
-> **🧠 Learn More:** Read Anthropic's official <a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank">Claude Code Best Practices</a> guide for workflows, optimization tips, and advanced techniques.
-
-
 ### Claude Code CLI Commands
 
 | Command    | Purpose                                                                  |
@@ -421,43 +412,50 @@ Once set up, navigate to your project directory and start coding. The CLI comman
 ### Claude Code Advanced Features
 
 #### Claude Agents (Tasks)
-Multiple Claude Code instances using skills and tools to autonomously complete complex workflows in parallel.
+Multiple Claude Code instances that autonomously complete complex workflows in parallel.
 
-**Use case:** Analyze reports or data sources simultaneously
+**When to use it:** You have a large or multi-part task — analyzing several data sources, refactoring across files, or running independent subtasks simultaneously.
 
-**How to use:** Just ask Claude to start some agents (tasks)
+**How to use it:** Ask Claude to start agents or tasks. It will spawn parallel instances that coordinate and report back.
+
+**Example:**
+```
+"Spin up agents to analyze each of these three CSV reports and summarize the findings"
+```
+
+---
 
 #### Custom Commands
-Shortcuts for common workflows without detailed descriptions each time.
+Reusable shortcuts that save your most common prompts so you don't have to describe them each time.
 
-**Use case:** Super helpful for scraping and cleaning data
+**When to use it:** You find yourself repeating the same type of request — scraping a new source, committing with a specific format, generating boilerplate.
 
-**Examples:** `/new-source` and `/commit` (TrafficVision.Live)
+**How to use it:** Create markdown instruction files in `.claude/commands/` (project) or `~/.claude/commands/` (global), then invoke with `/command-name`.
+
+**Example:**
+```
+# .claude/commands/new-source.md
+Scrape the provided URL, extract the main content, clean the data,
+and save it as a structured JSON file in the /data directory.
+```
+Then use: `/new-source https://example.com/data`
+
+---
 
 #### Git Worktrees
+Work on multiple branches simultaneously without switching contexts or cloning the repo again.
 
-Git worktrees let you work on multiple branches simultaneously without switching contexts or creating separate repository clones.
+**When to use it:** You're building a feature but need to fix a bug on main, want to test different approaches side-by-side, or do code review without disrupting your current work.
 
-**What it solves:** Working on a feature while needing to quickly fix a bug on main, or testing different approaches side-by-side
-
-**How to use:**
-
-1. Create a new worktree:
+**How to use it:**
 ```bash
+# Create a worktree for a branch
 git worktree add ../project-feature-branch feature-branch-name
-```
-2. Claude Code can work across worktrees simultaneously
-3. Each worktree maintains its own working directory and branch
-4. Shared git history means commits from any worktree are available everywhere
 
-**Use cases:**
-- Developing a new feature while maintaining production bug fixes
-- Testing multiple implementation approaches in parallel
-- Code review without disrupting your current work
-- Running different versions for comparison testing
+# Each worktree has its own directory and branch, but shares git history
+# Claude Code can work across worktrees simultaneously
 
-**Clean up when done:**
-```bash
+# Clean up when done
 git worktree remove ../project-feature-branch
 ```
 
@@ -465,98 +463,82 @@ git worktree remove ../project-feature-branch
 
 > **💡 Tip:** If worktrees are confusing to you (or if any advanced workflow is), ask Claude to do it for you and teach you along the way.
 
+---
+
 #### MCP Servers
+Plugins that connect Claude to external tools, APIs, databases, and services through a standardized protocol.
 
-Model Context Protocol (MCP) servers extend Claude's capabilities by connecting to external tools, APIs, databases, and services through a standardized protocol.
+**When to use it:** You need real-time data, want to connect to services like GitHub/Slack/Google Drive, or need specialized capabilities like browser automation or web search.
 
-**What it is:** An open standard that lets AI assistants securely connect to external data sources and tools without custom integrations for each service.
+**How to use it:**
 
-**Why use it:** 
-- Access real-time data beyond Claude's training cutoff
-- Connect to your tools (GitHub, Slack, databases, file systems)
-- Automate workflows across multiple services
-- Get specialized functionality (web search, documentation, browser control)
+*Claude Desktop:* Settings → Extensions → Browse extensions (one-click install)
 
-**Common MCP Servers:**
-
-- **Filesystem** - Read/write local files with permission-based access
-- **GitHub** - Manage PRs, issues, and repository operations
-- **Puppeteer** - Browser automation and web scraping
-- **Context7** - Up-to-date library documentation with version-specific references
-- **Brave Search** - Real-time web search results
-- **Sequential Thinking** - Break down complex tasks into structured steps
-- **Google Drive** - Access and manage Drive documents
-- **Slack** - Send messages and interact with Slack workspaces
-
-**Installation - Claude Desktop:**
-
-1. Install Node.js if needed: `brew install node` (macOS)
-2. Navigate to Settings → Extensions in Claude Desktop
-3. Click "Browse extensions" to install from directory (one-click)
-
-**Installation - Claude Code:**
+*Claude Code:*
 ```bash
-# Add server with user scope (available in all projects)
+# Add a server (use --scope user for all projects)
 claude mcp add github --scope user
 
 # Add with environment variables
 claude mcp add -e API_KEY=your_key servername -- npx @org/server
 
-# List configured servers
+# Check what's installed
 claude mcp list
-
-# Check server status
-/mcp
 ```
 
-**Configuration Scopes:**
+**Common servers:**
 
-- **Local** (default) - Only available in current directory
-- **User** (`--scope user`) - Available globally across all projects
-- **Project** (`.mcp.json`) - Shared with team via version control
+| Server | What it does |
+|--------|-------------|
+| Filesystem | Read/write local files with permission-based access |
+| GitHub | Manage PRs, issues, and repository operations |
+| Puppeteer | Browser automation and web scraping |
+| Context7 | Up-to-date library docs with version-specific references |
+| Brave Search | Real-time web search results |
+| Sequential Thinking | Break down complex tasks into structured steps |
+| Google Drive | Access and manage Drive documents |
+| Slack | Send messages and interact with Slack workspaces |
 
-> **💡 Tip:** Use user scope for personal tools, project scope for team-shared servers. After adding servers, restart Claude Desktop or Claude Code to activate them.
+**Configuration scopes:**
 
-**Config File Locations:**
+| Scope | Flag | Availability |
+|-------|------|-------------|
+| Local | *(default)* | Current directory only |
+| User | `--scope user` | All projects globally |
+| Project | `.mcp.json` file | Shared with team via version control |
 
-- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
-- **Claude Code:** `~/.claude.json` (user scope) or `.mcp.json` (project scope)
+> **💡 Tip:** Use user scope for personal tools, project scope for team-shared servers. Restart Claude Desktop or Claude Code after adding servers to activate them.
 
-**Finding More Servers:**
+**Finding more servers:**
 
-- Official servers: <a href="https://github.com/modelcontextprotocol/servers" target="_blank">github.com/modelcontextprotocol/servers</a>
-- Community directory: <a href="https://mcp.so" target="_blank">mcp.so</a>
+- Official: <a href="https://github.com/modelcontextprotocol/servers" target="_blank">github.com/modelcontextprotocol/servers</a>
+- Community: <a href="https://mcp.so" target="_blank">mcp.so</a>
 - Smithery: <a href="https://smithery.ai" target="_blank">smithery.ai</a>
 
 ---
 
 ## Project Ideas
 
-*Customize these to your liking. Extended prompts with full details available on the <a href="https://github.com/eisenbruch/vibe-coding-workshops/blob/master/Project%20Idea%20Prompts%20-%20Extended.md" target="_blank">GitHub repo</a>.*
+*Customize these to your liking. [Extended prompts with full details available here.](Project%20Idea%20Prompts%20-%20Extended.md)*
 
 ### Simple Projects
 
-#### To-Do List
-Task management with add/edit/delete, checkboxes, filters (all/active/completed), localStorage.
+1. **To-Do List**
 ```
 Create a to-do list app with add/edit/delete tasks, checkboxes, filter by all/active/completed, and localStorage persistence. Clean minimal design.
 ```
 
-#### Habit Tracker
-Daily habits with check-offs, 7-day calendar view, streak counter.
+2. **Habit Tracker**
 ```
 Build a habit tracker: add custom habits, mark complete daily, 7-day streak calendar, current streak display. Green checkmarks, motivating design.
 ```
 
-#### Calculator
-Basic math (+, -, ×, ÷), keyboard support, iOS or retro style.
+3. **Calculator**
 ```
 Create a calculator with basic operations, clear/backspace, keyboard support. Style like iOS calculator or retro aesthetic with button animations.
 ```
 
-#### Guessing Game
-Number guessing 1-100, higher/lower hints, attempt counter, difficulty levels.
+4. **Guessing Game**
 ```
 Build a guessing game: random number 1-100, higher/lower hints, track attempts, play again option. Add difficulty selector and emoji reactions.
 ```
@@ -565,26 +547,22 @@ Build a guessing game: random number 1-100, higher/lower hints, track attempts, 
 
 ### Medium Projects
 
-#### Weather App
-City search, 5-day forecast, geolocation, weather-themed gradients. **API:** OpenWeatherMap
+1. **Weather App** *(API: OpenWeatherMap)*
 ```
 Build a weather app: city search, 5-day forecast, weather icons, humidity, wind, "feels like". Geolocation support. Weather-appropriate background gradients.
 ```
 
-#### Portfolio Site
-Hero section, project cards with filtering, contact form, dark/light mode. **API:** EmailJS
+2. **Portfolio Site** *(API: EmailJS)*
 ```
 Build a portfolio: animated hero, project showcase with category filters, skills section, contact form (EmailJS), dark/light toggle. React + Tailwind.
 ```
 
-#### Pomodoro Timer
-25/5 min sessions, customizable durations, audio alerts, session stats.
+3. **Pomodoro Timer**
 ```
 Build a pomodoro timer: 25-min work / 5-min break sessions, customizable durations, audio notifications, session counter, pause/resume/reset. Minimalist design.
 ```
 
-#### Recipe Finder
-Search by ingredient, dietary filters, save favorites, random recipe. **API:** Spoonacular
+4. **Recipe Finder** *(API: Spoonacular)*
 ```
 Build a recipe app: search by ingredient/dish, filter by dietary restrictions, show ingredients + instructions + cook time, save favorites, random recipe button.
 ```
@@ -593,26 +571,22 @@ Build a recipe app: search by ingredient/dish, filter by dietary restrictions, s
 
 ### Complex Projects
 
-#### Real-Time Chat
-Discord/Slack clone with auth, channels, typing indicators, read receipts, file uploads.
+1. **Real-Time Chat**
 ```
 Build a real-time chat app: user auth, multiple channels, online/offline status, typing indicators, message history, read receipts, emoji reactions, file uploads. WebSocket-based.
 ```
 
-#### Restaurant Reservations
-OpenTable clone with restaurant browsing, table booking, calendar availability, admin panel.
+2. **Restaurant Reservations**
 ```
 Build a reservation system: browse restaurants with photos/menus, search/filter, interactive availability calendar, booking with party size + special requests, email confirmation, admin panel for owners.
 ```
 
-#### Data Dashboard
-Analytics visualizer with multiple chart types, date filters, CSV upload, drag-drop layout.
+3. **Data Dashboard**
 ```
 Build an analytics dashboard: line/bar/pie charts + heatmaps, interactive filtering, date range selectors, CSV/JSON upload, drag-drop widget layout, user roles (viewer/editor/admin), PDF export.
 ```
 
-#### Shift Scheduler
-Staff scheduling with availability, auto-scheduling algorithm, fairness tracking.
+4. **Shift Scheduler**
 ```
 Build a shift scheduler: employee profiles with qualifications + availability, auto-generate fair schedules, drag-drop adjustments, conflict warnings, fairness dashboard, PDF/CSV export.
 ```

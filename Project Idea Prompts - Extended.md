@@ -1,4 +1,6 @@
 # Project Idea Prompts - Extended
+*By Noah Eisenbruch - noaheisenbruch@gmail.com*
+*Last updated: January 29, 2026*
 
 *Full starter prompts for workshop project ideas. Use these as starting points and customize to your liking.*
 
@@ -6,7 +8,7 @@
 
 ## Simple Projects
 
-### To-Do List
+#### To-Do List
 ```
 Create a to-do list app with the following features:
 - Add, edit, and delete tasks
@@ -16,7 +18,7 @@ Create a to-do list app with the following features:
 Use vanilla JavaScript or React, make it clean and minimal with a soft color palette.
 ```
 
-### Habit Tracker
+#### Habit Tracker
 ```
 Build a habit tracker that lets users:
 - Add custom habits to track
@@ -26,7 +28,7 @@ Build a habit tracker that lets users:
 Use a grid layout with green checkmarks for completed days. Make it motivating and visually rewarding.
 ```
 
-### Custom Calculator
+#### Custom Calculator
 ```
 Create a calculator with:
 - Basic operations (+, -, ×, ÷)
@@ -36,7 +38,7 @@ Create a calculator with:
 Style it like a modern iOS calculator or create a retro/vintage aesthetic. Add smooth button press animations.
 ```
 
-### Basic Game
+#### Basic Game
 ```
 Build a simple guessing game where:
 - Computer picks a random number between 1-100
@@ -50,7 +52,7 @@ Make it colorful and fun with emoji reactions to guesses. Add a difficulty selec
 
 ## Medium Projects
 
-### Weather App
+#### Weather App
 ```
 Build a weather app that includes:
 - Feature 1: Search for any city and display current weather
@@ -62,7 +64,7 @@ Use OpenWeatherMap API or WeatherAPI.
 Target audience: anyone who wants quick weather info at a glance
 ```
 
-### Portfolio Website
+#### Portfolio Website
 ```
 Build a personal portfolio website that includes:
 - Feature 1: Hero section with animated introduction and call-to-action
@@ -75,7 +77,7 @@ Use React or Next.js with Tailwind CSS.
 Target audience: potential employers and clients
 ```
 
-### Pomodoro Timer App
+#### Pomodoro Timer App
 ```
 Build a productivity timer app that includes:
 - Feature 1: 25-minute work sessions with 5-minute breaks
@@ -88,7 +90,7 @@ Add ambient background sounds (optional toggle).
 Target audience: students and remote workers seeking better focus
 ```
 
-### Recipe Finder
+#### Recipe Finder
 ```
 Build a recipe search app that includes:
 - Feature 1: Search recipes by ingredient or dish name
@@ -105,7 +107,7 @@ Target audience: home cooks looking for meal ideas
 
 ## Complex Projects
 
-### Real-Time Chat App
+#### Real-Time Chat App
 ```
 Build a chat application where users can message each other in real-time with these features:
 
@@ -137,7 +139,7 @@ Technical Requirements:
 Target audience: Teams, friend groups, or communities who want their own private chat space.
 ```
 
-### Restaurant Reservation System
+#### Restaurant Reservation System
 ```
 Build a restaurant reservation platform where customers can book tables and restaurants can manage their bookings:
 
@@ -174,7 +176,7 @@ Technical Requirements:
 Target audience: Diners looking for an easy way to book tables, and restaurant owners who want to manage reservations efficiently.
 ```
 
-### Interactive Data Visualization Dashboard
+#### Interactive Data Visualization Dashboard
 ```
 Build an analytics dashboard that turns data into beautiful, interactive visualizations:
 
@@ -219,7 +221,7 @@ Example use cases:
 Target audience: Business teams, data analysts, or anyone who needs to understand their data through visual insights.
 ```
 
-### Employee Shift Scheduler
+#### Employee Shift Scheduler
 ```
 Build a smart shift scheduling system that creates fair schedules automatically while respecting staff preferences and availability:
 
@@ -276,7 +278,7 @@ Target audience: Small business managers, healthcare facilities, retail stores, 
 
 ## Bonus Challenge
 
-### Open Source Contribution Challenge
+#### Open Source Contribution Challenge
 
 Take a project that you use from GitHub, come up with an improvement, and submit a PR (pull request).
 

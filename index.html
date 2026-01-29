@@ -129,6 +129,14 @@
             line-height: 1.25;
         }
 
+        #markdown-content h4 {
+            font-size: 1.125em;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
         #markdown-content p {
             margin-top: 0;
             margin-bottom: 16px;
@@ -169,7 +177,8 @@
             margin: 0;
             font-size: 100%;
             word-break: normal;
-            white-space: pre;
+            white-space: pre-wrap;
+            word-wrap: break-word;
             border: 0;
             border-radius: 0;
         }
@@ -220,6 +229,23 @@
             max-width: 100%;
             box-sizing: border-box;
             background-color: var(--surface-color);
+        }
+
+        /* Two-Column Auto-Balanced Layout */
+        .two-column {
+            column-count: 2;
+            column-gap: 32px;
+        }
+
+        .two-column p {
+            break-inside: avoid;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                column-count: 1;
+            }
         }
 
         /* Loading & Error States */
@@ -309,6 +335,17 @@
             display: none;
         }
 
+        /* Nested h3 sections: indent and add left border for hierarchy */
+        #markdown-content h3.collapsible-header {
+            margin-left: 1.2em;
+            padding-left: 1.4em;
+            border-left: 2px solid var(--border-color);
+        }
+
+        #markdown-content h3.collapsible-header::before {
+            left: 0.6em;
+        }
+
         @media print {
             body {
                 background: white;
@@ -367,9 +404,16 @@
             tr { page-break-inside: avoid; }
             td, th { vertical-align: top; padding: 4px; border: 1px solid #ddd; }
             
-            /* Specific formatting for Tools Directory to match PDF script */
-            table td {
-                font-size: 9pt; 
+            /* Two-column layout for print */
+            .two-column {
+                column-count: 2;
+                column-gap: 24px;
+            }
+
+            .two-column p {
+                break-inside: avoid;
+                margin-bottom: 8px;
+                font-size: 9pt;
             }
 
             /* Hide interactive elements not needed in print */
@@ -624,7 +668,7 @@
                     const id = header.id;
                     const level = parseInt(header.tagName[1]);
                     // Restore saved state; default h2 to collapsed, h3+ to expanded
-                    const defaultOpen = level >= 3;
+                    const defaultOpen = id === 'table-of-contents';
                     const isOpen = saved ? saved[id] : defaultOpen;
                     if (!isOpen) {
                         header.classList.add('collapsible-header', 'collapsed');

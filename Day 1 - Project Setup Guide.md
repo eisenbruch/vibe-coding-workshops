@@ -1,4 +1,6 @@
 # Day 1: Project Setup, Git, and Github Guide
+*By Noah Eisenbruch - noaheisenbruch@gmail.com*
+*Last updated: January 29, 2026*
 
 This guide covers the fundamental workflow for starting a new vibe coding project, tracking changes with Git, and sharing it on GitHub.
 
@@ -105,7 +107,7 @@ Then log in to your GitHub account:
 1. Run `gh auth login` in your terminal.
 2. Follow the prompts and choose **"Login with a web browser"**.
 
-#### Firebase CLI *(Needed for Day 2)*
+#### Firebase CLI (Needed for Day 2)
 
 1. Open your terminal and run:
    ```bash
@@ -202,7 +204,7 @@ GitHub is where your code lives online. It serves as a backup and a way to share
 1.  Log in to [GitHub.com](https://github.com).
 2.  Click the **+** icon in the top right and select **New repository**.
 3.  **Repository name:** Match your folder name (e.g., `my-first-vibe-app`).
-4.  **Public/Private:** Choose Public (easiest for hosting) or Private.
+4.  **Public/Private:** Choose Public or Private.
 5.  **Do not** check "Add a README", ".gitignore", or "license" (since you already have a local project).
 6.  Click **Create repository**.
 
@@ -236,8 +238,9 @@ The AI will run the necessary `git remote add` and `git push` commands for you.
 ## 5. Typical Workflow
 
 1.  **Code:** Make changes to your files using AI.
-2.  **Stage:** Add files to the "Staging Area" (via VS Code Source Control `+` button).
-3.  **Commit:** Save the snapshot with a message describing what changed (e.g., "Added navbar", "Fixed styling bug").
-4.  **Push:** Sync changes to GitHub (`Sync Changes` button in VS Code).
+2.  **Test:** Check your work in the browser or run the app.
+3.  **Commit:** Save a snapshot with a descriptive message (e.g., "Added navbar", "Fixed styling bug").
+4.  **Push:** Sync to GitHub to backup, deploy (for a GitHub hosted site), or share work with others
+5.  **Repeat:** Keep building — commit after every working milestone.
 
 > **💡 Tip:** Commit often! Every time you get a feature working, or even a step in the right direction, commit it. If the AI breaks your code in the next step, you (or your AI) can easily revert to the working state.
