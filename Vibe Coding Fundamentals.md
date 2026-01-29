@@ -1,6 +1,6 @@
 # Vibe Coding Fundamentals
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
-*Last updated: January 12, 2026*
+*Last updated: January 29, 2026*
 
 
 <table>
