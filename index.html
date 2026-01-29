@@ -6,15 +6,35 @@
     <title>Vibe Coding Workshop - Doc Viewer</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        :root {
-            --bg-color: #f6f8fa; /* GitHub light gray bg */
+        :root,
+        [data-theme="light"] {
+            --bg-color: #f6f8fa;
             --surface-color: #ffffff;
             --text-color: #24292f;
             --text-muted: #57606a;
             --border-color: #d0d7de;
-            --primary-color: #0969da; /* GitHub Link Blue */
+            --primary-color: #0969da;
             --code-bg: #f6f8fa;
             --header-border: #d8dee4;
+            --table-alt-bg: #f6f8fa;
+            --blockquote-border: #d0d7de;
+            --error-bg: #fff8c5;
+            --error-border: rgba(234,179,8,0.4);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0d1117;
+            --surface-color: #161b22;
+            --text-color: #e6edf3;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --primary-color: #58a6ff;
+            --code-bg: #161b22;
+            --header-border: #21262d;
+            --table-alt-bg: #161b22;
+            --blockquote-border: #30363d;
+            --error-bg: #2d1b00;
+            --error-border: rgba(187,128,9,0.4);
         }
 
         * {
@@ -55,7 +75,7 @@
             font-size: 14px;
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            background-color: #f6f8fa;
+            background-color: var(--bg-color);
             color: var(--text-color);
             cursor: pointer;
             min-width: 250px;
@@ -157,7 +177,7 @@
         #markdown-content blockquote {
             padding: 0 1em;
             color: var(--text-muted);
-            border-left: 0.25em solid #d0d7de;
+            border-left: 0.25em solid var(--blockquote-border);
             margin: 0 0 16px 0;
         }
 
@@ -179,12 +199,12 @@
         }
 
         #markdown-content tr {
-            background-color: #fff;
+            background-color: var(--surface-color);
             border-top: 1px solid var(--border-color);
         }
 
         #markdown-content tr:nth-child(2n) {
-            background-color: #f6f8fa;
+            background-color: var(--table-alt-bg);
         }
 
         #markdown-content th, #markdown-content td {
@@ -199,7 +219,7 @@
         #markdown-content img {
             max-width: 100%;
             box-sizing: border-box;
-            background-color: #fff;
+            background-color: var(--surface-color);
         }
 
         /* Loading & Error States */
@@ -211,8 +231,8 @@
 
         .error {
             padding: 20px;
-            background-color: #fff8c5;
-            border: 1px solid rgba(234,179,8,0.4);
+            background-color: var(--error-bg);
+            border: 1px solid var(--error-border);
             border-radius: 6px;
             color: var(--text-color);
             margin-bottom: 20px;
@@ -237,19 +257,56 @@
             }
         }
 
-        .print-btn {
-            padding: 6px 16px;
+        .top-bar-btn {
+            padding: 6px 12px;
             background-color: var(--surface-color);
             color: var(--text-color);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             cursor: pointer;
             font-weight: 500;
-            margin-left: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
-        
-        .print-btn:hover {
+
+        .top-bar-btn:hover {
             background-color: var(--bg-color);
+        }
+
+        .top-bar-btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Collapsible Sections */
+        #markdown-content .collapsible-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-left: 1.2em;
+        }
+
+        #markdown-content .collapsible-header::before {
+            content: '';
+            display: inline-block;
+            border-style: solid;
+            border-width: 5px 0 5px 8px;
+            border-color: transparent transparent transparent var(--text-muted);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            transition: transform 0.2s ease;
+        }
+
+        #markdown-content .collapsible-header.collapsed::before {
+            transform: translateY(-50%) rotate(0deg);
+        }
+
+        .section-content.collapsed {
+            display: none;
         }
 
         @media print {
@@ -317,6 +374,11 @@
 
             /* Hide interactive elements not needed in print */
             details, summary { display: block; }
+
+            /* Expand all sections and hide chevrons for print */
+            .collapsible-header::before { display: none !important; }
+            .collapsible-header { padding-left: 0 !important; }
+            .section-content.collapsed { display: block !important; }
         }
     </style>
 </head>
@@ -327,11 +389,19 @@
             <div class="logo">Vibe Coding Workshop</div>
             <a href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank" style="text-decoration: none; color: var(--primary-color); font-size: 14px; font-weight: 700;">View GitHub Repo</a>
         </div>
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div style="display: flex; gap: 8px; align-items: center;">
             <select id="file-selector" onchange="handleFileSelect(this.value)">
                 <!-- Populated by JS -->
             </select>
-            <button class="print-btn" onclick="window.print()">🖨️ Print / PDF</button>
+            <button class="top-bar-btn" onclick="window.print()" aria-label="Print or save as PDF">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="9" width="8" height="5" rx="0.5"/>
+                    <path d="M4 11H2.5a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1V10a1 1 0 0 1-1 1H12"/>
+                    <path d="M4 5.5V2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v3"/>
+                </svg>
+                Print / PDF
+            </button>
+            <button class="top-bar-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
         </div>
     </div>
 
@@ -341,6 +411,39 @@
     </div>
 
     <script>
+        // Theme toggle
+        function getPreferredTheme() {
+            const stored = localStorage.getItem('theme');
+            if (stored) return stored;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        const sunIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1M8 13.5v1M1.5 8h1M13.5 8h1M3.4 3.4l.7.7M11.9 11.9l.7.7M3.4 12.6l.7-.7M11.9 4.1l.7-.7"/></svg>';
+        const moonIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 8.9A5.5 5.5 0 0 1 7.1 2.5a5.5 5.5 0 1 0 6.4 6.4Z"/></svg>';
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const btn = document.getElementById('theme-toggle');
+            btn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', next);
+            applyTheme(next);
+        }
+
+        // Apply theme immediately to avoid flash
+        applyTheme(getPreferredTheme());
+
+        // Respect OS-level changes if no manual override
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
         // List of available files in the repository
         const AVAILABLE_FILES = [
             { name: "Vibe Coding Fundamentals", path: "Vibe Coding Fundamentals.md" },
@@ -366,18 +469,20 @@
 
         // Current file state
         let currentFile = AVAILABLE_FILES[0].path;
+        // Track open/closed sections per document: { "file.md": { "section-id": true } }
+        const sectionStates = {};
 
-        async function loadMarkdown(filePath) {
+        async function loadMarkdown(filePath, scrollToId) {
             currentFile = filePath;
             loadingDiv.style.display = 'block';
             contentDiv.innerHTML = '';
-            
+
             // Update URL hash for "routing"
             window.location.hash = encodeURIComponent(filePath);
 
             try {
                 const response = await fetch(filePath);
-                
+
                 if (!response.ok) {
                     throw new Error(`Failed to load ${filePath} (${response.status})`);
                 }
@@ -385,6 +490,10 @@
                 const text = await response.text();
                 renderMarkdown(text);
                 loadingDiv.style.display = 'none';
+
+                if (scrollToId) {
+                    expandAndScrollTo(scrollToId);
+                }
 
             } catch (error) {
                 console.error(error);
@@ -435,29 +544,38 @@
                 if (!href) return;
 
                 // 1. Markdown file links: intercept and load in viewer
-                // Detects relative paths (file.md), local hash paths (#file.md), 
+                // Detects relative paths (file.md), local hash paths (#file.md),
+                // cross-doc section links (file.md#section),
                 // and full URLs pointing back to the site with a hash (https://.../#file.md)
-                const isMarkdownFile = href.toLowerCase().endsWith('.md') || href.toLowerCase().endsWith('.markdown');
+                const hrefLower = href.toLowerCase();
+                const isMarkdownFile = hrefLower.endsWith('.md') || hrefLower.endsWith('.markdown');
                 const hasMarkdownHash = href.includes('#') && (href.split('#')[1].toLowerCase().endsWith('.md') || href.split('#')[1].toLowerCase().endsWith('.markdown'));
-                
+                // Detect file.md#section pattern (markdown file with an anchor)
+                const mdAnchorMatch = href.match(/^(.+\.md)#(.+)$/i);
+
                 // Only intercept if it's relative OR points back to this site
-                const isInternalViewerLink = (isMarkdownFile || hasMarkdownHash) && 
+                const isInternalViewerLink = (isMarkdownFile || hasMarkdownHash || mdAnchorMatch) &&
                     (!href.startsWith('http') || href.includes('eisenbruch.github.io/vibe-coding-workshops/'));
 
                 if (isInternalViewerLink) {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
                         let targetPath = href;
-                        
-                        // Extract from hash if it's a routing link
-                        if (href.includes('#')) {
+                        let scrollToId = null;
+
+                        if (mdAnchorMatch) {
+                            // Cross-document section link: file.md#section
+                            targetPath = mdAnchorMatch[1];
+                            scrollToId = mdAnchorMatch[2];
+                        } else if (href.includes('#')) {
+                            // Hash-based routing link: #file.md
                             targetPath = href.split('#')[1];
                         }
-                        
+
                         const decodedPath = decodeURIComponent(targetPath);
-                        console.log(`Loading linked markdown file: ${decodedPath}`);
-                        loadMarkdown(decodedPath);
-                        
+                        console.log(`Loading linked markdown file: ${decodedPath}` + (scrollToId ? ` → #${scrollToId}` : ''));
+                        loadMarkdown(decodedPath, scrollToId);
+
                         // Update selector if the file is in the list
                         selector.value = decodedPath;
                     });
@@ -470,22 +588,95 @@
                     link.setAttribute('rel', 'noopener noreferrer');
                 }
                 
-                // 3. Internal Anchor links (TOC): smooth scroll
+                // 3. Internal Anchor links (TOC): expand collapsed sections & smooth scroll
                 if (href.startsWith('#')) {
                     link.addEventListener('click', (e) => {
-                        console.log(`Clicked anchor: ${href}`);
                         e.preventDefault();
                         const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        console.log(`Looking for target ID: "${targetId}", found:`, targetElement);
-                        if (targetElement) {
-                            targetElement.scrollIntoView({ behavior: 'smooth' });
-                        } else {
+                        if (!expandAndScrollTo(targetId)) {
                             console.warn('Target not found:', targetId);
                         }
                     });
                 }
             });
+
+            makeCollapsible();
+        }
+
+        function makeCollapsible() {
+            const headers = contentDiv.querySelectorAll('h2, h3');
+            const saved = sectionStates[currentFile];
+
+            headers.forEach(header => {
+                const level = parseInt(header.tagName[1]);
+                const sectionContent = document.createElement('div');
+                sectionContent.className = 'section-content';
+
+                let sibling = header.nextElementSibling;
+                while (sibling) {
+                    const next = sibling.nextElementSibling;
+                    if (/^H[1-6]$/.test(sibling.tagName) && parseInt(sibling.tagName[1]) <= level) break;
+                    sectionContent.appendChild(sibling);
+                    sibling = next;
+                }
+
+                if (sectionContent.children.length > 0) {
+                    const id = header.id;
+                    const level = parseInt(header.tagName[1]);
+                    // Restore saved state; default h2 to collapsed, h3+ to expanded
+                    const defaultOpen = level >= 3;
+                    const isOpen = saved ? saved[id] : defaultOpen;
+                    if (!isOpen) {
+                        header.classList.add('collapsible-header', 'collapsed');
+                        sectionContent.classList.add('collapsed');
+                    } else {
+                        header.classList.add('collapsible-header');
+                    }
+                    header.after(sectionContent);
+                    header.addEventListener('click', () => {
+                        header.classList.toggle('collapsed');
+                        sectionContent.classList.toggle('collapsed');
+                        // Save state on toggle
+                        if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
+                        sectionStates[currentFile][id] = !header.classList.contains('collapsed');
+                    });
+                }
+            });
+        }
+
+        function expandAndScrollTo(targetId) {
+            const target = document.getElementById(targetId);
+            if (!target) return false;
+
+            // Walk up from target, expanding any collapsed section-content ancestors
+            let el = target;
+            while (el && el !== contentDiv) {
+                if (el.classList.contains('section-content') && el.classList.contains('collapsed')) {
+                    el.classList.remove('collapsed');
+                    // The header is the previous sibling
+                    const header = el.previousElementSibling;
+                    if (header && header.classList.contains('collapsible-header')) {
+                        header.classList.remove('collapsed');
+                        if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
+                        sectionStates[currentFile][header.id] = true;
+                    }
+                }
+                el = el.parentElement;
+            }
+
+            // If the target itself is a collapsed header, expand it
+            if (target.classList.contains('collapsible-header') && target.classList.contains('collapsed')) {
+                target.classList.remove('collapsed');
+                const sectionContent = target.nextElementSibling;
+                if (sectionContent && sectionContent.classList.contains('section-content')) {
+                    sectionContent.classList.remove('collapsed');
+                }
+                if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
+                sectionStates[currentFile][targetId] = true;
+            }
+
+            target.scrollIntoView({ behavior: 'smooth' });
+            return true;
         }
 
         function handleFileSelect(filePath) {
@@ -517,6 +708,16 @@
             reader.readAsText(file);
         }
 
+        // Handle browser back/forward navigation
+        window.addEventListener('hashchange', () => {
+            const newHash = decodeURIComponent(window.location.hash.slice(1));
+            if (newHash && newHash !== currentFile) {
+                currentFile = newHash;
+                selector.value = newHash;
+                loadMarkdown(newHash);
+            }
+        });
+
         // Initialize
         // Check if hash exists to load specific file
         const hash = window.location.hash.slice(1); // remove #
@@ -525,7 +726,7 @@
             // Verify it's in our list or just try loading it
             currentFile = decodedPath;
             selector.value = decodedPath;
-            // If the hash didn't match a selector option (e.g. custom file), the selector might be blank, 
+            // If the hash didn't match a selector option (e.g. custom file), the selector might be blank,
             // but we try loading anyway.
         }
 

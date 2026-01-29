@@ -83,8 +83,6 @@ Please fill out our feedback form after the workshop:
 
 ## Example Projects
 
-### Portfolio of Vibe-Coded Projects
-
 **1. Glitch QR** (<a href="https://github.com/eisenbruch" target="_blank">github.com/eisenbruch/glitch-qr</a>)
 - **Type:** QR code generation with a twist
 - **Key Learning:** You can vibe code a simple tool in minutes, and it's fun
@@ -147,36 +145,35 @@ Please fill out our feedback form after the workshop:
 ---
 
 ### Intermediate: Desktop Applications
-*Enhanced AI assistants with file system access* \
-*Best for document management, file organization, and basic coding tasks*
+*All-in-one AI assistants with GUI interfaces and agentic capabilities* \
+*Best for beginners, non-developers, and quick projects without terminal or IDE experience*
 
 **Desktop Applications:**
-- **<a href="https://claude.ai/download" target="_blank">Claude Desktop</a>** - Enhanced with file system access via MCP servers
-- **<a href="https://openai.com/chatgpt/desktop" target="_blank">ChatGPT Desktop</a>** - Integrated workflow tools
+- **<a href="https://claude.ai/download" target="_blank">Claude Desktop</a>** - Three modes: Chat (conversation), Cowork (agentic file automation), and Code (full coding agent on cloud VMs)
+- **<a href="https://openai.com/chatgpt/desktop" target="_blank">ChatGPT Desktop</a>** - Singular Chat mode, not as powerful as Claude Desktop. The following Pros/Limitations do not apply to ChatGPT Desktop.
 
 **✅ Pros:**
-- Full file system access
-- Great for organizing files and documents
-- MCP server support for extended capabilities
-- Easy to use without coding or IDE experience
+- Full coding capabilities without terminal experience
+- Claude Cowork automates non-coding tasks (organize files, create spreadsheets from screenshots, draft reports)
+- Claude Code can edit code that is local (on your computer) or in the cloud (GitHub)
+- Extensions (MCP servers) and Connectors to add data from your accounts, use other apps, get access to additional knowledge, and extend it's capabilities in other ways
+- All-in-one interface: "Chat for thinking, Cowork for doing, Code for building"
 
 **❌ Limitations:**
-- Not code-focused
-- Slow file editing capabilities
-- Not suited for complex development
+- Less suited for developing and testing large projects
 
-> **💡 Tip:** Desktop applications are excellent for organizing files and documents, and communicating with your computer in different ways beyond just coding.
+> **💡 Tip:** Claude Desktop is ideal for research, quick prototypes, and non-coding file tasks. When you need full development environment for testing and deploying your projects, move to IDE/CLI tools.
 
 ---
 
 ### Advanced: IDEs with AI Extensions & CLI (Command Line Interface) Tools
-*Professional development environments with powerful AI integration* \
-*Maximum power and flexibility for complex projects*
+*Professional development environments running on your local machine* \
+*Best for developing full projects, testing, and deploying*
 
 **AI Coding Tools:**
 
-*All tools support full codebase understanding, git integration, MCP servers, and agents* \
-*Each available as both VS Code extension and standalone CLI*
+*All tools support full codebase understanding, git integration, MCP servers, and more* \
+*They are available as both VS Code extensions (chat interface) and standalone CLI tools (terminal interface)*
 
 - **<a href="https://claude.ai/code" target="_blank">Claude Code</a>** - Recommended for best overall quality and speed, especially for large projects
 - **<a href="https://chatgpt.com/codex" target="_blank">ChatGPT Codex</a>** - Better at problem-solving with tricky bugs, but slower overall
@@ -187,9 +184,9 @@ Please fill out our feedback form after the workshop:
 - **<a href="https://antigravity.google" target="_blank">Google Antigravity</a>** 
 
 **✅ Pros:**
-- Entire codebase context at once
-- Powerful automation and agent capabilities
+- Explore and edit your code while your agents work
 - Best for large refactoring and complex features
+- Best for testing and deploying
 - Deep git integration
 - Custom commands and workflows
 - MCP server support for extended capabilities
@@ -198,16 +195,15 @@ Please fill out our feedback form after the workshop:
 **❌ Limitations:**
 - More setup and configuration
 - Steeper learning curve
-- Requires understanding of general development practices
 - Requires terminal comfort (for CLI tools) 
 
-> **💡 Tip:** IDEs and CLI tools shine for large codebases and complex workflows. The investment in learning pays off quickly on real projects.
+> **💡 When to use IDE/CLI vs Desktop:** Choose IDE/CLI if you've moved beyond the simple prototype phase and need to start adding complex features, testing, and deploying.
 
 > **💡 Tip:** Use Git version control! These tools make it easy to track changes, experiment safely, and collaborate professionally.
 
 > **🧠 Learn More:** See [Working with AI Coding Agents](#working-with-ai-coding-agents) for commands and advanced techniques.
 
-> **🧠 Learn More:** See the [Extended AI Tools Directory](#extended-ai-tools-directory) for more specialized vibe coding platforms, web-hosted autonomous agents, and more.
+> **🧠 Learn More:** See the [Extended AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md) for more specialized vibe coding platforms, web-hosted autonomous agents, and more.
 
 ---
 
@@ -356,15 +352,14 @@ All projects exist somewhere on this spectrum between two approaches:
 This section focuses on Claude Code but the concepts and techniques apply to all agents.
 
 ### Vibe Coding Essential Techniques
----
 
-### Interrupt When Needed
+#### Interrupt When Needed
 Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap `esc`), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.
 
-### Self-Checking
+#### Self-Checking
 Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
 
-### Working Through Stubborn Bugs
+#### Working Through Stubborn Bugs
 
 When you have a bug AI can't solve after multiple attempts:
 
@@ -372,13 +367,10 @@ When you have a bug AI can't solve after multiple attempts:
 2. Ask 2 different AIs the same question
     1. Give each AI the other's response for analysis
     2. Have both provide updated plans
-    1. Give both responses to a new agent for comprehensive summary
-    2. Have another new agent read and implement the solution
+    3. Give both responses to a new agent for comprehensive summary
+    4. Have another new agent read and implement the solution
 
-*DEPRECATED: Claude now uses max thinking budget by default*
-3. Use Claude thinking levels. Type: `think`, `think hard`, `think harder`, or `ultrathink`
-
-### Debugging Workflow
+#### Debugging Workflow
 
 AI agents fix issues best when given all relevant information:
 
@@ -386,7 +378,7 @@ AI agents fix issues best when given all relevant information:
 2. Describe what you want and what the current issue is in full detail
 3. Provide full context especially if debugging in a fresh conversation
 
-### Beyond Coding
+#### Beyond Coding
 
 Claude and other AI agents can help with more than just code if they have access to the right tools:
 
@@ -395,59 +387,22 @@ Claude and other AI agents can help with more than just code if they have access
 - Data visualization
 - Research and repetitive tasks
 
----
-
 ### Getting Started with Claude Code
 
----
+For installation and setup, see the [Day 1: Project Setup Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Day%201%20-%20Project%20Setup%20Guide.md) — it covers installing the VS Code extension or CLI tool, and how to open your AI assistant.
 
-#### Option 1: VS Code Extension
-
-1. Open VS Code
-2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
-3. Search for "Claude Code"
-4. Click Install
-5. Authenticate with your Claude account
-6. The Claude icon will now show up in your window. Click to get started.
-
----
-
-#### Option 2: CLI Installation
-
-Choose the installation method for your system:
-
-**macOS/Linux (Homebrew):**
-```bash
-brew install --cask claude-code
-```
-*Note: Requires <a href="https://brew.sh" target="_blank">Homebrew</a> to be installed first*
-
-**macOS/Linux/WSL:**
-```bash
-curl -fsSL https://claude.ai/install.sh | bash
-```
-
-**Windows (PowerShell):**
-```powershell
-irm https://claude.ai/install.ps1 | iex
-```
-
-**Windows (CMD):**
-```cmd
-curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
-```
-
-Once installed, navigate to your project directory and run `claude` to start.
+Once set up, navigate to your project directory and start coding. The CLI commands and advanced features below will help you get the most out of Claude Code.
 
 > **🧠 Learn More:** Read Anthropic's official <a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank">Claude Code Best Practices</a> guide for workflows, optimization tips, and advanced techniques.
 
----
 
 ### Claude Code CLI Commands
 
 | Command    | Purpose                                                                  |
 | ---------- | ------------------------------------------------------------------------ |
 | `claude`   | Start Claude in your terminal.                                           |
+| `shift + tab` | Change modes: planning, accept edits, ask for permission (defualt) |
+| ` @ ` | Mention a file within your folder structure (excludes `git ignore` files)
 | `esc`      | Interrupt Claude while it's working.                                     |
 | `esc esc`  | Go back in conversation and code history.                                |
 | `/init`    | Review codebase and create CLAUDE.md documentation file for AI reference |
@@ -457,6 +412,7 @@ Once installed, navigate to your project directory and run `claude` to start.
 | `/usage`   | Check current usage level                                                |
 | `/resume`  | Resume a previous conversation                                           |
 | `/review`  | Code review                                                              |
+
 
 > **💡 Tip:** Store important instructions in CLAUDE.md to prevent AI from doing unwanted things (overwriting data, unnecessary builds, etc.). CLAUDE.md files exist for your user and each individual project folder where you use Claude Code. Use this to your advantage - global knowledge vs project specific knowledge.
 

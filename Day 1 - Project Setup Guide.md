@@ -2,6 +2,123 @@
 
 This guide covers the fundamental workflow for starting a new vibe coding project, tracking changes with Git, and sharing it on GitHub.
 
+---
+
+## 0. Tool Installation
+
+Before you start building, make sure you have the following tools installed.
+
+### Step 1: Install Your Code Editor
+
+1. Download and install [**VS Code**](https://code.visualstudio.com/download) (recommended).
+2. Feel free to use any IDE you are comfortable with (Cursor, Antigravity, etc.).
+
+### Step 2: Choose & Set Up Your AI Assistant
+
+#### Option A: Claude Code (Recommended, Paid)
+
+1. Sign up for a paid plan (Pro or Max) at [claude.ai/pricing](https://www.claude.com/pricing).
+2. Install the [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code).
+3. Intermediate-advanced users: install the [Claude Code CLI Tool](https://code.claude.com/docs/en/setup#native-install-recommended).
+
+#### Option B: Google Gemini CLI (Free)
+
+1. Sign up for a free account at [gemini.google.com](https://gemini.google.com/).
+2. Install the [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist).
+3. Intermediate-advanced users: install the [Gemini CLI Tool](https://codeassist.google/).
+
+> While Claude Code is the best vibe coding experience overall, Google's free option is more than enough to build great things. Feel free to use any coding agent not mentioned above, such as GitHub Copilot or ChatGPT Codex.
+
+### Step 3: Open Your AI Assistant in VS Code
+
+After installing your AI extension, here's how to find and start it:
+
+**VS Code Extensions (Claude Code / Gemini):**
+1. Click the extension's **icon** in the **Editor Toolbar** (top-right corner of the editor).
+2. A chat panel will open in VS Code. Sign in with your account when prompted.
+3. You can also use the **Command Palette** (`Cmd+Shift+P` / `Ctrl+Shift+P`) and search for "Claude" or "Gemini".
+
+**Opening a CLI Tool in VS Code's Terminal:**
+1. Open a terminal by right-clicking the **Editor Toolbar** and selecting **New Terminal**.
+2. Type `claude` (for Claude Code) or `gemini` (for Gemini CLI) and press Enter.
+
+> **💡 Tip:** The VS Code extension and CLI tool are two different interfaces to the same AI. The extension gives you a chat panel inside VS Code, while the CLI runs in the terminal. Use whichever feels more comfortable — they have the similar capabilities.
+
+### Step 4: Install SourceTree (Visual Git Client)
+
+SourceTree gives you a visual interface for Git, so you can see your commits, branches, and changes without using the command line. This can be done in your IDE as well, but SourceTree has a better UI.
+
+1. Download from [sourcetreeapp.com](https://www.sourcetreeapp.com/).
+2. Run the installer.
+3. *You can skip the Bitbucket account setup if prompted.*
+
+### Step 5: Install Command Line Tools
+
+These tools are used by your AI assistant and for running projects.
+
+> **💡 Ask Your AI:** Once you have your code editor and AI assistant set up, you can ask your AI to install the rest:
+> *"Help me install Homebrew, git, Node.js, the GitHub CLI, and Firebase CLI on my computer."*
+>
+> It will detect your operating system and walk you through each step. The manual instructions below are here if you prefer to do it yourself.
+
+#### Homebrew (Mac Only)
+
+Homebrew is a package manager that makes installing developer tools easy on Mac.
+
+1. Open the **Terminal** app.
+2. Paste the following command and press Enter:
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+3. Follow the on-screen instructions.
+4. When it finishes, close and reopen your terminal.
+
+#### Git
+
+Git is the version control system that tracks changes to your code.
+
+- **Mac:** Open Terminal and run `brew install git`
+- **Windows:** Download the installer from [git-scm.com](https://git-scm.com/download/win), run it, and accept the default settings.
+- **Verify:** Run `git --version` in your terminal.
+
+#### Node.js & npm
+
+Node.js is a JavaScript runtime, and npm is its package manager. Most modern web projects require these.
+
+- **Mac:** Open Terminal and run `brew install node`
+- **Windows:** Download the installer from [nodejs.org](https://nodejs.org/) (choose the **LTS** version), run it, and accept the default settings.
+- **Verify:** Run `node --version && npm --version` in your terminal.
+
+#### GitHub CLI (`gh`)
+
+> **`git` vs `gh` — What's the difference?**
+> - **`git`** is the core version control tool. It handles commits, branches, and syncing code. It works with any Git hosting service.
+> - **`gh`** is GitHub's command-line tool. It handles GitHub-specific tasks like creating repositories and managing pull requests from your terminal.
+>
+> Think of it this way: `git` manages your *code history*, `gh` manages your *GitHub account*.
+
+- **Mac:** Open Terminal and run `brew install gh`
+- **Windows:** Download the installer from [cli.github.com](https://cli.github.com/), run it, and accept the default settings.
+
+Then log in to your GitHub account:
+
+1. Run `gh auth login` in your terminal.
+2. Follow the prompts and choose **"Login with a web browser"**.
+
+#### Firebase CLI *(Needed for Day 2)*
+
+1. Open your terminal and run:
+   ```bash
+   npm install -g firebase-tools
+   ```
+2. Log in by running:
+   ```bash
+   firebase login
+   ```
+3. A browser window will open — sign in with your Google account.
+
+---
+
 ## 1. Project Setup
 
 ### Create a Project Folder
@@ -15,7 +132,9 @@ This guide covers the fundamental workflow for starting a new vibe coding projec
 4.  Open your AI extension or command line tool.
 5.  *Optional:* Open the integrated terminal (`Ctrl+` ` or View > Terminal`).
    
-**Now use your AI to create the inital version of your project.**
+> **💡 Now use your AI to create the initial version of your project!** See the [Vibe Coding Fundamentals](Vibe%20Coding%20Fundamentals.md) guide for:
+> - [**Core Approaches**](Vibe%20Coding%20Fundamentals.md#core-approaches) — how to structure your AI workflow, good vs bad prompts
+> - [**Working with AI Coding Agents**](Vibe%20Coding%20Fundamentals.md#working-with-ai-coding-agents) — tips for getting the best results
 
 ---
 
@@ -62,9 +181,7 @@ A Git repo acts as a "save point" system for your code. It allows you to track c
 ### Option 2: Ask Your AI (Command Line)
 *Fastest method if you have tools installed*
 
-**Prerequisite:** You must have `git` installed on your computer.
-*   **Mac:** Run `brew install git` in terminal (Requires [Homebrew](https://brew.sh/) (https://brew.sh/).
-*   **Windows:** Download and install [Git for Windows](https://git-scm.com/download/win) (https://git-scm.com/download/win).
+**Prerequisite:** You must have `git` installed (see [Step 0: Tool Installation](#0-tool-installation) above).
 
 **Prompt:**
 > "Initialize a git repository in this folder and create an initial commit with my current files."
@@ -78,6 +195,8 @@ The AI will run `git init`, `git add .`, and `git commit -m "Initial commit"` in
 ## 4. Push to GitHub
 
 GitHub is where your code lives online. It serves as a backup and a way to share your work.
+
+**If you don't have a GitHub account yet,** sign up for free at [github.com](https://github.com).
 
 ### Create a GitHub Repository
 1.  Log in to [GitHub.com](https://github.com).
