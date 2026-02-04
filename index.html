@@ -584,26 +584,35 @@
             {
                 label: "Workshop Path",
                 files: [
-                    { name: "1 - Vibe Coding Fundamentals", path: "1 - Vibe Coding Fundamentals.md" },
-                    { name: "2 - Choosing Your Tools", path: "2 - Choosing Your Tools.md" },
-                    { name: "3 - Project Setup & Git", path: "3 - Project Setup & Git.md" },
-                    { name: "4 - Building Your Project", path: "4 - Building Your Project.md" },
-                    { name: "5 - Firebase & Deployment", path: "5 - Firebase & Deployment.md" },
-                ]
-            },
-            {
-                label: "Going Further",
-                files: [
-                    { name: "Advanced Techniques", path: "Advanced Techniques.md" },
+                    { name: "1 - Workshop Introduction", path: "1 - Workshop Introduction.md" },
+                    { name: "2 - Vibe Coding Fundamentals", path: "2 - Vibe Coding Fundamentals.md" },
+                    { name: "3 - Building Your Project", path: "3 - Building Your Project.md" },
+                    { name: "4 - Firebase & Deployment", path: "4 - Firebase & Deployment.md" },
                 ]
             },
             {
                 label: "Reference",
                 files: [
+                    { name: "Claude Code Quick Reference", path: "Claude Code Quick Reference.md" },
+                    { name: "Advanced Techniques", path: "Advanced Techniques.md" },
                     { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
                     { name: "AI Tools Directory", path: "AI Tools Directory.md" },
                     { name: "Workshop Projects", path: "Workshop Projects.md" },
                     { name: "Repository README", path: "README.md" },
+                ]
+            },
+            {
+                label: "DomainFlip Build Docs",
+                files: [
+                    { name: "DomainFlip Summary", path: "docs/domainflip/domainflip_summary.md" },
+                    { name: "Part 1 - Setup & Architecture", path: "docs/domainflip/BUILD_GUIDE_PART1.md" },
+                    { name: "Part 2 - UI Components", path: "docs/domainflip/BUILD_GUIDE_PART2.md" },
+                    { name: "Part 3 - Layout & Utilities", path: "docs/domainflip/BUILD_GUIDE_PART3.md" },
+                    { name: "Part 4 - Mock Data: Domains", path: "docs/domainflip/BUILD_GUIDE_PART4.md" },
+                    { name: "Part 5 - Mock Data: Users & More", path: "docs/domainflip/BUILD_GUIDE_PART5.md" },
+                    { name: "Part 5B", path: "docs/domainflip/BUILD_GUIDE_PART5B.md" },
+                    { name: "Part 5C", path: "docs/domainflip/BUILD_GUIDE_PART5C.md" },
+                    { name: "Part 6 - Final Assembly", path: "docs/domainflip/BUILD_GUIDE_PART6.md" },
                 ]
             }
         ];
@@ -824,7 +833,7 @@
                     const id = header.id;
                     const level = parseInt(header.tagName[1]);
                     // Restore saved state; default h2 to collapsed, h3+ to expanded
-                    const defaultOpen = id === 'table-of-contents';
+                    const defaultOpen = id === 'table-of-contents' || id === 'welcome';
                     const isOpen = saved ? saved[id] : defaultOpen;
                     if (!isOpen) {
                         header.classList.add('collapsible-header', 'collapsed');

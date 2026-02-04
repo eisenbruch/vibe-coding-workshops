@@ -15,6 +15,8 @@ This guide covers taking your local project and connecting it to a real backend 
 >
 > **The best approach is to tell your AI what you want to build, and let it guide you through the specific tools you need.**
 
+> **API Keys & Secrets:** If your project uses paid APIs (OpenAI, Stripe, etc.), make sure your keys are secured before deploying. Use `firebase functions:secrets:set KEY_NAME` for Firebase-specific secrets, and review the full [Protecting API Keys & Secrets](3%20-%20Building%20Your%20Project.md#4-protecting-api-keys--secrets-if-the-site-or-code-is-public) guide for all approaches (`.env` files, platform environment variables, backend proxies).
+
 ## 1. The Vibe Coding Approach (Recommended)
 
 Tell your AI what you want to build and let it guide the setup. Example prompt:
@@ -170,6 +172,6 @@ When your app works locally (or in emulators), put it online for the world.
 - [ ] Enable Auth / Database in Firebase Console
 - [ ] Ask AI to add the Firebase SDK and integrate it with your app
 - [ ] Test locally (`firebase emulators:start`)
+- [ ] [Secure your API keys](3%20-%20Building%20Your%20Project.md#4-protecting-api-keys--secrets-if-the-site-or-code-is-public) before deploying
 - [ ] Set up security rules before deploying
 - [ ] Deploy (`firebase deploy`)
-
