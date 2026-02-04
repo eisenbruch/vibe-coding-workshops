@@ -211,7 +211,132 @@ The AI will run `git init`, `git add .`, and `git commit -m "Initial commit"` in
 
 ---
 
-## 4. Push to GitHub
+## 4. Protecting API Keys & Secrets (If the site or code is PUBLIC)
+
+When you add features like AI chatbots, payment processing, or third-party APIs to your project, you'll receive **API keys** — secret strings that authenticate your app with those services. If these keys end up on GitHub or in your frontend code, anyone can find and abuse them and run up your bill or worse.
+
+> **Bots actively scan GitHub for exposed API keys.** A leaked OpenAI or Stripe key can be found and exploited within minutes.
+
+### The Core Rule
+
+**Never hardcode API keys directly in your source code.** Instead, use one of these approaches:
+
+- **`.env` files** — store keys in a local file that Git ignores
+- **Platform environment variables** — set keys in your hosting provider's dashboard
+- **Backend proxy** — route API calls through a server so keys never reach the browser
+
+```javascript
+// ❌ BAD — key is visible in your code and on GitHub
+const apiKey = "sk-abc123...";
+
+// ✅ GOOD — key is loaded from the environment
+const apiKey = process.env.OPENAI_API_KEY;
+```
+
+### Secure Your Project with AI
+
+You don't need to know how to secure your keys on your own — your AI assistant can analyze your project and handle it for you. Give it context about what you're building and where it's going:
+
+**Prompt:**
+> "Review my codebase for any exposed API keys or secrets. I'm using [list your services, e.g., OpenAI, Stripe, Firebase] and plan to deploy on [hosting platform, e.g., Firebase Hosting, Vercel, Netlify]. Set up my project so that all API keys are stored securely — create a .env file, update .gitignore, deploy y keys to my hosting platform environent, and let me know if any of my keys need a backend proxy to stay safe in production."
+
+The AI will:
+1. Scan your files for any hardcoded keys or secrets.
+2. Create a `.env` file and move your keys into it.
+3. Add `.env` to `.gitignore`.
+4. Tell you if your setup needs a backend proxy (based on whether your keys are used in frontend code and where you're hosting).
+5. Walk you through setting environment variables on your hosting platform.
+
+> **Tip:** Run this prompt before your first push to GitHub, and again whenever you add a new API or service to your project.
+
+### Option 1: `.env` Files + `.gitignore` (Most Common)
+
+The standard approach for local development. You store keys in a special file that Git is told to ignore.
+
+1. Create a file called `.env` in your project root:
+   ```
+   OPENAI_API_KEY=sk-abc123your-key-here
+   STRIPE_SECRET_KEY=sk_test_abc123
+   ```
+
+2. Add `.env` to your `.gitignore` file so it's never committed:
+   ```
+   # .gitignore
+   .env
+   .env.local
+   ```
+
+3. Access the values in your code:
+   ```javascript
+   // Node.js — install dotenv first: npm install dotenv
+   require('dotenv').config();
+   const key = process.env.OPENAI_API_KEY;
+   ```
+
+> **Ask Your AI:** *"Help me set up a .env file for my API keys and make sure it's in .gitignore."*
+
+**Best for:** Local development, Node.js/server-side projects.
+
+### Option 2: Hosting Platform Environment Variables (Deployment)
+
+When you deploy your app, you can't upload a `.env` file to the server. Instead, set environment variables directly in your hosting platform's dashboard:
+
+- **Vercel:** Project Settings → Environment Variables
+- **Netlify:** Site Settings → Environment Variables
+- **Firebase:** Use `firebase functions:secrets:set KEY_NAME` (see [Firebase & Deployment](5%20-%20Firebase%20&%20Deployment.md))
+- **Render / Railway:** Dashboard → Environment section
+
+Your deployed code reads these the same way (`process.env.KEY_NAME`), but the values live safely on the server — never in your code or Git history.
+
+> **Ask Your AI:** *"How do I set environment variables on [your hosting platform]?"*
+
+**Best for:** Deployed server-side apps, serverless functions.
+
+### Option 3: Backend Proxy (Frontend Apps Calling Paid APIs)
+
+This is a critical concept: **anything in your frontend JavaScript is visible to users.** If you put an API key in a React, Vue, or plain HTML/JS app, anyone can open the browser's developer tools and find it — even if you used a `.env` file during development. Build tools like Vite and React bundle those values into the final JavaScript files that get sent to the browser.
+
+If your frontend app needs to call a paid API (like OpenAI), you need a **backend layer** that keeps the key on the server:
+
+```
+User's Browser  →  Your Backend (has the secret key)  →  OpenAI API
+```
+
+Options for this backend layer:
+- **Firebase Cloud Functions** — pairs well with Firebase hosting
+- **Vercel / Netlify Serverless Functions** — built into these platforms
+- **A simple Express.js server** — if you're running your own backend
+
+> **Ask Your AI:** *"I need to call the OpenAI API from my frontend app without exposing my API key. Help me set up a serverless function to proxy the request."*
+
+**Best for:** Any app where the browser needs to interact with a paid or private API.
+
+### Which Option Do I Need?
+
+| Scenario | What to Use |
+|----------|-------------|
+| Local development with Node.js | `.env` + `.gitignore` |
+| Deployed server-side app | Platform environment variables |
+| Frontend app calling a paid API (OpenAI, etc.) | Backend proxy + platform env vars |
+| Firebase project with sensitive config | Firebase secrets (see [Firebase & Deployment](5%20-%20Firebase%20&%20Deployment.md)) |
+
+### What About Firebase Config?
+
+Firebase web config values (`apiKey`, `projectId`, etc.) are **designed to be public**. They identify your project but don't grant access to data on their own — security comes from [Firebase Security Rules](5%20-%20Firebase%20&%20Deployment.md), not from hiding the config. This is an exception; most other API keys should be kept secret.
+
+### Quick Safety Checklist
+
+Before pushing to GitHub, verify:
+- ✅ `.env` is listed in `.gitignore`
+- ✅ No API keys are hardcoded in source files
+- ✅ Secret keys for paid APIs are routed through a backend (not exposed in frontend JS)
+- ✅ API keys are restricted by domain or scope where possible (check your provider's dashboard)
+
+> **Recovery:** If you accidentally push a key to GitHub, **revoke it immediately** from the provider's dashboard and generate a new one. Deleting the file or commit is not enough — the key is already in your Git history and can be found.
+
+---
+
+## 5. Push to GitHub
 
 GitHub is where your code lives online. It serves as a backup and a way to share your work.
 
@@ -252,7 +377,7 @@ The AI will run the necessary `git remote add` and `git push` commands for you.
 
 ---
 
-## 5. Typical Workflow
+## 6. Typical Workflow
 
 1.  **Code:** Make changes to your files using AI.
 2.  **Test:** Check your work in the browser or run the app.
