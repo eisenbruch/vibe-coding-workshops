@@ -30,7 +30,7 @@ AI coding tools go beyond just generating text. Depending on the tool, they can:
 - **Read and understand** your existing codebase for context
 - **Debug errors** by reading console output and fixing the root cause
 - **Create and manage files** — project structure, configs, assets
-- **Connect to external tools** (databases, APIs, hosting platforms) through extensions
+- **Connect to external tools** (databases, APIs, hosting platforms) through extensions and command line (CLI) tools
 
 The AI isn't just autocomplete — it's an agent that can take multi-step actions on your behalf. Your job is to guide it with clear direction and verify the results.
 
@@ -266,36 +266,133 @@ All projects exist somewhere on this spectrum between two approaches:
 
 ## Essential Techniques
 
+### Manage Your Context
+AI remembers everything in your current conversation — this is called **context**. Every message you send, every file it reads, every piece of code it writes gets added to the context window. This memory is what lets AI understand your project and build on previous work.
+
+**The problem:** Context has limits. As conversations get long, older content gets compressed or summarized to make room. This can cause the AI to forget important details or repeat mistakes it already made.
+
+**When to start fresh:**
+- Switching to an unrelated task or different part of the codebase
+- The conversation has been going for a while and feels sluggish
+- AI keeps forgetting things you told it earlier
+- You've gone through many iterations and want a clean slate
+
+**Tips for managing context:**
+- Start new conversations for new tasks
+- Keep related work in the same conversation for continuity
+- If you need info from an old conversation, copy the relevant parts into your new one
+- Use project documentation (like CLAUDE.md and README.md files) so AI can re-learn context quickly
+
+> **Tip:** A fresh conversation with good context often works better than a long conversation with accumulated confusion.
+
+### Plan Before You Build
+For features and major changes, use **plan mode** to build out a detailed plan before the AI starts coding. Most advanced AI coding tools support this — you describe what you want, the AI explores your codebase, proposes an approach, and waits for your approval before executing.
+
+**Why it matters:**
+- Catches misunderstandings before code is written
+- Gives you control over architectural decisions
+- Prevents wasted effort from going down the wrong path
+- Creates a shared understanding of what will be built
+
+**How to use it:**
+1. Describe the feature or change you want
+2. Ask the AI to create a plan (or use the tool's built-in plan mode)
+3. Review the proposed approach — files to create/modify, dependencies, structure
+4. Request changes to the plan if needed
+5. Approve the plan and let the AI execute
+
+> **Tip:** The bigger the change, the more valuable planning becomes. For small tweaks, just ask. For new features or refactors, plan first.
+
 ### Interrupt When Needed
-Sometimes AI goes off the rails. If you see it going down the wrong path, interrupt it, go back (double tap `esc`), and give better instructions. This saves memory and credits vs. correcting mistakes later. AI is bad at remembering what it did wrong.
+Sometimes AI goes off the rails. When you see it heading the wrong direction, stop it immediately — don't wait for it to finish.
+
+**Signs to interrupt:**
+- Editing the wrong file or creating unnecessary files
+- Taking a completely wrong approach to the problem
+- Making excessive changes beyond what you asked
+- Going in circles, trying the same failed fix repeatedly
+
+**How to interrupt:**
+- Stop button or `esc` in the command line tools
+- Double tap `esc` to go back in the conversation
+
+**After interrupting:**
+1. Undo or revert any unwanted changes (by going back in the conversation or by resetting files using Git)
+2. Give clearer, more specific instructions
+3. Add constraints if needed ("only modify this file", "don't change the database schema")
+
+**Why this matters:** Mistakes compound. The longer AI goes down the wrong path, the more context gets polluted with bad code and failed attempts. Interrupting early saves time, tokens, and money.
 
 ### Self-Checking
-Ask your AI to check its own (or your) work for bugs and see if there's room for improvement. Optimizing for resources and speed is generally good (unless it isn't).
+Ask your AI to review code for bugs, security issues, and performance problems. You can also ask a *different* AI to check — different models catch different things.
+
+**When to self-check:**
+- After completing a feature
+- Before deploying or sharing
+- When something feels off but you can't pinpoint why
+
+**Example prompts:**
+- "Review this code for bugs and edge cases"
+- "Are there any security vulnerabilities in this authentication flow?"
+- "How can this be optimized for performance?"
 
 ### Working Through Stubborn Bugs
 
-When you have a bug AI can't solve after multiple attempts:
+When the AI can't solve a bug after multiple attempts, try these strategies:
 
-1. Try a different coding agent (e.g. ChatGPT Codex)
-2. Ask 2 different AIs the same question
-    1. Give each AI the other's response for analysis
-    2. Have both provide updated plans
-    3. Give both responses to a new agent for comprehensive summary
-    4. Have another new agent read and implement the solution
+1. **Try a different AI** — Different models have different strengths. If Claude is stuck, try ChatGPT Codex or Gemini.
+
+2. **AI debate technique** — Ask two different AIs the same question, then share each response with the other for analysis. Have them critique each other's solutions, then synthesize the best approach.
+
+3. **Fresh context** — Start a new conversation with just the problem. Old context from failed attempts can mislead the AI down the same wrong paths.
+
+4. **Simplify and isolate** — Ask the AI to create a minimal reproduction of the bug. Stripping away unrelated code often reveals the root cause.
 
 ### Debugging Workflow
 
-AI agents fix issues best when given all relevant information:
+AI agents fix issues best when given complete information. Here's how to gather and share it:
 
-1. Use browser DevTools Console to find errors and warnings: AI agents love reading errors and warnings
-2. Describe what you want and what the current issue is in full detail
-3. Provide full context especially if debugging in a fresh conversation
+**1. Capture errors from DevTools**
+- Open DevTools: `Cmd + Option + I` (Mac) or `F12` (Windows) → Console tab
+- Look for red errors and yellow warnings
+- Right-click → Copy Console to copy all messages, or highlight and copy the ones you need
+- Check the Network tab for failed API requests (red entries)
+
+**2. Describe the problem clearly**
+- What you expected to happen
+- What actually happened
+- Steps to reproduce the issue
+- Any recent changes that might be related
+
+**3. Provide context**
+- Paste the full error message
+- Include relevant code snippets
+- For visual bugs: take a screenshot or screen recording
+- In a fresh conversation: share the relevant files and explain the project structure
+
+> **Tip:** More context is better. AI can ignore what's irrelevant, but it can't guess what you didn't share.
 
 ### Beyond Coding
 
-Claude and other AI agents can help with more than just code if they have access to the right tools:
+AI agents can help with more than just code — especially when they have access to your files and terminal:
 
-- File and document organization
-- Obsidian note organization and project management
-- Data visualization
-- Research and repetitive tasks
+**Writing & Documentation**
+- READMEs and project documentation
+- Code comments and API docs
+- Emails, proposals, and presentations
+
+**Data & Files**
+- Analyzing CSV, JSON, or spreadsheet data
+- Converting between file formats
+- Renaming and organizing files in bulk
+- Creating test data and mock content
+
+**Organization & Research**
+- Organizing notes (Obsidian, Notion, etc.)
+- Researching APIs, libraries, and solutions
+- Summarizing long documents or codebases
+
+**Automation**
+- Writing shell scripts for repetitive tasks
+- Setting up scheduled jobs and workflows
+- Batch processing files or images
