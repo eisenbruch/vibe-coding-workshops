@@ -78,7 +78,7 @@ After installing your AI extension, here's how to find and start it:
 These tools are used by your AI assistant and for running projects.
 
 > **Ask Your AI:** Once you have your code editor and AI assistant set up, you can ask your AI to install the rest:
-> *"Help me install Homebrew, git, Node.js, the GitHub CLI, and Firebase CLI on my computer."*
+> *"Install Homebrew, git, Node.js, the GitHub CLI, and Firebase CLI on my computer."*
 >
 > It will detect your operating system and walk you through each step. The manual instructions below are here if you prefer to do it yourself.
 
@@ -94,14 +94,6 @@ Homebrew is a package manager that makes installing developer tools easy on Mac.
 3. Follow the on-screen instructions.
 4. When it finishes, close and reopen your terminal.
 
-#### Git
-
-Git is the version control system that tracks changes to your code.
-
-- **Mac:** Open Terminal and run `brew install git`
-- **Windows:** Download the installer from [git-scm.com](https://git-scm.com/download/win), run it, and accept the default settings.
-- **Verify:** Run `git --version` in your terminal.
-
 #### Node.js & npm
 
 Node.js is a JavaScript runtime, and npm is its package manager. Most modern web projects require these.
@@ -109,6 +101,14 @@ Node.js is a JavaScript runtime, and npm is its package manager. Most modern web
 - **Mac:** Open Terminal and run `brew install node`
 - **Windows:** Download the installer from [nodejs.org](https://nodejs.org/) (choose the **LTS** version), run it, and accept the default settings.
 - **Verify:** Run `node --version && npm --version` in your terminal.
+
+#### Git
+
+Git is the version control system that tracks changes to your code.
+
+- **Mac:** Open Terminal and run `brew install git`
+- **Windows:** Download the installer from [git-scm.com](https://git-scm.com/download/win), run it, and accept the default settings.
+- **Verify:** Run `git --version` in your terminal.
 
 #### GitHub CLI (`gh`)
 
@@ -211,7 +211,7 @@ The AI will run `git init`, `git add .`, and `git commit -m "Initial commit"` in
 
 ---
 
-## 4. Protecting API Keys & Secrets (If the site or code is PUBLIC)
+## 4. Protecting API Keys & Secrets
 
 When you add features like AI chatbots, payment processing, or third-party APIs to your project, you'll receive **API keys** — secret strings that authenticate your app with those services. If these keys end up on GitHub or in your frontend code, anyone can find and abuse them and run up your bill or worse.
 
