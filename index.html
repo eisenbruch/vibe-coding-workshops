@@ -205,6 +205,15 @@
 
         .top-bar-buttons {
             flex-shrink: 0;
+            order: 1;
+        }
+
+        .top-bar-row2 {
+            display: contents;
+        }
+
+        .top-bar-global {
+            order: 2;
         }
 
         select {
@@ -374,9 +383,11 @@
         }
 
         /* Font size classes */
-        #markdown-content.font-small { font-size: 14px; }
-        #markdown-content.font-default { font-size: 16px; }
-        #markdown-content.font-large { font-size: 18px; }
+        #markdown-content.font-small { font-size: 16px; }
+        #markdown-content.font-default { font-size: 18px; }
+        #markdown-content.font-large { font-size: 20px; }
+        #markdown-content.font-xlarge { font-size: 22px; }
+        #markdown-content.font-xxlarge { font-size: 24px; }
 
         /* Markdown Standard Styling (GitHub-like) */
         #markdown-content h1 {
@@ -788,34 +799,6 @@
             display: block;
         }
 
-        /* Entrance Animations */
-        @media (prefers-reduced-motion: no-preference) {
-            @keyframes fadeSlideIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(12px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            #markdown-content.animate-in > h1,
-            #markdown-content.animate-in > h2,
-            #markdown-content.animate-in > .section-content,
-            #markdown-content.animate-in > h3,
-            #markdown-content.animate-in > p,
-            #markdown-content.animate-in > ul,
-            #markdown-content.animate-in > ol,
-            #markdown-content.animate-in > table,
-            #markdown-content.animate-in > pre,
-            #markdown-content.animate-in > blockquote {
-                opacity: 0;
-                animation: fadeSlideIn 0.4s ease forwards;
-            }
-        }
-
         /* Below 1880px: sidebar hidden, FAB available as drawer trigger */
         @media (max-width: 1879px) {
             .sidebar {
@@ -848,9 +831,19 @@
         @media (max-width: 980px) {
             .top-bar { flex-wrap: wrap; }
 
-            /* Row 2: doc selector (fills) + buttons beside it */
-            .top-bar-doc { order: 1; }
-            .top-bar-doc:not(.top-bar-buttons) { flex: 1 1 100%; }
+            /* Row 2: selector + buttons together on their own line */
+            .top-bar-row2 {
+                display: flex;
+                order: 1;
+                flex: 1 1 100%;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .top-bar-row2 .top-bar-doc:not(.top-bar-buttons) { flex: 1; min-width: 0; }
+
+            /* Keep GitHub/theme on row 1 with logo */
+            .top-bar-global { order: 0; }
 
             /* Row 3: search full width */
             .search-wrapper {
@@ -981,11 +974,6 @@
             .collapsible-header { padding-left: 0 !important; }
             .section-content.collapsed { display: block !important; }
 
-            /* Override entrance animations for print */
-            #markdown-content.animate-in > * {
-                opacity: 1 !important;
-                animation: none !important;
-            }
         }
     </style>
 </head>
@@ -993,10 +981,28 @@
 
     <div class="top-bar">
         <div class="logo">Vibe Coding Workshop</div>
-        <div class="top-bar-doc">
-            <select id="file-selector" onchange="handleFileSelect(this.value)">
-                <!-- Populated by JS -->
-            </select>
+        <div class="top-bar-row2">
+            <div class="top-bar-doc">
+                <select id="file-selector" onchange="handleFileSelect(this.value)">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+            <div class="top-bar-doc top-bar-buttons">
+                <button class="top-bar-btn" id="font-size-toggle" onclick="cycleFontSize()" aria-label="Change font size" title="Font size">A</button>
+                <button class="top-bar-btn" id="toggle-sections" onclick="toggleAllSections()" aria-label="Expand or collapse all sections">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 5l4 4 4-4"/>
+                        <path d="M4 9l4 4 4-4"/>
+                    </svg>
+                </button>
+                <button class="top-bar-btn" onclick="window.print()" aria-label="Print or save as PDF">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="9" width="8" height="5" rx="0.5"/>
+                        <path d="M4 11H2.5a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1V10a1 1 0 0 1-1 1H12"/>
+                        <path d="M4 5.5V2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v3"/>
+                    </svg>
+                </button>
+            </div>
         </div>
         <div class="search-wrapper">
             <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1005,22 +1011,6 @@
             </svg>
             <input type="text" id="search-input" placeholder="Search all docs..." autocomplete="off" />
             <div class="search-results" id="search-results"></div>
-        </div>
-        <div class="top-bar-doc top-bar-buttons">
-            <button class="top-bar-btn" id="font-size-toggle" onclick="cycleFontSize()" aria-label="Change font size" title="Font size">A</button>
-            <button class="top-bar-btn" id="toggle-sections" onclick="toggleAllSections()" aria-label="Expand or collapse all sections">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 5l4 4 4-4"/>
-                    <path d="M4 9l4 4 4-4"/>
-                </svg>
-            </button>
-            <button class="top-bar-btn" onclick="window.print()" aria-label="Print or save as PDF">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="9" width="8" height="5" rx="0.5"/>
-                    <path d="M4 11H2.5a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1V10a1 1 0 0 1-1 1H12"/>
-                    <path d="M4 5.5V2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v3"/>
-                </svg>
-            </button>
         </div>
         <div class="top-bar-global">
             <a class="top-bar-btn" href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank" rel="noopener noreferrer" aria-label="View GitHub repository">
@@ -1089,8 +1079,8 @@
         });
 
         // ── Font Size Control ─────────────────────────────────────────
-        const FONT_SIZES = ['font-small', 'font-default', 'font-large'];
-        const FONT_LABELS = { 'font-small': 'S', 'font-default': 'M', 'font-large': 'L' };
+        const FONT_SIZES = ['font-small', 'font-default', 'font-large', 'font-xlarge', 'font-xxlarge'];
+        const FONT_LABELS = { 'font-small': 'S', 'font-default': 'M', 'font-large': 'L', 'font-xlarge': 'XL', 'font-xxlarge': 'XXL' };
 
         function getStoredFontSize() {
             return localStorage.getItem('fontSize') || 'font-default';
@@ -1219,7 +1209,6 @@
             currentFile = filePath;
             loadingDiv.style.display = 'block';
             contentDiv.innerHTML = '';
-            contentDiv.classList.remove('animate-in');
 
             window.location.hash = encodeURIComponent(filePath);
 
@@ -1326,17 +1315,6 @@
             addLanguageLabels();
             buildSidebarTOC();
             updateToggleIcon();
-
-            // Entrance animation
-            requestAnimationFrame(() => {
-                const children = contentDiv.children;
-                let delay = 0;
-                for (let i = 0; i < children.length && delay < 600; i++) {
-                    children[i].style.animationDelay = delay + 'ms';
-                    delay += 40;
-                }
-                contentDiv.classList.add('animate-in');
-            });
         }
 
         // ── Collapsible Sections (Feature 2: first H2 open) ──────────
@@ -1665,8 +1643,8 @@
                 .replace(/`[^`]+`/g, ' ')
                 .replace(/!\[.*?\]\(.*?\)/g, '')
                 .replace(/\[([^\]]+)\]\(.*?\)/g, '$1')
-                .replace(/[#*_~>|`\-]/g, '')
                 .replace(/<[^>]+>/g, '')
+                .replace(/[#*_~>|`\-]/g, '')
                 .replace(/\s+/g, ' ')
                 .trim();
         }
@@ -1749,16 +1727,23 @@
                 if (!allMatch) return;
 
                 let score = 0;
+                let textMatches = 0;
+                const fullQuery = query.toLowerCase();
+
+                // Exact phrase match gets highest priority
+                if (textLower.includes(fullQuery)) score += 50;
+                if (headingLower.includes(fullQuery)) score += 40;
+
                 terms.forEach(t => {
-                    if (headingLower.includes(t)) score += 10;
-                    if (fileLower.includes(t)) score += 5;
-                    // Count occurrences in text
+                    if (headingLower.includes(t)) score += 5;
+                    if (fileLower.includes(t)) score += 3;
                     let idx = 0;
                     while ((idx = textLower.indexOf(t, idx)) !== -1) {
-                        score += 1;
+                        textMatches++;
                         idx += t.length;
                     }
                 });
+                if (textMatches > 0) score += 20 + textMatches;
 
                 scored.push({ entry, score });
             });
