@@ -20,6 +20,8 @@
             --blockquote-border: #d0d7de;
             --error-bg: #fff8c5;
             --error-border: rgba(234,179,8,0.4);
+            --sidebar-active-bg: rgba(9,105,218,0.08);
+            --search-highlight: rgba(255,213,0,0.4);
         }
 
         [data-theme="dark"] {
@@ -35,6 +37,8 @@
             --blockquote-border: #30363d;
             --error-bg: #2d1b00;
             --error-border: rgba(187,128,9,0.4);
+            --sidebar-active-bg: rgba(88,166,255,0.1);
+            --search-highlight: rgba(255,213,0,0.25);
         }
 
         * {
@@ -53,10 +57,10 @@
 
         /* Top Bar for Navigation */
         .top-bar {
-            max-width: 980px;
+            max-width: 1280px;
             margin: 0 auto 20px auto;
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             align-items: center;
             gap: 8px;
             background: var(--surface-color);
@@ -66,17 +70,141 @@
         }
 
         .logo {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
             color: var(--text-color);
             margin-right: auto;
+            white-space: nowrap;
         }
 
-        .top-bar-global,
+        /* Search */
+        .search-wrapper {
+            position: relative;
+            flex: 0 1 280px;
+            max-width: 280px;
+            min-width: 110px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 6px 12px 6px 32px;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+
+        #search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(9,105,218,0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .search-results {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            right: 0;
+            min-width: 400px;
+            max-height: 420px;
+            overflow-y: auto;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 10px 14px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.1s;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background: var(--sidebar-active-bg);
+        }
+
+        .search-result-file {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 2px;
+        }
+
+        .search-result-heading {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .search-result-snippet {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .search-result-snippet mark {
+            background: var(--search-highlight);
+            color: inherit;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+
+        .search-no-results {
+            padding: 16px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .top-bar-global {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
         .top-bar-doc {
             display: flex;
             gap: 8px;
             align-items: center;
+            flex-shrink: 1;
+            min-width: 0;
+        }
+
+        .top-bar-buttons {
+            flex-shrink: 0;
         }
 
         select {
@@ -87,16 +215,156 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             cursor: pointer;
-            min-width: 250px;
+            min-width: 180px;
         }
 
         select:hover {
             border-color: #b1b9c0;
         }
 
+        /* Sidebar — fixed to the left of the centered 1280px content column */
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 20px;
+            /* 50% - half of 1280px - 25px gap - 250px sidebar = 50% - 915px */
+            left: calc(50% - 915px);
+            width: 250px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px 0;
+            scrollbar-width: thin;
+            z-index: 50;
+        }
+
+        /* Show sidebar only when viewport can fit it beside the centered content */
+        @media (min-width: 1880px) {
+            .sidebar {
+                display: block;
+            }
+            .toc-fab {
+                display: none !important;
+            }
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        .sidebar-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            padding: 0 16px 10px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 8px;
+        }
+
+        #sidebar-toc {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar-toc li {
+            margin: 0;
+        }
+
+        #sidebar-toc a {
+            display: block;
+            padding: 5px 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: color 0.15s, background 0.15s, border-color 0.15s;
+            line-height: 1.4;
+        }
+
+        #sidebar-toc a:hover {
+            color: var(--text-color);
+            background: var(--sidebar-active-bg);
+        }
+
+        #sidebar-toc a.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background: var(--sidebar-active-bg);
+            font-weight: 500;
+        }
+
+        #sidebar-toc .toc-h3 a {
+            padding-left: 32px;
+            font-size: 12px;
+        }
+
+        .sidebar-empty {
+            padding: 12px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Sidebar Document Navigation */
+        .sidebar-section-divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 12px 0 0 0;
+        }
+
+        .sidebar-docs-nav {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .sidebar-docs-group-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            padding: 10px 16px 4px;
+        }
+
+        .sidebar-docs-nav a {
+            display: block;
+            padding: 4px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: color 0.15s, background 0.15s, border-color 0.15s;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sidebar-docs-nav a:hover {
+            color: var(--text-color);
+            background: var(--sidebar-active-bg);
+        }
+
+        .sidebar-docs-nav a.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            font-weight: 500;
+        }
+
         /* Main Container */
         .container {
-            max-width: 980px;
+            max-width: 1280px;
             margin: 0 auto;
             background: var(--surface-color);
             border: 1px solid var(--border-color);
@@ -104,6 +372,11 @@
             padding: 48px;
             min-height: 80vh;
         }
+
+        /* Font size classes */
+        #markdown-content.font-small { font-size: 14px; }
+        #markdown-content.font-default { font-size: 16px; }
+        #markdown-content.font-large { font-size: 18px; }
 
         /* Markdown Standard Styling (GitHub-like) */
         #markdown-content h1 {
@@ -170,6 +443,7 @@
         }
 
         #markdown-content pre {
+            position: relative;
             background-color: var(--code-bg);
             border-radius: 6px;
             font-size: 85%;
@@ -190,6 +464,59 @@
             word-wrap: break-word;
             border: 0;
             border-radius: 0;
+        }
+
+        /* Code block language label */
+        .code-lang-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 2px 8px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            background: var(--border-color);
+            border-radius: 0 0 6px 0;
+            opacity: 0.7;
+        }
+
+        /* Code block copy button */
+        .code-copy-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-family: inherit;
+            color: var(--text-muted);
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.15s, background 0.1s;
+        }
+
+        #markdown-content pre:hover .code-copy-btn {
+            opacity: 0.85;
+        }
+
+        .code-copy-btn:hover {
+            background: var(--bg-color);
+            color: var(--text-color);
+            opacity: 1 !important;
+        }
+
+        .code-copy-btn.copied {
+            color: #22863a;
+            opacity: 1 !important;
+        }
+
+        /* Has-label: shift padding when language label present */
+        #markdown-content pre.has-lang-label {
+            padding-top: 28px;
         }
 
         #markdown-content blockquote {
@@ -275,56 +602,6 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            .top-bar-doc { order: 1; flex: 1 1 100%; }
-
-            /* Let select fill available space, remove fixed min-width */
-            select {
-                min-width: 0;
-                flex: 1;
-            }
-
-            /* Single-column two-column layout */
-            .two-column {
-                column-count: 1;
-            }
-
-            /* Stack header tables (QR code rows, TOC columns) */
-            #markdown-content td[width] {
-                display: block;
-                width: 100% !important;
-                border-top: none;
-            }
-
-            /* Center QR images when stacked */
-            #markdown-content td[width] img {
-                display: block;
-                margin: 8px auto;
-            }
-
-            /* Break long URLs in header tables */
-            #markdown-content td[width] a {
-                word-break: break-all;
-            }
-
-            /* Tighten heading sizes */
-            #markdown-content h1 {
-                font-size: 1.5em;
-            }
-
-            #markdown-content h2 {
-                font-size: 1.25em;
-            }
-        }
-
         .top-bar-btn {
             padding: 6px 12px;
             background-color: var(--surface-color);
@@ -346,6 +623,21 @@
             width: 16px;
             height: 16px;
             flex-shrink: 0;
+        }
+
+        /* Font size button */
+        #font-size-toggle {
+            font-weight: 700;
+            font-size: 14px;
+            min-width: 34px;
+            justify-content: center;
+        }
+
+        #font-size-toggle .size-indicator {
+            font-size: 9px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-left: 1px;
         }
 
         /* Collapsible Sections */
@@ -427,14 +719,202 @@
             flex: 1;
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            background: var(--surface-color);
+            color: var(--text-color);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s, background 0.15s;
+            z-index: 90;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--bg-color);
+        }
+
+        /* TOC FAB (mobile) */
+        .toc-fab {
+            display: none;
+            position: fixed;
+            bottom: 72px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            background: var(--surface-color);
+            color: var(--text-color);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        .toc-fab svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Sidebar overlay (mobile) */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 199;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        /* Entrance Animations */
+        @media (prefers-reduced-motion: no-preference) {
+            @keyframes fadeSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(12px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            #markdown-content.animate-in > h1,
+            #markdown-content.animate-in > h2,
+            #markdown-content.animate-in > .section-content,
+            #markdown-content.animate-in > h3,
+            #markdown-content.animate-in > p,
+            #markdown-content.animate-in > ul,
+            #markdown-content.animate-in > ol,
+            #markdown-content.animate-in > table,
+            #markdown-content.animate-in > pre,
+            #markdown-content.animate-in > blockquote {
+                opacity: 0;
+                animation: fadeSlideIn 0.4s ease forwards;
+            }
+        }
+
+        /* Below 1880px: sidebar hidden, FAB available as drawer trigger */
+        @media (max-width: 1879px) {
+            .sidebar {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 280px;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                border: none;
+                border-right: 1px solid var(--border-color);
+                z-index: 200;
+                transition: left 0.25s ease;
+                padding-top: 20px;
+            }
+
+            .sidebar.mobile-open {
+                display: block;
+                left: 0;
+            }
+
+            .toc-fab {
+                display: flex;
+            }
+        }
+
+        /* Compact top nav */
+        @media (max-width: 980px) {
+            .top-bar { flex-wrap: wrap; }
+
+            /* Row 2: doc selector (fills) + buttons beside it */
+            .top-bar-doc { order: 1; }
+            .top-bar-doc:not(.top-bar-buttons) { flex: 1 1 100%; }
+
+            /* Row 3: search full width */
+            .search-wrapper {
+                order: 2;
+                flex: 1 1 100%;
+                max-width: none;
+            }
+
+            .search-results {
+                min-width: unset;
+            }
+
+            select {
+                min-width: 0;
+                flex: 1;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .two-column {
+                column-count: 1;
+            }
+
+            #markdown-content td[width] {
+                display: block;
+                width: 100% !important;
+                border-top: none;
+            }
+
+            #markdown-content td[width] img {
+                display: block;
+                margin: 8px auto;
+            }
+
+            #markdown-content td[width] a {
+                word-break: break-all;
+            }
+
+            #markdown-content h1 {
+                font-size: 1.5em;
+            }
+
+            #markdown-content h2 {
+                font-size: 1.25em;
+            }
+        }
+
         @media print {
             body {
                 background: white;
                 color: black;
                 padding: 0;
             }
-            
-            .top-bar, #back-to-top, .file-upload, .loading, .error, .doc-nav {
+
+            .top-bar, .back-to-top, .toc-fab, .sidebar, .sidebar-overlay, .file-upload, .loading, .error, .doc-nav, .code-copy-btn, .code-lang-label {
                 display: none !important;
             }
 
@@ -447,24 +927,23 @@
                 max-width: 100%;
             }
 
-            /* Optimized Typography for Print */
             #markdown-content {
-                font-size: 10pt;
+                font-size: 10pt !important;
                 line-height: 1.3;
             }
 
-            h1, h2, h3 { 
-                page-break-after: avoid; 
+            h1, h2, h3 {
+                page-break-after: avoid;
                 page-break-inside: avoid;
                 color: black !important;
             }
-            
+
             h1 { font-size: 16pt; border-bottom: 2px solid #000; margin-top: 0.5em; margin-bottom: 0.5em; }
             h2 { font-size: 14pt; border-bottom: 1px solid #ccc; margin-top: 1em; margin-bottom: 0.5em; }
             h3 { font-size: 12pt; margin-top: 0.8em; margin-bottom: 0.4em; }
-            
+
             p, ul, ol { margin-bottom: 0.8em; }
-            
+
             pre, code {
                 white-space: pre-wrap !important;
                 word-wrap: break-word;
@@ -472,20 +951,19 @@
                 background-color: #f5f5f5 !important;
                 font-size: 9pt;
             }
-            
+
             a { text-decoration: none; color: black !important; }
-            
+
             table {
                 width: 100%;
                 border-collapse: collapse;
-                page-break-inside: auto; /* Allow tables to break across pages if needed */
+                page-break-inside: auto;
                 margin-bottom: 1em;
             }
-            
+
             tr { page-break-inside: avoid; }
             td, th { vertical-align: top; padding: 4px; border: 1px solid #ddd; }
-            
-            /* Two-column layout for print */
+
             .two-column {
                 column-count: 2;
                 column-gap: 24px;
@@ -497,13 +975,17 @@
                 font-size: 9pt;
             }
 
-            /* Hide interactive elements not needed in print */
             details, summary { display: block; }
 
-            /* Expand all sections and hide chevrons for print */
             .collapsible-header::before { display: none !important; }
             .collapsible-header { padding-left: 0 !important; }
             .section-content.collapsed { display: block !important; }
+
+            /* Override entrance animations for print */
+            #markdown-content.animate-in > * {
+                opacity: 1 !important;
+                animation: none !important;
+            }
         }
     </style>
 </head>
@@ -515,6 +997,17 @@
             <select id="file-selector" onchange="handleFileSelect(this.value)">
                 <!-- Populated by JS -->
             </select>
+        </div>
+        <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6.5" cy="6.5" r="4.5"/>
+                <path d="M10 10l4 4"/>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search all docs..." autocomplete="off" />
+            <div class="search-results" id="search-results"></div>
+        </div>
+        <div class="top-bar-doc top-bar-buttons">
+            <button class="top-bar-btn" id="font-size-toggle" onclick="cycleFontSize()" aria-label="Change font size" title="Font size">A</button>
             <button class="top-bar-btn" id="toggle-sections" onclick="toggleAllSections()" aria-label="Expand or collapse all sections">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 5l4 4 4-4"/>
@@ -539,14 +1032,32 @@
         </div>
     </div>
 
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <div class="sidebar-title">On This Page</div>
+            <ul id="sidebar-toc"></ul>
+            <hr class="sidebar-section-divider">
+            <div class="sidebar-title" style="padding-top: 12px;">Documents</div>
+            <ul id="sidebar-docs" class="sidebar-docs-nav"></ul>
+        </nav>
+    </aside>
+
     <div class="container">
         <div class="loading">Loading...</div>
         <div id="markdown-content"></div>
         <div id="doc-nav" class="doc-nav" style="display: none;"></div>
     </div>
 
+    <button class="toc-fab" id="toc-fab" aria-label="Table of contents">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="12" y2="18"/>
+        </svg>
+    </button>
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <script>
-        // Theme toggle
+        // ── Theme toggle ──────────────────────────────────────────────
         function getPreferredTheme() {
             const stored = localStorage.getItem('theme');
             if (stored) return stored;
@@ -569,17 +1080,38 @@
             applyTheme(next);
         }
 
-        // Apply theme immediately to avoid flash
         applyTheme(getPreferredTheme());
 
-        // Respect OS-level changes if no manual override
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
                 applyTheme(e.matches ? 'dark' : 'light');
             }
         });
 
-        // List of available files in the repository, grouped for the dropdown
+        // ── Font Size Control ─────────────────────────────────────────
+        const FONT_SIZES = ['font-small', 'font-default', 'font-large'];
+        const FONT_LABELS = { 'font-small': 'S', 'font-default': 'M', 'font-large': 'L' };
+
+        function getStoredFontSize() {
+            return localStorage.getItem('fontSize') || 'font-default';
+        }
+
+        function applyFontSize(size) {
+            FONT_SIZES.forEach(s => contentDiv.classList.remove(s));
+            contentDiv.classList.add(size);
+            const btn = document.getElementById('font-size-toggle');
+            btn.innerHTML = 'A<span class="size-indicator">' + FONT_LABELS[size] + '</span>';
+        }
+
+        function cycleFontSize() {
+            const current = getStoredFontSize();
+            const idx = FONT_SIZES.indexOf(current);
+            const next = FONT_SIZES[(idx + 1) % FONT_SIZES.length];
+            localStorage.setItem('fontSize', next);
+            applyFontSize(next);
+        }
+
+        // ── File Configuration ────────────────────────────────────────
         const FILE_GROUPS = [
             {
                 label: "Workshop Path",
@@ -617,14 +1149,12 @@
             }
         ];
 
-        // Flat list for lookups
         const AVAILABLE_FILES = FILE_GROUPS.flatMap(g => g.files);
 
         const selector = document.getElementById('file-selector');
         const contentDiv = document.getElementById('markdown-content');
         const loadingDiv = document.querySelector('.loading');
 
-        // Initialize Selector with optgroups
         FILE_GROUPS.forEach(group => {
             const optgroup = document.createElement('optgroup');
             optgroup.label = group.label;
@@ -637,12 +1167,9 @@
             selector.appendChild(optgroup);
         });
 
-        // Current file state
         let currentFile = AVAILABLE_FILES[0].path;
-        // Track open/closed sections per document: { "file.md": { "section-id": true } }
         const sectionStates = {};
 
-        // Build ordered list of workshop-path files for prev/next navigation
         const workshopPath = FILE_GROUPS.find(g => g.label === 'Workshop Path');
         const navSequence = workshopPath ? workshopPath.files.map(f => f.path) : [];
 
@@ -679,12 +1206,21 @@
             });
         }
 
+        // ── Shared heading ID generator ───────────────────────────────
+        function generateHeadingId(text) {
+            return text.toString().toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .trim()
+                .replace(/\s/g, '-');
+        }
+
+        // ── Markdown Loading & Rendering ──────────────────────────────
         async function loadMarkdown(filePath, scrollToId) {
             currentFile = filePath;
             loadingDiv.style.display = 'block';
             contentDiv.innerHTML = '';
+            contentDiv.classList.remove('animate-in');
 
-            // Update URL hash for "routing"
             window.location.hash = encodeURIComponent(filePath);
 
             try {
@@ -697,6 +1233,7 @@
                 const text = await response.text();
                 renderMarkdown(text);
                 updateDocNav(filePath);
+                updateSidebarDocsActive();
                 loadingDiv.style.display = 'none';
 
                 if (scrollToId) {
@@ -711,33 +1248,22 @@
         }
 
         function renderMarkdown(markdown) {
-            // Custom renderer for GitHub-style header IDs
             const renderer = {
                 heading(text, level, raw, slugger) {
-                    // Universal argument handler for different marked versions
-                    // New versions pass an object as the first arg
                     if (typeof text === 'object' && text !== null) {
                         const options = text;
                         raw = options.raw;
                         level = options.depth;
                         text = options.text;
                     }
-                    
-                    // Fallback for safety
+
                     const safeText = (raw || text || '').toString();
                     const safeLevel = level || 1;
-
-                const id = safeText.toString().toLowerCase()
-                    .replace(/[^\w\s-]/g, '') // Remove non-word chars (like #, &)
-                    .trim()                   // Trim whitespace
-                    .replace(/\s/g, '-');     // Replace EACH space with a hyphen (GitHub style)
-                    
-                    console.log(`Generated ID: "${id}" for header: "${safeText}"`);
+                    const id = generateHeadingId(safeText);
                     return `<h${safeLevel} id="${id}">${text}</h${safeLevel}>`;
                 }
             };
 
-            // Configure marked using .use() (standard for v4+)
             marked.use({ renderer });
             marked.setOptions({
                 gfm: true,
@@ -751,17 +1277,11 @@
                 const href = link.getAttribute('href');
                 if (!href) return;
 
-                // 1. Markdown file links: intercept and load in viewer
-                // Detects relative paths (file.md), local hash paths (#file.md),
-                // cross-doc section links (file.md#section),
-                // and full URLs pointing back to the site with a hash (https://.../#file.md)
                 const hrefLower = href.toLowerCase();
                 const isMarkdownFile = hrefLower.endsWith('.md') || hrefLower.endsWith('.markdown');
                 const hasMarkdownHash = href.includes('#') && (href.split('#')[1].toLowerCase().endsWith('.md') || href.split('#')[1].toLowerCase().endsWith('.markdown'));
-                // Detect file.md#section pattern (markdown file with an anchor)
                 const mdAnchorMatch = href.match(/^(.+\.md)#(.+)$/i);
 
-                // Only intercept if it's relative OR points back to this site
                 const isInternalViewerLink = (isMarkdownFile || hasMarkdownHash || mdAnchorMatch) &&
                     (!href.startsWith('http') || href.includes('eisenbruch.github.io/vibe-coding-workshops/'));
 
@@ -772,31 +1292,24 @@
                         let scrollToId = null;
 
                         if (mdAnchorMatch) {
-                            // Cross-document section link: file.md#section
                             targetPath = mdAnchorMatch[1];
                             scrollToId = mdAnchorMatch[2];
                         } else if (href.includes('#')) {
-                            // Hash-based routing link: #file.md
                             targetPath = href.split('#')[1];
                         }
 
                         const decodedPath = decodeURIComponent(targetPath);
-                        console.log(`Loading linked markdown file: ${decodedPath}` + (scrollToId ? ` → #${scrollToId}` : ''));
                         loadMarkdown(decodedPath, scrollToId);
-
-                        // Update selector if the file is in the list
                         selector.value = decodedPath;
                     });
-                    return; // Skip other checks
+                    return;
                 }
-                
-                // 2. External links: open in new tab
+
                 if (href.startsWith('http') || href.startsWith('https')) {
                     link.setAttribute('target', '_blank');
                     link.setAttribute('rel', 'noopener noreferrer');
                 }
-                
-                // 3. Internal Anchor links (TOC): expand collapsed sections & smooth scroll
+
                 if (href.startsWith('#')) {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -809,12 +1322,28 @@
             });
 
             makeCollapsible();
+            addCopyButtons();
+            addLanguageLabels();
+            buildSidebarTOC();
             updateToggleIcon();
+
+            // Entrance animation
+            requestAnimationFrame(() => {
+                const children = contentDiv.children;
+                let delay = 0;
+                for (let i = 0; i < children.length && delay < 600; i++) {
+                    children[i].style.animationDelay = delay + 'ms';
+                    delay += 40;
+                }
+                contentDiv.classList.add('animate-in');
+            });
         }
 
+        // ── Collapsible Sections (Feature 2: first H2 open) ──────────
         function makeCollapsible() {
             const headers = contentDiv.querySelectorAll('h2, h3');
             const saved = sectionStates[currentFile];
+            let firstH2Found = false;
 
             headers.forEach(header => {
                 const level = parseInt(header.tagName[1]);
@@ -831,10 +1360,13 @@
 
                 if (sectionContent.children.length > 0) {
                     const id = header.id;
-                    const level = parseInt(header.tagName[1]);
-                    // Restore saved state; default h2 to collapsed, h3+ to expanded
-                    const defaultOpen = id === 'table-of-contents' || id === 'welcome';
-                    const isOpen = saved ? saved[id] : defaultOpen;
+                    // Default: first H2 open, plus table-of-contents and welcome
+                    let defaultOpen = id === 'table-of-contents' || id === 'welcome';
+                    if (!firstH2Found && level === 2) {
+                        defaultOpen = true;
+                        firstH2Found = true;
+                    }
+                    const isOpen = saved ? (saved[id] !== undefined ? saved[id] : defaultOpen) : defaultOpen;
                     if (!isOpen) {
                         header.classList.add('collapsible-header', 'collapsed');
                         sectionContent.classList.add('collapsed');
@@ -845,7 +1377,6 @@
                     header.addEventListener('click', () => {
                         header.classList.toggle('collapsed');
                         sectionContent.classList.toggle('collapsed');
-                        // Save state on toggle
                         if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
                         sectionStates[currentFile][id] = !header.classList.contains('collapsed');
                     });
@@ -853,16 +1384,187 @@
             });
         }
 
+        // ── Code Block Copy Buttons (Feature 4) ──────────────────────
+        function addCopyButtons() {
+            contentDiv.querySelectorAll('pre').forEach(pre => {
+                const btn = document.createElement('button');
+                btn.className = 'code-copy-btn';
+                btn.textContent = 'Copy';
+                btn.addEventListener('click', async () => {
+                    const code = pre.querySelector('code');
+                    const text = code ? code.textContent : pre.textContent;
+                    try {
+                        await navigator.clipboard.writeText(text);
+                    } catch {
+                        // Fallback for file:// protocol
+                        const textarea = document.createElement('textarea');
+                        textarea.value = text;
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                    }
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'Copy';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+                pre.appendChild(btn);
+            });
+        }
+
+        // ── Code Block Language Labels (Feature 4) ───────────────────
+        function addLanguageLabels() {
+            contentDiv.querySelectorAll('pre code[class*="language-"]').forEach(code => {
+                const match = code.className.match(/language-(\w+)/);
+                if (match) {
+                    const pre = code.parentElement;
+                    const label = document.createElement('span');
+                    label.className = 'code-lang-label';
+                    label.textContent = match[1];
+                    pre.classList.add('has-lang-label');
+                    pre.appendChild(label);
+                }
+            });
+        }
+
+        // ── Sidebar TOC (Feature 5) ──────────────────────────────────
+        let tocObserver = null;
+
+        function buildSidebarTOC() {
+            const tocList = document.getElementById('sidebar-toc');
+            tocList.innerHTML = '';
+
+            // Clean up previous observer
+            if (tocObserver) {
+                tocObserver.disconnect();
+                tocObserver = null;
+            }
+
+            const headings = contentDiv.querySelectorAll('h2, h3');
+            if (headings.length === 0) {
+                tocList.innerHTML = '<li class="sidebar-empty">No sections</li>';
+                return;
+            }
+
+            const tocEntries = [];
+
+            headings.forEach(h => {
+                const level = parseInt(h.tagName[1]);
+                const li = document.createElement('li');
+                if (level === 3) li.classList.add('toc-h3');
+                const a = document.createElement('a');
+                a.href = '#' + h.id;
+                a.textContent = h.textContent;
+                a.dataset.targetId = h.id;
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    expandAndScrollTo(h.id);
+                    // Close mobile drawer
+                    closeMobileSidebar();
+                });
+                li.appendChild(a);
+                tocList.appendChild(li);
+                tocEntries.push({ id: h.id, element: h, link: a });
+            });
+
+            // Scroll spy with IntersectionObserver
+            tocObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        tocEntries.forEach(t => t.link.classList.remove('active'));
+                        const match = tocEntries.find(t => t.id === id);
+                        if (match) {
+                            match.link.classList.add('active');
+                            // Scroll sidebar to keep active item visible
+                            match.link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                        }
+                    }
+                });
+            }, {
+                rootMargin: '-10% 0px -80% 0px',
+                threshold: 0
+            });
+
+            headings.forEach(h => tocObserver.observe(h));
+        }
+
+        // ── Sidebar Document Navigation ───────────────────────────────
+        function buildSidebarDocs() {
+            const docsList = document.getElementById('sidebar-docs');
+            docsList.innerHTML = '';
+
+            FILE_GROUPS.forEach(group => {
+                const label = document.createElement('li');
+                label.className = 'sidebar-docs-group-label';
+                label.textContent = group.label;
+                docsList.appendChild(label);
+
+                group.files.forEach(file => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#' + encodeURIComponent(file.path);
+                    a.textContent = file.name;
+                    a.dataset.path = file.path;
+                    if (file.path === currentFile) a.classList.add('active');
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        selector.value = file.path;
+                        loadMarkdown(file.path);
+                        closeMobileSidebar();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                    li.appendChild(a);
+                    docsList.appendChild(li);
+                });
+            });
+        }
+
+        function updateSidebarDocsActive() {
+            document.querySelectorAll('#sidebar-docs a').forEach(a => {
+                a.classList.toggle('active', a.dataset.path === currentFile);
+            });
+        }
+
+        // ── Mobile Sidebar Drawer ─────────────────────────────────────
+        const sidebarEl = document.getElementById('sidebar');
+        const tocFab = document.getElementById('toc-fab');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function openMobileSidebar() {
+            sidebarEl.classList.add('mobile-open');
+            sidebarOverlay.classList.add('active');
+        }
+
+        function closeMobileSidebar() {
+            sidebarEl.classList.remove('mobile-open');
+            sidebarOverlay.classList.remove('active');
+        }
+
+        tocFab.addEventListener('click', () => {
+            if (sidebarEl.classList.contains('mobile-open')) {
+                closeMobileSidebar();
+            } else {
+                openMobileSidebar();
+            }
+        });
+
+        sidebarOverlay.addEventListener('click', closeMobileSidebar);
+
+        // ── Expand & Scroll ───────────────────────────────────────────
         function expandAndScrollTo(targetId) {
             const target = document.getElementById(targetId);
             if (!target) return false;
 
-            // Walk up from target, expanding any collapsed section-content ancestors
             let el = target;
             while (el && el !== contentDiv) {
                 if (el.classList.contains('section-content') && el.classList.contains('collapsed')) {
                     el.classList.remove('collapsed');
-                    // The header is the previous sibling
                     const header = el.previousElementSibling;
                     if (header && header.classList.contains('collapsible-header')) {
                         header.classList.remove('collapsed');
@@ -873,7 +1575,6 @@
                 el = el.parentElement;
             }
 
-            // If the target itself is a collapsed header, expand it
             if (target.classList.contains('collapsible-header') && target.classList.contains('collapsed')) {
                 target.classList.remove('collapsed');
                 const sectionContent = target.nextElementSibling;
@@ -888,13 +1589,13 @@
             return true;
         }
 
+        // ── Toggle All Sections ───────────────────────────────────────
         const expandIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5l4 4 4-4"/><path d="M4 9l4 4 4-4"/></svg>';
         const collapseIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l4-4 4 4"/><path d="M4 7l4-4 4 4"/></svg>';
 
         function toggleAllSections() {
             const allHeaders = contentDiv.querySelectorAll('.collapsible-header');
             const collapsed = contentDiv.querySelectorAll('.collapsible-header.collapsed');
-            // If most are collapsed, expand all; otherwise collapse all
             const shouldExpand = collapsed.length >= allHeaders.length / 2;
 
             allHeaders.forEach(header => {
@@ -917,7 +1618,6 @@
             const btn = document.getElementById('toggle-sections');
             const allHeaders = contentDiv.querySelectorAll('.collapsible-header');
             const collapsed = contentDiv.querySelectorAll('.collapsible-header.collapsed');
-            // Show expand icon when most are collapsed, collapse icon when most are open
             btn.innerHTML = collapsed.length >= allHeaders.length / 2 ? expandIcon : collapseIcon;
         }
 
@@ -942,7 +1642,6 @@
         function handleManualUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
-
             const reader = new FileReader();
             reader.onload = (e) => {
                 renderMarkdown(e.target.result);
@@ -950,7 +1649,235 @@
             reader.readAsText(file);
         }
 
-        // Handle browser back/forward navigation
+        // ── Full-Text Search (Feature 6) ─────────────────────────────
+        let searchIndex = [];
+        let searchReady = false;
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function stripMarkdown(text) {
+            return text
+                .replace(/```[\s\S]*?```/g, ' ')
+                .replace(/`[^`]+`/g, ' ')
+                .replace(/!\[.*?\]\(.*?\)/g, '')
+                .replace(/\[([^\]]+)\]\(.*?\)/g, '$1')
+                .replace(/[#*_~>|`\-]/g, '')
+                .replace(/<[^>]+>/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        async function initSearch() {
+            // Delay indexing to not block initial load
+            await new Promise(r => setTimeout(r, 2000));
+
+            const promises = AVAILABLE_FILES.map(async (file) => {
+                try {
+                    const resp = await fetch(file.path);
+                    if (!resp.ok) return [];
+                    const text = await resp.text();
+                    return indexFile(file.path, file.name, text);
+                } catch {
+                    return [];
+                }
+            });
+
+            const results = await Promise.all(promises);
+            searchIndex = results.flat();
+            searchReady = true;
+        }
+
+        function indexFile(filePath, fileName, markdown) {
+            const entries = [];
+            const lines = markdown.split('\n');
+            let currentHeading = fileName;
+            let currentHeadingId = '';
+            let buffer = [];
+
+            function flush() {
+                if (buffer.length > 0) {
+                    const text = stripMarkdown(buffer.join(' '));
+                    if (text.length > 0) {
+                        entries.push({
+                            file: filePath,
+                            fileName: fileName,
+                            heading: currentHeading,
+                            headingId: currentHeadingId,
+                            text: text
+                        });
+                    }
+                    buffer = [];
+                }
+            }
+
+            lines.forEach(line => {
+                const headingMatch = line.match(/^(#{1,4})\s+(.+)/);
+                if (headingMatch) {
+                    flush();
+                    currentHeading = headingMatch[2].replace(/[#*_~`]/g, '').trim();
+                    currentHeadingId = generateHeadingId(currentHeading);
+                } else {
+                    buffer.push(line);
+                }
+            });
+            flush();
+
+            return entries;
+        }
+
+        function performSearch(query) {
+            if (!searchReady || !query.trim()) return [];
+
+            const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+            if (terms.length === 0) return [];
+
+            const scored = [];
+
+            searchIndex.forEach(entry => {
+                const textLower = entry.text.toLowerCase();
+                const headingLower = entry.heading.toLowerCase();
+                const fileLower = entry.fileName.toLowerCase();
+
+                // AND logic: all terms must appear in text, heading, or filename
+                const allMatch = terms.every(t =>
+                    textLower.includes(t) || headingLower.includes(t) || fileLower.includes(t)
+                );
+                if (!allMatch) return;
+
+                let score = 0;
+                terms.forEach(t => {
+                    if (headingLower.includes(t)) score += 10;
+                    if (fileLower.includes(t)) score += 5;
+                    // Count occurrences in text
+                    let idx = 0;
+                    while ((idx = textLower.indexOf(t, idx)) !== -1) {
+                        score += 1;
+                        idx += t.length;
+                    }
+                });
+
+                scored.push({ entry, score });
+            });
+
+            scored.sort((a, b) => b.score - a.score);
+            return scored.slice(0, 20);
+        }
+
+        function getSnippet(text, terms, maxLen) {
+            maxLen = maxLen || 150;
+            const lower = text.toLowerCase();
+            // Find the earliest match
+            let bestPos = text.length;
+            terms.forEach(t => {
+                const pos = lower.indexOf(t);
+                if (pos !== -1 && pos < bestPos) bestPos = pos;
+            });
+
+            const start = Math.max(0, bestPos - 30);
+            let snippet = (start > 0 ? '...' : '') + text.substring(start, start + maxLen);
+            if (start + maxLen < text.length) snippet += '...';
+
+            // Highlight terms
+            const escaped = escapeHtml(snippet);
+            let highlighted = escaped;
+            terms.forEach(t => {
+                const regex = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+                highlighted = highlighted.replace(regex, '<mark>$1</mark>');
+            });
+
+            return highlighted;
+        }
+
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        let searchTimeout = null;
+
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const query = searchInput.value.trim();
+                if (!query) {
+                    searchResults.classList.remove('active');
+                    searchResults.innerHTML = '';
+                    return;
+                }
+
+                const results = performSearch(query);
+                const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div class="search-no-results">No results found</div>';
+                    searchResults.classList.add('active');
+                    return;
+                }
+
+                searchResults.innerHTML = results.map(r => {
+                    const e = r.entry;
+                    const snippet = getSnippet(e.text, terms);
+                    return `<div class="search-result-item" data-file="${escapeHtml(e.file)}" data-heading-id="${escapeHtml(e.headingId)}">
+                        <div class="search-result-file">${escapeHtml(e.fileName)}</div>
+                        <div class="search-result-heading">${escapeHtml(e.heading)}</div>
+                        <div class="search-result-snippet">${snippet}</div>
+                    </div>`;
+                }).join('');
+
+                searchResults.classList.add('active');
+            }, 300);
+        });
+
+        searchResults.addEventListener('click', (e) => {
+            const item = e.target.closest('.search-result-item');
+            if (!item) return;
+
+            const file = item.dataset.file;
+            const headingId = item.dataset.headingId;
+
+            searchResults.classList.remove('active');
+            searchInput.value = '';
+
+            if (file === currentFile) {
+                expandAndScrollTo(headingId);
+            } else {
+                selector.value = file;
+                loadMarkdown(file, headingId);
+            }
+        });
+
+        // Close search on Escape or click outside
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-wrapper')) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // ── Back to Top (Feature 7) ──────────────────────────────────
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        function initBackToTop() {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }, { passive: true });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // ── Hash Navigation ───────────────────────────────────────────
         window.addEventListener('hashchange', () => {
             const newHash = decodeURIComponent(window.location.hash.slice(1));
             if (newHash && newHash !== currentFile) {
@@ -960,19 +1887,20 @@
             }
         });
 
-        // Initialize
-        // Check if hash exists to load specific file
-        const hash = window.location.hash.slice(1); // remove #
+        // ── Initialize ───────────────────────────────────────────────
+        applyFontSize(getStoredFontSize());
+
+        const hash = window.location.hash.slice(1);
         if (hash) {
             const decodedPath = decodeURIComponent(hash);
-            // Verify it's in our list or just try loading it
             currentFile = decodedPath;
             selector.value = decodedPath;
-            // If the hash didn't match a selector option (e.g. custom file), the selector might be blank,
-            // but we try loading anyway.
         }
 
+        buildSidebarDocs();
         loadMarkdown(currentFile);
+        initSearch();
+        initBackToTop();
 
     </script>
 </body>
