@@ -267,6 +267,9 @@ Professional photogrammetry by Epic Games
 **Postshot** - [jawset.com](https://www.jawset.com/)
 Desktop app for training NeRF and Gaussian Splatting locally
 
+**Hunyuan3D** - [3d.hunyuanglobal.com](https://3d.hunyuanglobal.com/)
+Tencent's 3D asset generation from text or images
+
 **Depth Anything V2** - [GitHub](https://github.com/DepthAnything/Depth-Anything-V2)
 Monocular depth estimation for 3D reconstruction
 
