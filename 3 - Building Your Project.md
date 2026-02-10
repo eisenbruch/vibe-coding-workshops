@@ -466,41 +466,24 @@ Build a shift scheduler: employee profiles with qualifications + availability, a
 Building with AI follows a repeating loop. Don't try to build everything at once — work in small increments and verify as you go.
 
 ```
-┌───────────────────────────────────────────────────────────────┐
-│                       THE BUILD CYCLE                         │
-│                                                               │
-│              ┌──────────┐                                     │
-│         ┌───▶│  PROMPT  │  Describe what you want to build,   │
-│         │    │          │  fix, or change next.               │
-│         │    └────┬─────┘                                     │
-│         │         │                                           │
-│         │         ▼                                           │
-│         │    ┌──────────┐                                     │
-│         │    │   TEST   │  Run it. Does it work?              │
-│         │    │          │  Does it look right?                │
-│         │    └────┬─────┘                                     │
-│         │         │                                           │
-│         │     No? │  Yes?                                     │
-│         │     │   │                                           │
-│         │     ▼   ▼                                           │
-│         │  ┌──────────┐  ┌──────────┐                         │
-│         │  │   FIX    │  │  COMMIT  │  Save your progress.    │
-│         │  │          │  │          │                         │
-│         │  └────┬─────┘  └────┬─────┘                         │
-│         │       │             │                               │
-│         │       │       Ready to go live?                     │
-│         │       │        Yes? │ No?                           │
-│         │       │         ▼   │                               │
-│         │       │  ┌──────────┐│                               │
-│         │       │  │  DEPLOY  ││  Push to GitHub / Firebase.  │
-│         │       │  └────┬─────┘│                               │
-│         │       │       │      │                               │
-│         └───────┴───────┴──────┘                               │
-│                 Next feature                                  │
-│                                                               │
-│   The inner loop (Prompt → Test → Fix) is where you spend    │
-│   most of your time. Commit every time something works.       │
-└───────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                               THE BUILD CYCLE                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│        INNER LOOP (Repeat)                  NEXT STEPS (When Ready)         │
+│                                                                             │
+│        PROMPT                                                               │
+│       ▲      \             Success           ┌────────┐      ┌────────┐     │
+│      /        ▼           ─────────▶         │ COMMIT │─────▶│ DEPLOY │     │
+│    FIX  ◀────── TEST                         └────────┘      └────────┘     │
+│                                                                             │
+│   • Describe what      • Run and check       • Create a      • Go live!     │
+│     you want next        for errors            save point      Share it     │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│   The inner loop (Prompt → Test → Fix) is where you spend most of your      │
+│   time. Commit every time something works to create a "save point."         │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **The steps:**

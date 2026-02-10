@@ -95,9 +95,9 @@ Choosing the right tool depends on your experience, what you're building, and ho
 *All tools support full codebase understanding, git integration, MCP servers, and more* \
 *They are available as both VS Code extensions (chat interface) and standalone CLI tools (terminal interface)*
 
-- **<a href="https://claude.ai/code" target="_blank">Claude Code</a>** - Recommended for best overall quality and speed, especially for large projects
-- **<a href="https://chatgpt.com/codex" target="_blank">ChatGPT Codex</a>** - Better at problem-solving with tricky bugs, but slower overall
-- **<a href="https://codeassist.google" target="_blank">Gemini Code Assist</a>** - Recently updated with major improvements, great free option to get started
+*   **<a href="https://claude.ai/code" target="_blank">Claude Code</a>** - Recommended for best overall quality and architectural understanding; incredible at backend and complex logic.
+*   **<a href="https://codeassist.google" target="_blank">Gemini Code Assist</a>** - Extremely fast; excellent for writing, rapid prototyping, and converting design screenshots to code.
+*   **<a href="https://chatgpt.com" target="_blank">ChatGPT</a>** - Useful for problem-solving with specific, tricky bugs, but can feel slower for general development.
 
 **IDEs:**
 - **<a href="https://code.visualstudio.com" target="_blank">VS Code</a>**
@@ -152,6 +152,18 @@ Choosing the right tool depends on your experience, what you're building, and ho
 - Dependent on platform's continued existence
 
 > **Tip:** These platforms are perfect for quickly building and sharing projects without worrying about deployment. Use them alongside other tools depending on your needs.
+
+---
+
+### Not All AIs Are Created Equal
+
+While most tools allow you to switch between different AI models, I find that each platform has a distinct "personality" and set of strengths.
+
+- **Claude:** The architect. Best-in-class for backend logic, complex software architecture, and understanding how different parts of a large project fit together. It's still incredibly solid at frontend, but more focused on structure than "aesthetic" design.
+- **Gemini:** The speed demon. Excellent for writing blog posts, converting screenshots into UI code, and general rapid prototyping. It is often significantly faster than the competition.
+- **ChatGPT:** The specialist. While often feeling slower or not as good at general tasks, it can be useful for tackling specific, tricky bugs that other models might struggle with.
+
+> **Tip:** Switch models when you get stuck! If Claude is struggling with a CSS layout, try Gemini. If you have a logic bug that won't go away, ask ChatGPT for a second opinion.
 
 ---
 
