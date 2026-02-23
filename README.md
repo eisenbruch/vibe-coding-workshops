@@ -27,12 +27,19 @@ Reference guides and resources for vibe coding, project setup, and related tools
 - **[Vibe Coding Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Vibe%20Coding%20Techniques.md)** — Core approaches, prompting, essential techniques
 - **[Solo Project Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Solo%20Project%20Guide.md)** — Project ideas, setup, build cycle, deployment
 
+**Deployment & Beyond:**
+- **[Firebase & Deployment](https://eisenbruch.github.io/vibe-coding-workshops/#Firebase%20%26%20Deployment.md)** — Backend, database, hosting
+- **[Vercel & Supabase](https://eisenbruch.github.io/vibe-coding-workshops/#Vercel%20%26%20Supabase.md)** — SQL database, auth, deployment
+- **[Custom Domains](https://eisenbruch.github.io/vibe-coding-workshops/#Custom%20Domains.md)** — Buying domains, Cloudflare, DNS setup
+
 **Reference:**
 - **[Git for Beginners](https://eisenbruch.github.io/vibe-coding-workshops/#Git%20for%20Beginners.md)** — Simplified Git guide
-- **[Firebase & Deployment](https://eisenbruch.github.io/vibe-coding-workshops/#Firebase%20%26%20Deployment.md)** — Backend, database, hosting
+- **[Claude Code Quick Reference](https://eisenbruch.github.io/vibe-coding-workshops/#Claude%20Code%20Quick%20Reference.md)** — CLI commands and tips
 - **[Advanced Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Advanced%20Techniques.md)** — Agents, skills, MCP servers, git worktrees
 - **[Project Idea Prompts](https://eisenbruch.github.io/vibe-coding-workshops/#Project%20Idea%20Prompts%20-%20Extended.md)** — Starter prompts for simple, medium, and complex projects
 - **[AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md)** — Comprehensive list of AI tools
+- **[Backend & Hosting Platforms](https://eisenbruch.github.io/vibe-coding-workshops/#Backend%20%26%20Hosting%20Platforms.md)** — Firebase vs Supabase vs Vercel vs Netlify vs Cloudflare
+- **[Workshop Projects](https://eisenbruch.github.io/vibe-coding-workshops/#Workshop%20Projects.md)** — Showcase of completed projects
 
 ### Workshop Projects
 
