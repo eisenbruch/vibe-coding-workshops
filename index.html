@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="color-scheme: light dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f8fa">
     <title>Vibe Coding Workshop - Doc Viewer</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         :root,
@@ -22,6 +24,16 @@
             --error-border: rgba(234,179,8,0.4);
             --sidebar-active-bg: rgba(9,105,218,0.08);
             --search-highlight: rgba(255,213,0,0.4);
+            --wizard-gradient-start: var(--primary-color);
+            --wizard-gradient-end: #8b5cf6;
+            --wizard-btn-gradient-start: var(--primary-color);
+            --wizard-btn-gradient-end: #2563eb;
+            --wizard-btn-gradient-hover-end: #1d4ed8;
+            --wizard-pulse-color: rgba(9,105,218,0.2);
+            --wizard-pulse-color-faint: rgba(9,105,218,0.1);
+            --wizard-bar-shadow: rgba(0,0,0,0.06);
+            --wizard-btn-shadow: rgba(9,105,218,0.25);
+            --wizard-btn-shadow-hover: rgba(9,105,218,0.3);
         }
 
         [data-theme="dark"] {
@@ -39,6 +51,16 @@
             --error-border: rgba(187,128,9,0.4);
             --sidebar-active-bg: rgba(88,166,255,0.1);
             --search-highlight: rgba(255,213,0,0.25);
+            --wizard-gradient-start: #58a6ff;
+            --wizard-gradient-end: #a78bfa;
+            --wizard-btn-gradient-start: #58a6ff;
+            --wizard-btn-gradient-end: #3b82f6;
+            --wizard-btn-gradient-hover-end: #2563eb;
+            --wizard-pulse-color: rgba(88,166,255,0.2);
+            --wizard-pulse-color-faint: rgba(88,166,255,0.1);
+            --wizard-bar-shadow: rgba(0,0,0,0.2);
+            --wizard-btn-shadow: rgba(88,166,255,0.25);
+            --wizard-btn-shadow-hover: rgba(88,166,255,0.35);
         }
 
         * {
@@ -94,13 +116,13 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: inherit;
-            outline: none;
             transition: border-color 0.15s;
         }
 
-        #search-input:focus {
+        #search-input:focus-visible {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 2px rgba(9,105,218,0.15);
+            outline: none;
         }
 
         .search-icon {
@@ -412,6 +434,7 @@
             margin-bottom: 16px;
             font-weight: 600;
             line-height: 1.25;
+            scroll-margin-top: 80px;
         }
 
         #markdown-content h3 {
@@ -420,6 +443,7 @@
             margin-bottom: 16px;
             font-weight: 600;
             line-height: 1.25;
+            scroll-margin-top: 80px;
         }
 
         #markdown-content h4 {
@@ -880,6 +904,279 @@
             }
         }
 
+        /* ── Wizard / Step-by-Step Mode ─────────────────────────── */
+        .wizard-toggle {
+            display: none; /* shown via JS when doc has wizard markers */
+            padding: 5px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border: 1.5px solid var(--border-color);
+            border-radius: 20px;
+            background: var(--bg-color);
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wizard-toggle::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--wizard-gradient-start), var(--wizard-gradient-end));
+            opacity: 0;
+            transition: opacity 0.25s;
+            border-radius: inherit;
+        }
+
+        .wizard-toggle:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(9,105,218,0.15);
+        }
+
+        .wizard-toggle.active {
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .wizard-toggle.active::before {
+            opacity: 1;
+        }
+
+        .wizard-toggle span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .wizard-bar {
+            display: none;
+            max-width: 1280px;
+            margin: 0 auto 20px auto;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 20px;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 2px 12px var(--wizard-bar-shadow);
+            animation: wizardBarSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes wizardBarSlideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wizard-bar.active {
+            display: flex;
+        }
+
+        .wizard-step-counter {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 120px;
+            letter-spacing: -0.01em;
+        }
+
+        .wizard-step-counter .step-number {
+            color: var(--primary-color);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .wizard-progress {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex: 1;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 4px 0;
+            position: relative;
+        }
+
+        .wizard-progress-track {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .wizard-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            flex-shrink: 0;
+            transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            border: 2px solid var(--surface-color);
+            box-shadow: 0 0 0 1px var(--border-color);
+        }
+
+        .wizard-dot:hover {
+            transform: scale(1.35);
+            box-shadow: 0 0 0 1px var(--primary-color), 0 2px 8px rgba(9,105,218,0.2);
+        }
+
+        .wizard-dot.completed {
+            background: var(--primary-color);
+            box-shadow: 0 0 0 1px var(--primary-color);
+        }
+
+        .wizard-dot.current {
+            background: var(--primary-color);
+            transform: scale(1.4);
+            box-shadow: 0 0 0 3px var(--wizard-pulse-color), 0 0 0 1px var(--primary-color);
+            animation: wizardPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes wizardPulse {
+            0%, 100% { box-shadow: 0 0 0 3px var(--wizard-pulse-color), 0 0 0 1px var(--primary-color); }
+            50% { box-shadow: 0 0 0 5px var(--wizard-pulse-color-faint), 0 0 0 1px var(--primary-color); }
+        }
+
+        .wizard-connector {
+            width: 16px;
+            height: 3px;
+            background: var(--border-color);
+            flex-shrink: 0;
+            transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        .wizard-connector.filled {
+            background: var(--primary-color);
+        }
+
+        .wizard-nav-btn {
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--surface-color);
+            color: var(--text-color);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .wizard-nav-btn:hover:not(:disabled) {
+            border-color: var(--primary-color);
+            background: var(--bg-color);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .wizard-nav-btn:active:not(:disabled) {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .wizard-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .wizard-nav-btn.primary {
+            background: linear-gradient(135deg, var(--wizard-btn-gradient-start), var(--wizard-btn-gradient-end));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 2px 8px var(--wizard-btn-shadow);
+        }
+
+        .wizard-nav-btn.primary:hover:not(:disabled) {
+            background: linear-gradient(135deg, var(--wizard-btn-gradient-start), var(--wizard-btn-gradient-hover-end));
+            border-color: transparent;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--wizard-btn-shadow-hover);
+        }
+
+        .wizard-nav-btn.primary:active:not(:disabled) {
+            transform: translateY(0);
+            box-shadow: 0 1px 4px var(--wizard-btn-shadow);
+        }
+
+        /* Wizard step content transition */
+        .wizard-step-enter {
+            animation: wizardStepIn 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes wizardStepIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .wizard-bar {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 12px 14px;
+                border-radius: 8px;
+            }
+            .wizard-progress {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start;
+            }
+            .wizard-step-counter {
+                flex: 1;
+                font-size: 13px;
+            }
+            .wizard-nav-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+            .wizard-connector {
+                width: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .wizard-step-enter,
+            .wizard-bar,
+            .wizard-dot,
+            .wizard-dot.current {
+                animation: none !important;
+            }
+            .wizard-toggle,
+            .wizard-nav-btn,
+            .wizard-dot,
+            .wizard-connector {
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 8px 16px;
+            z-index: 10000;
+            font-weight: 600;
+            border-radius: 0 0 6px 0;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
         @media print {
             body {
                 background: white;
@@ -887,7 +1184,7 @@
                 padding: 0;
             }
 
-            .top-bar, .back-to-top, .toc-fab, .sidebar, .sidebar-overlay, .file-upload, .loading, .error, .doc-nav, .code-copy-btn, .code-lang-label {
+            .top-bar, .back-to-top, .toc-fab, .sidebar, .sidebar-overlay, .file-upload, .loading, .error, .doc-nav, .code-copy-btn, .code-lang-label, .wizard-bar, .wizard-toggle {
                 display: none !important;
             }
 
@@ -954,20 +1251,25 @@
             .collapsible-header { padding-left: 0 !important; }
             .section-content.collapsed { display: block !important; }
 
+            /* Print: show all wizard steps */
+            [data-wizard-hidden] { display: block !important; }
+            [style*="display: none"] { display: block !important; }
         }
     </style>
 </head>
 <body>
+    <a href="#markdown-content" class="skip-link">Skip to content</a>
 
     <div class="top-bar">
         <div class="logo">Vibe Coding Workshop</div>
         <div class="top-bar-row2">
             <div class="top-bar-doc">
-                <select id="file-selector" onchange="handleFileSelect(this.value)">
+                <select id="file-selector" aria-label="Select document" onchange="handleFileSelect(this.value)">
                     <!-- Populated by JS -->
                 </select>
             </div>
             <div class="top-bar-doc top-bar-buttons">
+                <button class="wizard-toggle" id="wizard-toggle" onclick="toggleWizardMode()" aria-label="Toggle step-by-step mode"><span>Step-by-Step</span></button>
                 <button class="top-bar-btn" id="font-size-toggle" onclick="cycleFontSize()" aria-label="Change font size" title="Font size">A</button>
                 <button class="top-bar-btn" id="toggle-sections" onclick="toggleAllSections()" aria-label="Expand or collapse all sections">
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -989,7 +1291,7 @@
                 <circle cx="6.5" cy="6.5" r="4.5"/>
                 <path d="M10 10l4 4"/>
             </svg>
-            <input type="text" id="search-input" placeholder="Search all docs..." autocomplete="off" />
+            <input type="text" id="search-input" placeholder="Search all docs…" autocomplete="off" aria-label="Search all documents" />
             <div class="search-results" id="search-results"></div>
         </div>
         <div class="top-bar-global">
@@ -1000,6 +1302,13 @@
             </a>
             <button class="top-bar-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
         </div>
+    </div>
+
+    <div class="wizard-bar" id="wizard-bar" role="navigation" aria-label="Step navigation">
+        <button class="wizard-nav-btn" id="wizard-prev" aria-label="Previous step" onclick="showWizardStep(wizardCurrentStep - 1)">← Back</button>
+        <span class="wizard-step-counter" id="wizard-step-counter" aria-live="polite"></span>
+        <div class="wizard-progress" id="wizard-progress" role="progressbar" aria-label="Step progress"></div>
+        <button class="wizard-nav-btn primary" id="wizard-next" aria-label="Next step" onclick="showWizardStep(wizardCurrentStep + 1)">Next →</button>
     </div>
 
     <aside class="sidebar" id="sidebar">
@@ -1041,6 +1350,8 @@
             document.documentElement.setAttribute('data-theme', theme);
             const btn = document.getElementById('theme-toggle');
             btn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) metaTheme.content = theme === 'dark' ? '#0d1117' : '#f6f8fa';
         }
 
         function toggleTheme() {
@@ -1084,26 +1395,52 @@
         // ── File Configuration ────────────────────────────────────────
         const FILE_GROUPS = [
             {
-                label: "Workshop Path",
+                label: "Start Here",
                 files: [
-                    { name: "1 - Workshop Introduction", path: "1 - Workshop Introduction.md" },
-                    { name: "2 - Vibe Coding Fundamentals", path: "2 - Vibe Coding Fundamentals.md" },
-                    { name: "3 - Building Your Project", path: "3 - Building Your Project.md" },
-                    { name: "4 - Firebase & Deployment", path: "4 - Firebase & Deployment.md" },
-                    { name: "5 - Custom Domains", path: "5 - Custom Domains.md" },
+                    { name: "Welcome & Inspiration", path: "Welcome.md" },
+                ]
+            },
+            {
+                label: "Tool Setup (Pick Your Level)",
+                files: [
+                    { name: "Beginner Quick Start", path: "paths/Beginner Quick Start.md" },
+                    { name: "Intermediate: Claude Desktop", path: "paths/Intermediate Setup - Claude Desktop.md" },
+                    { name: "Intermediate: Google AI Studio", path: "paths/Intermediate Setup - Google AI Studio.md" },
+                    { name: "Advanced: Claude Code", path: "paths/Advanced Setup - Claude Code.md" },
+                    { name: "Advanced: Gemini CLI", path: "paths/Advanced Setup - Gemini CLI.md" },
+                ]
+            },
+            {
+                label: "Build Together",
+                files: [
+                    { name: "Group Project", path: "Group Project.md" },
+                ]
+            },
+            {
+                label: "Level Up",
+                files: [
+                    { name: "Vibe Coding Techniques", path: "Vibe Coding Techniques.md" },
+                    { name: "Solo Project Guide", path: "Solo Project Guide.md" },
+                ]
+            },
+            {
+                label: "Deployment & Beyond",
+                files: [
+                    { name: "Firebase & Deployment", path: "Firebase & Deployment.md" },
+                    { name: "Vercel & Supabase", path: "Vercel & Supabase.md" },
+                    { name: "Custom Domains", path: "Custom Domains.md" },
                 ]
             },
             {
                 label: "Reference",
                 files: [
+                    { name: "Git for Beginners", path: "Git for Beginners.md" },
                     { name: "Claude Code Quick Reference", path: "Claude Code Quick Reference.md" },
                     { name: "Advanced Techniques", path: "Advanced Techniques.md" },
                     { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
                     { name: "AI Tools Directory", path: "AI Tools Directory.md" },
-                    { name: "Workshop Projects", path: "Workshop Projects.md" },
-                    { name: "Vercel & Supabase", path: "Vercel & Supabase.md" },
                     { name: "Backend & Hosting Platforms", path: "Backend & Hosting Platforms.md" },
-                    { name: "Repository README", path: "README.md" },
+                    { name: "Workshop Projects", path: "Workshop Projects.md" },
                 ]
             },
             {
@@ -1143,8 +1480,11 @@
         let currentFile = AVAILABLE_FILES[0].path;
         const sectionStates = {};
 
-        const workshopPath = FILE_GROUPS.find(g => g.label === 'Workshop Path');
-        const navSequence = workshopPath ? workshopPath.files.map(f => f.path) : [];
+        // Nav sequence: main workshop flow (Start Here → Build Together → Level Up → Deployment)
+        const navGroups = ['Start Here', 'Build Together', 'Level Up', 'Deployment & Beyond'];
+        const navSequence = FILE_GROUPS
+            .filter(g => navGroups.includes(g.label))
+            .flatMap(g => g.files.map(f => f.path));
 
         const docNavDiv = document.getElementById('doc-nav');
 
@@ -1189,6 +1529,16 @@
 
         // ── Markdown Loading & Rendering ──────────────────────────────
         async function loadMarkdown(filePath, scrollToId) {
+            // Reset wizard state when loading a new document
+            if (wizardActive) {
+                wizardActive = false;
+                document.getElementById('wizard-toggle').classList.remove('active');
+                document.getElementById('wizard-toggle').querySelector('span').textContent = 'Step-by-Step';
+                document.getElementById('wizard-bar').classList.remove('active');
+            }
+            wizardSteps = [];
+            wizardCurrentStep = 0;
+
             currentFile = filePath;
             loadingDiv.style.display = 'block';
             contentDiv.innerHTML = '';
@@ -1297,6 +1647,7 @@
             addCopyButtons();
             buildSidebarTOC();
             updateToggleIcon();
+            parseWizardSteps();
         }
 
         // ── Collapsible Sections (Feature 2: first H2 open) ──────────
@@ -1964,6 +2315,266 @@
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.search-wrapper')) {
                 searchResults.classList.remove('active');
+            }
+        });
+
+        // ── Wizard / Step-by-Step Mode ─────────────────────────────
+        let wizardSteps = [];
+        let wizardCurrentStep = 0;
+        let wizardActive = false;
+
+        function parseWizardSteps() {
+            wizardSteps = [];
+            const walker = document.createTreeWalker(
+                contentDiv,
+                NodeFilter.SHOW_COMMENT,
+                null
+            );
+
+            let inWizard = false;
+            let currentStep = null;
+            let node;
+
+            while (node = walker.nextNode()) {
+                const text = node.textContent.trim();
+
+                if (text === 'wizard-start') {
+                    inWizard = true;
+                    continue;
+                }
+                if (text === 'wizard-end') {
+                    if (currentStep) wizardSteps.push(currentStep);
+                    inWizard = false;
+                    currentStep = null;
+                    continue;
+                }
+
+                if (inWizard && text.startsWith('wizard-step:')) {
+                    if (currentStep) wizardSteps.push(currentStep);
+                    const parts = text.split('|').map(p => p.trim());
+                    const num = parts[0].replace('wizard-step:', '').trim();
+                    const title = parts.find(p => p.startsWith('title:'));
+                    currentStep = {
+                        number: parseInt(num),
+                        title: title ? title.replace('title:', '').trim() : 'Step ' + num,
+                        startComment: node,
+                        elements: []
+                    };
+                    continue;
+                }
+            }
+
+            // Now collect DOM elements between each step's comment and the next
+            wizardSteps.forEach((step, i) => {
+                let el = step.startComment.nextSibling;
+                const nextComment = i < wizardSteps.length - 1
+                    ? wizardSteps[i + 1].startComment
+                    : null;
+
+                while (el) {
+                    if (nextComment && el === nextComment) break;
+                    if (el.nodeType === Node.COMMENT_NODE) {
+                        const t = el.textContent.trim();
+                        if (t === 'wizard-end') break;
+                    }
+                    if (el.nodeType === Node.ELEMENT_NODE) {
+                        step.elements.push(el);
+                    }
+                    el = el.nextSibling;
+                }
+            });
+
+            // Show/hide wizard toggle button
+            const toggleBtn = document.getElementById('wizard-toggle');
+            toggleBtn.style.display = wizardSteps.length > 0 ? 'inline-block' : 'none';
+
+            // Restore wizard mode preference for this doc
+            if (wizardSteps.length > 0) {
+                const pref = localStorage.getItem('wizardMode_' + currentFile);
+                if (pref === 'true') {
+                    enterWizardMode(false);
+                }
+            }
+        }
+
+        function enterWizardMode(savePreference) {
+            if (wizardSteps.length === 0) return;
+            wizardActive = true;
+
+            document.getElementById('wizard-toggle').classList.add('active');
+            document.getElementById('wizard-toggle').querySelector('span').textContent = 'Full Doc';
+            document.getElementById('wizard-bar').classList.add('active');
+
+            if (savePreference !== false) {
+                localStorage.setItem('wizardMode_' + currentFile, 'true');
+            }
+
+            // Build progress track with dots and connectors
+            const progress = document.getElementById('wizard-progress');
+            progress.innerHTML = '';
+            const track = document.createElement('div');
+            track.className = 'wizard-progress-track';
+            wizardSteps.forEach((step, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'wizard-dot';
+                dot.title = step.title;
+                dot.addEventListener('click', () => showWizardStep(i));
+                track.appendChild(dot);
+                if (i < wizardSteps.length - 1) {
+                    const conn = document.createElement('span');
+                    conn.className = 'wizard-connector';
+                    track.appendChild(conn);
+                }
+            });
+            progress.appendChild(track);
+
+            // Hide ALL elements in content, then show only current step
+            const savedStep = parseInt(localStorage.getItem('wizardStep_' + currentFile)) || 0;
+            const startStep = Math.min(savedStep, wizardSteps.length - 1);
+
+            // Collect all wizard-region elements and content before/after wizard
+            markWizardContent();
+            showWizardStep(startStep);
+        }
+
+        function markWizardContent() {
+            // Find content outside wizard regions and hide it
+            const allChildren = Array.from(contentDiv.children);
+            let inWizardRegion = false;
+
+            allChildren.forEach(el => {
+                // Check preceding comments
+                let prev = el.previousSibling;
+                while (prev && prev.nodeType === Node.COMMENT_NODE) {
+                    if (prev.textContent.trim() === 'wizard-start') inWizardRegion = true;
+                    if (prev.textContent.trim() === 'wizard-end') inWizardRegion = false;
+                    prev = prev.previousSibling;
+                }
+
+                if (!inWizardRegion) {
+                    // Content outside wizard — check if it's before or after
+                    const isWizardEl = wizardSteps.some(s => s.elements.includes(el));
+                    if (!isWizardEl) {
+                        el.dataset.wizardHidden = 'true';
+                        el.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function exitWizardMode() {
+            wizardActive = false;
+
+            document.getElementById('wizard-toggle').classList.remove('active');
+            document.getElementById('wizard-toggle').querySelector('span').textContent = 'Step-by-Step';
+            document.getElementById('wizard-bar').classList.remove('active');
+
+            localStorage.setItem('wizardMode_' + currentFile, 'false');
+
+            // Restore all hidden elements
+            contentDiv.querySelectorAll('[data-wizard-hidden]').forEach(el => {
+                el.style.display = '';
+                delete el.dataset.wizardHidden;
+            });
+
+            // Show all wizard step elements
+            wizardSteps.forEach(step => {
+                step.elements.forEach(el => {
+                    el.style.display = '';
+                });
+            });
+        }
+
+        function showWizardStep(index) {
+            if (index < 0 || index >= wizardSteps.length) return;
+            wizardCurrentStep = index;
+
+            localStorage.setItem('wizardStep_' + currentFile, index);
+
+            // Hide all step elements, show current with entrance animation
+            wizardSteps.forEach((step, i) => {
+                step.elements.forEach(el => {
+                    if (i === index) {
+                        el.style.display = '';
+                        el.classList.remove('wizard-step-enter');
+                        void el.offsetWidth; // force reflow
+                        el.classList.add('wizard-step-enter');
+                        // Expand collapsible sections within current step
+                        el.querySelectorAll('.collapsible-header.collapsed').forEach(h => {
+                            h.classList.remove('collapsed');
+                            const sec = h.nextElementSibling;
+                            if (sec && sec.classList.contains('section-content'))
+                                sec.classList.remove('collapsed');
+                        });
+                        if (el.classList.contains('collapsible-header') && el.classList.contains('collapsed')) {
+                            el.classList.remove('collapsed');
+                            const sec = el.nextElementSibling;
+                            if (sec && sec.classList.contains('section-content'))
+                                sec.classList.remove('collapsed');
+                        }
+                    } else {
+                        el.style.display = 'none';
+                        el.classList.remove('wizard-step-enter');
+                    }
+                });
+            });
+
+            // Update counter with step title
+            const stepTitle = wizardSteps[index].title;
+            const counter = document.getElementById('wizard-step-counter');
+            counter.innerHTML = `<span class="step-number">Step ${index + 1}</span> of ${wizardSteps.length} — ${stepTitle}`;
+
+            // Update dots and connectors
+            document.querySelectorAll('#wizard-progress .wizard-dot').forEach((dot, i) => {
+                dot.className = 'wizard-dot';
+                if (i < index) dot.classList.add('completed');
+                if (i === index) dot.classList.add('current');
+            });
+            document.querySelectorAll('#wizard-progress .wizard-connector').forEach((conn, i) => {
+                conn.classList.toggle('filled', i < index);
+            });
+
+            // Update nav buttons
+            document.getElementById('wizard-prev').disabled = index === 0;
+            const nextBtn = document.getElementById('wizard-next');
+            if (index === wizardSteps.length - 1) {
+                nextBtn.textContent = 'Done ✓';
+                nextBtn.disabled = false;
+                nextBtn.onclick = () => exitWizardMode();
+            } else {
+                nextBtn.textContent = 'Next →';
+                nextBtn.disabled = false;
+                nextBtn.onclick = () => showWizardStep(wizardCurrentStep + 1);
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleWizardMode() {
+            if (wizardActive) {
+                exitWizardMode();
+            } else {
+                enterWizardMode();
+            }
+        }
+
+        // Keyboard navigation for wizard
+        document.addEventListener('keydown', (e) => {
+            if (!wizardActive) return;
+            if (document.activeElement && (document.activeElement.tagName === 'INPUT' ||
+                document.activeElement.tagName === 'TEXTAREA' ||
+                document.activeElement.tagName === 'SELECT')) return;
+
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (wizardCurrentStep < wizardSteps.length - 1) {
+                    showWizardStep(wizardCurrentStep + 1);
+                }
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (wizardCurrentStep > 0) {
+                    showWizardStep(wizardCurrentStep - 1);
+                }
             }
         });
 

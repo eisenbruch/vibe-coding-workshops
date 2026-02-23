@@ -15,7 +15,7 @@ This guide covers building and deploying a full-stack web app using **Supabase**
 > - You're building a mobile app
 > - You want everything in a single platform with one SDK
 
-> **API Keys & Secrets:** If your project uses paid APIs (OpenAI, Stripe, etc.), make sure your keys are secured before deploying. Set environment variables in Vercel's dashboard (Project Settings > Environment Variables), and review the full [Protecting API Keys & Secrets](3%20-%20Building%20Your%20Project.md#4-protecting-api-keys--secrets) guide.
+> **API Keys & Secrets:** If your project uses paid APIs (OpenAI, Stripe, etc.), make sure your keys are secured before deploying. Set environment variables in Vercel's dashboard (Project Settings > Environment Variables), and review the full [Protecting API Keys & Secrets](Solo%20Project%20Guide.md#protecting-api-keys--secrets) guide.
 
 ---
 
@@ -404,7 +404,7 @@ Every pull request or branch push gets its own preview URL (e.g., `your-project-
 3. Vercel will show you DNS records to add at your registrar (Cloudflare, Namecheap, etc.).
 4. SSL is automatic.
 
-> **Note:** Vercel handles custom domains differently than Firebase. You add DNS records pointing to Vercel's servers instead of Firebase's. See [Custom Domains](5%20-%20Custom%20Domains.md) for registrar setup — the Cloudflare domain purchase steps are the same, but you'll point DNS to Vercel instead of Firebase.
+> **Note:** Vercel handles custom domains differently than Firebase. You add DNS records pointing to Vercel's servers instead of Firebase's. See [Custom Domains](Custom%20Domains.md) for registrar setup — the Cloudflare domain purchase steps are the same, but you'll point DNS to Vercel instead of Firebase.
 
 ---
 
@@ -444,7 +444,7 @@ This runs a local PostgreSQL, Auth, and Storage instance. For most workshop proj
 - [ ] Add Supabase environment variables in Vercel (and `.env.local` for local dev)
 - [ ] Install `@supabase/supabase-js` and initialize the client
 - [ ] Connect your app to Supabase (auth, database, storage)
-- [ ] [Secure your API keys](3%20-%20Building%20Your%20Project.md#4-protecting-api-keys--secrets) — add secret keys to Vercel env vars, never in frontend code
+- [ ] [Secure your API keys](Solo%20Project%20Guide.md#protecting-api-keys--secrets) — add secret keys to Vercel env vars, never in frontend code
 - [ ] Set up RLS policies on all tables before going live
 - [ ] Deploy (push to GitHub → Vercel deploys automatically)
 

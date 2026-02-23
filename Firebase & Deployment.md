@@ -1,13 +1,3 @@
-# This page has moved
-
-This document is now at **[Firebase & Deployment](Firebase%20%26%20Deployment.md)**.
-
----
-
-*The content below is kept for reference. For the latest version, use the link above.*
-
----
-
 # Firebase & Deployment
 *Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*

@@ -1,13 +1,3 @@
-# This page has moved
-
-This document is now at **[Custom Domains](Custom%20Domains.md)**.
-
----
-
-*The content below is kept for reference. For the latest version, use the link above.*
-
----
-
 # Custom Domains
 *Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*

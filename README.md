@@ -8,15 +8,31 @@ Welcome to the Vibe Coding workshop repository! This is your central hub for lea
 
 Reference guides and resources for vibe coding, project setup, and related tools.
 
-**[📄 Resource Viewer](https://eisenbruch.github.io/vibe-coding-workshops/):**
+**[Resource Viewer](https://eisenbruch.github.io/vibe-coding-workshops/):**
 
-- **[1 - Workshop Introduction](https://eisenbruch.github.io/vibe-coding-workshops/#1%20-%20Workshop%20Introduction.md)** - Workshop overview and example projects.
-- **[2 - Vibe Coding Fundamentals](https://eisenbruch.github.io/vibe-coding-workshops/#2%20-%20Vibe%20Coding%20Fundamentals.md)** - Tools, core approaches, good prompting, and essential techniques.
-- **[3 - Building Your Project](https://eisenbruch.github.io/vibe-coding-workshops/#3%20-%20Building%20Your%20Project.md)** - Project setup, Git, project ideas, and the build cycle.
-- **[4 - Firebase & Deployment](https://eisenbruch.github.io/vibe-coding-workshops/#4%20-%20Firebase%20%26%20Deployment.md)** - Connecting your app to a real database and hosting.
-- **[Advanced Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Advanced%20Techniques.md)** - Agents, skills, MCP servers, git worktrees.
-- **[Project Idea Prompts](https://eisenbruch.github.io/vibe-coding-workshops/#Project%20Idea%20Prompts%20-%20Extended.md)** - Starter prompts for simple, medium, and complex projects.
-- **[AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md)** - Comprehensive list of AI tools for every need.
+**Start Here:**
+- **[Welcome & Inspiration](https://eisenbruch.github.io/vibe-coding-workshops/#Welcome.md)** — Workshop overview, example projects, pick your path
+
+**Tool Setup (Pick Your Level):**
+- **[Beginner Quick Start](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Beginner%20Quick%20Start.md)** — Try vibe coding in your browser, no setup
+- **[Intermediate: Claude Desktop](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Intermediate%20Setup%20-%20Claude%20Desktop.md)** — Desktop AI assistant setup
+- **[Intermediate: Google AI Studio](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Intermediate%20Setup%20-%20Google%20AI%20Studio.md)** — Free browser-based AI workspace
+- **[Advanced: Claude Code](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Advanced%20Setup%20-%20Claude%20Code.md)** — VS Code + AI agent setup
+- **[Advanced: Gemini CLI](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Advanced%20Setup%20-%20Gemini%20CLI.md)** — Free VS Code + AI agent setup
+
+**Build Together:**
+- **[Group Project](https://eisenbruch.github.io/vibe-coding-workshops/#Group%20Project.md)** — Guided group project everyone builds together
+
+**Level Up:**
+- **[Vibe Coding Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Vibe%20Coding%20Techniques.md)** — Core approaches, prompting, essential techniques
+- **[Solo Project Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Solo%20Project%20Guide.md)** — Project ideas, setup, build cycle, deployment
+
+**Reference:**
+- **[Git for Beginners](https://eisenbruch.github.io/vibe-coding-workshops/#Git%20for%20Beginners.md)** — Simplified Git guide
+- **[Firebase & Deployment](https://eisenbruch.github.io/vibe-coding-workshops/#Firebase%20%26%20Deployment.md)** — Backend, database, hosting
+- **[Advanced Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Advanced%20Techniques.md)** — Agents, skills, MCP servers, git worktrees
+- **[Project Idea Prompts](https://eisenbruch.github.io/vibe-coding-workshops/#Project%20Idea%20Prompts%20-%20Extended.md)** — Starter prompts for simple, medium, and complex projects
+- **[AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md)** — Comprehensive list of AI tools
 
 ### Workshop Projects
 
