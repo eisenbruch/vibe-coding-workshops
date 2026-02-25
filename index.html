@@ -23,7 +23,6 @@
             --error-bg: #fff8c5;
             --error-border: rgba(234,179,8,0.4);
             --sidebar-active-bg: rgba(9,105,218,0.08);
-            --search-highlight: rgba(255,213,0,0.4);
             --wizard-gradient-start: var(--primary-color);
             --wizard-gradient-end: #8b5cf6;
             --wizard-btn-gradient-start: var(--primary-color);
@@ -50,7 +49,6 @@
             --error-bg: #2d1b00;
             --error-border: rgba(187,128,9,0.4);
             --sidebar-active-bg: rgba(88,166,255,0.1);
-            --search-highlight: rgba(255,213,0,0.25);
             --wizard-gradient-start: #58a6ff;
             --wizard-gradient-end: #a78bfa;
             --wizard-btn-gradient-start: #58a6ff;
@@ -99,116 +97,6 @@
             white-space: nowrap;
         }
 
-        /* Search */
-        .search-wrapper {
-            position: relative;
-            flex: 0 1 280px;
-            max-width: 280px;
-            min-width: 110px;
-        }
-
-        #search-input {
-            width: 100%;
-            padding: 6px 12px 6px 32px;
-            font-size: 14px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: inherit;
-            transition: border-color 0.15s;
-        }
-
-        #search-input:focus-visible {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(9,105,218,0.15);
-            outline: none;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
-            color: var(--text-muted);
-            pointer-events: none;
-        }
-
-        .search-results {
-            display: none;
-            position: absolute;
-            top: calc(100% + 4px);
-            left: 0;
-            right: 0;
-            min-width: 400px;
-            max-height: 420px;
-            overflow-y: auto;
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            z-index: 1000;
-        }
-
-        .search-results.active {
-            display: block;
-        }
-
-        .search-result-item {
-            padding: 10px 14px;
-            cursor: pointer;
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.1s;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .search-result-item:hover {
-            background: var(--sidebar-active-bg);
-        }
-
-        .search-result-file {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            margin-bottom: 2px;
-        }
-
-        .search-result-heading {
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 2px;
-        }
-
-        .search-result-snippet {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.4;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .search-result-snippet mark {
-            background: var(--search-highlight);
-            color: inherit;
-            border-radius: 2px;
-            padding: 0 1px;
-        }
-
-        .search-no-results {
-            padding: 16px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
 
         .top-bar-global {
             display: flex;
@@ -299,58 +187,6 @@
             padding: 0 16px 10px;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 8px;
-        }
-
-        #sidebar-toc {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #sidebar-toc li {
-            margin: 0;
-        }
-
-        #sidebar-toc a {
-            display: block;
-            padding: 5px 16px;
-            font-size: 13px;
-            color: var(--text-muted);
-            text-decoration: none;
-            border-left: 2px solid transparent;
-            transition: color 0.15s, background 0.15s, border-color 0.15s;
-            line-height: 1.4;
-        }
-
-        #sidebar-toc a:hover {
-            color: var(--text-color);
-            background: var(--sidebar-active-bg);
-        }
-
-        #sidebar-toc a.active {
-            color: var(--primary-color);
-            border-left-color: var(--primary-color);
-            background: var(--sidebar-active-bg);
-            font-weight: 500;
-        }
-
-        #sidebar-toc .toc-h3 a {
-            padding-left: 32px;
-            font-size: 12px;
-        }
-
-        .sidebar-empty {
-            padding: 12px 16px;
-            font-size: 12px;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        /* Sidebar Document Navigation */
-        .sidebar-section-divider {
-            border: none;
-            border-top: 1px solid var(--border-color);
-            margin: 12px 0 0 0;
         }
 
         .sidebar-docs-nav {
@@ -849,17 +685,6 @@
             /* Keep GitHub/theme on row 1 with logo */
             .top-bar-global { order: 0; }
 
-            /* Row 3: search full width */
-            .search-wrapper {
-                order: 2;
-                flex: 1 1 100%;
-                max-width: none;
-            }
-
-            .search-results {
-                min-width: unset;
-            }
-
             select {
                 min-width: 0;
                 flex: 1;
@@ -1177,6 +1002,330 @@
             top: 0;
         }
 
+        /* ── Pick Your Path ───────────────────────────────────── */
+        .path-picker {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .path-picker h1 {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 2em;
+            font-weight: 700;
+            border: none;
+        }
+
+        .path-picker .path-picker-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.05em;
+            margin-bottom: 32px;
+        }
+
+        .path-picker-level {
+            margin-bottom: 28px;
+        }
+
+        .path-picker-level-label {
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .path-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .path-card {
+            position: relative;
+            background: var(--surface-color);
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 20px 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .path-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .path-card-icon {
+            font-size: 2em;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .path-card-name {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .path-card-tools {
+            font-size: 0.85em;
+            color: var(--text-muted);
+        }
+
+        .path-card-desc {
+            font-size: 0.88em;
+            color: var(--text-muted);
+            line-height: 1.45;
+            flex: 1;
+        }
+
+        .path-card-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .path-pill {
+            font-size: 0.75em;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.02em;
+        }
+
+        .path-pill.time {
+            background: rgba(100,100,100,0.1);
+            color: var(--text-muted);
+        }
+
+        .path-pill.free {
+            background: rgba(22,163,74,0.12);
+            color: #16a34a;
+        }
+
+        .path-pill.paid {
+            background: rgba(217,119,6,0.12);
+            color: #d97706;
+        }
+
+        .path-card-badge {
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            font-size: 0.7em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--wizard-gradient-start), var(--wizard-gradient-end));
+            color: #fff;
+            letter-spacing: 0.03em;
+        }
+
+        .path-picker-hint {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .path-picker-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Visual Step Components ─────────────────────────────────── */
+
+        /* Callout boxes — replaces plain blockquotes */
+        .step-callout {
+            display: flex;
+            gap: 12px;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border-left: 4px solid;
+            margin: 0 0 16px 0;
+            line-height: 1.55;
+            color: var(--text-color);
+        }
+
+        .step-callout-icon {
+            flex-shrink: 0;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .step-callout-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .step-callout-body p:last-child { margin-bottom: 0; }
+
+        .step-callout.tip {
+            background: rgba(9,105,218,0.06);
+            border-color: var(--primary-color);
+        }
+        [data-theme="dark"] .step-callout.tip {
+            background: rgba(88,166,255,0.08);
+        }
+
+        .step-callout.warning {
+            background: rgba(217,119,6,0.07);
+            border-color: #d97706;
+        }
+        [data-theme="dark"] .step-callout.warning {
+            background: rgba(217,119,6,0.1);
+        }
+
+        .step-callout.note {
+            background: rgba(22,163,74,0.06);
+            border-color: #16a34a;
+        }
+        [data-theme="dark"] .step-callout.note {
+            background: rgba(22,163,74,0.1);
+        }
+
+        /* Terminal chrome for code blocks */
+        .step-terminal {
+            background: #1e1e2e;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        [data-theme="dark"] .step-terminal {
+            background: #111827;
+        }
+
+        .step-terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 14px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .step-terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .step-terminal-dot.red { background: #ff5f57; }
+        .step-terminal-dot.yellow { background: #febc2e; }
+        .step-terminal-dot.green { background: #28c840; }
+
+        .step-terminal-title {
+            flex: 1;
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace;
+        }
+
+        .step-terminal pre {
+            margin: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            border: none;
+        }
+
+        .step-terminal pre code {
+            color: #e6edf3;
+        }
+
+        /* CTA link buttons */
+        .step-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--wizard-btn-gradient-start), var(--wizard-btn-gradient-end));
+            color: #fff !important;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95em;
+            text-decoration: none !important;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 2px 8px var(--wizard-btn-shadow);
+            margin: 4px 0;
+        }
+
+        .step-link-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--wizard-btn-shadow-hover);
+            text-decoration: none !important;
+        }
+
+        /* Checklist (✅/❌ items) */
+        .step-checklist {
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+
+        .step-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step-checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .step-checklist-icon {
+            flex-shrink: 0;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        /* Numbered steps (short ordered lists) */
+        .step-num-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            counter-reset: step-counter;
+        }
+
+        .step-num-list > li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 10px 0;
+            counter-increment: step-counter;
+        }
+
+        .step-num-list > li::before {
+            content: counter(step-counter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--wizard-gradient-start), var(--wizard-gradient-end));
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85em;
+            line-height: 1;
+        }
+
+        @media print {
+            .step-callout { border: 1px solid #ddd; break-inside: avoid; }
+            .step-terminal { background: #f5f5f5 !important; }
+            .step-terminal-bar { display: none; }
+            .step-terminal pre code { color: #333 !important; }
+            .step-link-btn { background: none !important; color: black !important; border: 1px solid #999; box-shadow: none; }
+            .step-num-list > li::before { background: #333 !important; }
+        }
+
         @media print {
             body {
                 background: white;
@@ -1286,14 +1435,6 @@
                 </button>
             </div>
         </div>
-        <div class="search-wrapper">
-            <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="6.5" cy="6.5" r="4.5"/>
-                <path d="M10 10l4 4"/>
-            </svg>
-            <input type="text" id="search-input" placeholder="Search all docs…" autocomplete="off" aria-label="Search all documents" />
-            <div class="search-results" id="search-results"></div>
-        </div>
         <div class="top-bar-global">
             <a class="top-bar-btn" href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank" rel="noopener noreferrer" aria-label="View GitHub repository">
                 <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
@@ -1313,10 +1454,7 @@
 
     <aside class="sidebar" id="sidebar">
         <nav class="sidebar-nav">
-            <div class="sidebar-title">On This Page</div>
-            <ul id="sidebar-toc"></ul>
-            <hr class="sidebar-section-divider">
-            <div class="sidebar-title" style="padding-top: 12px;">Documents</div>
+            <div class="sidebar-title">Documents</div>
             <ul id="sidebar-docs" class="sidebar-docs-nav"></ul>
         </nav>
     </aside>
@@ -1327,7 +1465,7 @@
         <div id="doc-nav" class="doc-nav" style="display: none;"></div>
     </div>
 
-    <button class="toc-fab" id="toc-fab" aria-label="Table of contents">
+    <button class="toc-fab" id="toc-fab" aria-label="Documents">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="12" y2="18"/>
         </svg>
@@ -1397,23 +1535,27 @@
             {
                 label: "Start Here",
                 files: [
-                    { name: "Welcome & Inspiration", path: "Welcome.md" },
+                    { name: "Welcome", path: "welcome" },
+                    { name: "What is Vibe Coding?", path: "what-is-vibe-coding" },
+                    { name: "What You'll Learn", path: "what-youll-learn" },
+                    { name: "Example Projects", path: "example-projects" },
+                    { name: "Pick Your Path", path: "pick-your-path" },
                 ]
             },
             {
                 label: "Tool Setup (Pick Your Level)",
                 files: [
                     { name: "Beginner Quick Start", path: "paths/Beginner Quick Start.md" },
-                    { name: "Intermediate: Claude Desktop", path: "paths/Intermediate Setup - Claude Desktop.md" },
-                    { name: "Intermediate: Google AI Studio", path: "paths/Intermediate Setup - Google AI Studio.md" },
-                    { name: "Advanced: Claude Code", path: "paths/Advanced Setup - Claude Code.md" },
-                    { name: "Advanced: Gemini CLI", path: "paths/Advanced Setup - Gemini CLI.md" },
+                    { name: "Intermediate: Claude Desktop", path: "paths/Intermediate Setup - Claude Desktop.md", autoWizard: true },
+                    { name: "Intermediate: Google AI Studio", path: "paths/Intermediate Setup - Google AI Studio.md", autoWizard: true },
+                    { name: "Advanced: Claude Code", path: "paths/Advanced Setup - Claude Code.md", autoWizard: true },
+                    { name: "Advanced: Gemini CLI", path: "paths/Advanced Setup - Gemini CLI.md", autoWizard: true },
                 ]
             },
             {
                 label: "Build Together",
                 files: [
-                    { name: "Group Project", path: "Group Project.md" },
+                    { name: "Group Project", path: "Group Project.md", autoWizard: true },
                 ]
             },
             {
@@ -1455,6 +1597,70 @@
                     { name: "Part 5B", path: "docs/domainflip/BUILD_GUIDE_PART5B.md" },
                     { name: "Part 5C", path: "docs/domainflip/BUILD_GUIDE_PART5C.md" },
                     { name: "Part 6 - Final Assembly", path: "docs/domainflip/BUILD_GUIDE_PART6.md" },
+                ]
+            }
+        ];
+
+        const PATH_OPTIONS = [
+            {
+                level: "Beginner",
+                paths: [
+                    {
+                        name: "Quick Start",
+                        icon: "\u{1F310}",
+                        description: "Try vibe coding in your browser with zero setup. Great as a reference or quick demo.",
+                        tools: "Browser only",
+                        time: "~1 min",
+                        cost: "free",
+                        file: "paths/Beginner Quick Start.md"
+                    }
+                ]
+            },
+            {
+                level: "Intermediate",
+                paths: [
+                    {
+                        name: "Claude Desktop",
+                        icon: "\u{1F4AC}",
+                        description: "All-in-one AI assistant with Chat and Cowork modes. Visual interface, no IDE needed.",
+                        tools: "Claude Desktop app",
+                        time: "~5 min",
+                        cost: "paid",
+                        file: "paths/Intermediate Setup - Claude Desktop.md",
+                        recommended: true
+                    },
+                    {
+                        name: "Google AI Studio",
+                        icon: "\u2728",
+                        description: "Browser-based AI workspace powered by Gemini. No installs required.",
+                        tools: "Browser only",
+                        time: "~5 min",
+                        cost: "free",
+                        file: "paths/Intermediate Setup - Google AI Studio.md"
+                    }
+                ]
+            },
+            {
+                level: "Advanced",
+                paths: [
+                    {
+                        name: "Claude Code",
+                        icon: "\u{1F4BB}",
+                        description: "AI coding agent in VS Code and the terminal. Full project control.",
+                        tools: "VS Code + terminal",
+                        time: "~15 min",
+                        cost: "paid",
+                        file: "paths/Advanced Setup - Claude Code.md"
+                    },
+                    {
+                        name: "Gemini CLI",
+                        icon: "\u26A1",
+                        description: "Free AI coding agent in VS Code and the terminal. Powered by Gemini.",
+                        tools: "VS Code + terminal",
+                        time: "~15 min",
+                        cost: "free",
+                        file: "paths/Advanced Setup - Gemini CLI.md"
+                    }
                 ]
             }
         ];
@@ -1527,9 +1733,255 @@
                 .replace(/\s/g, '-');
         }
 
-        // ── Markdown Loading & Rendering ──────────────────────────────
-        async function loadMarkdown(filePath, scrollToId) {
-            // Reset wizard state when loading a new document
+        // ── Pick Your Path ──────────────────────────────────────────
+        function renderPickYourPath() {
+            let html = '<div class="path-picker">';
+            html += '<h1>Pick Your Path</h1>';
+            html += '<p class="path-picker-subtitle">Choose your setup based on comfort level. Everyone builds the same project — just with different tools.</p>';
+
+            PATH_OPTIONS.forEach(group => {
+                html += '<div class="path-picker-level">';
+                html += `<div class="path-picker-level-label">${group.level}</div>`;
+                html += '<div class="path-picker-grid">';
+                group.paths.forEach(p => {
+                    const costClass = p.cost === 'free' ? 'free' : 'paid';
+                    const costLabel = p.cost === 'free' ? 'Free' : 'Paid';
+                    const badge = p.recommended ? '<span class="path-card-badge">Recommended</span>' : '';
+                    html += `<div class="path-card" onclick="selectPath('${p.file}')" tabindex="0" role="button" aria-label="${p.name}">`;
+                    html += badge;
+                    html += `<div class="path-card-icon">${p.icon}</div>`;
+                    html += `<div class="path-card-name">${p.name}</div>`;
+                    html += `<div class="path-card-tools">${p.tools}</div>`;
+                    html += `<div class="path-card-desc">${p.description}</div>`;
+                    html += '<div class="path-card-pills">';
+                    html += `<span class="path-pill time">${p.time}</span>`;
+                    html += `<span class="path-pill ${costClass}">${costLabel}</span>`;
+                    html += '</div>';
+                    html += '</div>';
+                });
+                html += '</div></div>';
+            });
+
+            html += '<p class="path-picker-hint">Not sure? Start with Intermediate — you can always level up later.</p>';
+
+            html += '<hr style="margin: 32px 0; border: none; border-top: 1px solid var(--border-color);">';
+            html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px;">Tool Comparison</h2>';
+            html += '<p style="color:var(--text-muted); margin-bottom:16px;">A quick overview of the major AI models and when to reach for each:</p>';
+            html += '<ul style="padding-left:1.5em; margin-bottom:16px;">';
+            html += '<li><strong>Claude:</strong> The architect. Best for backend logic, complex architecture, and understanding large projects.</li>';
+            html += '<li><strong>Gemini:</strong> The speed demon. Excellent for writing, rapid prototyping, and converting screenshots to UI code.</li>';
+            html += '<li><strong>ChatGPT:</strong> The specialist. Useful for tackling specific tricky bugs other models struggle with.</li>';
+            html += '</ul>';
+            html += '<blockquote style="padding:0 1em; color:var(--text-muted); border-left:0.25em solid var(--blockquote-border);"><strong>Tip:</strong> Switch models when you get stuck!</blockquote>';
+
+            html += '</div>';
+            contentDiv.innerHTML = html;
+
+            // Keyboard support for cards
+            contentDiv.querySelectorAll('.path-card').forEach(card => {
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+            });
+        }
+
+        function selectPath(filePath) {
+            selector.value = filePath;
+            loadMarkdown(filePath);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ── Welcome Landing Page ─────────────────────────────────────
+        const WELCOME_PROJECTS = [
+            { name: "Glitch QR", icon: "📱", url: "https://github.com/eisenbruch/glitch-qr", type: "QR Code Tool", learning: "Simple tools in minutes" },
+            { name: "Snark AI", icon: "📧", url: "https://snark-ai.com", type: "AI Email Service", learning: "Full services & websites" },
+            { name: "Nerktendo", icon: "🎮", url: "https://nerktendo.com", type: "Retro Portfolio", learning: "Try different AI tools" },
+            { name: "LinkPee", icon: "🔗", url: "https://linkp.ee", type: "Link-in-Bio Service", learning: "Complex features work" },
+            { name: "Weather Worsener", icon: "🌧️", url: "https://nerktendo.com/weather-worsener", type: "Interactive Game", learning: "Fun iterative projects" },
+            { name: "DomainFlip", icon: "💰", url: "https://nerktendo.com/domainflip", type: "Startup Demo", learning: "Vision + context = polish" },
+            { name: "TrafficVision", icon: "🗺️", url: "https://trafficvision.live", type: "Map & Database", learning: "AI needs guidance at scale" },
+        ];
+
+
+        function renderWelcome() {
+            let html = '<div class="welcome-landing">';
+
+            // Hero
+            html += '<div style="text-align:center; margin-bottom:40px;">';
+            html += '<h1 style="font-size:2.4em; font-weight:800; border:none; margin-bottom:8px;">Welcome to the Vibe Coding Workshop</h1>';
+            html += '<p style="color:var(--text-muted); font-size:1.1em; margin-bottom:4px;">Use AI to build real software — no coding experience required</p>';
+            html += '<p style="color:var(--text-muted); font-size:0.9em;">By Noah Eisenbruch · <a href="mailto:noaheisenbruch@gmail.com">noaheisenbruch@gmail.com</a></p>';
+            html += '</div>';
+
+            // Follow Along
+            html += '<div style="text-align:center; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; padding:32px 24px; margin-bottom:40px;">';
+            html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:16px; border:none; padding:0;">Follow Along</h2>';
+            html += '<p style="font-size:2em; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px; color:var(--text-color);">workshop.nerktek.com</p>';
+            html += '<p style="color:var(--text-muted); font-size:0.95em; margin-bottom:20px;">Type the URL above or scan the QR code to open this site on your device</p>';
+            html += '<img src="images/github-site-qr.png" alt="Workshop QR Code" style="width:180px; height:180px; border-radius:10px;">';
+            html += '</div>';
+
+            // Explore the Workshop
+            html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); text-align:center; margin-bottom:16px; border:none; padding:0;">Explore the Workshop</h2>';
+            html += '<div class="path-picker-grid" style="margin-bottom:40px;">';
+            html += '<div class="path-card" onclick="loadRoute(\'what-is-vibe-coding\')" tabindex="0" role="button">';
+            html += '<div class="path-card-icon">🧠</div>';
+            html += '<div class="path-card-name">What is Vibe Coding?</div>';
+            html += '<div class="path-card-desc">Learn how AI-assisted coding works and what you\'ll build in this workshop</div>';
+            html += '</div>';
+            html += '<div class="path-card" onclick="loadRoute(\'example-projects\')" tabindex="0" role="button">';
+            html += '<div class="path-card-icon">🚀</div>';
+            html += '<div class="path-card-name">Example Projects</div>';
+            html += '<div class="path-card-desc">See what\'s possible — real projects built with vibe coding</div>';
+            html += '</div>';
+            html += '<div class="path-card" onclick="loadRoute(\'pick-your-path\')" tabindex="0" role="button">';
+            html += '<div class="path-card-icon">🛤️</div>';
+            html += '<div class="path-card-name">Pick Your Path</div>';
+            html += '<div class="path-card-desc">Choose your setup based on comfort level and start building</div>';
+            html += '</div>';
+            html += '</div>';
+
+            // Feedback
+            html += '<div style="text-align:center; border-top:1px solid var(--border-color); padding-top:28px;">';
+            html += '<p style="color:var(--text-muted); font-size:0.95em; margin-bottom:12px;">Your feedback helps shape future workshops</p>';
+            html += '<a href="https://forms.gle/3iVRWgUS6o8U51Ut5" target="_blank" rel="noopener noreferrer" class="step-link-btn" style="font-size:0.95em;">Leave Feedback</a>';
+            html += '</div>';
+
+            html += '</div>';
+            contentDiv.innerHTML = html;
+            addCardKeyboardSupport();
+        }
+
+        function renderWhatIsVibeCoding() {
+            let html = '<div class="path-picker">';
+            html += '<h1>What is Vibe Coding?</h1>';
+            html += '<p class="path-picker-subtitle">Describe what you want. AI writes the code. You guide the result.</p>';
+            html += '</div>';
+
+            // How it works — three visual columns
+            html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
+            html += '<div class="path-card" style="cursor:default; text-align:center;">';
+            html += '<div class="path-card-icon">💬</div>';
+            html += '<div class="path-card-name">You Describe</div>';
+            html += '<div class="path-card-desc">Tell the AI what you want in plain language — no syntax or programming knowledge needed</div>';
+            html += '</div>';
+            html += '<div class="path-card" style="cursor:default; text-align:center;">';
+            html += '<div class="path-card-icon">⚡</div>';
+            html += '<div class="path-card-name">AI Builds</div>';
+            html += '<div class="path-card-desc">The AI generates working code — websites, tools, games, full applications</div>';
+            html += '</div>';
+            html += '<div class="path-card" style="cursor:default; text-align:center;">';
+            html += '<div class="path-card-icon">🔄</div>';
+            html += '<div class="path-card-name">You Iterate</div>';
+            html += '<div class="path-card-desc">Test it, tell the AI what to change, and refine until it\'s exactly what you want</div>';
+            html += '</div>';
+            html += '</div>';
+
+            html += '<div class="step-callout note" style="margin-bottom:32px;">';
+            html += '<span class="step-callout-icon">💡</span>';
+            html += '<div class="step-callout-body">No coding experience required to start. As you build more complex projects, understanding your tools becomes important — and your AI can teach you along the way.</div>';
+            html += '</div>';
+
+            // CTA
+            html += '<div style="text-align:center; padding:16px 0;">';
+            html += '<a href="#what-youll-learn" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'what-youll-learn\');">What You\'ll Learn →</a>';
+            html += '</div>';
+
+            contentDiv.innerHTML = html;
+        }
+
+        function renderWhatYoullLearn() {
+            let html = '<div class="path-picker">';
+            html += '<h1>What You\'ll Learn</h1>';
+            html += '<p class="path-picker-subtitle">From idea to deployed project — the full vibe coding workflow</p>';
+            html += '</div>';
+
+            html += '<ol class="step-num-list" style="margin-bottom:32px;">';
+            html += '<li><strong>Use any AI coding agent</strong> — Claude, Gemini, ChatGPT, and more. Pick the right tool for you.</li>';
+            html += '<li><strong>Prompt effectively</strong> — Write clear descriptions that produce the code you actually want.</li>';
+            html += '<li><strong>Iterate and debug</strong> — Test, refine, and fix issues by communicating with your AI.</li>';
+            html += '<li><strong>Set up real projects</strong> — File structure, dependencies, and configuration from scratch.</li>';
+            html += '<li><strong>Manage versions with Git</strong> — Save checkpoints of your work so you can always roll back if something breaks.</li>';
+            html += '<li><strong>Deploy to the web</strong> — Ship your project so anyone can use it.</li>';
+            html += '</ol>';
+
+            html += '<div class="step-callout tip" style="margin-bottom:32px;">';
+            html += '<span class="step-callout-icon">🎯</span>';
+            html += '<div class="step-callout-body">The core workflow is <strong>prompt → test → iterate → commit</strong>. You\'ll practice this cycle throughout the workshop.</div>';
+            html += '</div>';
+
+            // CTA
+            html += '<div style="text-align:center; padding:16px 0;">';
+            html += '<a href="#example-projects" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'example-projects\');">See Example Projects →</a>';
+            html += '</div>';
+
+            contentDiv.innerHTML = html;
+        }
+
+        function renderExampleProjects() {
+            let html = '<div class="path-picker">';
+            html += '<h1>Example Projects</h1>';
+            html += '<p class="path-picker-subtitle">Real projects built with vibe coding — from quick tools to full applications</p>';
+            html += '</div>';
+
+            html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
+            WELCOME_PROJECTS.forEach(p => {
+                html += `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="path-card" style="text-decoration:none; cursor:pointer;">`;
+                html += `<div class="path-card-icon">${p.icon}</div>`;
+                html += `<div class="path-card-name">${p.name}</div>`;
+                html += `<div class="path-card-tools">${p.type}</div>`;
+                html += `<div class="path-card-desc">${p.learning}</div>`;
+                html += '</a>';
+            });
+            html += '</div>';
+
+            html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Other Projects</h2>';
+            html += '<ul style="padding-left:1.5em; margin-bottom:24px; line-height:1.7;">';
+            html += '<li><strong>Raspberry Pi Instant Camera</strong> — prints instant picture stickers with text and current date/time</li>';
+            html += '<li><strong>Blender Addon</strong> — optimally rotates a 3D object to minimize its bounding box for manufacturing</li>';
+            html += '</ul>';
+
+            html += '<div class="step-callout note" style="margin-bottom:24px;">';
+            html += '<span class="step-callout-icon">💡</span>';
+            html += '<div class="step-callout-body"><strong>Key Takeaway:</strong> Don\'t limit yourself. If you think it should exist, just try to create it. Vibe coding can make testing concepts easier than creating a mockup.</div>';
+            html += '</div>';
+
+            html += '<div class="step-callout tip" style="margin-bottom:32px;">';
+            html += '<span class="step-callout-icon">🔧</span>';
+            html += '<div class="step-callout-body"><strong>Remember:</strong> AI can help with more than just code — it can help prototype your hardware, organize your files, and much more.</div>';
+            html += '</div>';
+
+            // CTA
+            html += '<div style="text-align:center; padding:24px 0;">';
+            html += '<a href="#pick-your-path" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'pick-your-path\');">Choose Your Setup Path →</a>';
+            html += '</div>';
+
+            contentDiv.innerHTML = html;
+            addCardKeyboardSupport();
+        }
+
+        function loadRoute(route) {
+            selector.value = route;
+            loadMarkdown(route);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function addCardKeyboardSupport() {
+            contentDiv.querySelectorAll('.path-card').forEach(card => {
+                if (!card.getAttribute('tabindex')) card.setAttribute('tabindex', '0');
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+            });
+        }
+
+        function resetWizardState() {
             if (wizardActive) {
                 wizardActive = false;
                 document.getElementById('wizard-toggle').classList.remove('active');
@@ -1538,6 +1990,32 @@
             }
             wizardSteps = [];
             wizardCurrentStep = 0;
+            document.getElementById('wizard-toggle').style.display = 'none';
+        }
+
+        // ── Markdown Loading & Rendering ──────────────────────────────
+        async function loadMarkdown(filePath, scrollToId) {
+            // Special custom routes
+            const customRoutes = {
+                'welcome': renderWelcome,
+                'what-is-vibe-coding': renderWhatIsVibeCoding,
+                'what-youll-learn': renderWhatYoullLearn,
+                'example-projects': renderExampleProjects,
+                'pick-your-path': renderPickYourPath,
+            };
+
+            if (customRoutes[filePath]) {
+                currentFile = filePath;
+                window.location.hash = encodeURIComponent(filePath);
+                loadingDiv.style.display = 'none';
+                resetWizardState();
+                customRoutes[filePath]();
+                updateDocNav(filePath);
+                updateSidebarDocsActive();
+                return;
+            }
+
+            resetWizardState();
 
             currentFile = filePath;
             loadingDiv.style.display = 'block';
@@ -1604,8 +2082,11 @@
                 const hasMarkdownHash = href.includes('#') && (href.split('#')[1].toLowerCase().endsWith('.md') || href.split('#')[1].toLowerCase().endsWith('.markdown'));
                 const mdAnchorMatch = href.match(/^(.+\.md)#(.+)$/i);
 
-                const isInternalViewerLink = (isMarkdownFile || hasMarkdownHash || mdAnchorMatch) &&
-                    (!href.startsWith('http') || href.includes('workshop.nerktek.com/'));
+                // Check if href matches a known viewer route (non-md paths in FILE_GROUPS)
+                const isViewerRoute = AVAILABLE_FILES.some(f => f.path === href);
+
+                const isInternalViewerLink = isViewerRoute || ((isMarkdownFile || hasMarkdownHash || mdAnchorMatch) &&
+                    (!href.startsWith('http') || href.includes('workshop.nerktek.com/')));
 
                 if (isInternalViewerLink) {
                     link.addEventListener('click', (e) => {
@@ -1644,10 +2125,147 @@
             });
 
             makeCollapsible();
+            injectGroupProjectCards();
+            enhanceStepContent();
             addCopyButtons();
-            buildSidebarTOC();
             updateToggleIcon();
             parseWizardSteps();
+        }
+
+        // ── Group Project Card Injection ─────────────────────────────
+        const GROUP_PROJECT_OPTIONS = [
+            { id: 'option-a', letter: 'A', name: 'Personality Quiz', icon: '🧠', desc: '"Would You Rather" quiz with personality types, progress bar, and animations' },
+            { id: 'option-b', letter: 'B', name: 'Portfolio Page', icon: '🎨', desc: 'Personal portfolio with hero, projects, skills, and contact sections' },
+            { id: 'option-c', letter: 'C', name: 'Browser Game', icon: '🎮', desc: 'Reaction-time game with scoreboard, difficulty levels, and visual feedback' },
+            { id: 'option-d', letter: 'D', name: 'Your Own Idea', icon: '💡', desc: 'Write your own prompt for any single-page project — a tool, game, or visualizer' },
+        ];
+
+        function injectGroupProjectCards() {
+            if (!currentFile.includes('Group Project')) return;
+
+            // Find the "Step 2" heading that contains the option subheadings
+            const h3s = contentDiv.querySelectorAll('h3');
+            const optionHeadings = {};
+            h3s.forEach(h => {
+                const text = h.textContent.trim();
+                const match = text.match(/^Option\s+([A-D]):/i);
+                if (match) {
+                    optionHeadings[match[1].toUpperCase()] = h;
+                }
+            });
+
+            if (Object.keys(optionHeadings).length === 0) return;
+
+            // Find the parent section — insert cards before Option A
+            const firstOption = optionHeadings['A'];
+            if (!firstOption) return;
+
+            // Build the card grid
+            const grid = document.createElement('div');
+            grid.className = 'path-picker-grid';
+            grid.style.marginBottom = '24px';
+
+            GROUP_PROJECT_OPTIONS.forEach(opt => {
+                const card = document.createElement('div');
+                card.className = 'path-card';
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                card.innerHTML = `
+                    <div class="path-card-icon">${opt.icon}</div>
+                    <div class="path-card-name">Option ${opt.letter}: ${opt.name}</div>
+                    <div class="path-card-desc">${opt.desc}</div>
+                `;
+                card.addEventListener('click', () => {
+                    const heading = optionHeadings[opt.letter];
+                    if (heading) expandAndScrollTo(heading.id);
+                });
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+                grid.appendChild(card);
+            });
+
+            // Insert before the first option heading (or its section wrapper)
+            const insertTarget = firstOption.closest('.section-content') ? firstOption : firstOption;
+            insertTarget.parentNode.insertBefore(grid, insertTarget);
+        }
+
+        // ── Post-Processor: enhance rendered content ─────────────────
+        function enhanceStepContent() {
+            // 1. Blockquotes → callout boxes
+            contentDiv.querySelectorAll('blockquote').forEach(bq => {
+                const inner = bq.innerHTML.trim();
+                let variant = null, icon = null;
+
+                if (/^<p>\s*<strong>\s*(Tip|💡)/i.test(inner)) { variant = 'tip'; icon = '💡'; }
+                else if (/^<p>\s*<strong>\s*(⚠️|Warning)/i.test(inner)) { variant = 'warning'; icon = '⚠️'; }
+                else if (/^<p>\s*<strong>\s*(Note|📝)/i.test(inner)) { variant = 'note'; icon = '📝'; }
+
+                if (variant) {
+                    const callout = document.createElement('div');
+                    callout.className = 'step-callout ' + variant;
+                    // Strip the label from the first <p><strong>Label:</strong>
+                    const body = inner.replace(/<p>\s*<strong>\s*(?:Tip|💡|⚠️|Warning|Note|📝)\s*:?\s*<\/strong>\s*/i, '<p>');
+                    callout.innerHTML = `<span class="step-callout-icon">${icon}</span><div class="step-callout-body">${body}</div>`;
+                    bq.replaceWith(callout);
+                }
+            });
+
+            // 2. Code blocks → terminal chrome
+            contentDiv.querySelectorAll('pre').forEach(pre => {
+                // Skip if already wrapped
+                if (pre.parentElement && pre.parentElement.classList.contains('step-terminal')) return;
+                const code = pre.querySelector('code');
+                const langClass = code ? code.className : '';
+                const langMatch = langClass.match(/language-(\w+)/);
+                const lang = langMatch ? langMatch[1] : 'terminal';
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'step-terminal';
+                wrapper.innerHTML = `<div class="step-terminal-bar"><span class="step-terminal-dot red"></span><span class="step-terminal-dot yellow"></span><span class="step-terminal-dot green"></span><span class="step-terminal-title">${lang}</span></div>`;
+                pre.parentNode.insertBefore(wrapper, pre);
+                wrapper.appendChild(pre);
+            });
+
+            // 3. Short ordered lists → numbered step lists
+            contentDiv.querySelectorAll('ol').forEach(ol => {
+                const items = ol.querySelectorAll(':scope > li');
+                if (items.length >= 2 && items.length <= 8) {
+                    ol.classList.add('step-num-list');
+                }
+            });
+
+            // 4. CTA links (download, sign up, install)
+            const ctaPattern = /\b(download|sign\s*up|install|create\s*account|get\s*started)\b/i;
+            contentDiv.querySelectorAll('a[href]').forEach(link => {
+                if (link.closest('.step-callout, .step-terminal, .path-picker, .path-card, nav, .top-bar, .doc-nav')) return;
+                const text = link.textContent.trim();
+                const href = link.getAttribute('href') || '';
+                if (ctaPattern.test(text) && href.startsWith('http') && !link.classList.contains('step-link-btn')) {
+                    link.classList.add('step-link-btn');
+                }
+            });
+
+            // 5. Checklist items (✅/❌ markers)
+            contentDiv.querySelectorAll('ul').forEach(ul => {
+                const items = Array.from(ul.querySelectorAll(':scope > li'));
+                const checkItems = items.filter(li => /^[✅❌✓✗]/.test(li.textContent.trim()));
+                if (checkItems.length >= items.length * 0.5 && checkItems.length >= 2) {
+                    ul.classList.add('step-checklist');
+                    items.forEach(li => {
+                        const text = li.innerHTML.trim();
+                        const match = text.match(/^([✅❌✓✗])\s*/);
+                        if (match) {
+                            const icon = match[1];
+                            const rest = text.slice(match[0].length);
+                            li.innerHTML = `<span class="step-checklist-icon">${icon}</span><span>${rest}</span>`;
+                        }
+                    });
+                }
+            });
         }
 
         // ── Collapsible Sections (Feature 2: first H2 open) ──────────
@@ -1724,68 +2342,6 @@
             });
         }
 
-
-        // ── Sidebar TOC (Feature 5) ──────────────────────────────────
-        let tocObserver = null;
-
-        function buildSidebarTOC() {
-            const tocList = document.getElementById('sidebar-toc');
-            tocList.innerHTML = '';
-
-            // Clean up previous observer
-            if (tocObserver) {
-                tocObserver.disconnect();
-                tocObserver = null;
-            }
-
-            const headings = contentDiv.querySelectorAll('h2, h3');
-            if (headings.length === 0) {
-                tocList.innerHTML = '<li class="sidebar-empty">No sections</li>';
-                return;
-            }
-
-            const tocEntries = [];
-
-            headings.forEach(h => {
-                const level = parseInt(h.tagName[1]);
-                const li = document.createElement('li');
-                if (level === 3) li.classList.add('toc-h3');
-                const a = document.createElement('a');
-                a.href = '#' + h.id;
-                a.textContent = h.textContent;
-                a.dataset.targetId = h.id;
-                a.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    expandAndScrollTo(h.id);
-                    // Close mobile drawer
-                    closeMobileSidebar();
-                });
-                li.appendChild(a);
-                tocList.appendChild(li);
-                tocEntries.push({ id: h.id, element: h, link: a });
-            });
-
-            // Scroll spy with IntersectionObserver
-            tocObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.id;
-                        tocEntries.forEach(t => t.link.classList.remove('active'));
-                        const match = tocEntries.find(t => t.id === id);
-                        if (match) {
-                            match.link.classList.add('active');
-                            // Scroll sidebar to keep active item visible
-                            match.link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-                        }
-                    }
-                });
-            }, {
-                rootMargin: '-10% 0px -80% 0px',
-                threshold: 0
-            });
-
-            headings.forEach(h => tocObserver.observe(h));
-        }
 
         // ── Sidebar Document Navigation ───────────────────────────────
         function buildSidebarDocs() {
@@ -1942,377 +2498,6 @@
             reader.readAsText(file);
         }
 
-        // ── Full-Text Search (Feature 6) ─────────────────────────────
-        let searchIndex = [];
-        let searchReady = false;
-
-        function escapeHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
-
-        function stripMarkdown(text) {
-            return text
-                .replace(/```[\s\S]*?```/g, ' ')
-                .replace(/`[^`]+`/g, ' ')
-                .replace(/!\[.*?\]\(.*?\)/g, '')
-                .replace(/\[([^\]]+)\]\(.*?\)/g, '$1')
-                .replace(/<[^>]+>/g, '')
-                .replace(/[#*_~>|`\-]/g, '')
-                .replace(/\s+/g, ' ')
-                .trim();
-        }
-
-        // ── Search: Stemmer ──────────────────────────────────────────
-        function stem(word) {
-            if (word.length < 4) return word;
-            const hasVowel = s => /[aeiouy]/.test(s);
-            const ok = (w, minLen) => w.length >= minLen && hasVowel(w);
-            let w = word;
-
-            // Step 1: Plurals
-            if (w.endsWith('sses')) w = w.slice(0, -2);
-            else if (w.endsWith('ies') && ok(w.slice(0, -3), 3)) w = w.slice(0, -3) + 'y';
-            else if (!w.endsWith('ss') && !w.endsWith('us') && w.endsWith('s')) {
-                const b = w.slice(0, -1);
-                if (ok(b, 3)) w = b;
-            }
-
-            // Step 2: Verb forms
-            if (w.endsWith('ing') && ok(w.slice(0, -3), 3)) w = w.slice(0, -3);
-            else if (w.endsWith('ed') && ok(w.slice(0, -2), 3)) w = w.slice(0, -2);
-
-            // Step 3: Derivational suffixes (longest first)
-            const suffixes = [
-                ['ization', 4], ['isation', 4], ['ational', 4],
-                ['fulness', 3], ['ousness', 3], ['iveness', 3],
-                ['tional', 3], ['ation', 4], ['ness', 3],
-                ['ment', 3], ['able', 3], ['ible', 3],
-                ['ance', 3], ['ence', 3], ['ally', 3],
-                ['ate', 3], ['ity', 3], ['ful', 3],
-                ['ous', 3], ['ive', 3], ['ism', 3],
-                ['ist', 3], ['ion', 3], ['al', 3],
-                ['ly', 3], ['er', 3]
-            ];
-            for (const [suffix, minBase] of suffixes) {
-                if (w.endsWith(suffix)) {
-                    const base = w.slice(0, -suffix.length);
-                    if (ok(base, minBase)) { w = base; break; }
-                }
-            }
-
-            // Step 4: Final 'e'
-            if (w.endsWith('e') && ok(w.slice(0, -1), 3)) w = w.slice(0, -1);
-
-            return w;
-        }
-
-        // ── Search: Edit Distance ────────────────────────────────────
-        function editDistance(a, b) {
-            if (Math.abs(a.length - b.length) > 2) return 3;
-            const m = a.length, n = b.length;
-            let prev = Array.from({length: n + 1}, (_, j) => j);
-            for (let i = 1; i <= m; i++) {
-                const curr = [i];
-                for (let j = 1; j <= n; j++) {
-                    curr[j] = a[i-1] === b[j-1]
-                        ? prev[j-1]
-                        : 1 + Math.min(prev[j], curr[j-1], prev[j-1]);
-                }
-                prev = curr;
-            }
-            return prev[n];
-        }
-
-        function tokenize(text) {
-            return text.toLowerCase().match(/[a-z0-9]+/g) || [];
-        }
-
-        function maxFuzzyDist(termLen) {
-            return termLen >= 7 ? 2 : termLen >= 4 ? 1 : 0;
-        }
-
-        function fuzzyMatch(term, words) {
-            const max = maxFuzzyDist(term.length);
-            if (max === 0) return false;
-            const tLen = term.length;
-            for (const w of words) {
-                if (Math.abs(w.length - tLen) > max) continue;
-                if (editDistance(term, w) <= max) return true;
-            }
-            return false;
-        }
-
-        // ── Search: Indexing ─────────────────────────────────────────
-        async function initSearch() {
-            await new Promise(r => setTimeout(r, 2000));
-
-            const promises = AVAILABLE_FILES.map(async (file) => {
-                try {
-                    const resp = await fetch(file.path);
-                    if (!resp.ok) return [];
-                    const text = await resp.text();
-                    return indexFile(file.path, file.name, text);
-                } catch {
-                    return [];
-                }
-            });
-
-            const results = await Promise.all(promises);
-            searchIndex = results.flat();
-            searchReady = true;
-        }
-
-        function indexFile(filePath, fileName, markdown) {
-            const entries = [];
-            const lines = markdown.split('\n');
-            let currentHeading = fileName;
-            let currentHeadingId = '';
-            let buffer = [];
-
-            function flush() {
-                const bodyText = stripMarkdown(buffer.join(' '));
-                // Include heading words in searchable sets so stemmed/fuzzy matching works on headings
-                const headingWords = tokenize(currentHeading);
-                const bodyWords = tokenize(bodyText);
-                const allWords = [...new Set([...headingWords, ...bodyWords])];
-                const stemmedWords = new Set(allWords.map(w => stem(w)));
-
-                // Index even if body is empty — the heading itself is searchable
-                if (bodyText.length > 0 || currentHeading) {
-                    entries.push({
-                        file: filePath,
-                        fileName: fileName,
-                        heading: currentHeading,
-                        headingId: currentHeadingId,
-                        text: bodyText,
-                        words: allWords,
-                        stemmedWords: stemmedWords
-                    });
-                }
-                buffer = [];
-            }
-
-            lines.forEach(line => {
-                const headingMatch = line.match(/^(#{1,4})\s+(.+)/);
-                if (headingMatch) {
-                    flush();
-                    currentHeading = headingMatch[2].replace(/[#*_~`]/g, '').trim();
-                    currentHeadingId = generateHeadingId(currentHeading);
-                } else {
-                    buffer.push(line);
-                }
-            });
-            flush();
-
-            return entries;
-        }
-
-        // ── Search: Query ────────────────────────────────────────────
-        function performSearch(query) {
-            if (!searchReady || !query.trim()) return [];
-
-            const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
-            if (terms.length === 0) return [];
-
-            const stemmedTerms = terms.map(t => stem(t));
-            const fullQuery = query.toLowerCase();
-            const termRegexes = terms.map(t =>
-                new RegExp('\\b' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i')
-            );
-
-            const scored = [];
-
-            searchIndex.forEach(entry => {
-                const textLower = entry.text.toLowerCase();
-                const headingLower = entry.heading.toLowerCase();
-                const fileLower = entry.fileName.toLowerCase();
-
-                let score = 0;
-                let matchedTerms = 0;
-
-                terms.forEach((term, i) => {
-                    const stemmed = stemmedTerms[i];
-                    let found = false;
-
-                    // Tier 1: Exact word boundary match in text
-                    if (termRegexes[i].test(entry.text)) {
-                        score += 15; found = true;
-                    }
-                    // Tier 2: Substring match in text
-                    else if (textLower.includes(term)) {
-                        score += 10; found = true;
-                    }
-                    // Tier 3: Stemmed match in text
-                    else if (entry.stemmedWords.has(stemmed)) {
-                        score += 7; found = true;
-                    }
-                    // Tier 4: Fuzzy match in text
-                    else if (fuzzyMatch(term, entry.words)) {
-                        score += 4; found = true;
-                    }
-
-                    // Heading bonus
-                    if (headingLower.includes(term)) { score += 5; found = true; }
-                    else if (!found) {
-                        const headingStemmed = new Set(tokenize(entry.heading).map(w => stem(w)));
-                        if (headingStemmed.has(stemmed)) { score += 3; found = true; }
-                    }
-
-                    // Filename bonus
-                    if (fileLower.includes(term)) { score += 3; found = true; }
-
-                    if (found) matchedTerms++;
-                });
-
-                // All terms must match somewhere
-                if (matchedTerms < terms.length) return;
-
-                // Exact phrase bonus
-                if (textLower.includes(fullQuery)) score += 50;
-                if (headingLower.includes(fullQuery)) score += 40;
-
-                scored.push({ entry, score });
-            });
-
-            scored.sort((a, b) => b.score - a.score);
-            return scored.slice(0, 20);
-        }
-
-        // ── Search: Snippets ─────────────────────────────────────────
-        function getSnippet(text, queryTerms, stemmedTerms, maxLen) {
-            maxLen = maxLen || 160;
-
-            // Find all matching word ranges in the full text
-            const matchRanges = [];
-            const wordRegex = /[a-zA-Z0-9]+/g;
-            let m;
-
-            while ((m = wordRegex.exec(text)) !== null) {
-                const word = m[0].toLowerCase();
-                const wordStem = stem(word);
-
-                const isMatch =
-                    queryTerms.some(t => word === t || (t.length >= 3 && word.startsWith(t))) ||
-                    stemmedTerms.some(st => wordStem === st && word.length >= 3) ||
-                    queryTerms.some(t => {
-                        const max = maxFuzzyDist(t.length);
-                        return max > 0 && Math.abs(word.length - t.length) <= max && editDistance(t, word) <= max;
-                    });
-
-                if (isMatch) {
-                    matchRanges.push({ start: m.index, end: m.index + m[0].length });
-                }
-            }
-
-            // No matches (shouldn't happen, but fallback to start of text)
-            if (matchRanges.length === 0) {
-                const snip = text.substring(0, maxLen);
-                return escapeHtml(snip) + (text.length > maxLen ? '...' : '');
-            }
-
-            // Find the window with the densest cluster of matches
-            let bestStart = matchRanges[0].start;
-            let bestCount = 0;
-            for (let i = 0; i < matchRanges.length; i++) {
-                const ws = matchRanges[i].start;
-                let count = 0;
-                for (let j = i; j < matchRanges.length && matchRanges[j].start < ws + maxLen; j++) count++;
-                if (count > bestCount) { bestCount = count; bestStart = ws; }
-            }
-
-            const windowStart = Math.max(0, bestStart - 30);
-            const windowEnd = Math.min(text.length, windowStart + maxLen);
-            const prefix = windowStart > 0 ? '...' : '';
-            const suffix = windowEnd < text.length ? '...' : '';
-            const raw = text.substring(windowStart, windowEnd);
-
-            // Build highlighted snippet — escape non-match text, wrap matches in <mark>
-            const windowMatches = matchRanges
-                .filter(r => r.start >= windowStart && r.end <= windowEnd)
-                .map(r => ({ start: r.start - windowStart, end: r.end - windowStart }));
-
-            let result = '';
-            let pos = 0;
-            for (const wm of windowMatches) {
-                if (wm.start > pos) result += escapeHtml(raw.substring(pos, wm.start));
-                result += '<mark>' + escapeHtml(raw.substring(wm.start, wm.end)) + '</mark>';
-                pos = wm.end;
-            }
-            if (pos < raw.length) result += escapeHtml(raw.substring(pos));
-
-            return prefix + result + suffix;
-        }
-
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
-        let searchTimeout = null;
-
-        searchInput.addEventListener('input', () => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                const query = searchInput.value.trim();
-                if (!query) {
-                    searchResults.classList.remove('active');
-                    searchResults.innerHTML = '';
-                    return;
-                }
-
-                const results = performSearch(query);
-                const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
-                const stemmedTerms = terms.map(t => stem(t));
-
-                if (results.length === 0) {
-                    searchResults.innerHTML = '<div class="search-no-results">No results found</div>';
-                    searchResults.classList.add('active');
-                    return;
-                }
-
-                searchResults.innerHTML = results.map(r => {
-                    const e = r.entry;
-                    const snippet = getSnippet(e.text, terms, stemmedTerms);
-                    return `<div class="search-result-item" data-file="${escapeHtml(e.file)}" data-heading-id="${escapeHtml(e.headingId)}">
-                        <div class="search-result-file">${escapeHtml(e.fileName)}</div>
-                        <div class="search-result-heading">${escapeHtml(e.heading)}</div>
-                        <div class="search-result-snippet">${snippet}</div>
-                    </div>`;
-                }).join('');
-
-                searchResults.classList.add('active');
-            }, 300);
-        });
-
-        searchResults.addEventListener('click', (e) => {
-            const item = e.target.closest('.search-result-item');
-            if (!item) return;
-
-            const file = item.dataset.file;
-            const headingId = item.dataset.headingId;
-
-            searchResults.classList.remove('active');
-            searchInput.value = '';
-
-            if (file === currentFile) {
-                expandAndScrollTo(headingId);
-            } else {
-                selector.value = file;
-                loadMarkdown(file, headingId);
-            }
-        });
-
-        // Close search on Escape or click outside
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                searchResults.classList.remove('active');
-            }
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.search-wrapper')) {
-                searchResults.classList.remove('active');
-            }
-        });
 
         // ── Wizard / Step-by-Step Mode ─────────────────────────────
         let wizardSteps = [];
@@ -2384,10 +2569,13 @@
             const toggleBtn = document.getElementById('wizard-toggle');
             toggleBtn.style.display = wizardSteps.length > 0 ? 'inline-block' : 'none';
 
-            // Restore wizard mode preference for this doc
+            // Auto-enter wizard mode for setup/project pages, or restore saved preference
             if (wizardSteps.length > 0) {
+                const fileEntry = AVAILABLE_FILES.find(f => f.path === currentFile);
                 const pref = localStorage.getItem('wizardMode_' + currentFile);
-                if (pref === 'true') {
+                if (fileEntry && fileEntry.autoWizard && pref !== 'false') {
+                    enterWizardMode(false);
+                } else if (pref === 'true') {
                     enterWizardMode(false);
                 }
             }
@@ -2613,7 +2801,6 @@
 
         buildSidebarDocs();
         loadMarkdown(currentFile);
-        initSearch();
         initBackToTop();
 
     </script>

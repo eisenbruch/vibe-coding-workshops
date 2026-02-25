@@ -1,4 +1,4 @@
-# Welcome to Vibe Coding
+# Welcome to the Vibe Coding Workshop
 *Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
@@ -99,41 +99,6 @@ You'll learn:
 
 ## Pick Your Path
 
-### Workshop Participants: Pick Your Tool
+Everyone will build the same group project together, but using different tools depending on your comfort level.
 
-Everyone will build the same group project together, but using different tools depending on your comfort level. Pick the path that fits you best — the end result is the same regardless of which tool you choose.
-
-**Quick Demo / Just Curious?**
--> [Beginner Quick Start](paths/Beginner%20Quick%20Start.md) -- Try vibe coding in your browser with zero setup. Great as a reference or quick demo.
-
-### Workshop Tracks
-
-These are the guided paths with step-by-step setup instructions:
-
-### Intermediate Track
-- **Best for:** First-time coders, non-developers, anyone who prefers a visual interface
-- **Paid:** [Claude Desktop](paths/Intermediate%20Setup%20-%20Claude%20Desktop.md) — All-in-one AI assistant with Chat + Cowork modes
-- **Free:** [Google AI Studio](paths/Intermediate%20Setup%20-%20Google%20AI%20Studio.md) — Browser-based AI workspace with Gemini
-- **What you'll use:** Desktop app (no IDE needed)
-- **Setup time:** ~5 minutes
-
-### Advanced Track
-- **Best for:** Comfortable with computers, want professional tools, ready for the terminal
-- **Paid:** [Claude Code](paths/Advanced%20Setup%20-%20Claude%20Code.md) — AI agent in VS Code / terminal
-- **Free:** [Gemini CLI](paths/Advanced%20Setup%20-%20Gemini%20CLI.md) — Free AI agent in VS Code / terminal
-- **What you'll use:** VS Code + terminal
-- **Setup time:** ~15 minutes
-
-> **Not sure?** Start with Intermediate — you can always level up later. The group project works the same regardless of which tool you pick.
-
----
-
-## Tool Comparison
-
-A quick overview of the major AI models and when to reach for each:
-
-- **Claude:** The architect. Best for backend logic, complex architecture, and understanding large projects.
-- **Gemini:** The speed demon. Excellent for writing, rapid prototyping, and converting screenshots to UI code. Significantly faster.
-- **ChatGPT:** The specialist. Useful for tackling specific tricky bugs other models struggle with.
-
-> **Tip:** Switch models when you get stuck!
+**[Choose Your Setup Path →](pick-your-path)**
