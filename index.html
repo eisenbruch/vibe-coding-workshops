@@ -1583,7 +1583,7 @@
             {
                 label: "Build Together",
                 files: [
-                    { name: "Group Project", path: "Group Project.md", autoWizard: true },
+                    { name: "Group Project", path: "group-project" },
                 ]
             },
             {
@@ -2119,7 +2119,7 @@
                 html += '<div class="path-card-name">Back to Pick Your Path</div>';
                 html += '<div class="path-card-desc">Explore other setup options</div>';
                 html += '</div>';
-                html += '<div class="path-card" onclick="loadRoute(\'Group Project.md\')" tabindex="0" role="button">';
+                html += '<div class="path-card" onclick="loadRoute(\'group-project\')" tabindex="0" role="button">';
                 html += '<div class="path-card-icon">🚀</div>';
                 html += '<div class="path-card-name">Start the Group Project</div>';
                 html += '<div class="path-card-desc">Jump into the hands-on group build</div>';
@@ -2464,11 +2464,264 @@
                 html += '<div class="path-card-name">Back to Pick Your Path</div>';
                 html += '<div class="path-card-desc">Explore other setup options</div>';
                 html += '</div>';
-                html += '<div class="path-card" onclick="loadRoute(\'Group Project.md\')" tabindex="0" role="button">';
+                html += '<div class="path-card" onclick="loadRoute(\'group-project\')" tabindex="0" role="button">';
                 html += '<div class="path-card-icon">🚀</div>';
                 html += '<div class="path-card-name">Start the Group Project</div>';
                 html += '<div class="path-card-desc">Jump into the hands-on group build</div>';
                 html += '</div>';
+                html += '</div>';
+            }
+
+            contentDiv.innerHTML = html;
+            addCardKeyboardSupport();
+            addCopyButtons();
+        }
+
+        // ── Group Project Renderer ───────────────────────────────────
+        const GROUP_PROJECT_OPTIONS = [
+            { letter: 'A', name: 'Personality Quiz', icon: '🧠', desc: '"Would You Rather" quiz with personality types, progress bar, and animations' },
+            { letter: 'B', name: 'Portfolio Page', icon: '🎨', desc: 'Personal portfolio with hero, projects, skills, and contact sections' },
+            { letter: 'C', name: 'Browser Game', icon: '🎮', desc: 'Reaction-time game with scoreboard, difficulty levels, and visual feedback' },
+            { letter: 'D', name: 'Your Own Idea', icon: '💡', desc: 'Write your own prompt for any single-page project — a tool, game, or visualizer' },
+        ];
+
+        function renderGroupProject(step) {
+            step = step || 0;
+            var html = '';
+            var nav = function(back, fwd, fwdLabel) {
+                var n = '<div style="display:flex; justify-content:center; align-items:center; gap:12px; padding:24px 0 0;">';
+                if (back !== null) n += '<a href="#" class="step-link-btn" style="font-size:1.05em; padding:10px 28px; background:var(--surface-color); color:var(--text-muted); border:1px solid var(--border-color);" onclick="event.preventDefault(); renderGroupProject(' + back + '); window.scrollTo({top:0,behavior:\'smooth\'});">← Back</a>';
+                if (fwd !== null) n += '<a href="#" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); renderGroupProject(' + fwd + '); window.scrollTo({top:0,behavior:\'smooth\'});">' + fwdLabel + ' →</a>';
+                n += '</div>';
+                return n;
+            };
+
+            // Header — always visible
+            html += '<div class="path-picker">';
+            html += '<h1>Group Project</h1>';
+            html += '<p class="path-picker-subtitle">Build a real project together using the vibe coding workflow: prompt, test, iterate, commit.</p>';
+            html += '</div>';
+
+            if (step === 0) {
+                // ── Step 1: Open Your AI Tool ──
+                html += '<h2>Step 1: Open Your AI Tool</h2>';
+                html += '<p>Open the AI tool you set up during installation:</p>';
+                html += '<div class="path-picker-grid" style="margin:20px 0;">';
+                var tools = [
+                    { icon: '🤝', name: 'Claude Desktop', desc: 'Launch the app, switch to Cowork mode, point it at your project folder' },
+                    { icon: '🧪', name: 'Google AI Studio', desc: 'Open <a href="https://aistudio.google.com/" target="_blank">aistudio.google.com</a> in your browser' },
+                    { icon: '💻', name: 'Claude Code', desc: 'Click the Claude icon in the VS Code editor toolbar' },
+                    { icon: '✨', name: 'Gemini CLI', desc: 'Open a terminal in VS Code and type <code>gemini</code>' },
+                    { icon: '💬', name: 'Browser AI', desc: 'Open your preferred AI chat and have a text editor ready' },
+                ];
+                tools.forEach(function(t) {
+                    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+                    html += '<div class="path-card-icon">' + t.icon + '</div>';
+                    html += '<div class="path-card-name">' + t.name + '</div>';
+                    html += '<div class="path-card-desc">' + t.desc + '</div>';
+                    html += '</div>';
+                });
+                html += '</div>';
+                html += _note('<strong>Using a desktop or IDE tool?</strong> Make sure it\'s pointed at your project folder — that\'s where the AI will create files.<br><br><strong>Using a browser AI?</strong> You\'ll copy code from the chat and paste it into files manually. Have a text editor open and ready.');
+                html += nav(null, 1, 'Pick a Project');
+
+            } else if (step === 1) {
+                // ── Step 2: Pick a Project & Write Your First Prompt ──
+                html += '<h2>Step 2: Pick a Project &amp; Write Your First Prompt</h2>';
+                html += '<p>Pick one of the project options below and paste the prompt into your AI tool. Feel free to tweak it — change the theme, swap details, make it yours.</p>';
+                html += '<div class="path-picker-grid" style="margin:20px 0;">';
+                GROUP_PROJECT_OPTIONS.forEach(function(opt) {
+                    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+                    html += '<div class="path-card-icon">' + opt.icon + '</div>';
+                    html += '<div class="path-card-name">Option ' + opt.letter + ': ' + opt.name + '</div>';
+                    html += '<div class="path-card-desc">' + opt.desc + '</div>';
+                    html += '</div>';
+                });
+                html += '</div>';
+
+                html += '<h3>Option A: "Would You Rather" Personality Quiz</h3>';
+                html += _term('Create a single HTML file for a "Would You Rather" personality quiz. Include:\n- A fun, colorful design with animations\n- 8 "would you rather" questions with two choices each (e.g., "Would you rather explore a deep cave or climb a tall mountain?")\n- Track the user\'s choices and calculate a personality type at the end\n- Show 4 possible personality types with fun descriptions and emoji\n- Include a progress bar showing how far through the quiz they are\n- Make it mobile-friendly');
+
+                html += '<h3>Option B: Personal Portfolio / Landing Page</h3>';
+                html += _term('Create a single HTML file for a personal portfolio page. Include:\n- A hero section with my name, a short bio, and a profile image placeholder\n- A section showcasing 3-4 projects (use placeholder content)\n- A skills or interests section with visual tags or icons\n- A contact section with links (email, GitHub, LinkedIn — use placeholder URLs)\n- Smooth scroll navigation between sections\n- A clean, modern design with good typography — make it mobile-friendly');
+
+                html += '<h3>Option C: Simple Browser Game</h3>';
+                html += _term('Create a single HTML file for a simple reaction-time game. Include:\n- A start screen with instructions\n- The game: a shape appears at a random time and position, the player clicks it as fast as they can\n- Track and display their reaction time in milliseconds\n- Keep a running scoreboard of their best 5 times\n- Add difficulty levels (easy = bigger shape and longer wait, hard = smaller and faster)\n- Fun visual feedback on click (animations, color changes)\n- Make it mobile-friendly');
+
+                html += '<h3>Option D: Pick Your Own</h3>';
+                html += '<p>Have a different idea? Go for it. Write your own prompt describing a single-page project — a tool, a game, a visualizer, anything. As long as it produces a single HTML file, the rest of the steps work the same.</p>';
+                html += _tip('Be specific about what the user sees and does. Include details about the design (colors, layout, animations). Ask for mobile-friendly. Start simple — you\'ll iterate and add features in later steps.');
+                html += nav(0, 2, 'Get the Code Into a File');
+
+            } else if (step === 2) {
+                // ── Step 3: Get the Code Into a File ──
+                html += '<h2>Step 3: Get the Code Into a File</h2>';
+                html += '<p>This step depends on which tool you\'re using:</p>';
+                html += _note('<strong>Claude Desktop / Cowork mode:</strong> Claude will create the file directly in your project folder. Check that it saved an HTML file — you should see something like <code>index.html</code> appear.');
+                html += _note('<strong>Claude Code / Gemini CLI:</strong> The AI will create the file in your open project. You\'ll see it appear in VS Code\'s file explorer on the left side.');
+                html += _note('<strong>Browser AI (Claude.ai, ChatGPT, Gemini, AI Studio):</strong> Copy the entire code block the AI generated. Open your text editor, paste it in, and save it as <code>index.html</code> in your project folder.');
+                html += '<p style="margin-top:16px;">If the AI generated multiple files, that\'s fine — just make sure you save all of them in the same folder.</p>';
+                html += nav(1, 3, 'Open in Browser');
+
+            } else if (step === 3) {
+                // ── Step 4: Open in Browser ──
+                html += '<h2>Step 4: Open in Browser — See It Work!</h2>';
+                html += '<ol class="step-num-list">';
+                html += '<li>Find the HTML file in your project folder (<code>index.html</code> or whatever the AI named it)</li>';
+                html += '<li>Double-click it to open in your browser</li>';
+                html += '<li>Try the whole thing — click through every feature and see how it works</li>';
+                html += '</ol>';
+                html += '<p style="margin-top:16px;">How does it look? Take a moment to note anything you\'d want to change:</p>';
+                html += '<ul style="margin:8px 0 16px 20px; line-height:1.8;">';
+                html += '<li>Does the layout look good?</li>';
+                html += '<li>Do interactions feel smooth?</li>';
+                html += '<li>Is anything missing or broken?</li>';
+                html += '<li>What would make it better?</li>';
+                html += '</ul>';
+                html += _tip('Something looks wrong or doesn\'t work? That\'s not a failure — that\'s the workflow. You now have something specific to tell the AI to fix. Identifying problems and describing them clearly is the core skill of vibe coding.');
+                html += nav(2, 4, 'Polish the Design');
+
+            } else if (step === 4) {
+                // ── Step 5: Iterate #1 — Polish the Design ──
+                html += '<h2>Step 5: Iterate #1 — Polish the Design</h2>';
+                html += '<p>Time to improve. Go back to your AI tool and paste a prompt like this:</p>';
+                html += _term('Make the project look more polished:\n- Add smooth transitions and animations\n- Improve the color scheme and typography\n- Make buttons and interactions more satisfying (hover effects, click feedback)\n- Add subtle visual details that make it feel professional');
+                html += '<p style="margin-top:16px;">After the AI updates the code:</p>';
+                html += '<ol class="step-num-list">';
+                html += '<li><strong>Save the file</strong> (or let your AI tool save it)</li>';
+                html += '<li><strong>Refresh your browser</strong> to see the changes</li>';
+                html += '<li><strong>Test the whole thing again</strong> — make sure nothing broke</li>';
+                html += '</ol>';
+                html += '<p style="margin-top:16px;">Does it look better? Tell the AI what you like ("the transitions are great") and what to change ("the colors are too bright, tone it down"). Be specific — the more precise your feedback, the better the result.</p>';
+                html += _note('Browser AI users: Copy the updated code and replace the contents of your HTML file entirely. Save and refresh.');
+                html += nav(3, 5, 'Add More Content');
+
+            } else if (step === 5) {
+                // ── Step 6: Iterate #2 — Add More Content ──
+                html += '<h2>Step 6: Iterate #2 — Add More Content</h2>';
+                html += '<p>Let\'s make the project more substantial. Tell the AI to add more content and depth. Some ideas depending on your project:</p>';
+                html += '<ul style="margin:8px 0 16px 20px; line-height:1.8;">';
+                html += '<li><strong>Quiz:</strong> "Expand to 10 questions, add 6 personality types with detailed descriptions and a trait breakdown"</li>';
+                html += '<li><strong>Portfolio:</strong> "Add a testimonials section, a timeline of experience, and smooth parallax scrolling"</li>';
+                html += '<li><strong>Game:</strong> "Add a countdown mode, particle effects on click, and a high score leaderboard"</li>';
+                html += '<li><strong>Your own:</strong> "Add more features, content, or sections — make it feel complete"</li>';
+                html += '</ul>';
+                html += _term('Add more content and depth to the project:\n- Expand the main feature with more detail and variety\n- Add at least one new section or feature\n- Include more visual polish (icons, illustrations, or decorative elements)\n- Make the overall experience feel more complete and satisfying');
+                html += '<p style="margin-top:16px;">Save, refresh, test. Go through the whole thing again. If anything feels off, tell the AI exactly what to change.</p>';
+                html += nav(4, 6, 'Introduce Git');
+
+            } else if (step === 6) {
+                // ── Step 7: Introduce Git ──
+                html += '<h2>Step 7: Introduce Git — Save Your Progress</h2>';
+                html += '<p>You now have a working project that you like. Before we change anything else, let\'s save this checkpoint.</p>';
+                html += '<p style="margin-top:12px;"><strong>Git</strong> creates save points (called <strong>commits</strong>) in your project\'s history. If you ever break something, you can go back to a working version. Think of it as a save file in a video game.</p>';
+                html += _note('<strong>Claude Code / Gemini CLI users:</strong> Tell your AI:<br>' + _term('Initialize a git repository in this folder and create an initial commit with all my files. Use the message "Working project with polished design"'));
+                html += _note('<strong>Claude Desktop / AI Studio users:</strong> If your tool supports running terminal commands, ask it to initialize Git. Otherwise, skip Git steps for now — you can learn it later from the <a href="#" onclick="event.preventDefault(); loadRoute(\'Git for Beginners.md\');">Git for Beginners</a> guide.');
+                html += _note('<strong>Browser AI users:</strong> Open a terminal in your project folder and run:<br>' + _term('git init\ngit add .\ngit commit -m "Working project with polished design"') + 'If you don\'t have Git installed or aren\'t comfortable with the terminal, skip this for now.');
+                html += _tip('<strong>Optional: Visualize with SourceTree</strong> — If you installed <a href="https://www.sourcetreeapp.com/" target="_blank">SourceTree</a>, open it and add your project folder. You\'ll see your first commit — a snapshot of everything you\'ve built so far.');
+                html += nav(5, 7, 'Add a Share Feature');
+
+            } else if (step === 7) {
+                // ── Step 8: Iterate #3 — Add a Share Feature ──
+                html += '<h2>Step 8: Iterate #3 — Add a Share Feature</h2>';
+                html += '<p>Let\'s add a way to share or save progress. Tell the AI something like:</p>';
+                html += _term('Add a share/save feature:\n- Add a "Copy Link" or "Share" button that copies a summary to clipboard\n- Add a "Start Over" or "Reset" button\n- Save the user\'s state in localStorage so it persists when they return');
+                html += '<p style="margin-top:16px;">Save, refresh, test. Try the full flow:</p>';
+                html += '<ol class="step-num-list">';
+                html += '<li>Use the project from start to finish</li>';
+                html += '<li>Try the share/copy feature — paste somewhere to verify it works</li>';
+                html += '<li>Try the reset button</li>';
+                html += '<li>Close the browser tab, reopen the file — does it remember your state?</li>';
+                html += '</ol>';
+                html += nav(6, 8, 'Commit Again');
+
+            } else if (step === 8) {
+                // ── Step 9: Commit Again ──
+                html += '<h2>Step 9: Commit Again</h2>';
+                html += '<p>Time for another save point. You\'ve added a significant feature — lock it in.</p>';
+                html += _note('<strong>Claude Code / Gemini CLI users:</strong><br>' + _term('Commit my changes with the message "Add share feature and localStorage"'));
+                html += _note('<strong>Terminal users:</strong><br>' + _term('git add .\ngit commit -m "Add share feature and localStorage"'));
+                html += _tip('<strong>SourceTree users:</strong> Open SourceTree and look at your commit history. You now have two commits — two snapshots. Click on the first one to see what the code looked like before the share feature. This is the power of Git: you can always go back.');
+                html += nav(7, 9, 'Make It Yours');
+
+            } else if (step === 9) {
+                // ── Step 10: Make It Yours ──
+                html += '<h2>Step 10: Make It Yours</h2>';
+                html += '<p>This is your project now. Spend the next few minutes customizing it however you want:</p>';
+                html += '<div class="path-picker-grid" style="margin:20px 0;">';
+                var ideas = [
+                    { icon: '🎨', name: 'Change the Theme', desc: 'Dark mode, retro, neon, pastel, brutalist, minimalist' },
+                    { icon: '✍️', name: 'Add Your Content', desc: 'Write your own copy, add personal touches' },
+                    { icon: '🖼️', name: 'Add Visuals', desc: 'Images, GIFs, illustrations, or background art' },
+                    { icon: '🔊', name: 'Add Audio', desc: 'Background music or sound effects' },
+                ];
+                ideas.forEach(function(d) {
+                    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+                    html += '<div class="path-card-icon">' + d.icon + '</div>';
+                    html += '<div class="path-card-name">' + d.name + '</div>';
+                    html += '<div class="path-card-desc">' + d.desc + '</div>';
+                    html += '</div>';
+                });
+                html += '</div>';
+                html += '<p>Prompt your AI with whatever changes you want. There\'s no wrong answer here.</p>';
+                html += '<p style="margin-top:12px;">When you\'re happy with the result, make another commit:</p>';
+                html += _note('<strong>Claude Code / Gemini CLI users:</strong><br>' + _term('Commit my changes with a message describing what I customized'));
+                html += _note('<strong>Terminal users:</strong><br>' + _term('git add .\ngit commit -m "Customize project with [your changes here]"'));
+                html += nav(8, 10, 'Show &amp; Tell');
+
+            } else {
+                // ── Step 11: Show & Tell ──
+                html += '<h2>Step 11: Show &amp; Tell</h2>';
+                html += '<p>Open your project in the browser and show it to the group!</p>';
+                html += '<h3>Things to share:</h3>';
+                html += '<ul style="margin:8px 0 20px 20px; line-height:1.8;">';
+                html += '<li>Walk through your project — show what it does and how it works</li>';
+                html += '<li>What did you customize? What makes yours unique?</li>';
+                html += '<li>What was surprising about the process?</li>';
+                html += '<li>Did you run into any issues? How did you solve them?</li>';
+                html += '</ul>';
+
+                html += '<h3>The Build Cycle</h3>';
+                html += '<p style="margin-bottom:16px;">Everything you just did follows the same four-step pattern:</p>';
+                html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
+                var cycle = [
+                    { icon: '💬', name: 'Prompt', desc: 'Describe what you want to the AI' },
+                    { icon: '🧪', name: 'Test', desc: 'Open the file in your browser and try it' },
+                    { icon: '🔄', name: 'Iterate', desc: 'Tell the AI what to fix or improve' },
+                    { icon: '💾', name: 'Commit', desc: 'Save a checkpoint with Git' },
+                ];
+                cycle.forEach(function(c) {
+                    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+                    html += '<div class="path-card-icon">' + c.icon + '</div>';
+                    html += '<div class="path-card-name">' + c.name + '</div>';
+                    html += '<div class="path-card-desc">' + c.desc + '</div>';
+                    html += '</div>';
+                });
+                html += '</div>';
+
+                html += '<p>This is the vibe coding workflow. It works for a simple single-page project and it works for a full web application. The projects get bigger, but the cycle stays the same.</p>';
+
+                // Back button
+                html += '<div style="display:flex; justify-content:center; padding:16px 0 24px;">';
+                html += '<a href="#" class="step-link-btn" style="font-size:1.05em; padding:10px 28px; background:var(--surface-color); color:var(--text-muted); border:1px solid var(--border-color);" onclick="event.preventDefault(); renderGroupProject(9); window.scrollTo({top:0,behavior:\'smooth\'});">← Back</a>';
+                html += '</div>';
+
+                // What's Next nav cards
+                html += '<h3>What\'s Next?</h3>';
+                html += '<div class="path-picker-grid">';
+                var nextSteps = [
+                    { icon: '🧠', name: 'Vibe Coding Techniques', desc: 'Prompting strategies and core techniques', route: 'Vibe Coding Techniques.md' },
+                    { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+                    { icon: '🔥', name: 'Firebase & Deployment', desc: 'Deploy your project to a real URL', route: 'Firebase %26 Deployment.md' },
+                    { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
+                ];
+                nextSteps.forEach(function(ns) {
+                    html += '<div class="path-card" onclick="loadRoute(\'' + ns.route + '\')" tabindex="0" role="button">';
+                    html += '<div class="path-card-icon">' + ns.icon + '</div>';
+                    html += '<div class="path-card-name">' + ns.name + '</div>';
+                    html += '<div class="path-card-desc">' + ns.desc + '</div>';
+                    html += '</div>';
+                });
                 html += '</div>';
             }
 
@@ -2503,6 +2756,7 @@
                 'setup-google-ai-studio': function() { renderSetupGuide('setup-google-ai-studio'); },
                 'setup-claude-code': function() { renderSetupGuide('setup-claude-code'); },
                 'setup-gemini-cli': function() { renderSetupGuide('setup-gemini-cli'); },
+                'group-project': function() { renderGroupProject(); },
             };
 
             if (customRoutes[filePath]) {
@@ -2631,72 +2885,10 @@
             });
 
             makeCollapsible();
-            injectGroupProjectCards();
             enhanceStepContent();
             addCopyButtons();
             updateToggleIcon();
             parseWizardSteps();
-        }
-
-        // ── Group Project Card Injection ─────────────────────────────
-        const GROUP_PROJECT_OPTIONS = [
-            { id: 'option-a', letter: 'A', name: 'Personality Quiz', icon: '🧠', desc: '"Would You Rather" quiz with personality types, progress bar, and animations' },
-            { id: 'option-b', letter: 'B', name: 'Portfolio Page', icon: '🎨', desc: 'Personal portfolio with hero, projects, skills, and contact sections' },
-            { id: 'option-c', letter: 'C', name: 'Browser Game', icon: '🎮', desc: 'Reaction-time game with scoreboard, difficulty levels, and visual feedback' },
-            { id: 'option-d', letter: 'D', name: 'Your Own Idea', icon: '💡', desc: 'Write your own prompt for any single-page project — a tool, game, or visualizer' },
-        ];
-
-        function injectGroupProjectCards() {
-            if (!currentFile.includes('Group Project')) return;
-
-            // Find the "Step 2" heading that contains the option subheadings
-            const h3s = contentDiv.querySelectorAll('h3');
-            const optionHeadings = {};
-            h3s.forEach(h => {
-                const text = h.textContent.trim();
-                const match = text.match(/^Option\s+([A-D]):/i);
-                if (match) {
-                    optionHeadings[match[1].toUpperCase()] = h;
-                }
-            });
-
-            if (Object.keys(optionHeadings).length === 0) return;
-
-            // Find the parent section — insert cards before Option A
-            const firstOption = optionHeadings['A'];
-            if (!firstOption) return;
-
-            // Build the card grid
-            const grid = document.createElement('div');
-            grid.className = 'path-picker-grid';
-            grid.style.marginBottom = '24px';
-
-            GROUP_PROJECT_OPTIONS.forEach(opt => {
-                const card = document.createElement('div');
-                card.className = 'path-card';
-                card.setAttribute('tabindex', '0');
-                card.setAttribute('role', 'button');
-                card.innerHTML = `
-                    <div class="path-card-icon">${opt.icon}</div>
-                    <div class="path-card-name">Option ${opt.letter}: ${opt.name}</div>
-                    <div class="path-card-desc">${opt.desc}</div>
-                `;
-                card.addEventListener('click', () => {
-                    const heading = optionHeadings[opt.letter];
-                    if (heading) expandAndScrollTo(heading.id);
-                });
-                card.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        card.click();
-                    }
-                });
-                grid.appendChild(card);
-            });
-
-            // Insert before the first option heading (or its section wrapper)
-            const insertTarget = firstOption.closest('.section-content') ? firstOption : firstOption;
-            insertTarget.parentNode.insertBefore(grid, insertTarget);
         }
 
         // ── Post-Processor: enhance rendered content ─────────────────
