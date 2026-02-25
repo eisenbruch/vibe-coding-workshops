@@ -1,6 +1,6 @@
 # Advanced Setup — Gemini CLI
 
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series*
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
 This guide sets up a full development environment with VS Code and Gemini. This is a powerful, free setup — Gemini writes code, runs commands, manages files, and builds your project directly.
 

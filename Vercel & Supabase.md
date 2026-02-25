@@ -1,5 +1,5 @@
 # Vercel & Supabase
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 This guide covers building and deploying a full-stack web app using **Supabase** (database, auth, storage) and **Vercel** (hosting and deployment). This is a popular alternative to the Firebase stack — see [Backend & Hosting Platforms](Backend%20&%20Hosting%20Platforms.md) if you're unsure which to choose.

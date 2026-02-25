@@ -1,5 +1,5 @@
 # Solo Project Guide
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 Everything you need to build, run, and share your own project after the group exercise.
@@ -334,7 +334,7 @@ Choose the method that matches your comfort level. Your AI assistant can help!
 
 **Advanced:** Fork the repo → Add your project → Submit a Pull Request
 
-Full instructions: **<a href="https://eisenbruch.github.io/vibe-coding-workshops/#share-your-work" target="_blank">eisenbruch.github.io/vibe-coding-workshops</a>**
+Full instructions: **<a href="https://workshop.nerktek.com/#share-your-work" target="_blank">workshop.nerktek.com</a>**
 
 </td>
 <td width="30%" valign="top">

@@ -1,6 +1,6 @@
 # Beginner Quick Start
 
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series*
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
 This is a quick demo of the simplest way to vibe code — no downloads, no setup, just a browser. The AI tools below render your creation right in the browser, so you see results immediately.
 

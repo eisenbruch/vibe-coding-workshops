@@ -9,7 +9,7 @@ This document is now at **[Firebase & Deployment](Firebase%20%26%20Deployment.md
 ---
 
 # Firebase & Deployment
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 This guide covers taking your local project and connecting it to a real backend using Google Firebase.

@@ -1,5 +1,5 @@
 # Group Project
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series*
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
 We're all building a project together using whatever AI tool you set up. You'll pick from a few project options (or come up with your own), then follow the same steps to build, iterate, and share.
 

@@ -1,5 +1,5 @@
 # Custom Domains
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 This guide covers buying a custom domain and connecting it to your Firebase-hosted project so users visit `yoursite.com` instead of `your-project.web.app`.

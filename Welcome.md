@@ -1,5 +1,5 @@
 # Welcome to Vibe Coding
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 ---
@@ -9,14 +9,13 @@
 <td width="70%" valign="top">
 
 Access workshop resources, updates, projects, and more at:
-<a href="https://eisenbruch.github.io/vibe-coding-workshops/" target="_blank">https://eisenbruch.github.io/vibe-coding-workshops/</a>
-<a href="https://linkp.ee/r/workshop" target="_blank">https://linkp.ee/r/workshop</a>
+<a href="https://workshop.nerktek.com/" target="_blank">https://workshop.nerktek.com/</a>
 
 Click *Watch* on the <a href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank">GitHub repository</a> to be notified of resource updates and participant project uploads.
 </td>
 <td width="30%" valign="top">
 
-<img src="images/github-site-qr.png" alt="GitHub QR Code" width="128">
+<img src="images/github-site-qr.png" alt="GitHub QR Code" width="192">
 
 </td>
 </tr>
@@ -31,7 +30,7 @@ Please fill out our feedback form after the workshop:
 </td>
 <td width="30%" valign="top">
 
-<img src="images/feedback-form-qr.png" alt="Feedback Form QR Code" width="128">
+<img src="images/feedback-form-qr.png" alt="Feedback Form QR Code" width="192">
 
 </td>
 </tr>

@@ -1,5 +1,5 @@
 # Project Idea Prompts - Extended
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 *Full starter prompts for workshop project ideas. Use these as starting points and customize to your liking.*

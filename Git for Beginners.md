@@ -1,5 +1,5 @@
 # Git for Beginners
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 A friendly, no-jargon guide to Git — the save point system for your code.

@@ -1,5 +1,5 @@
 # Backend & Hosting Platforms
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 This guide compares the most popular hosting and backend platforms for web projects: **Firebase**, **Vercel + Supabase**, **Netlify**, and **Cloudflare Pages**. Each has strengths — the right choice depends on what you're building.

@@ -1,6 +1,6 @@
 # Intermediate Setup — Claude Desktop
 
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series*
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
 This guide walks you through setting up Claude Desktop for the workshop. Claude Desktop lets the AI read and write files directly on your computer — no copy-pasting code.
 

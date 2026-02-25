@@ -8,53 +8,53 @@ Welcome to the Vibe Coding workshop repository! This is your central hub for lea
 
 Reference guides and resources for vibe coding, project setup, and related tools.
 
-**[Resource Viewer](https://eisenbruch.github.io/vibe-coding-workshops/):**
+**[Resource Viewer](https://workshop.nerktek.com/):**
 
 **Start Here:**
-- **[Welcome & Inspiration](https://eisenbruch.github.io/vibe-coding-workshops/#Welcome.md)** — Workshop overview, example projects, pick your path
+- **[Welcome & Inspiration](https://workshop.nerktek.com/#Welcome.md)** — Workshop overview, example projects, pick your path
 
 **Tool Setup (Pick Your Level):**
-- **[Beginner Quick Start](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Beginner%20Quick%20Start.md)** — Try vibe coding in your browser, no setup
-- **[Intermediate: Claude Desktop](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Intermediate%20Setup%20-%20Claude%20Desktop.md)** — Desktop AI assistant setup
-- **[Intermediate: Google AI Studio](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Intermediate%20Setup%20-%20Google%20AI%20Studio.md)** — Free browser-based AI workspace
-- **[Advanced: Claude Code](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Advanced%20Setup%20-%20Claude%20Code.md)** — VS Code + AI agent setup
-- **[Advanced: Gemini CLI](https://eisenbruch.github.io/vibe-coding-workshops/#paths/Advanced%20Setup%20-%20Gemini%20CLI.md)** — Free VS Code + AI agent setup
+- **[Beginner Quick Start](https://workshop.nerktek.com/#paths/Beginner%20Quick%20Start.md)** — Try vibe coding in your browser, no setup
+- **[Intermediate: Claude Desktop](https://workshop.nerktek.com/#paths/Intermediate%20Setup%20-%20Claude%20Desktop.md)** — Desktop AI assistant setup
+- **[Intermediate: Google AI Studio](https://workshop.nerktek.com/#paths/Intermediate%20Setup%20-%20Google%20AI%20Studio.md)** — Free browser-based AI workspace
+- **[Advanced: Claude Code](https://workshop.nerktek.com/#paths/Advanced%20Setup%20-%20Claude%20Code.md)** — VS Code + AI agent setup
+- **[Advanced: Gemini CLI](https://workshop.nerktek.com/#paths/Advanced%20Setup%20-%20Gemini%20CLI.md)** — Free VS Code + AI agent setup
 
 **Build Together:**
-- **[Group Project](https://eisenbruch.github.io/vibe-coding-workshops/#Group%20Project.md)** — Guided group project everyone builds together
+- **[Group Project](https://workshop.nerktek.com/#Group%20Project.md)** — Guided group project everyone builds together
 
 **Level Up:**
-- **[Vibe Coding Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Vibe%20Coding%20Techniques.md)** — Core approaches, prompting, essential techniques
-- **[Solo Project Guide](https://eisenbruch.github.io/vibe-coding-workshops/#Solo%20Project%20Guide.md)** — Project ideas, setup, build cycle, deployment
+- **[Vibe Coding Techniques](https://workshop.nerktek.com/#Vibe%20Coding%20Techniques.md)** — Core approaches, prompting, essential techniques
+- **[Solo Project Guide](https://workshop.nerktek.com/#Solo%20Project%20Guide.md)** — Project ideas, setup, build cycle, deployment
 
 **Deployment & Beyond:**
-- **[Firebase & Deployment](https://eisenbruch.github.io/vibe-coding-workshops/#Firebase%20%26%20Deployment.md)** — Backend, database, hosting
-- **[Vercel & Supabase](https://eisenbruch.github.io/vibe-coding-workshops/#Vercel%20%26%20Supabase.md)** — SQL database, auth, deployment
-- **[Custom Domains](https://eisenbruch.github.io/vibe-coding-workshops/#Custom%20Domains.md)** — Buying domains, Cloudflare, DNS setup
+- **[Firebase & Deployment](https://workshop.nerktek.com/#Firebase%20%26%20Deployment.md)** — Backend, database, hosting
+- **[Vercel & Supabase](https://workshop.nerktek.com/#Vercel%20%26%20Supabase.md)** — SQL database, auth, deployment
+- **[Custom Domains](https://workshop.nerktek.com/#Custom%20Domains.md)** — Buying domains, Cloudflare, DNS setup
 
 **Reference:**
-- **[Git for Beginners](https://eisenbruch.github.io/vibe-coding-workshops/#Git%20for%20Beginners.md)** — Simplified Git guide
-- **[Claude Code Quick Reference](https://eisenbruch.github.io/vibe-coding-workshops/#Claude%20Code%20Quick%20Reference.md)** — CLI commands and tips
-- **[Advanced Techniques](https://eisenbruch.github.io/vibe-coding-workshops/#Advanced%20Techniques.md)** — Agents, skills, MCP servers, git worktrees
-- **[Project Idea Prompts](https://eisenbruch.github.io/vibe-coding-workshops/#Project%20Idea%20Prompts%20-%20Extended.md)** — Starter prompts for simple, medium, and complex projects
-- **[AI Tools Directory](https://eisenbruch.github.io/vibe-coding-workshops/#AI%20Tools%20Directory.md)** — Comprehensive list of AI tools
-- **[Backend & Hosting Platforms](https://eisenbruch.github.io/vibe-coding-workshops/#Backend%20%26%20Hosting%20Platforms.md)** — Firebase vs Supabase vs Vercel vs Netlify vs Cloudflare
-- **[Workshop Projects](https://eisenbruch.github.io/vibe-coding-workshops/#Workshop%20Projects.md)** — Showcase of completed projects
+- **[Git for Beginners](https://workshop.nerktek.com/#Git%20for%20Beginners.md)** — Simplified Git guide
+- **[Claude Code Quick Reference](https://workshop.nerktek.com/#Claude%20Code%20Quick%20Reference.md)** — CLI commands and tips
+- **[Advanced Techniques](https://workshop.nerktek.com/#Advanced%20Techniques.md)** — Agents, skills, MCP servers, git worktrees
+- **[Project Idea Prompts](https://workshop.nerktek.com/#Project%20Idea%20Prompts%20-%20Extended.md)** — Starter prompts for simple, medium, and complex projects
+- **[AI Tools Directory](https://workshop.nerktek.com/#AI%20Tools%20Directory.md)** — Comprehensive list of AI tools
+- **[Backend & Hosting Platforms](https://workshop.nerktek.com/#Backend%20%26%20Hosting%20Platforms.md)** — Firebase vs Supabase vs Vercel vs Netlify vs Cloudflare
+- **[Workshop Projects](https://workshop.nerktek.com/#Workshop%20Projects.md)** — Showcase of completed projects
 
 ### Workshop Projects
 
 Browse completed workshop projects in the <a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects" target="_blank">`workshop-projects/`</a> directory. Projects are organized by workshop date:
 
 **<a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects/2025-12-12-resistor" target="_blank">Workshop 2 - December 12, 2025 @ NYCResistor</a>**:
-1. <a href="https://eisenbruch.github.io/vibe-coding-workshops/workshop-projects/2025-12-12-resistor/group-project-hobby-finder/hobby-finder.html" target="_blank">Ye Olde Hobby Finder</a> - Group Project - Medieval-themed hobby discovery tool with Tinder-style swiping and head-to-head duels
+1. <a href="https://workshop.nerktek.com/workshop-projects/2025-12-12-resistor/group-project-hobby-finder/hobby-finder.html" target="_blank">Ye Olde Hobby Finder</a> - Group Project - Medieval-themed hobby discovery tool with Tinder-style swiping and head-to-head duels
 <br/><img src="workshop-projects/2025-12-12-resistor/group-project-hobby-finder/hobby-finder.png" width="50%" alt="Ye Olde Hobby Finder">
 
 **<a href="https://github.com/eisenbruch/vibe-coding-workshops/tree/master/workshop-projects/2025-11-15-resistor" target="_blank">Workshop 1 - November 15, 2025 @ NYCResistor</a>**:
-1. <a href="https://eisenbruch.github.io/vibe-coding-workshops/workshop-projects/2025-11-15-resistor/noah-eisenbruch-live-mjpeg-compression/index.html" target="_blank">Compressed MJPEG Stream with Glitch Effects</a> - Noah - Live webcam MJPEG feed with live compression control and glitch effects like pixel sorting (<a href="https://github.com/eisenbruch/live-mjpeg-compression" target="_blank">View Code</a>)
+1. <a href="https://workshop.nerktek.com/workshop-projects/2025-11-15-resistor/noah-eisenbruch-live-mjpeg-compression/index.html" target="_blank">Compressed MJPEG Stream with Glitch Effects</a> - Noah - Live webcam MJPEG feed with live compression control and glitch effects like pixel sorting (<a href="https://github.com/eisenbruch/live-mjpeg-compression" target="_blank">View Code</a>)
 <br/><img src="https://github.com/eisenbruch/live-mjpeg-compression/raw/master/media/demo.gif" width="50%" alt="MJPEG Compression Demo">
-2. <a href="https://eisenbruch.github.io/vibe-coding-workshops/workshop-projects/2025-11-15-resistor/hank-top-or-bottom/index.html" target="_blank">Are You a Top or a Bottom?</a> - Hank - Parody quiz styled after early 2000s magazine flowcharts
+2. <a href="https://workshop.nerktek.com/workshop-projects/2025-11-15-resistor/hank-top-or-bottom/index.html" target="_blank">Are You a Top or a Bottom?</a> - Hank - Parody quiz styled after early 2000s magazine flowcharts
 <br/><img src="workshop-projects/2025-11-15-resistor/hank-top-or-bottom/top-bottom.png" width="50%" alt="Top or Bottom Quiz">
-3. <a href="https://eisenbruch.github.io/vibe-coding-workshops/workshop-projects/2025-11-15-resistor/andy-listing-thing/index.html" target="_blank">Band Tier Console</a> - Andy - Drag-and-drop ranking interface with cyberpunk aesthetic
+3. <a href="https://workshop.nerktek.com/workshop-projects/2025-11-15-resistor/andy-listing-thing/index.html" target="_blank">Band Tier Console</a> - Andy - Drag-and-drop ranking interface with cyberpunk aesthetic
 <br/><img src="workshop-projects/2025-11-15-resistor/andy-listing-thing/listing-thing.png" width="100%" alt="Band Tier Console">
 
 ## Share Your Work!

@@ -1,6 +1,6 @@
 # Intermediate Setup — Google AI Studio
 
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series*
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
 This guide walks you through setting up Google AI Studio for the workshop. AI Studio gives you a powerful chat interface for building with Gemini — completely free.
 

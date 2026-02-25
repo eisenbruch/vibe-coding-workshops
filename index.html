@@ -1605,7 +1605,7 @@
                 const mdAnchorMatch = href.match(/^(.+\.md)#(.+)$/i);
 
                 const isInternalViewerLink = (isMarkdownFile || hasMarkdownHash || mdAnchorMatch) &&
-                    (!href.startsWith('http') || href.includes('eisenbruch.github.io/vibe-coding-workshops/'));
+                    (!href.startsWith('http') || href.includes('workshop.nerktek.com/'));
 
                 if (isInternalViewerLink) {
                     link.addEventListener('click', (e) => {

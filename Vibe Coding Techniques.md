@@ -1,5 +1,5 @@
 # Vibe Coding Techniques
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 A reference guide for vibe coding techniques — how to prompt effectively, manage AI context, think like a product designer, and make smart architecture decisions.
@@ -89,7 +89,7 @@ DomainFlip was built using the comprehensive brief approach — here's how it wo
 
 > **Pro Tip:** Use an AI chatbot (not a coding assistant) to plan your project in detail, then feed that plan to an AI coding agent. DomainFlip was created with only 1 Claude Code prompt, but it was fed 8 different multi-page documents outlining the entire project in extreme detail.
 
-> **Bonus:** Read through the <a href="https://eisenbruch.github.io/vibe-coding-workshops/#docs/domainflip/domainflip_summary.md" target="_blank">DomainFlip summary and build documents</a>.
+> **Bonus:** Read through the <a href="https://workshop.nerktek.com/#docs/domainflip/domainflip_summary.md" target="_blank">DomainFlip summary and build documents</a>.
 
 ---
 
