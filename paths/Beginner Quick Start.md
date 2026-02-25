@@ -2,41 +2,52 @@
 
 *Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
-This is a quick demo of the simplest way to vibe code — no downloads, no setup, just a browser. The AI tools below render your creation right in the browser, so you see results immediately.
+No downloads, no setup — just a browser. These AI tools build and preview your creation right in the chat window.
 
-## Browser AI Tools
+---
 
-These tools let you describe what you want and see it built in real time, right in the browser window:
+<!-- wizard-start -->
+<!-- wizard-step: 1 | title: Pick a Tool -->
 
-| Tool | What Happens |
+## Step 1: Pick a Tool
+
+Open any of these in your browser:
+
+| Tool | How It Works |
 |------|-------------|
-| <a href="https://claude.ai" target="_blank">Claude.ai</a> | Generates an interactive **artifact** that renders inline — you see and interact with the result directly in the chat |
-| <a href="https://chatgpt.com" target="_blank">ChatGPT</a> | Generates a **canvas** that renders inline — live preview right in the conversation |
-| <a href="https://gemini.google.com" target="_blank">Gemini</a> | Generates code with a **preview** panel — see the result alongside the chat |
+| <a href="https://claude.ai" target="_blank">Claude.ai</a> | Generates an interactive **artifact** — see and use the result right in the chat |
+| <a href="https://chatgpt.com" target="_blank">ChatGPT</a> | Generates a **canvas** — live preview right in the conversation |
+| <a href="https://gemini.google.com" target="_blank">Gemini</a> | Generates code with a **preview** panel alongside the chat |
 | <a href="https://aistudio.google.com" target="_blank">Google AI Studio</a> | Prototype with Gemini models — code output with preview |
 
-## Demo: Try It Now
+<!-- wizard-step: 2 | title: Try It Now -->
 
-1. Open any of the tools above
-2. Type a prompt like:
+## Step 2: Try It Now
 
-   > Create a personal countdown timer to New Year's Eve. Make it visually appealing with a dark theme and animated numbers.
+1. Type a prompt like this into your chosen tool:
 
-3. The AI builds it and **shows you the result right there** — no copying, no saving, no files. You can click, scroll, and interact with it immediately.
+```
+Create a personal countdown timer to New Year's Eve. Make it visually appealing with a dark theme and animated numbers.
+```
 
-4. Want to change something? Just tell the AI: "Make it neon green" or "Add confetti when it hits zero." It updates in place.
+2. The AI builds it and **shows you the result right there** — no copying, no saving, no files
+3. Want changes? Just say: "Make it neon green" or "Add confetti when it hits zero"
 
-That's vibe coding at its most basic: describe what you want, see it appear, iterate by talking.
+That's vibe coding: describe → see it appear → iterate by talking.
 
-## What This Is Good For
+<!-- wizard-step: 3 | title: What You Can Build -->
 
-Browser AI is great for quick experiments and single-page creations: calculators, timers, quizzes, visual demos, simple games. You describe, it builds, you see it instantly.
+## Step 3: What You Can Build
 
-## Limitations
+Browser AI is great for quick single-page creations:
 
-- **One-off creations** — the result lives in the chat session, not as a saved project
-- **No file management** — the AI can't create or edit files on your computer
-- **No version control** — no way to undo changes or track history
-- **Single-page only** — multi-page apps or complex projects need real tools
+- Calculators, timers, and converters
+- Quizzes and simple games
+- Visual demos and animations
+- Landing pages and portfolios
 
-For anything beyond a quick experiment, the Intermediate and Advanced tracks give you tools that manage files, track changes, and build real projects. See the [Welcome page](../Welcome.md) to pick a track.
+> **Note:** These creations live in the chat session — they're not saved as files on your computer. For real projects with version control and deployment, check out the Intermediate or Advanced setup paths.
+
+<!-- wizard-end -->
+
+Ready for more? Head to the [Group Project](../Group%20Project.md) to start building with the group!
