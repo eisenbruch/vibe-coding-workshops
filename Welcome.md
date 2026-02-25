@@ -42,15 +42,18 @@ Please fill out our feedback form after the workshop:
 
 Vibe coding is the practice of using AI to write code by describing what you want in plain language. Instead of learning programming syntax, you communicate your ideas to large language models (LLMs) that generate working code for you. You guide the process — the AI handles the implementation.
 
-This isn't about replacing developers. It's about making software creation accessible to everyone. Whether you're building a quick tool, a personal website, or a full web application, vibe coding lets you focus on *what* you want to build rather than *how* to write it.
+Vibe coding makes software creation accessible to everyone. Whether you're building a quick tool, a personal website, or a full application, vibe coding lets you focus on *what* you want to build rather than *how* to create it technically.
 
-No prior coding experience is required. You'll learn the techniques, tools, and workflow to go from idea to deployed project in a single workshop.
+No prior coding experience is required, but it greatly helps to have a general understanding of the tools and frameworks used to build your project and how they fit together, in order to create. Your AI can teach you everything you need to know. 
 
 **What you'll learn:**
-- How to choose and use AI coding tools (from browser-based chat to full development environments)
+In this workshop you'll learn the techniques, tools, and workflow to go from idea to deployed project.
+
+You'll learn:
+- How to use any AI coding agent
 - Core techniques for prompting, iterating, and debugging with AI
 - How to set up a project, manage versions with Git, and deploy to the web
-- Practical strategies for building anything from simple tools to complex web applications
+- Practical strategies for building anything from simple tools to complex applications
 
 ---
 

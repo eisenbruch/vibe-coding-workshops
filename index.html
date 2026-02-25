@@ -1672,11 +1672,7 @@
                 if (sectionContent.children.length > 0) {
                     const id = header.id;
                     // Default: first H2 open, plus table-of-contents and welcome
-                    let defaultOpen = id === 'table-of-contents' || id === 'welcome';
-                    if (!firstH2Found && level === 2) {
-                        defaultOpen = true;
-                        firstH2Found = true;
-                    }
+                    let defaultOpen = true;
                     const isOpen = saved ? (saved[id] !== undefined ? saved[id] : defaultOpen) : defaultOpen;
                     if (!isOpen) {
                         header.classList.add('collapsible-header', 'collapsed');
