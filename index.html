@@ -14,7 +14,7 @@
 
     <div class="top-bar">
         <button class="sidebar-reopen" id="sidebar-reopen" onclick="toggleSidebar()" aria-label="Show sidebar" title="Show sidebar">☰</button>
-        <div class="logo">Vibe Coding Workshop</div>
+        <div class="logo" onclick="loadRoute('welcome')" style="cursor:pointer;">Vibe Coding Workshop</div>
         <div class="top-bar-row2">
             <div class="top-bar-doc" style="display:flex; align-items:center; gap:8px;">
                 <button class="wizard-toggle" id="wizard-toggle" onclick="toggleWizardMode()" aria-label="Toggle step-by-step mode"><span>Step-by-Step</span></button>
@@ -216,24 +216,38 @@
             const customRoutes = {
                 'welcome': renderWelcome,
                 'what-is-vibe-coding': renderWhatIsVibeCoding,
+                'why-vibe-coding': renderWhyVibeCoding,
+                'who-is-vibe-coding-for': renderWhoIsVibeCodingFor,
                 'what-youll-learn': renderWhatYoullLearn,
                 'example-projects': renderExampleProjects,
                 'pick-your-path': renderPickYourPath,
-                'setup-beginner': renderBeginnerQuickStart,
-                'setup-claude-desktop': function() { renderSetupGuide('setup-claude-desktop'); },
-                'setup-google-ai-studio': function() { renderSetupGuide('setup-google-ai-studio'); },
-                'setup-claude-code': function() { renderSetupGuide('setup-claude-code'); },
-                'setup-gemini-cli': function() { renderSetupGuide('setup-gemini-cli'); },
-                'group-project': function() { renderGroupProject(); },
+                'setup-beginner': function(step) { renderBeginnerQuickStart(step); },
+                'setup-claude-desktop': function(step) { renderSetupGuide('setup-claude-desktop', step); },
+                'setup-google-ai-studio': function(step) { renderSetupGuide('setup-google-ai-studio', step); },
+                'setup-antigravity': function(step) { renderSetupGuide('setup-antigravity', step); },
+                'setup-claude-code': function(step) { renderSetupGuide('setup-claude-code', step); },
+                'setup-gemini-cli': function(step) { renderSetupGuide('setup-gemini-cli', step); },
+                'setup-antigravity-claude': function(step) { renderSetupGuide('setup-antigravity-claude', step); },
+                'setup-antigravity-gemini': function(step) { renderSetupGuide('setup-antigravity-gemini', step); },
+                'group-project': function(step) { renderGroupProject(step); },
             };
 
-            if (customRoutes[filePath]) {
-                currentFile = filePath;
+            // Parse step number from paths like "setup-beginner/2"
+            var stepMatch = filePath.match(/^(.+?)\/(\d+)$/);
+            var baseRoute = stepMatch ? stepMatch[1] : filePath;
+            var stepNum = stepMatch ? parseInt(stepMatch[2], 10) : 0;
+
+            if (customRoutes[baseRoute]) {
+                currentFile = baseRoute;
                 window.location.hash = encodeURIComponent(filePath);
                 loadingDiv.style.display = 'none';
                 resetWizardState();
-                customRoutes[filePath]();
-                var fileEntry = AVAILABLE_FILES.find(function(f) { return f.path === filePath; });
+                if (stepNum > 0) {
+                    customRoutes[baseRoute](stepNum);
+                } else {
+                    customRoutes[baseRoute]();
+                }
+                var fileEntry = AVAILABLE_FILES.find(function(f) { return f.path === baseRoute; });
                 if (fileEntry && fileEntry.autoWizard) {
                     addCopyButtons();
                     parseWizardSteps();
@@ -962,9 +976,10 @@
         // ── Hash Navigation ───────────────────────────────────────────
         window.addEventListener('hashchange', () => {
             const newHash = decodeURIComponent(window.location.hash.slice(1));
-            if (newHash && newHash !== currentFile) {
-                currentFile = newHash;
-                selector.value = newHash;
+            const baseHash = newHash.replace(/\/\d+$/, '');
+            if (newHash && baseHash !== currentFile) {
+                currentFile = baseHash;
+                selector.value = baseHash;
                 loadMarkdown(newHash);
             }
         });
@@ -973,14 +988,17 @@
         applyFontSize(getStoredFontSize());
 
         const hash = window.location.hash.slice(1);
+        var initPath = currentFile;
         if (hash) {
             const decodedPath = decodeURIComponent(hash);
-            currentFile = decodedPath;
-            selector.value = decodedPath;
+            const basePath = decodedPath.replace(/\/\d+$/, '');
+            currentFile = basePath;
+            selector.value = basePath;
+            initPath = decodedPath;
         }
 
         buildSidebarDocs();
-        loadMarkdown(currentFile);
+        loadMarkdown(initPath);
         initBackToTop();
 
     </script>

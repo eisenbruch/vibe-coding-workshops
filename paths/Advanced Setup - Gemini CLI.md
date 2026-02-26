@@ -30,17 +30,19 @@
 
 Pick whichever feels more comfortable — both connect to the same AI:
 
-### Option A: VS Code Extension (recommended to start)
+### Option A: CLI Tool (recommended)
+
+1. Follow the installation guide at <a href="https://codeassist.google" target="_blank">codeassist.google</a>
+2. Open a terminal in VS Code (`` Ctrl+` ``)
+3. Type `gemini` to start
+
+### Option B: VS Code Extension
 
 1. Install the <a href="https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist" target="_blank">Gemini Code Assist extension</a> from the marketplace
 2. Click the Gemini icon in the sidebar
 3. Sign in when prompted
 
-### Option B: CLI Tool (for terminal users)
-
-1. Follow the installation guide at <a href="https://codeassist.google" target="_blank">codeassist.google</a>
-2. Open a terminal in VS Code (`` Ctrl+` ``)
-3. Type `gemini` to start
+> **Warning:** The Gemini extension currently has a buggy UI and workflow. We recommend using the CLI version or Antigravity instead.
 
 <!-- wizard-step: 4 | title: Create Your Project Folder -->
 

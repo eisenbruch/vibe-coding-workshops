@@ -18,7 +18,7 @@ function renderPickYourPath() {
     PATH_OPTIONS.forEach(group => {
         html += '<div class="path-picker-level">';
         html += `<div class="path-picker-level-label">${group.level}</div>`;
-        html += '<div class="path-picker-grid">';
+        html += '<div class="path-picker-grid pick-your-path-grid">';
         group.paths.forEach(p => {
             const costClass = p.cost === 'free' ? 'free' : 'paid';
             const costLabel = p.cost === 'free' ? 'Free' : 'Paid';
@@ -44,9 +44,9 @@ function renderPickYourPath() {
     html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px;">Tool Comparison</h2>';
     html += '<p style="color:var(--text-muted); margin-bottom:16px;">A quick overview of the major AI models and when to reach for each:</p>';
     html += '<ul style="padding-left:1.5em; margin-bottom:16px;">';
-    html += '<li><strong>Claude:</strong> The architect. Best for backend logic, complex architecture, and understanding large projects.</li>';
-    html += '<li><strong>Gemini:</strong> The speed demon. Excellent for writing, rapid prototyping, and converting screenshots to UI code.</li>';
-    html += '<li><strong>ChatGPT:</strong> The specialist. Useful for tackling specific tricky bugs other models struggle with.</li>';
+    html += '<li><strong>Claude Opus and Sonnet:</strong> The architect. Best for backend logic, complex architecture, and understanding large projects.</li>';
+    html += '<li><strong>Gemini 3+:</strong> The speed demon. Excellent for writing, rapid prototyping, and converting screenshots to UI code.</li>';
+    html += '<li><strong>ChatGPT Codex:</strong> The specialist. Useful for tackling specific tricky bugs other models struggle with.</li>';
     html += '</ul>';
     html += '<blockquote style="padding:0 1em; color:var(--text-muted); border-left:0.25em solid var(--blockquote-border);"><strong>Tip:</strong> Switch models when you get stuck!</blockquote>';
 
@@ -96,17 +96,22 @@ function renderWelcome() {
     html += '<div class="path-card" onclick="loadRoute(\'what-is-vibe-coding\')" tabindex="0" role="button">';
     html += '<div class="path-card-icon">🧠</div>';
     html += '<div class="path-card-name">What is Vibe Coding?</div>';
-    html += '<div class="path-card-desc">Learn how AI-assisted coding works and what you\'ll build in this workshop</div>';
+    html += '<div class="path-card-desc">Learn how AI-assisted coding works</div>';
     html += '</div>';
-    html += '<div class="path-card" onclick="loadRoute(\'example-projects\')" tabindex="0" role="button">';
-    html += '<div class="path-card-icon">🚀</div>';
-    html += '<div class="path-card-name">Example Projects</div>';
-    html += '<div class="path-card-desc">See what\'s possible — real projects built with vibe coding</div>';
+    html += '<div class="path-card" onclick="loadRoute(\'why-vibe-coding\')" tabindex="0" role="button">';
+    html += '<div class="path-card-icon">⚡</div>';
+    html += '<div class="path-card-name">Why Vibe Coding?</div>';
+    html += '<div class="path-card-desc">An essential skill for the AI era</div>';
+    html += '</div>';
+    html += '<div class="path-card" onclick="loadRoute(\'who-is-vibe-coding-for\')" tabindex="0" role="button">';
+    html += '<div class="path-card-icon">🎯</div>';
+    html += '<div class="path-card-name">Who Is It For?</div>';
+    html += '<div class="path-card-desc">Bring your skills — technical or not</div>';
     html += '</div>';
     html += '<div class="path-card" onclick="loadRoute(\'pick-your-path\')" tabindex="0" role="button">';
     html += '<div class="path-card-icon">🛤️</div>';
     html += '<div class="path-card-name">Pick Your Path</div>';
-    html += '<div class="path-card-desc">Choose your setup based on comfort level and start building</div>';
+    html += '<div class="path-card-desc">Choose your setup and start building</div>';
     html += '</div>';
     html += '</div>';
 
@@ -155,6 +160,94 @@ function renderWhatIsVibeCoding() {
 
     // CTA
     html += '<div style="text-align:center; padding:16px 0;">';
+    html += '<a href="#why-vibe-coding" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'why-vibe-coding\');">Why Vibe Coding? →</a>';
+    html += '</div>';
+
+    contentDiv.innerHTML = html;
+}
+
+// ── Why Vibe Coding ────────────────────────────────────────
+function renderWhyVibeCoding() {
+    let html = '<div class="path-picker">';
+    html += '<h1>Why Vibe Coding?</h1>';
+    html += '<p class="path-picker-subtitle">In the AI era, building things is no longer limited to people who write code.</p>';
+    html += '</div>';
+
+    html += '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">AI has fundamentally changed what it means to build software. Ideas that used to take weeks of development can now be prototyped in an afternoon. Vibe coding puts that power in your hands — turning the ability to create software into an essential professional and creative skill.</p>';
+
+    html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">💡</div>';
+    html += '<div class="path-card-name">Turn Ideas Into Reality</div>';
+    html += '<div class="path-card-desc">Build tools, prototypes, and products for your work or personal projects — without waiting on developers</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🚀</div>';
+    html += '<div class="path-card-name">Move Faster</div>';
+    html += '<div class="path-card-desc">Test concepts in hours instead of weeks. Iterate on real, working software instead of mockups and slide decks</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🔓</div>';
+    html += '<div class="path-card-name">Unlock New Capabilities</div>';
+    html += '<div class="path-card-desc">Automate workflows, build internal tools, create data visualizations — things you couldn\'t do before</div>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="step-callout tip" style="margin-bottom:32px;">';
+    html += '<span class="step-callout-icon">🎯</span>';
+    html += '<div class="step-callout-body">Vibe coding isn\'t about becoming a software engineer. It\'s about adding <strong>building</strong> to your toolkit — the same way spreadsheets, presentations, and design tools became essential skills over time.</div>';
+    html += '</div>';
+
+    // CTA
+    html += '<div style="text-align:center; padding:16px 0;">';
+    html += '<a href="#who-is-vibe-coding-for" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'who-is-vibe-coding-for\');">Who Is It For? →</a>';
+    html += '</div>';
+
+    contentDiv.innerHTML = html;
+}
+
+// ── Who Is Vibe Coding For ─────────────────────────────────
+function renderWhoIsVibeCodingFor() {
+    let html = '<div class="path-picker">';
+    html += '<h1>Who Is Vibe Coding For?</h1>';
+    html += '<p class="path-picker-subtitle">Anyone who\'s curious and wants to build things. Your existing skills are your superpower.</p>';
+    html += '</div>';
+
+    html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">💻</div>';
+    html += '<div class="path-card-name">Technical People</div>';
+    html += '<div class="path-card-desc">Developers, engineers, data scientists — move 10x faster on prototypes, side projects, and automation</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🎨</div>';
+    html += '<div class="path-card-name">Designers & Creatives</div>';
+    html += '<div class="path-card-desc">Artists, designers, writers — bring your visual and creative instincts directly into interactive projects</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">📊</div>';
+    html += '<div class="path-card-name">Marketers & Analysts</div>';
+    html += '<div class="path-card-desc">Build landing pages, dashboards, and tools tailored to your exact needs — no dev team required</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🌱</div>';
+    html += '<div class="path-card-name">Complete Beginners</div>';
+    html += '<div class="path-card-desc">No experience needed — just curiosity and a willingness to experiment</div>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="step-callout tip" style="margin-bottom:24px;">';
+    html += '<span class="step-callout-icon">💡</span>';
+    html += '<div class="step-callout-body"><strong>Bring your existing skills.</strong> A marketer who understands audiences will build better landing pages. A designer with an eye for layout will create more polished interfaces. A data analyst will build smarter dashboards. Your domain expertise is what makes your projects great and unique — the AI handles the code.</div>';
+    html += '</div>';
+
+    html += '<div class="step-callout note" style="margin-bottom:32px;">';
+    html += '<span class="step-callout-icon">🔑</span>';
+    html += '<div class="step-callout-body"><strong>The key ingredient is curiosity.</strong> The best vibe coders ask questions — "What if I tried this?" "Can I make it do that?" Asking questions is how you unlock new outcomes and capabilities. This workshop is built around that mindset.</div>';
+    html += '</div>';
+
+    // CTA
+    html += '<div style="text-align:center; padding:16px 0;">';
     html += '<a href="#what-youll-learn" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'what-youll-learn\');">What You\'ll Learn →</a>';
     html += '</div>';
 
@@ -176,9 +269,14 @@ function renderWhatYoullLearn() {
     html += '<li><strong>Deploy to the web</strong> — Ship your project so anyone can use it.</li>';
     html += '</ol>';
 
-    html += '<div class="step-callout tip" style="margin-bottom:32px;">';
+    html += '<div class="step-callout tip" style="margin-bottom:24px;">';
     html += '<span class="step-callout-icon">🎯</span>';
     html += '<div class="step-callout-body">The core workflow is <strong>prompt → test → iterate → commit</strong>. You\'ll practice this cycle throughout the workshop.</div>';
+    html += '</div>';
+
+    html += '<div class="step-callout note" style="margin-bottom:32px;">';
+    html += '<span class="step-callout-icon">🙋</span>';
+    html += '<div class="step-callout-body"><strong>Ask questions!</strong> During the workshop, ask about anything — your project, your tools, a concept you want to understand. The best way to learn vibe coding is to stay curious and explore what\'s possible.</div>';
     html += '</div>';
 
     // CTA
@@ -272,7 +370,7 @@ function renderStepGuide(guide, navCall, step) {
     function navBtn(targetStep, label, isPrimary) {
         var style = isPrimary
             ? 'font-size:1.05em; padding:10px 28px;'
-            : 'font-size:1.05em; padding:10px 28px; background:var(--surface-color); color:var(--text-muted); border:1px solid var(--border-color);';
+            : 'font-size:1.05em; padding:10px 28px; background:var(--surface-color); color:var(--text-muted); border:1px solid var(--border-color); box-shadow:none;';
         return '<a href="#" class="step-link-btn" style="' + style + '" onclick="event.preventDefault(); ' + navCall(targetStep) + '; window.scrollTo({top:0,behavior:\'smooth\'});">' + label + '</a>';
     }
 
@@ -307,14 +405,28 @@ function renderStepGuide(guide, navCall, step) {
 }
 
 function renderBeginnerQuickStart(step) {
-    renderStepGuide(BEGINNER_GUIDE, function(s) { return 'renderBeginnerQuickStart(' + s + ')'; }, step);
+    step = step || 0;
+    updateStepHash('setup-beginner', step);
+    renderStepGuide(BEGINNER_GUIDE, function (s) { return 'renderBeginnerQuickStart(' + s + ')'; }, step);
 }
 
 function renderSetupGuide(key, step) {
-    renderStepGuide(SETUP_GUIDES[key], function(s) { return "renderSetupGuide('" + key + "'," + s + ")"; }, step);
+    step = step || 0;
+    updateStepHash(key, step);
+    renderStepGuide(SETUP_GUIDES[key], function (s) { return "renderSetupGuide('" + key + "'," + s + ")"; }, step);
 }
 
 function renderGroupProject(step) {
-    renderStepGuide(GROUP_PROJECT_GUIDE, function(s) { return 'renderGroupProject(' + s + ')'; }, step);
+    step = step || 0;
+    updateStepHash('group-project', step);
+    renderStepGuide(GROUP_PROJECT_GUIDE, function (s) { return 'renderGroupProject(' + s + ')'; }, step);
+}
+
+// Update URL hash with step number without triggering hashchange
+function updateStepHash(route, step) {
+    var hash = step > 0 ? route + '/' + step : route;
+    if (decodeURIComponent(window.location.hash.slice(1)) !== hash) {
+        history.replaceState(null, '', '#' + encodeURIComponent(hash));
+    }
 }
 

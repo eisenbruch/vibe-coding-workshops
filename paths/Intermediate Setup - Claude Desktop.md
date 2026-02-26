@@ -2,7 +2,7 @@
 
 *Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
-> **Note:** If you don't want a paid plan, use [Google AI Studio](Intermediate%20Setup%20-%20Google%20AI%20Studio.md) instead — it's free and follows a similar workflow.
+> **Note:** If you don't want a paid plan, use [Google AI Studio](Beginner%20Setup%20-%20Google%20AI%20Studio.md) instead — it's free and follows a similar workflow.
 
 ---
 

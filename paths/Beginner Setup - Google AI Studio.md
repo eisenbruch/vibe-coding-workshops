@@ -1,4 +1,4 @@
-# Intermediate Setup — Google AI Studio
+# Beginner Setup — Google AI Studio
 
 *Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series*
 
