@@ -1,5 +1,5 @@
 # Claude Code Quick Reference
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 A quick reference for working with Claude Code in the terminal and VS Code.

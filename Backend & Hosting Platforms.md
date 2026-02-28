@@ -1,5 +1,5 @@
 # Backend & Hosting Platforms
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 This guide compares the most popular hosting and backend platforms for web projects: **Firebase**, **Vercel + Supabase**, **Netlify**, and **Cloudflare Pages**. Each has strengths — the right choice depends on what you're building.
@@ -78,7 +78,7 @@ Firebase is an all-in-one backend platform from Google. You get a database, auth
 - You're building a mobile app
 - You don't need complex data queries or relationships
 
-> **Guide:** [Firebase & Deployment](4%20-%20Firebase%20&%20Deployment.md)
+> **Guide:** [Firebase & Deployment](Firebase%20&%20Deployment.md)
 
 ---
 
@@ -189,7 +189,7 @@ Cloudflare Pages provides static site hosting with **unlimited bandwidth** on th
 **Choose Cloudflare Pages when:**
 - You're building a static site (portfolio, docs, blog) that might get unpredictable traffic
 - You want the cheapest possible hosting at scale
-- You're already using Cloudflare for your domain (see [Custom Domains](5%20-%20Custom%20Domains.md))
+- You're already using Cloudflare for your domain (see [Custom Domains](Custom%20Domains.md))
 - You need affordable file storage (R2) without egress fees
 
 ---

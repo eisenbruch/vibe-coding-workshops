@@ -1,5 +1,5 @@
 # Advanced Techniques
-*Part of the [Vibe Coding Workshop](https://eisenbruch.github.io/vibe-coding-workshops/) series* \
+*Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 
 Advanced features and workflows for AI coding agents. This section focuses on Claude Code but the concepts apply to all agents.
