@@ -93,8 +93,10 @@ const SETUP_GUIDES = {
                 title: 'Using Code Mode',
                 content: '<h2>Step 4: Using Code Mode</h2>'
                     + '<p>Once you\'re in Code mode, there are a few key controls to know:</p>'
-                    + '<h3>Switching Models</h3>'
-                    + '<p>Click the model name at the top of the chat to switch between models. Newer models are generally more capable, but different models have different strengths — some are faster, some are better at reasoning, and some handle creative tasks better. Don\'t be afraid to switch if you\'re not getting good results.</p>'
+                    + '<h3>Sidebar & Sessions</h3>'
+                    + '<p>Open the sidebar to see your past conversations. Each session keeps its full context, so you can pick up where you left off. Click <strong>New Chat</strong> to start a fresh session.</p>'
+                    + '<h3>Project Folder</h3>'
+                    + '<p>Code mode works within a project folder. You can set or change your project folder from the top of the chat — this tells Claude where to read and write files.</p>'
                     + '<h3>Approval Modes</h3>'
                     + '<p>Code mode asks permission before making changes. Click the permissions dropdown to adjust how much autonomy Claude gets:</p>'
                     + _cards([
@@ -104,17 +106,15 @@ const SETUP_GUIDES = {
                         { icon: '⚠️', name: 'Bypass Permissions', desc: 'Accepts all permissions — fast but no guardrails' },
                     ], { style: 'margin:16px 0 20px;' })
                     + _tip('Start with <strong>Auto Accept Edits</strong> for the workshop — it\'s a good balance of speed and control. You can always change it later.')
-                    + '<h3>Project Folder</h3>'
-                    + '<p>Code mode works within a project folder. You can set or change your project folder from the top of the chat — this tells Claude where to read and write files.</p>'
-                    + '<h3>Sidebar & Sessions</h3>'
-                    + '<p>Open the sidebar to see your past conversations. Each session keeps its full context, so you can pick up where you left off. Click <strong>New Chat</strong> to start a fresh session.</p>'
+                    + '<h3>Switching Models</h3>'
+                    + '<p>Click the model name at the top of the chat to switch between models. Newer models are generally more capable, but different models have different strengths — some are faster, some are better at reasoning, and some handle creative tasks better. Don\'t be afraid to switch if you\'re not getting good results.</p>'
                     + '<h3>Attaching Files</h3>'
                     + '<p>Click the <strong>+</strong> button in the chat input to attach files, or drag and drop them directly into the chat. This is useful for giving Claude screenshots, mockups, or existing code to work from.</p>'
             },
             {
                 title: 'Install Developer Tools',
                 content: '<h2>Step 5: Install Developer Tools</h2>'
-                    + '<p>Paste the prompt for your operating system into Claude Desktop. It will check and install everything automatically:</p>'
+                    + '<p>Paste the prompt for your operating system into Claude Desktop. It will install what it can automatically, but some tools require you to follow manual steps (like downloading an installer or clicking through a setup wizard). Read its instructions carefully, and if anything is unclear, ask it to explain with simple step-by-step instructions anyone can follow.</p>'
                     + '<h3>Mac</h3>'
                     + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
                     + '<h3>Windows</h3>'
@@ -201,7 +201,7 @@ const SETUP_GUIDES = {
                 title: 'What Is This?',
                 nextLabel: 'Download Antigravity',
                 content: '<h2>How This Path Works</h2>'
-                    + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Antigravity is a free IDE by Google with a built-in AI agent. You open the agent manager, describe what you want to build, and the agent creates and edits files in your project — similar to Claude Desktop\'s Code mode.</p>'
+                    + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Antigravity is a free IDE by Google with a built-in AI agent. You open the Agent Manager, describe what you want to build, and the agent creates and edits files in your project — similar to Claude Desktop\'s Code mode.</p>'
                     + _cards([
                         { icon: '💬', name: 'You Direct', desc: 'Describe what to build, fix, or change' },
                         { icon: '⚡', name: 'Agent Acts', desc: 'Creates files, runs commands, installs packages' },
@@ -221,20 +221,33 @@ const SETUP_GUIDES = {
                     + '</ol>'
             },
             {
-                title: 'Open the Agent Manager',
-                content: '<h2>Step 2: Open the Agent Manager</h2>'
-                    + '<p>Once Antigravity is open, click <strong>Open Agent Manager</strong>. You\'ll see a chat interface similar to Claude Desktop — this is where you\'ll describe what you want to build.</p>'
+                title: 'Start Using Gemini',
+                content: '<h2>Step 2: Start Using Gemini</h2>'
+                    + '<p>Gemini is built into Antigravity — no extension to install. You have two ways to use it:</p>'
+                    + '<ul>'
+                    + '<li><strong>Agent Chat panel</strong> — a sidebar in the editor. Great for quick tasks while you\'re looking at code.</li>'
+                    + '<li><strong>Agent Manager</strong> — a dedicated window just for workspaces and agents, more like Claude Desktop\'s Code mode.</li>'
+                    + '</ul>'
+                    + '<p>Here are the key controls to know:</p>'
+                    + '<h3>Sidebar: Workspaces, Conversations, and Playground</h3>'
+                    + '<p>The sidebar gives you access to your <strong>Workspaces</strong> (project folders), past <strong>Conversations</strong> (each keeps its full context so you can pick up where you left off), and the <strong>Playground</strong> for quick experiments.</p>'
+                    + '<h3>Open a New Workspace</h3>'
+                    + '<p>Click <strong>Open Workspace</strong> in the sidebar to set or change the folder the agent works in. This tells the agent where to read and write files.</p>'
+                    + '<h3>Conversation Modes</h3>'
+                    + '<p>The Agent Manager has different conversation modes you can switch between:</p>'
+                    + _cards([
+                        { icon: '📋', name: 'Planning', desc: 'The agent outlines a plan before making changes — good for complex tasks' },
+                        { icon: '⚡', name: 'Fast', desc: 'Skips planning and jumps straight to action — good for quick changes' },
+                    ], { style: 'margin:16px 0 20px;' })
                     + '<h3>Switching Models</h3>'
                     + '<p>Click the model name to switch between models. Newer models are generally more capable, but different models have different strengths — some are faster, some are better at reasoning, and some handle creative tasks better. Don\'t be afraid to switch if you\'re not getting good results.</p>'
-                    + '<h3>Sidebar & Sessions</h3>'
-                    + '<p>Open the sidebar to see your past conversations. Each session keeps its full context, so you can pick up where you left off.</p>'
                     + '<h3>Attaching Files</h3>'
                     + '<p>You can attach files or drag and drop them into the chat to give the agent screenshots, mockups, or existing code to work from.</p>'
             },
             {
                 title: 'Install Developer Tools',
                 content: '<h2>Step 3: Install Developer Tools</h2>'
-                    + '<p>Paste the prompt for your operating system into the agent manager. It will check and install everything automatically:</p>'
+                    + '<p>Paste the prompt for your operating system into the agent manager. It will install what it can automatically, but some tools require you to follow manual steps (like downloading an installer or clicking through a setup wizard). Read its instructions carefully, and if anything is unclear, ask it to explain with simple step-by-step instructions anyone can follow.</p>'
                     + '<h3>Mac</h3>'
                     + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
                     + '<h3>Windows</h3>'
@@ -309,14 +322,25 @@ const SETUP_GUIDES = {
                     + '<h3>Option B: CLI Tool (for advanced users who prefer the terminal)</h3>'
                     + '<ol class="step-num-list">'
                     + '<li>Follow the <a href="https://code.claude.com/docs/en/setup#native-install-recommended" target="_blank" rel="noopener noreferrer" class="step-link-btn">CLI installation guide</a></li>'
-                    + '<li>Open a terminal in VS Code (<code>Ctrl+`</code>)</li>'
+                    + '<li>Right-click an empty space on the editor tab bar (next to your open file tabs) and click <strong>New Terminal</strong></li>'
                     + '<li>Type <code>claude</code> to start</li>'
                     + '</ol>'
-                    + _tip('The CLI is a text-only interface — same AI, same capabilities, just no graphical panel. Most workshop participants prefer the extension.')
+                    + _tip('Don\'t want to install it manually? If you set up the extension in Option A (or have Claude Desktop), ask it: <em>"Install the Claude Code CLI tool for me."</em>')
+                    + '<p>The CLI is a text-only interface — same AI, same capabilities, just no graphical panel. CLI tools tend to have fewer bugs and get new features before the extensions or desktop apps, since they\'re closer to the core of these projects.</p>'
+            },
+            {
+                title: 'Install Developer Tools',
+                content: '<h2>Step 4: Install Developer Tools</h2>'
+                    + '<p>Paste the prompt for your operating system into Claude Code. It will install what it can automatically, but some tools require you to follow manual steps (like downloading an installer or clicking through a setup wizard). Read its instructions carefully, and if anything is unclear, ask it to explain with simple step-by-step instructions anyone can follow.</p>'
+                    + '<h3>Mac</h3>'
+                    + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
+                    + '<h3>Windows</h3>'
+                    + _term('Check my system and install any of these developer tools that are missing:\n- Node.js and npm (give me the exact download link for the prebuilt Windows installer and instructions to install it)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
+                    + _note('Claude will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
             },
             {
                 title: 'Create Your Project Folder',
-                content: '<h2>Step 4: Create Your Project Folder</h2>'
+                content: '<h2>Step 5: Create Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
                     + '<li>In VS Code: <strong>File → Open Folder</strong> → select it</li>'
@@ -325,25 +349,8 @@ const SETUP_GUIDES = {
                     + '<p style="margin-top:12px;">You should see your empty folder in VS Code\'s file explorer and Claude Code ready to go.</p>'
             },
             {
-                title: 'Quick Terminal Intro',
-                content: '<h2>Step 5: Quick Terminal Intro</h2>'
-                    + '<p>Open the terminal in VS Code with <code>Ctrl+`</code> or <strong>View → Terminal</strong>.</p>'
-                    + '<p style="margin-top:12px;">The key thing to know: <strong>you don\'t need to memorize commands.</strong> Your AI runs commands for you. Just describe what you need.</p>'
-                    + _tip('Try saying: "Start a local server so I can preview my project" — Claude will handle the rest.')
-            },
-            {
-                title: 'Install Developer Tools',
-                content: '<h2>Step 6: Install Developer Tools</h2>'
-                    + '<p>Paste the prompt for your operating system into Claude Code:</p>'
-                    + '<h3>Mac</h3>'
-                    + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
-                    + '<h3>Windows</h3>'
-                    + _term('Check my system and install any of these developer tools that are missing:\n- Node.js and npm (give me the exact download link for the prebuilt Windows installer and instructions to install it)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
-                    + _note('Claude will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
-            },
-            {
                 title: "You're Ready!",
-                content: '<h2>Step 7: You\'re Ready!</h2>'
+                content: '<h2>Step 6: You\'re Ready!</h2>'
                     + '<p>Your setup is complete:</p>'
                     + _check(['VS Code installed', 'Claude Code connected', 'Project folder ready', 'Developer tools installed'])
                     + '<h3 style="margin-top:24px;">Quick Reference</h3>'
@@ -396,23 +403,35 @@ const SETUP_GUIDES = {
                 title: 'Install Gemini Code Assist',
                 content: '<h2>Step 3: Install Gemini Code Assist</h2>'
                     + '<p>Pick whichever feels more comfortable — both connect to the same AI:</p>'
-                    + '<h3>Option A: CLI Tool (recommended)</h3>'
-                    + '<ol class="step-num-list">'
-                    + '<li>Follow the installation guide at <a href="https://codeassist.google" target="_blank" rel="noopener noreferrer" class="step-link-btn">codeassist.google</a></li>'
-                    + '<li>Open a terminal in VS Code (<code>Ctrl+`</code>)</li>'
-                    + '<li>Type <code>gemini</code> to start</li>'
-                    + '</ol>'
-                    + '<h3>Option B: VS Code Extension</h3>'
+                    + '<h3>Option A: VS Code Extension (recommended to start)</h3>'
                     + '<ol class="step-num-list">'
                     + '<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist" target="_blank" rel="noopener noreferrer" class="step-link-btn">Gemini Code Assist extension</a> from the marketplace</li>'
                     + '<li>Click the Gemini icon in the sidebar</li>'
                     + '<li>Sign in when prompted</li>'
                     + '</ol>'
                     + _warn('The Gemini extension currently has a buggy UI and workflow. We recommend using the CLI version or Antigravity instead.')
+                    + '<h3>Option B: CLI Tool (for advanced users who prefer the terminal)</h3>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Follow the installation guide at <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/google-gemini/gemini-cli</a></li>'
+                    + '<li>Right-click an empty space on the editor tab bar (next to your open file tabs) and click <strong>New Terminal</strong></li>'
+                    + '<li>Type <code>gemini</code> to start</li>'
+                    + '</ol>'
+                    + _tip('Don\'t want to install it manually? If you set up the extension in Option A, ask it: <em>"Install the Gemini CLI tool for me."</em>')
+                    + '<p>The CLI is a text-only interface — same AI, same capabilities, just no graphical panel. CLI tools tend to have fewer bugs and get new features before the extensions or desktop apps, since they\'re closer to the core of these projects.</p>'
+            },
+            {
+                title: 'Install Developer Tools',
+                content: '<h2>Step 4: Install Developer Tools</h2>'
+                    + '<p>Paste the prompt for your operating system into Gemini. It will install what it can automatically, but some tools require you to follow manual steps (like downloading an installer or clicking through a setup wizard). Read its instructions carefully, and if anything is unclear, ask it to explain with simple step-by-step instructions anyone can follow.</p>'
+                    + '<h3>Mac</h3>'
+                    + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
+                    + '<h3>Windows</h3>'
+                    + _term('Check my system and install any of these developer tools that are missing:\n- Node.js and npm (give me the exact download link for the prebuilt Windows installer and instructions to install it)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
+                    + _note('Gemini will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
             },
             {
                 title: 'Create Your Project Folder',
-                content: '<h2>Step 4: Create Your Project Folder</h2>'
+                content: '<h2>Step 5: Create Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
                     + '<li>In VS Code: <strong>File → Open Folder</strong> → select it</li>'
@@ -421,25 +440,8 @@ const SETUP_GUIDES = {
                     + '<p style="margin-top:12px;">You should see your empty folder in VS Code\'s file explorer and Gemini ready to go.</p>'
             },
             {
-                title: 'Quick Terminal Intro',
-                content: '<h2>Step 5: Quick Terminal Intro</h2>'
-                    + '<p>Open the terminal in VS Code with <code>Ctrl+`</code> or <strong>View → Terminal</strong>.</p>'
-                    + '<p style="margin-top:12px;">The key thing to know: <strong>you don\'t need to memorize commands.</strong> Your AI runs commands for you. Just describe what you need.</p>'
-                    + _tip('Try saying: "Start a local server so I can preview my project" — Gemini will handle the rest.')
-            },
-            {
-                title: 'Install Developer Tools',
-                content: '<h2>Step 6: Install Developer Tools</h2>'
-                    + '<p>Paste the prompt for your operating system into Gemini:</p>'
-                    + '<h3>Mac</h3>'
-                    + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
-                    + '<h3>Windows</h3>'
-                    + _term('Check my system and install any of these developer tools that are missing:\n- Node.js and npm (give me the exact download link for the prebuilt Windows installer and instructions to install it)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
-                    + _note('Gemini will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
-            },
-            {
                 title: "You're Ready!",
-                content: '<h2>Step 7: You\'re Ready!</h2>'
+                content: '<h2>Step 6: You\'re Ready!</h2>'
                     + '<p>Your setup is complete:</p>'
                     + _check(['VS Code installed', 'Gemini connected', 'Project folder ready', 'Developer tools installed'])
                     + _tip('Gemini is extremely fast at generating code and completely free. Don\'t hesitate to ask for big changes — regenerating is quick.')
@@ -483,33 +485,43 @@ const SETUP_GUIDES = {
                     + _note('The Claude extension requires a paid subscription.')
             },
             {
-                title: 'Install Claude Extension',
-                content: '<h2>Step 3: Install Claude Extension</h2>'
+                title: 'Install Claude Code',
+                content: '<h2>Step 3: Install Claude Code</h2>'
+                    + '<p>Pick whichever feels more comfortable — both connect to the same AI:</p>'
+                    + '<h3>Option A: Antigravity Extension (recommended to start)</h3>'
                     + '<ol class="step-num-list">'
                     + '<li>In Antigravity, go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X)</li>'
                     + '<li>Search for and install the <strong>Claude Code</strong> extension</li>'
-                    + '<li>Click the Claude icon in the sidebar</li>'
+                    + '<li>Click the Claude icon in the editor toolbar (top-right of the editor)</li>'
                     + '<li>Sign in when prompted</li>'
                     + '</ol>'
-            },
-            {
-                title: 'Create Your Project Folder',
-                content: '<h2>Step 4: Create Your Project Folder</h2>'
+                    + '<h3>Option B: CLI Tool (for advanced users who prefer the terminal)</h3>'
                     + '<ol class="step-num-list">'
-                    + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
-                    + '<li>In Antigravity: <strong>Open Workspace</strong> → select your folder</li>'
-                    + '<li>Open the Claude Code panel</li>'
+                    + '<li>Follow the <a href="https://code.claude.com/docs/en/setup#native-install-recommended" target="_blank" rel="noopener noreferrer" class="step-link-btn">CLI installation guide</a></li>'
+                    + '<li>Right-click an empty space on the editor tab bar (next to your open file tabs) and click <strong>New Terminal</strong></li>'
+                    + '<li>Type <code>claude</code> to start</li>'
                     + '</ol>'
+                    + _tip('Don\'t want to install it manually? If you set up the extension in Option A (or have Claude Desktop), ask it: <em>"Install the Claude Code CLI tool for me."</em>')
+                    + '<p>The CLI is a text-only interface — same AI, same capabilities, just no graphical panel. CLI tools tend to have fewer bugs and get new features before the extensions or desktop apps, since they\'re closer to the core of these projects.</p>'
             },
             {
                 title: 'Install Developer Tools',
-                content: '<h2>Step 5: Install Developer Tools</h2>'
-                    + '<p>Paste the prompt for your operating system into Claude Code:</p>'
+                content: '<h2>Step 4: Install Developer Tools</h2>'
+                    + '<p>Paste the prompt for your operating system into Claude Code. It will install what it can automatically, but some tools require you to follow manual steps (like downloading an installer or clicking through a setup wizard). Read its instructions carefully, and if anything is unclear, ask it to explain with simple step-by-step instructions anyone can follow.</p>'
                     + '<h3>Mac</h3>'
                     + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
                     + '<h3>Windows</h3>'
                     + _term('Check my system and install any of these developer tools that are missing:\n- Node.js and npm (give me the exact download link for the prebuilt Windows installer and instructions to install it)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
                     + _note('Claude will ask permission to run commands — say yes. This may take a few minutes.')
+            },
+            {
+                title: 'Create Your Project Folder',
+                content: '<h2>Step 5: Create Your Project Folder</h2>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
+                    + '<li>In Antigravity: <strong>File → Open Folder</strong> → select it</li>'
+                    + '<li>Open the Claude Code panel</li>'
+                    + '</ol>'
             },
             {
                 title: "You're Ready!",
@@ -547,28 +559,40 @@ const SETUP_GUIDES = {
                     + '</ol>'
             },
             {
-                title: 'Open the Agent Manager',
-                content: '<h2>Step 2: Open the Agent Manager</h2>'
-                    + '<p>Once Antigravity is open, click <strong>Open Agent Manager</strong>. This brings up the built-in Gemini interface.</p>'
-                    + '<h3>Optionally: Use the Gemini CLI</h3>'
-                    + '<p>If you prefer the terminal experience, you can open Antigravity\'s terminal and type <code>gemini</code> after installing it via <a href="https://codeassist.google" target="_blank" rel="noopener noreferrer">codeassist.google</a>.</p>'
-            },
-            {
-                title: 'Create Your Project Folder',
-                content: '<h2>Step 3: Create Your Project Folder</h2>'
+                title: 'Start Using Gemini',
+                content: '<h2>Step 2: Start Using Gemini</h2>'
+                    + '<p>Gemini is built into Antigravity — no extension to install. You have two ways to use it:</p>'
+                    + '<ul>'
+                    + '<li><strong>Agent Chat panel</strong> — a sidebar in the editor. Great for quick tasks while you\'re looking at code.</li>'
+                    + '<li><strong>Agent Manager</strong> — a dedicated window just for workspaces and agents, more like Claude Desktop\'s Code mode.</li>'
+                    + '</ul>'
+                    + '<h3>Optional: Also install the CLI</h3>'
+                    + '<p>If you prefer the terminal, you can also install the Gemini CLI:</p>'
                     + '<ol class="step-num-list">'
-                    + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
-                    + '<li>In Antigravity: <strong>Open Workspace</strong> → select your folder</li>'
+                    + '<li>Follow the installation guide at <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/google-gemini/gemini-cli</a></li>'
+                    + '<li>Right-click an empty space on the editor tab bar (next to your open file tabs) and click <strong>New Terminal</strong></li>'
+                    + '<li>Type <code>gemini</code> to start</li>'
                     + '</ol>'
+                    + _tip('Don\'t want to install it manually? Ask the Agent Manager: <em>"Install the Gemini CLI tool for me."</em>')
+                    + '<p>The CLI is a text-only interface — same AI, same capabilities, just no graphical panel. CLI tools tend to have fewer bugs and get new features before the extensions or desktop apps, since they\'re closer to the core of these projects.</p>'
             },
             {
                 title: 'Install Developer Tools',
-                content: '<h2>Step 4: Install Developer Tools</h2>'
-                    + '<p>Paste the prompt for your operating system into the Gemini Agent Manager:</p>'
+                content: '<h2>Step 3: Install Developer Tools</h2>'
+                    + '<p>Paste the prompt for your operating system into the Gemini Agent Manager. It will install what it can automatically, but some tools require you to follow manual steps (like downloading an installer or clicking through a setup wizard). Read its instructions carefully, and if anything is unclear, ask it to explain with simple step-by-step instructions anyone can follow.</p>'
                     + '<h3>Mac</h3>'
                     + _term('Check my system and install any of these developer tools that are missing:\n- Homebrew (package manager)\n- Node.js and npm (JavaScript runtime)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n- Xcode Command Line Tools (install this last — it can take a while)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
                     + '<h3>Windows</h3>'
                     + _term('Check my system and install any of these developer tools that are missing:\n- Node.js and npm (give me the exact download link for the prebuilt Windows installer and instructions to install it)\n- Git (version control)\n- gh (GitHub CLI)\n- firebase-tools (Firebase deployment — install globally with npm)\n\nFor each tool: check if it\'s already installed first, skip it if so.\nFor anything you can\'t install directly, give me the exact steps to do it myself.\nDon\'t sign in to or configure anything yet — just install.')
+                    + _note('The agent will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
+            },
+            {
+                title: 'Create Your Project Folder',
+                content: '<h2>Step 4: Create Your Project Folder</h2>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
+                    + '<li>In Antigravity: <strong>File → Open Folder</strong> → select it</li>'
+                    + '</ol>'
             },
             {
                 title: "You're Ready!",
@@ -660,18 +684,15 @@ const GROUP_PROJECT_GUIDE = {
             content: '<h2>Step 1: Open Your AI Tool</h2>'
                 + '<p>Open the AI tool you set up during installation:</p>'
                 + _cards([
-                    { icon: '🤝', name: 'Claude Desktop', desc: 'Launch the app, switch to Code mode, point it at your project folder' },
-                    { icon: '🌌', name: 'Antigravity', desc: 'Launch the app, open the agent manager, point it at your workspace' },
-                    { icon: '🧪', name: 'Google AI Studio', desc: 'Open <a href="https://aistudio.google.com/" target="_blank">aistudio.google.com</a> in your browser' },
-                    { icon: '💻', name: 'Claude Code', desc: 'Click the Claude icon in the VS Code editor toolbar' },
-                    { icon: '✨', name: 'Gemini CLI', desc: 'Open a terminal in VS Code and type <code>gemini</code>' },
-                    { icon: '💬', name: 'Browser AI', desc: 'Open your preferred AI chat and have a text editor ready' },
+                    { icon: '<img src="images/icons/claude.svg" alt="Claude">', name: 'Claude Desktop', desc: 'Launch the app, switch to Code mode, point it at your project folder' },
+                    { icon: '<img src="images/icons/antigravity.png" alt="Antigravity">', name: 'Antigravity', desc: 'Open the Agent Chat panel, Agent Manager, or a CLI AI agent in the terminal' },
+                    { icon: '<img src="images/icons/vscode.svg" alt="VS Code">', name: 'VS Code', desc: 'Open your AI extension (Claude or Gemini) or a CLI AI agent in the terminal' },
                 ], { style: 'margin:20px 0;' })
-                + _note('<strong>Using a desktop or IDE tool?</strong> Make sure it\'s pointed at your project folder — that\'s where the AI will create files.<br><br><strong>Using a browser AI?</strong> You\'ll copy code from the chat and paste it into files manually. Have a text editor open and ready.')
+                + _note('Make sure your tool is pointed at your project folder — that\'s where the AI will create files.')
         },
         {
             title: 'Pick a Project',
-            nextLabel: 'Get the Code Into a File',
+            nextLabel: 'Let the Agent Build It',
             content: '<h2>Step 2: Pick a Project &amp; Write Your First Prompt</h2>'
                 + '<p>Pick one of the project options below and paste the prompt into your AI tool. Feel free to tweak it — change the theme, swap details, make it yours.</p>'
                 + (function () {
@@ -694,28 +715,32 @@ const GROUP_PROJECT_GUIDE = {
                 + _term('Create a single HTML file for a simple reaction-time game. Include:\n- A start screen with instructions\n- The game: a shape appears at a random time and position, the player clicks it as fast as they can\n- Track and display their reaction time in milliseconds\n- Keep a running scoreboard of their best 5 times\n- Add difficulty levels (easy = bigger shape and longer wait, hard = smaller and faster)\n- Fun visual feedback on click (animations, color changes)\n- Make it mobile-friendly')
                 + '<h3>Option D: Pick Your Own</h3>'
                 + '<p>Have a different idea? Go for it. Write your own prompt describing a single-page project — a tool, a game, a visualizer, anything. As long as it produces a single HTML file, the rest of the steps work the same.</p>'
-                + _tip('Be specific about what the user sees and does. Include details about the design (colors, layout, animations). Ask for mobile-friendly. Start simple — you\'ll iterate and add features in later steps.')
+                + _tip('Be specific about what the user sees and does. Include details about the design (colors, layout, animations). Ask for mobile-friendly (if it is needed for your project). Start simple — you\'ll iterate and add features in later steps.')
         },
         {
-            title: 'Get the Code Into a File',
-            nextLabel: 'Open in Browser',
-            content: '<h2>Step 3: Get the Code Into a File</h2>'
-                + '<p>This step depends on which tool you\'re using:</p>'
-                + _note('<strong>Claude Desktop / Code mode:</strong> Claude will create the file directly in your project folder. Check that it saved an HTML file — you should see something like <code>index.html</code> appear.')
-                + _note('<strong>Claude Code / Gemini CLI:</strong> The AI will create the file in your open project. You\'ll see it appear in VS Code\'s file explorer on the left side.')
-                + _note('<strong>Browser AI (Claude.ai, ChatGPT, Gemini, AI Studio):</strong> Copy the entire code block the AI generated. Open your text editor, paste it in, and save it as <code>index.html</code> in your project folder.')
-                + '<p style="margin-top:16px;">If the AI generated multiple files, that\'s fine — just make sure you save all of them in the same folder.</p>'
+            title: 'Let the Agent Build It',
+            nextLabel: 'Test Your Project',
+            content: '<h2>Step 3: Let the Agent Build It</h2>'
+                + '<p>Before you paste your prompt, set your agent to work autonomously so it can create files without asking permission for every change:</p>'
+                + '<ul>'
+                + '<li><strong>Claude Desktop:</strong> Set permissions to <strong>Auto Accept Edits</strong></li>'
+                + '<li><strong>Antigravity Agent Manager:</strong> The agent creates files automatically — no changes needed</li>'
+                + '<li><strong>VS Code extensions:</strong> Set permissions to <strong>Auto Accept Edits</strong> or equivalent</li>'
+                + '<li><strong>CLI agents:</strong> Press <code>shift+tab</code> to switch to <strong>Auto Accept Edits</strong></li>'
+                + '</ul>'
+                + '<p style="margin-top:16px;">Now paste your prompt, hit <strong>Enter</strong> to send it, and watch the agent work.</p>'
+                + '<p style="margin-top:12px;">The agent may enter <strong>planning mode</strong> automatically — creating a plan document and asking you questions about what you want before it starts building. You can also intentionally put it into plan mode if you want to think things through first. Or it may just start writing files directly into your project folder. Either way is fine.</p>'
+                + '<p style="margin-top:12px;">If it asks questions or requests permission to do anything, answer and grant it permission.</p>'
         },
         {
-            title: 'Open in Browser',
+            title: 'Test Your Project',
             nextLabel: 'Polish the Design',
-            content: '<h2>Step 4: Open in Browser — See It Work!</h2>'
-                + '<ol class="step-num-list">'
-                + '<li>Find the HTML file in your project folder (<code>index.html</code> or whatever the AI named it)</li>'
-                + '<li>Double-click it to open in your browser</li>'
-                + '<li>Try the whole thing — click through every feature and see how it works</li>'
-                + '</ol>'
-                + '<p style="margin-top:16px;">How does it look? Take a moment to note anything you\'d want to change:</p>'
+            content: '<h2>Step 4: Test Your Project</h2>'
+                + '<p>Ask your agent to start a <strong>local web server</strong> so you can test your project in the browser. A local web server runs on your computer and serves your files just like a real website would — this is how developers test their work before deploying it.</p>'
+                + '<p style="margin-top:12px;">Try a prompt like:</p>'
+                + _term('Start a local web server so I can preview my project in the browser. Give me the URL to open.')
+                + '<p style="margin-top:12px;">The agent will start a server and give you a URL (usually something like <code>http://localhost:8000</code>). Click the link or copy-paste it into your browser to see your project.</p>'
+                + '<p style="margin-top:12px;">Try the whole thing — click through every feature and see how it works. Take a moment to note anything you\'d want to change:</p>'
                 + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
                 + '<li>Does the layout look good?</li>'
                 + '<li>Do interactions feel smooth?</li>'
@@ -730,14 +755,8 @@ const GROUP_PROJECT_GUIDE = {
             content: '<h2>Step 5: Iterate #1 — Polish the Design</h2>'
                 + '<p>Time to improve. Go back to your AI tool and paste a prompt like this:</p>'
                 + _term('Make the project look more polished:\n- Add smooth transitions and animations\n- Improve the color scheme and typography\n- Make buttons and interactions more satisfying (hover effects, click feedback)\n- Add subtle visual details that make it feel professional')
-                + '<p style="margin-top:16px;">After the AI updates the code:</p>'
-                + '<ol class="step-num-list">'
-                + '<li><strong>Save the file</strong> (or let your AI tool save it)</li>'
-                + '<li><strong>Refresh your browser</strong> to see the changes</li>'
-                + '<li><strong>Test the whole thing again</strong> — make sure nothing broke</li>'
-                + '</ol>'
-                + '<p style="margin-top:16px;">Does it look better? Tell the AI what you like ("the transitions are great") and what to change ("the colors are too bright, tone it down"). Be specific — the more precise your feedback, the better the result.</p>'
-                + _note('Browser AI users: Copy the updated code and replace the contents of your HTML file entirely. Save and refresh.')
+                + '<p style="margin-top:16px;">After the agent updates your code, go back to your browser to see the changes. If it doesn\'t update automatically, refresh the page. Test the whole thing again to make sure nothing broke.</p>'
+                + '<p style="margin-top:12px;">Does it look better? Tell the AI what you like ("the transitions are great") and what to change ("the colors are too bright, tone it down"). Be specific — the more precise your feedback, the better the result.</p>'
         },
         {
             title: 'Add More Content',
@@ -755,58 +774,49 @@ const GROUP_PROJECT_GUIDE = {
         },
         {
             title: 'Introduce Git',
-            nextLabel: 'Add a Share Feature',
+            nextLabel: 'View Your History in SourceTree',
             content: '<h2>Step 7: Introduce Git — Save Your Progress</h2>'
                 + '<p>You now have a working project that you like. Before we change anything else, let\'s save this checkpoint.</p>'
                 + '<p style="margin-top:12px;"><strong>Git</strong> creates save points (called <strong>commits</strong>) in your project\'s history. If you ever break something, you can go back to a working version. Think of it as a save file in a video game.</p>'
-                + _note('<strong>Claude Code / Gemini CLI users:</strong> Tell your AI:<br>' + _term('Initialize a git repository in this folder and create an initial commit with all my files. Use the message "Working project with polished design"'))
-                + _note('<strong>Claude Desktop / AI Studio users:</strong> If your tool supports running terminal commands, ask it to initialize Git. Otherwise, skip Git steps for now — you can learn it later from the <a href="#" onclick="event.preventDefault(); loadRoute(\'Git for Beginners.md\');">Git for Beginners</a> guide.')
-                + _note('<strong>Browser AI users:</strong> Open a terminal in your project folder and run:<br>' + _term('git init\ngit add .\ngit commit -m "Working project with polished design"') + 'If you don\'t have Git installed or aren\'t comfortable with the terminal, skip this for now.')
-                + _tip('<strong>Optional: Visualize with SourceTree</strong> — If you installed <a href="https://www.sourcetreeapp.com/" target="_blank">SourceTree</a>, open it and add your project folder. You\'ll see your first commit — a snapshot of everything you\'ve built so far.')
+                + '<p style="margin-top:12px;">Tell your agent:</p>'
+                + _term('Initialize a git repository in this folder and create an initial commit with all my files')
+                + '<p style="margin-top:16px;">The agent will set up Git and save a snapshot of your current project.</p>'
         },
         {
-            title: 'Add a Share Feature',
-            nextLabel: 'Commit Again',
-            content: '<h2>Step 8: Iterate #3 — Add a Share Feature</h2>'
-                + '<p>Let\'s add a way to share or save progress. Tell the AI something like:</p>'
-                + _term('Add a share/save feature:\n- Add a "Copy Link" or "Share" button that copies a summary to clipboard\n- Add a "Start Over" or "Reset" button\n- Save the user\'s state in localStorage so it persists when they return')
-                + '<p style="margin-top:16px;">Save, refresh, test. Try the full flow:</p>'
-                + '<ol class="step-num-list">'
-                + '<li>Use the project from start to finish</li>'
-                + '<li>Try the share/copy feature — paste somewhere to verify it works</li>'
-                + '<li>Try the reset button</li>'
-                + '<li>Close the browser tab, reopen the file — does it remember your state?</li>'
-                + '</ol>'
-        },
-        {
-            title: 'Commit Again',
+            title: 'View Your History in SourceTree',
             nextLabel: 'Make It Yours',
-            content: '<h2>Step 9: Commit Again</h2>'
-                + '<p>Time for another save point. You\'ve added a significant feature — lock it in.</p>'
-                + _note('<strong>Claude Code / Gemini CLI users:</strong><br>' + _term('Commit my changes with the message "Add share feature and localStorage"'))
-                + _note('<strong>Terminal users:</strong><br>' + _term('git add .\ngit commit -m "Add share feature and localStorage"'))
-                + _tip('<strong>SourceTree users:</strong> Open SourceTree and look at your commit history. You now have two commits — two snapshots. Click on the first one to see what the code looked like before the share feature. This is the power of Git: you can always go back.')
+            content: '<h2>Step 8: View Your History in SourceTree</h2>'
+                + '<p><a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer">SourceTree</a> is a free app that lets you visualize your Git history. Here\'s how to load your project:</p>'
+                + '<ol class="step-num-list">'
+                + '<li>Download and install <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">SourceTree</a> if you haven\'t already</li>'
+                + '<li>Open SourceTree and click <strong>New</strong> → <strong>Add Existing Local Repository</strong></li>'
+                + '<li>Browse to your project folder and select it</li>'
+                + '<li>You\'ll see your first commit — a snapshot of everything you\'ve built so far</li>'
+                + '</ol>'
+                + _tip('As you keep working and making commits, SourceTree shows a visual timeline of every change. If something breaks, you can see exactly when it happened and go back.')
         },
         {
             title: 'Make It Yours',
             nextLabel: 'Show &amp; Tell',
-            content: '<h2>Step 10: Make It Yours</h2>'
-                + '<p>This is your project now. Spend the next few minutes customizing it however you want:</p>'
+            content: '<h2>Step 9: Make It Yours</h2>'
+                + '<p>This is your project now. Decide as a group what to add next — there\'s no wrong answer here.</p>'
                 + _cards([
                     { icon: '🎨', name: 'Change the Theme', desc: 'Dark mode, retro, neon, pastel, brutalist, minimalist' },
                     { icon: '✍️', name: 'Add Your Content', desc: 'Write your own copy, add personal touches' },
                     { icon: '🖼️', name: 'Add Visuals', desc: 'Images, GIFs, illustrations, or background art' },
                     { icon: '🔊', name: 'Add Audio', desc: 'Background music or sound effects' },
+                    { icon: '🧩', name: 'New Features', desc: 'Share buttons, save progress, new interactions' },
+                    { icon: '📄', name: 'More Content', desc: 'Extra pages, sections, or levels' },
                 ], { style: 'margin:20px 0;' })
-                + '<p>Prompt your AI with whatever changes you want. There\'s no wrong answer here.</p>'
-                + '<p style="margin-top:12px;">When you\'re happy with the result, make another commit:</p>'
-                + _note('<strong>Claude Code / Gemini CLI users:</strong><br>' + _term('Commit my changes with a message describing what I customized'))
-                + _note('<strong>Terminal users:</strong><br>' + _term('git add .\ngit commit -m "Customize project with [your changes here]"'))
+                + '<p>Describe what you want to your agent and let it build. Test in the browser, then iterate — same cycle as before.</p>'
+                + '<p style="margin-top:12px;">When you\'re happy with the changes, tell your agent to commit:</p>'
+                + _term('Commit my changes with a message describing what we added')
+                + _tip('Check SourceTree after each commit to see your history grow. Click on older commits to see what the code looked like at each point — this is the power of Git.')
         },
         {
             title: 'Show & Tell',
             nextLabel: null,
-            content: '<h2>Step 11: Show &amp; Tell</h2>'
+            content: '<h2>Step 10: Show &amp; Tell</h2>'
                 + '<p>Open your project in the browser and show it to the group!</p>'
                 + '<h3>Things to share:</h3>'
                 + '<ul style="margin:8px 0 20px 20px; line-height:1.8;">'

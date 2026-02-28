@@ -192,7 +192,7 @@ Ask your AI to review code for bugs, security issues, and performance problems. 
 
 When the AI can't solve a bug after multiple attempts:
 
-1. **Try a different AI** — Different models have different strengths. If Claude is stuck, try ChatGPT or Gemini.
+1. **Try a different AI** — Different models have different strengths. If Claude is stuck, try Gemini or another AI.
 2. **AI debate technique** — Ask two different AIs the same question, then share each response with the other for critique. Have them argue, then synthesize the best approach.
 3. **Fresh context** — Start a new conversation with just the problem. Old context from failed attempts can mislead the AI down the same wrong paths.
 4. **Simplify and isolate** — Ask the AI to create a minimal reproduction of the bug. Stripping away unrelated code often reveals the root cause.
@@ -341,7 +341,7 @@ You need a backend when your project requires any of these:
 - **User accounts** — registration, login, profiles
 - **Persistent data** — a database that stores information across sessions and users
 - **File storage** — user uploads, images, documents
-- **Secret API keys** — any key that must stay hidden from the browser (OpenAI, Stripe, etc.)
+- **Secret API keys** — any key that must stay hidden from the browser (Gemini, Stripe, etc.)
 
 If none of these apply, static HTML/JS with localStorage is probably enough.
 

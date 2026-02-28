@@ -15,7 +15,7 @@ This guide covers building and deploying a full-stack web app using **Supabase**
 > - You're building a mobile app
 > - You want everything in a single platform with one SDK
 
-> **API Keys & Secrets:** If your project uses paid APIs (OpenAI, Stripe, etc.), make sure your keys are secured before deploying. Set environment variables in Vercel's dashboard (Project Settings > Environment Variables), and review the full [Protecting API Keys & Secrets](Solo%20Project%20Guide.md#protecting-api-keys--secrets) guide.
+> **API Keys & Secrets:** If your project uses paid APIs (Gemini, Stripe, etc.), make sure your keys are secured before deploying. Set environment variables in Vercel's dashboard (Project Settings > Environment Variables), and review the full [Protecting API Keys & Secrets](Solo%20Project%20Guide.md#protecting-api-keys--secrets) guide.
 
 ---
 
@@ -365,7 +365,7 @@ Create a file at `app/api/hello/route.js`:
 ```javascript
 export async function GET(request) {
   // This runs on the server — safe to use secret keys here
-  const apiKey = process.env.OPENAI_API_KEY
+  const apiKey = process.env.GEMINI_API_KEY
 
   return Response.json({ message: 'Hello from the server' })
 }
@@ -373,11 +373,11 @@ export async function GET(request) {
 
 ### When to Use Serverless Functions
 
-- Calling paid APIs (OpenAI, Stripe) without exposing keys
+- Calling paid APIs (Gemini, Stripe) without exposing keys
 - Processing webhooks from third-party services
 - Any logic that needs secret credentials
 
-> **Ask Your AI:** *"I need to call the OpenAI API from my app without exposing my API key. Create a Vercel API route that proxies the request."*
+> **Ask Your AI:** *"I need to call the Gemini API from my app without exposing my API key. Create a Vercel API route that proxies the request."*
 
 ---
 

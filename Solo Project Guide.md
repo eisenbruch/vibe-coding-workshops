@@ -167,7 +167,7 @@ Building with AI follows a repeating loop. Don't try to build everything at once
 
 When you add features like AI chatbots, payment processing, or third-party APIs, you'll receive **API keys** — secret strings that authenticate your app with those services. If these keys end up on GitHub or in your frontend code, anyone can find and abuse them.
 
-> Bots actively scan GitHub for exposed API keys. A leaked OpenAI or Stripe key can be found and exploited within minutes.
+> Bots actively scan GitHub for exposed API keys. A leaked Gemini or Stripe key can be found and exploited within minutes.
 
 ### The Core Rule
 
@@ -182,7 +182,7 @@ When you add features like AI chatbots, payment processing, or third-party APIs,
 const apiKey = "sk-abc123...";
 
 // ✅ GOOD — key is loaded from the environment
-const apiKey = process.env.OPENAI_API_KEY;
+const apiKey = process.env.GEMINI_API_KEY;
 ```
 
 ### Secure Your Project with AI
@@ -190,7 +190,7 @@ const apiKey = process.env.OPENAI_API_KEY;
 You don't need to know how to secure your keys on your own — your AI assistant can handle it. Give it context about what you're building:
 
 **Prompt:**
-> "Review my codebase for any exposed API keys or secrets. I'm using [list your services, e.g., OpenAI, Stripe, Firebase] and plan to deploy on [hosting platform, e.g., Firebase Hosting, Vercel, Netlify]. Set up my project so that all API keys are stored securely — create a .env file, update .gitignore, and let me know if any of my keys need a backend proxy to stay safe in production."
+> "Review my codebase for any exposed API keys or secrets. I'm using [list your services, e.g., Gemini, Stripe, Firebase] and plan to deploy on [hosting platform, e.g., Firebase Hosting, Vercel, Netlify]. Set up my project so that all API keys are stored securely — create a .env file, update .gitignore, and let me know if any of my keys need a backend proxy to stay safe in production."
 
 The AI will:
 1. Scan your files for hardcoded keys or secrets
@@ -207,7 +207,7 @@ Store keys in a special file that Git ignores.
 
 1. Create a file called `.env` in your project root:
    ```
-   OPENAI_API_KEY=sk-abc123your-key-here
+   GEMINI_API_KEY=abc123your-key-here
    STRIPE_SECRET_KEY=sk_test_abc123
    ```
 
@@ -222,7 +222,7 @@ Store keys in a special file that Git ignores.
    ```javascript
    // Node.js — install dotenv first: npm install dotenv
    require('dotenv').config();
-   const key = process.env.OPENAI_API_KEY;
+   const key = process.env.GEMINI_API_KEY;
    ```
 
 **Best for:** Local development, Node.js / server-side projects.
@@ -244,10 +244,10 @@ Your deployed code reads these the same way (`process.env.KEY_NAME`), but the va
 
 **Anything in your frontend JavaScript is visible to users.** If you put an API key in a React, Vue, or plain HTML/JS app, anyone can open DevTools and find it — even if you used a `.env` file during development.
 
-If your frontend needs to call a paid API (like OpenAI), you need a backend layer:
+If your frontend needs to call a paid API (like Gemini), you need a backend layer:
 
 ```
-User's Browser  →  Your Backend (has the secret key)  →  OpenAI API
+User's Browser  →  Your Backend (has the secret key)  →  Gemini API
 ```
 
 Options for this backend layer:

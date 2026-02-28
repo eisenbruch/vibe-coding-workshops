@@ -24,10 +24,10 @@ const FILE_GROUPS = [
             { name: "Beginner: Google AI Studio", path: "setup-google-ai-studio" },
             { name: "Intermediate: Claude Desktop", path: "setup-claude-desktop" },
             { name: "Intermediate: Antigravity + Gemini", path: "setup-antigravity" },
-            { name: "Advanced: VS Code + Claude", path: "setup-claude-code" },
-            { name: "Advanced: VS Code + Gemini", path: "setup-gemini-cli" },
             { name: "Advanced: Antigravity + Claude", path: "setup-antigravity-claude" },
             { name: "Advanced: Antigravity + Gemini", path: "setup-antigravity-gemini" },
+            { name: "Advanced: VS Code + Claude", path: "setup-claude-code" },
+            { name: "Advanced: VS Code + Gemini", path: "setup-gemini-cli" },
         ]
     },
     {
@@ -131,24 +131,6 @@ const PATH_OPTIONS = [
         level: "Advanced",
         paths: [
             {
-                name: "VS Code + Claude",
-                icon: '<div style="display:flex; align-items:center; gap:8px;"><img src="images/icons/vscode.svg" alt="VS Code"><span style="font-size:24px; font-weight:700; color:var(--text-muted);">+</span><img src="images/icons/claude.svg" alt="Claude"></div>',
-                description: "AI coding agent in VS Code. Powerful, flexible, and standard.",
-                tools: "VS Code + Claude extension or CLI",
-                time: "~15 min",
-                cost: "paid",
-                file: "setup-claude-code"
-            },
-            {
-                name: "VS Code + Gemini",
-                icon: '<div style="display:flex; align-items:center; gap:8px;"><img src="images/icons/vscode.svg" alt="VS Code"><span style="font-size:24px; font-weight:700; color:var(--text-muted);">+</span><img src="images/icons/gemini.svg" alt="Gemini"></div>',
-                description: "Free AI coding agent in VS Code. Powerful, flexible, and standard.",
-                tools: "VS Code + Gemini CLI",
-                time: "~15 min",
-                cost: "free",
-                file: "setup-gemini-cli"
-            },
-            {
                 name: "Antigravity + Claude",
                 icon: '<div style="display:flex; align-items:center; gap:8px;"><img src="images/icons/antigravity.png" alt="Antigravity"><span style="font-size:24px; font-weight:700; color:var(--text-muted);">+</span><img src="images/icons/claude.svg" alt="Claude"></div>',
                 description: "Claude AI coding agent in Antigravity. Combines Google's IDE with Claude's capabilities.",
@@ -165,6 +147,24 @@ const PATH_OPTIONS = [
                 time: "~15 min",
                 cost: "free",
                 file: "setup-antigravity-gemini"
+            },
+            {
+                name: "VS Code + Claude",
+                icon: '<div style="display:flex; align-items:center; gap:8px;"><img src="images/icons/vscode.svg" alt="VS Code"><span style="font-size:24px; font-weight:700; color:var(--text-muted);">+</span><img src="images/icons/claude.svg" alt="Claude"></div>',
+                description: "AI coding agent in VS Code. Powerful, flexible, and standard.",
+                tools: "VS Code + Claude extension or CLI",
+                time: "~15 min",
+                cost: "paid",
+                file: "setup-claude-code"
+            },
+            {
+                name: "VS Code + Gemini",
+                icon: '<div style="display:flex; align-items:center; gap:8px;"><img src="images/icons/vscode.svg" alt="VS Code"><span style="font-size:24px; font-weight:700; color:var(--text-muted);">+</span><img src="images/icons/gemini.svg" alt="Gemini"></div>',
+                description: "Free AI coding agent in VS Code. Powerful, flexible, and standard.",
+                tools: "VS Code + Gemini CLI",
+                time: "~15 min",
+                cost: "free",
+                file: "setup-gemini-cli"
             }
         ]
     }

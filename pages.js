@@ -46,7 +46,6 @@ function renderPickYourPath() {
     html += '<ul style="padding-left:1.5em; margin-bottom:16px;">';
     html += '<li><strong>Claude Opus and Sonnet:</strong> The architect. Best for backend logic, complex architecture, and understanding large projects.</li>';
     html += '<li><strong>Gemini 3+:</strong> The speed demon. Excellent for writing, rapid prototyping, and converting screenshots to UI code.</li>';
-    html += '<li><strong>ChatGPT Codex:</strong> The specialist. Useful for tackling specific tricky bugs other models struggle with.</li>';
     html += '</ul>';
     html += '<blockquote style="padding:0 1em; color:var(--text-muted); border-left:0.25em solid var(--blockquote-border);"><strong>Tip:</strong> Switch models when you get stuck!</blockquote>';
 
@@ -428,5 +427,6 @@ function updateStepHash(route, step) {
     if (decodeURIComponent(window.location.hash.slice(1)) !== hash) {
         history.replaceState(null, '', '#' + encodeURIComponent(hash));
     }
+    if (typeof updateSidebarDocsActive === 'function') updateSidebarDocsActive();
 }
 

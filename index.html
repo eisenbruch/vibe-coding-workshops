@@ -253,7 +253,7 @@
                     parseWizardSteps();
                 }
                 updateDocNav(filePath);
-                updateSidebarDocsActive();
+                buildSidebarDocs();
                 return;
             }
 
@@ -275,7 +275,7 @@
                 const text = await response.text();
                 renderMarkdown(text);
                 updateDocNav(filePath);
-                updateSidebarDocsActive();
+                buildSidebarDocs();
                 loadingDiv.style.display = 'none';
 
                 if (scrollToId) {
@@ -524,9 +524,23 @@
 
 
         // ── Sidebar Document Navigation ───────────────────────────────
+        function getGuideForRoute(route) {
+            if (route === 'setup-beginner') return BEGINNER_GUIDE;
+            if (route === 'group-project') return GROUP_PROJECT_GUIDE;
+            if (SETUP_GUIDES[route]) return SETUP_GUIDES[route];
+            return null;
+        }
+
+        function getCurrentStep() {
+            var hash = decodeURIComponent(window.location.hash.slice(1));
+            var match = hash.match(/^(.+?)\/(\d+)$/);
+            return match ? parseInt(match[2], 10) : 0;
+        }
+
         function buildSidebarDocs() {
             const docsList = document.getElementById('sidebar-docs');
             docsList.innerHTML = '';
+            var activeStep = getCurrentStep();
 
             FILE_GROUPS.forEach(group => {
                 const label = document.createElement('li');
@@ -550,13 +564,44 @@
                     });
                     li.appendChild(a);
                     docsList.appendChild(li);
+
+                    // Show step sub-items for the active step guide
+                    if (file.path === currentFile) {
+                        var guide = getGuideForRoute(file.path);
+                        if (guide && guide.steps) {
+                            var ul = document.createElement('ul');
+                            ul.className = 'sidebar-step-list';
+                            guide.steps.forEach(function(step, i) {
+                                var sli = document.createElement('li');
+                                var sa = document.createElement('a');
+                                sa.href = '#' + encodeURIComponent(file.path + (i > 0 ? '/' + i : ''));
+                                sa.textContent = step.title;
+                                sa.dataset.step = i;
+                                sa.dataset.parentPath = file.path;
+                                if (i === activeStep) sa.classList.add('active');
+                                sa.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    loadMarkdown(file.path + (i > 0 ? '/' + i : ''));
+                                    closeMobileSidebar();
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                });
+                                sli.appendChild(sa);
+                                ul.appendChild(sli);
+                            });
+                            docsList.appendChild(ul);
+                        }
+                    }
                 });
             });
         }
 
         function updateSidebarDocsActive() {
-            document.querySelectorAll('#sidebar-docs a').forEach(a => {
+            var activeStep = getCurrentStep();
+            document.querySelectorAll('#sidebar-docs a[data-path]').forEach(a => {
                 a.classList.toggle('active', a.dataset.path === currentFile);
+            });
+            document.querySelectorAll('#sidebar-docs a[data-step]').forEach(a => {
+                a.classList.toggle('active', a.dataset.parentPath === currentFile && parseInt(a.dataset.step) === activeStep);
             });
         }
 
