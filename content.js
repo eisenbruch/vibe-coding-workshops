@@ -672,7 +672,8 @@ const GROUP_PROJECT_GUIDE = {
     name: 'Group Project',
     subtitle: 'Build a real project together using the vibe coding workflow: prompt, test, iterate, commit.',
     lastStepCards: [
-        { icon: '🧠', name: 'Vibe Coding Techniques', desc: 'Prompting strategies and core techniques', route: 'Vibe Coding Techniques.md' },
+        { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
+        { icon: '🎯', name: 'Product Guidance', desc: 'Think like a product manager before you build', route: 'product-guidance' },
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
         { icon: '🔥', name: 'Firebase & Deployment', desc: 'Deploy your project to a real URL', route: 'Firebase %26 Deployment.md' },
         { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
@@ -721,74 +722,73 @@ const GROUP_PROJECT_GUIDE = {
             title: 'Let the Agent Build It',
             nextLabel: 'Test Your Project',
             content: '<h2>Step 3: Let the Agent Build It</h2>'
-                + '<p>Before you paste your prompt, set your agent to work autonomously so it can create files without asking permission for every change:</p>'
-                + '<ul>'
-                + '<li><strong>Claude Desktop:</strong> Set permissions to <strong>Auto Accept Edits</strong></li>'
-                + '<li><strong>Antigravity Agent Manager:</strong> The agent creates files automatically — no changes needed</li>'
-                + '<li><strong>VS Code extensions:</strong> Set permissions to <strong>Auto Accept Edits</strong> or equivalent</li>'
-                + '<li><strong>CLI agents:</strong> Press <code>shift+tab</code> to switch to <strong>Auto Accept Edits</strong></li>'
-                + '</ul>'
-                + '<p style="margin-top:16px;">Now paste your prompt, hit <strong>Enter</strong> to send it, and watch the agent work.</p>'
-                + '<p style="margin-top:12px;">The agent may enter <strong>planning mode</strong> automatically — creating a plan document and asking you questions about what you want before it starts building. You can also intentionally put it into plan mode if you want to think things through first. Or it may just start writing files directly into your project folder. Either way is fine.</p>'
-                + '<p style="margin-top:12px;">If it asks questions or requests permission to do anything, answer and grant it permission.</p>'
+                + '<h3>Turn On Auto-Accept</h3>'
+                + '<p>Set your agent to work autonomously so it can create files without asking permission for every change:</p>'
+                + _cards([
+                    { icon: '<img src="images/icons/claude.svg" alt="Claude">', name: 'Claude Desktop', desc: 'Set permissions to <strong>Auto Accept Edits</strong>' },
+                    { icon: '<img src="images/icons/antigravity.png" alt="Antigravity">', name: 'Antigravity Agent Manager', desc: 'Already automatic — no changes needed' },
+                    { icon: '🧩', name: 'Gemini or Claude Extension', desc: 'Set permissions to <strong>Auto Accept Edits</strong>' },
+                    { icon: '⌨️', name: 'CLI Agents', desc: 'Press <code>shift+tab</code> to switch to <strong>Auto Accept</strong>' },
+                ], { style: 'margin:16px 0;' })
+                + '<h3>Paste &amp; Go</h3>'
+                + '<p>Paste your prompt, hit <strong>Enter</strong>, and watch the agent work. If it asks questions or requests permission, answer and grant it.</p>'
+                + _note('The agent might enter <strong>planning mode</strong> first — asking questions about what you want before building. Or it might just start writing files. Either way is fine.')
         },
         {
             title: 'Test Your Project',
-            nextLabel: 'Polish the Design',
+            nextLabel: 'Make Some Changes',
             content: '<h2>Step 4: Test Your Project</h2>'
-                + '<p>Ask your agent to start a <strong>local web server</strong> so you can test your project in the browser. A local web server runs on your computer and serves your files just like a real website would — this is how developers test their work before deploying it.</p>'
-                + '<p style="margin-top:12px;">Try a prompt like:</p>'
+                + '<h3>Open It in Your Browser</h3>'
+                + '<p>You have two options:</p>'
+                + _cards([
+                    { icon: '🌐', name: 'Start a Local Server <span class="path-card-badge">Recommended</span>', desc: 'Ask your agent to start a server — works with all project types' },
+                    { icon: '📂', name: 'Double-Click the File', desc: 'Find <code>index.html</code> in your project folder and double-click it to open in your browser' },
+                ], { style: 'margin:16px 0;' })
+                + '<p>If you go the server route, try this prompt:</p>'
                 + _term('Start a local web server so I can preview my project in the browser. Give me the URL to open.')
-                + '<p style="margin-top:12px;">The agent will start a server and give you a URL (usually something like <code>http://localhost:8000</code>). Click the link or copy-paste it into your browser to see your project.</p>'
-                + '<p style="margin-top:12px;">Try the whole thing — click through every feature and see how it works. Take a moment to note anything you\'d want to change:</p>'
-                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
-                + '<li>Does the layout look good?</li>'
-                + '<li>Do interactions feel smooth?</li>'
-                + '<li>Is anything missing or broken?</li>'
-                + '<li>What would make it better?</li>'
-                + '</ul>'
-                + _tip('Something looks wrong or doesn\'t work? That\'s not a failure — that\'s the workflow. You now have something specific to tell the AI to fix. Identifying problems and describing them clearly is the core skill of vibe coding.')
         },
         {
-            title: 'Polish the Design',
-            nextLabel: 'Add More Content',
-            content: '<h2>Step 5: Iterate #1 — Polish the Design</h2>'
-                + '<p>Time to improve. Go back to your AI tool and paste a prompt like this:</p>'
-                + _term('Make the project look more polished:\n- Add smooth transitions and animations\n- Improve the color scheme and typography\n- Make buttons and interactions more satisfying (hover effects, click feedback)\n- Add subtle visual details that make it feel professional')
-                + '<p style="margin-top:16px;">After the agent updates your code, go back to your browser to see the changes. If it doesn\'t update automatically, refresh the page. Test the whole thing again to make sure nothing broke.</p>'
-                + '<p style="margin-top:12px;">Does it look better? Tell the AI what you like ("the transitions are great") and what to change ("the colors are too bright, tone it down"). Be specific — the more precise your feedback, the better the result.</p>'
-        },
-        {
-            title: 'Add More Content',
+            title: 'Make Some Changes',
             nextLabel: 'Introduce Git',
-            content: '<h2>Step 6: Iterate #2 — Add More Content</h2>'
-                + '<p>Let\'s make the project more substantial. Tell the AI to add more content and depth. Some ideas depending on your project:</p>'
+            content: '<h2>Step 5: Make Some Changes</h2>'
+                + '<h3>Click Through Everything</h3>'
+                + _cards([
+                    { icon: '👀', name: 'Layout', desc: 'Does it look right? Spacing, alignment, readability?' },
+                    { icon: '👆', name: 'Interactions', desc: 'Do buttons, links, and features actually work?' },
+                    { icon: '🔍', name: 'Missing Pieces', desc: 'Is anything broken, blank, or incomplete?' },
+                    { icon: '💡', name: 'Ideas', desc: 'What would you change or add?' },
+                ], { style: 'margin:16px 0;' })
+                + '<p style="margin-top:12px;">Something not right, or just not how you want it? That\'s the workflow. You now have something specific to tell the AI to change.</p>'
+                + '<h3>Give Feedback</h3>'
+                + '<p>Tell the AI what you want to change — be as specific as you can:</p>'
                 + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
-                + '<li><strong>Quiz:</strong> "Expand to 10 questions, add 6 personality types with detailed descriptions and a trait breakdown"</li>'
-                + '<li><strong>Portfolio:</strong> "Add a testimonials section, a timeline of experience, and smooth parallax scrolling"</li>'
-                + '<li><strong>Game:</strong> "Add a countdown mode, particle effects on click, and a high score leaderboard"</li>'
-                + '<li><strong>Your own:</strong> "Add more features, content, or sections — make it feel complete"</li>'
+                + '<li><strong>Design:</strong> layout, colors, fonts, borders, spacing, animations</li>'
+                + '<li><strong>Functionality:</strong> broken features, missing interactions, things that don\'t work right</li>'
+                + '<li><strong>Content:</strong> text, images, labels, placeholder data that needs replacing</li>'
                 + '</ul>'
-                + _term('Add more content and depth to the project:\n- Expand the main feature with more detail and variety\n- Add at least one new section or feature\n- Include more visual polish (icons, illustrations, or decorative elements)\n- Make the overall experience feel more complete and satisfying')
-                + '<p style="margin-top:16px;">Save, refresh, test. Go through the whole thing again. If anything feels off, tell the AI exactly what to change.</p>'
+                + _tip('The more specific, the better. "Make it better" gives you random changes. "Make the header font bigger and add more space between the cards" gets exactly what you want.')
+                + '<p style="margin-top:16px;">Do this a few times — test, give feedback, refresh, repeat. Each round gets your project closer to what you want.</p>'
         },
         {
             title: 'Introduce Git',
             nextLabel: 'View Your History in SourceTree',
-            content: '<h2>Step 7: Introduce Git — Save Your Progress</h2>'
-                + '<p>You now have a working project that you like. Before we change anything else, let\'s save this checkpoint.</p>'
-                + '<p style="margin-top:12px;"><strong>Git</strong> creates save points (called <strong>commits</strong>) in your project\'s history. If you ever break something, you can go back to a working version. Think of it as a save file in a video game.</p>'
-                + '<p style="margin-top:12px;">Tell your agent:</p>'
+            content: '<h2>Step 6: Introduce Git — Save Your Progress</h2>'
+                + '<p>You have a working project. Before we change anything else, let\'s save a checkpoint.</p>'
+                + _cards([
+                    { icon: '💾', name: 'Commits', desc: 'Save points in your project\'s history — like save files in a video game' },
+                    { icon: '⏪', name: 'Undo Changes', desc: 'Broke something? Go back to any previous commit instantly' },
+                    { icon: '🌳', name: 'Branches', desc: 'Try new features in isolation without risking your working code' },
+                    { icon: '🤝', name: 'Collaboration', desc: 'Share your code on GitHub so others can see, use, or contribute to it' },
+                ], { style: 'margin:16px 0;' })
+                + '<p>Tell your agent:</p>'
                 + _term('Initialize a git repository in this folder and create an initial commit with all my files')
-                + '<p style="margin-top:16px;">The agent will set up Git and save a snapshot of your current project.</p>'
         },
         {
             title: 'View Your History in SourceTree',
-            nextLabel: 'Make It Yours',
-            content: '<h2>Step 8: View Your History in SourceTree</h2>'
+            nextLabel: 'More Changes!',
+            content: '<h2>Step 7: View Your History in SourceTree</h2>'
                 + '<p><a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer">SourceTree</a> is a free app that lets you visualize your Git history. Here\'s how to load your project:</p>'
                 + '<ol class="step-num-list">'
-                + '<li>Download and install <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">SourceTree</a> if you haven\'t already</li>'
                 + '<li>Open SourceTree and click <strong>New</strong> → <strong>Add Existing Local Repository</strong></li>'
                 + '<li>Browse to your project folder and select it</li>'
                 + '<li>You\'ll see your first commit — a snapshot of everything you\'ve built so far</li>'
@@ -796,10 +796,10 @@ const GROUP_PROJECT_GUIDE = {
                 + _tip('As you keep working and making commits, SourceTree shows a visual timeline of every change. If something breaks, you can see exactly when it happened and go back.')
         },
         {
-            title: 'Make It Yours',
+            title: 'More Changes!',
             nextLabel: 'Show &amp; Tell',
-            content: '<h2>Step 9: Make It Yours</h2>'
-                + '<p>This is your project now. Decide as a group what to add next — there\'s no wrong answer here.</p>'
+            content: '<h2>Step 8: More Changes!</h2>'
+                + '<p>Now that your progress is saved, make another change to your project. Pick anything:</p>'
                 + _cards([
                     { icon: '🎨', name: 'Change the Theme', desc: 'Dark mode, retro, neon, pastel, brutalist, minimalist' },
                     { icon: '✍️', name: 'Add Your Content', desc: 'Write your own copy, add personal touches' },
@@ -807,16 +807,13 @@ const GROUP_PROJECT_GUIDE = {
                     { icon: '🔊', name: 'Add Audio', desc: 'Background music or sound effects' },
                     { icon: '🧩', name: 'New Features', desc: 'Share buttons, save progress, new interactions' },
                     { icon: '📄', name: 'More Content', desc: 'Extra pages, sections, or levels' },
-                ], { style: 'margin:20px 0;' })
+                ], { style: 'margin:16px 0;' })
                 + '<p>Describe what you want to your agent and let it build. Test in the browser, then iterate — same cycle as before.</p>'
-                + '<p style="margin-top:12px;">When you\'re happy with the changes, tell your agent to commit:</p>'
-                + _term('Commit my changes with a message describing what we added')
-                + _tip('Check SourceTree after each commit to see your history grow. Click on older commits to see what the code looked like at each point — this is the power of Git.')
         },
         {
             title: 'Show & Tell',
-            nextLabel: null,
-            content: '<h2>Step 10: Show &amp; Tell</h2>'
+            nextLabel: 'Commit &amp; View in SourceTree',
+            content: '<h2>Step 9: Show &amp; Tell</h2>'
                 + '<p>Open your project in the browser and show it to the group!</p>'
                 + '<h3>Things to share:</h3>'
                 + '<ul style="margin:8px 0 20px 20px; line-height:1.8;">'
@@ -834,6 +831,133 @@ const GROUP_PROJECT_GUIDE = {
                     { icon: '💾', name: 'Commit', desc: 'Save a checkpoint with Git' },
                 ], { style: 'margin-bottom:24px;' })
                 + '<p>This is the vibe coding workflow. It works for a simple single-page project and it works for a full web application. The projects get bigger, but the cycle stays the same.</p>'
+        },
+        {
+            title: 'Commit & View in SourceTree',
+            nextLabel: 'Try @ Mentioning a File',
+            content: '<h2>Step 10: Commit &amp; View in SourceTree</h2>'
+                + '<p>You\'ve made changes since your last commit. Let\'s save another checkpoint.</p>'
+                + '<p style="margin-top:12px;">Tell your agent:</p>'
+                + _term('Commit my changes with a message describing what we added')
+                + '<p style="margin-top:16px;">Now open SourceTree and look at your project — you\'ll see <strong>two commits</strong> in your history. Click between them to see exactly what changed.</p>'
+                + _tip('This is the power of Git. Every commit is a snapshot you can compare, revisit, or roll back to. Get in the habit of committing after every meaningful change.')
+        },
+        {
+            title: 'Try @ Mentioning a File',
+            nextLabel: 'Ask AI to Explain Your App',
+            content: '<h2>Step 11: Try @ Mentioning a File</h2>'
+                + '<p>Most AI coding tools let you <strong>@ mention</strong> a file to give the AI direct context about it. Let\'s try this by adding an image to your project.</p>'
+                + '<ol class="step-num-list">'
+                + '<li>Find an image you want to use — a logo, a photo, a meme, anything. Download it to your computer.</li>'
+                + '<li>Create an <code>images</code> folder inside your project folder and copy the image into it.</li>'
+                + '<li>In your AI tool, type <code>@</code> and select the image file from the file picker that appears.</li>'
+                + '<li>Write a prompt telling the AI what to do with it, like:</li>'
+                + '</ol>'
+                + _term('Add this logo to the header of my site. Size it appropriately and make sure it looks good next to the title.')
+                + '<p style="margin-top:16px;">The AI will read the file and update your HTML to include it. Refresh your browser to see the result.</p>'
+                + _tip('@ mentioning works with any file — images, code files, config files, data files. It\'s one of the most powerful ways to give the AI precise context about what you\'re asking for.')
+        },
+        {
+            title: 'Ask AI to Explain Your App',
+            nextLabel: 'Start Fresh &amp; Generate Context',
+            content: '<h2>Step 12: Ask AI to Explain Your App</h2>'
+                + '<p>You\'ve built something real — but do you know how it actually works? Let\'s find out.</p>'
+                + '<p style="margin-top:12px;">Ask your AI agent:</p>'
+                + _term('Explain how my website works in simple terms. What\'s my tech stack? Walk me through what happens when someone opens it — what they see, what they can interact with, and how the code makes it all work. Keep it simple, like you\'re explaining to someone who\'s never seen code before.')
+                + '<p style="margin-top:16px;">The AI will explain your <strong>tech stack</strong> — the languages, tools, and technologies your project is built with — and walk through how they work together.</p>'
+                + '<p style="margin-top:12px;">Try follow-up questions like:</p>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li>"What happens when someone clicks the button?"</li>'
+                + '<li>"How does the scoring work?"</li>'
+                + '<li>"What technologies could I add or upgrade to make this more powerful or professional?"</li>'
+                + '</ul>'
+                + _tip('You don\'t need to understand every line of code to vibe code effectively. But having a general sense of how your app is put together makes you better at describing what you want changed. The AI is always there to explain — just ask.')
+        },
+        {
+            title: 'Start Fresh & Generate Context',
+            nextLabel: 'Break Something on Purpose',
+            content: '<h2>Step 13: Start Fresh &amp; Generate Context</h2>'
+                + '<p>Start a <strong>new conversation</strong> in your AI tool. This is a blank slate — the AI doesn\'t remember anything from before.</p>'
+                + _cards([
+                    { icon: '🧹', name: 'New Conversation', desc: 'A fresh start — no stale context or old instructions carrying over' },
+                    { icon: '⚡', name: 'Run /init', desc: 'Scans your project and generates a <strong>context file</strong> the AI reads every time' },
+                    { icon: '📝', name: 'Context File', desc: 'A cheat sheet for the AI — your tech stack, preferences, and project rules' },
+                ], { style: 'margin:16px 0;' })
+                + '<p>Type <code>/init</code> and hit Enter. The AI will scan your project and create a context file (like CLAUDE.md) that it reads automatically at the start of every future conversation.</p>'
+                + '<p style="margin-top:12px;">You can customize the context file with your own instructions, or just run <code>/init</code> again periodically to have it auto-update as your project evolves.</p>'
+                + _tip('Start a new conversation when you\'re switching tasks, when the AI seems confused, or when a conversation gets long. The context file ensures the AI always has the basics.')
+        },
+        {
+            title: 'Break Something on Purpose',
+            nextLabel: 'Practice Debugging',
+            content: '<h2>Step 14: Break Something on Purpose</h2>'
+                + '<p>Things will break when you\'re building — that\'s normal. Let\'s practice what to do when it happens by breaking something intentionally.</p>'
+                + '<p style="margin-top:12px;">Tell your agent:</p>'
+                + _term('Add a new interactive feature to the page, but intentionally include a JavaScript error in it — something that will show up in the browser console. Don\'t tell me what the error is. Commit the change.')
+                + '<p style="margin-top:16px;">Refresh your browser. The new feature probably won\'t work — that\'s the point.</p>'
+        },
+        {
+            title: 'Practice Debugging',
+            nextLabel: 'Verify & Commit the Fix',
+            content: '<h2>Step 15: Practice Debugging</h2>'
+                + '<p>Now let\'s find and fix that bug.</p>'
+                + '<h3>Find the Error</h3>'
+                + '<ol class="step-num-list">'
+                + '<li>Open your browser\'s <strong>Developer Tools</strong> — press <code>Cmd + Option + J</code> or <code>F12</code></li>'
+                + '<li>Click the <strong>Console</strong> tab</li>'
+                + '<li>Look for red error messages — they\'ll tell you what went wrong and which line caused it</li>'
+                + '</ol>'
+                + '<h3>Fix the Error</h3>'
+                + '<p>Copy the error message from the console and paste it to your AI agent:</p>'
+                + _term('I\'m getting an error.\n\nWhat I expected: [describe what should happen]\nWhat actually happened: [describe what you see instead]\n\nHere\'s the error from the browser console:\n[paste the error message]\n\n[paste a screenshot if helpful]')
+                + '<p style="margin-top:16px;">The AI will read the error, find the problem, and fix it. Refresh and confirm it works.</p>'
+                + _warn('This is the #1 debugging workflow in vibe coding: see a problem → open the console → copy the error → paste it to the AI. Memorize this loop — you\'ll use it constantly.')
+        },
+        {
+            title: 'Verify & Commit the Fix',
+            nextLabel: 'Roll Back with Git',
+            content: '<h2>Step 16: Verify &amp; Commit the Fix</h2>'
+                + '<p>Refresh your browser and check — is the error gone? Does everything work the way it should?</p>'
+                + '<p style="margin-top:12px;">If yes, commit it! You can either ask the AI:</p>'
+                + _term('Commit my changes with a message about fixing the bug')
+                + '<p style="margin-top:12px;">Or do it yourself in SourceTree:</p>'
+                + '<ol class="step-num-list">'
+                + '<li>Open SourceTree and click <strong>File Status</strong> in the left sidebar — you\'ll see your changed files</li>'
+                + '<li>Check the boxes next to the files you want to include (or click <strong>Stage All</strong>)</li>'
+                + '<li>Type a commit message like <code>Fix broken button bug</code></li>'
+                + '<li>Click <strong>Commit</strong></li>'
+                + '</ol>'
+                + '<p style="margin-top:16px;">Either way works. As you get more comfortable, you\'ll develop a preference.</p>'
+        },
+        {
+            title: 'Roll Back with Git',
+            nextLabel: 'Ask AI What\'s Next',
+            content: '<h2>Step 17: Roll Back with Git</h2>'
+                + '<p>Debugging isn\'t the only way to fix a bad change. Sometimes it\'s easier to just <strong>undo the whole commit</strong> and start over.</p>'
+                + '<p style="margin-top:12px;">This is another reason git is so powerful — every commit is a checkpoint you can go back to.</p>'
+                + '<p style="margin-top:12px;">Open SourceTree and find the commit from <strong>before</strong> the bug was introduced. Copy its commit message or ID (the short code like <code>a3f7b2</code>), then tell your AI:</p>'
+                + _term('Reset my project back to this commit: [paste commit message or ID]')
+                + _warn('When you say "reset," the AI will most likely erase those commits from your git history permanently. That\'s fine for now — but know that you can also ask the AI to <strong>revert nondestructively</strong>, which undoes the changes but keeps the full history.')
+                + '<p style="margin-top:16px;">Refresh your browser — your project should be back to that working state. Check SourceTree to see what changed in your history.</p>'
+                + _tip('This is great for when the AI makes a change that breaks everything and debugging would take longer than just undoing it.')
+        },
+        {
+            title: 'Ask AI What\'s Next',
+            nextLabel: null,
+            content: '<h2>Step 18: Ask AI What\'s Next</h2>'
+                + '<p>One of the most powerful things about AI tools is that they\'re not just builders — they\'re advisors. When you\'re not sure what to do next, just ask.</p>'
+                + '<p style="margin-top:12px;">Try prompts like these:</p>'
+                + _term('Look at my project and suggest 3 features or improvements that would make it more impressive. Explain why each one would be valuable.')
+                + _term('What would a professional developer do to make this project production-ready? What am I missing — security, performance, accessibility, anything?')
+                + _term('Suggest some UI/UX improvements for my project. What would make it feel more polished and professional to a user?')
+                + '<p style="margin-top:16px;">The AI will analyze your project and give you specific, actionable suggestions. Pick one that sounds interesting and try building it — same workflow as before.</p>'
+                + '<p style="margin-top:12px;">This is how you learn things you didn\'t know to ask about. The AI might suggest:</p>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li>Tools and techniques you\'ve never heard of</li>'
+                + '<li>Best practices that professional developers follow</li>'
+                + '<li>Features you didn\'t realize were possible</li>'
+                + '<li>Ways to prepare your project for going live on the internet</li>'
+                + '</ul>'
         }
     ]
 };

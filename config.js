@@ -14,6 +14,7 @@ const FILE_GROUPS = [
             { name: "Who Is It For?", path: "who-is-vibe-coding-for" },
             { name: "What You'll Learn", path: "what-youll-learn" },
             { name: "Example Projects", path: "example-projects" },
+            { name: "Beyond Coding", path: "beyond-coding" },
         ]
     },
     {
@@ -39,7 +40,8 @@ const FILE_GROUPS = [
     {
         label: "Level Up",
         files: [
-            { name: "Vibe Coding Techniques", path: "Vibe Coding Techniques.md" },
+            { name: "Prompting & AI Mastery", path: "prompting-guide" },
+            { name: "Product Guidance", path: "product-guidance" },
             { name: "Solo Project Guide", path: "Solo Project Guide.md" },
         ]
     },
