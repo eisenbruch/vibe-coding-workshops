@@ -78,7 +78,7 @@ function renderWelcome() {
     html += '<div style="text-align:center; margin-bottom:40px;">';
     html += '<h1 style="font-size:2.4em; font-weight:800; border:none; margin-bottom:8px;">Welcome to the Vibe Coding Workshop</h1>';
     html += '<p style="color:var(--text-muted); font-size:1.1em; margin-bottom:4px;">Use AI to build real software — no coding experience required</p>';
-    html += '<p style="color:var(--text-muted); font-size:0.9em;">By Noah Eisenbruch · <a href="mailto:noaheisenbruch@gmail.com">noaheisenbruch@gmail.com</a></p>';
+    html += '<p style="color:var(--text-muted); font-size:0.9em;">By <a href="#who-am-i" onclick="event.preventDefault(); loadRoute(\'who-am-i\');" style="color:var(--text-muted); text-decoration:underline; text-decoration-style:dotted; text-underline-offset:2px;">Noah Eisenbruch</a> · <a href="mailto:noaheisenbruch@gmail.com">noaheisenbruch@gmail.com</a></p>';
     html += '</div>';
 
     // Follow Along
@@ -124,6 +124,65 @@ function renderWelcome() {
     addCardKeyboardSupport();
 }
 
+
+// ── Who Am I ───────────────────────────────────────────────
+function renderWhoAmI() {
+    var html = '<div class="who-am-i">';
+
+    // Header
+    html += '<div style="text-align:center; margin-bottom:36px;">';
+    html += '<div style="height:80px; border-radius:50%; background:var(--accent-color); color:#fff; font-size:2em; font-weight:800; display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px; letter-spacing:-0.02em;">About Me</div>';
+    html += '<h1 style="font-size:2.2em; font-weight:800; border:none; margin:0 0 6px 0;">Noah Eisenbruch</h1>';
+    html += '<p style="color:var(--text-muted); font-size:1.1em; margin:0;">Artist &middot; Product Manager &middot; Creative Technologist &middot; Educator</p>';
+    html += '</div>';
+
+    // Three identity cards
+    html += '<div class="path-picker-grid" style="margin-bottom:28px;">';
+
+    html += '<div class="path-card" style="cursor:default; text-align:left;">';
+    html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">01</div>';
+    html += '<div class="path-card-name">Background</div>';
+    html += '<div class="path-card-desc">Studied experimental video, sculpture, and film. Spent 15+ years in tech as a founder, product manager, and consultant.</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:left;">';
+    html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">02</div>';
+    html += '<div class="path-card-name">Art Practice</div>';
+    html += '<div class="path-card-desc">Video art, interactive installations, and conceptual web projects. Work that often takes the shape of fully functional "fake" products and services.</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:left;">';
+    html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">03</div>';
+    html += '<div class="path-card-name">Approach</div>';
+    html += '<div class="path-card-desc">Strengths in ideation, product management, and strategy rather than deep-in-the-weeds coding. Vibe coding bridges that gap perfectly.</div>';
+    html += '</div>';
+
+    html += '</div>';
+
+    // Feature card — the bridge narrative
+    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:28px; border:2px solid var(--accent-color);">';
+    html += '<div class="path-card-name" style="font-size:1.15em; margin-bottom:10px;">Why I Teach This</div>';
+    html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
+    html += 'Vibe coding let me build projects I\'d only dreamed about. ';
+    html += 'Now I teach workshops and private lessons to help others do the same — ';
+    html += 'bypass technical roadblocks and bring their ideas to life independently.';
+    html += '</div>';
+    html += '</div>';
+
+    // // Example project callout
+    // html += '<div class="step-callout note" style="margin-bottom:32px;">';
+    // html += '<span class="step-callout-icon" style="font-family:var(--font-mono,monospace); font-weight:700;">&gt;_</span>';
+    // html += '<div class="step-callout-body">See examples of what vibe coding can produce on the <a href="#example-projects" onclick="event.preventDefault(); loadRoute(\'example-projects\');">Example Projects</a> page, including <a href="https://trafficvision.live" target="_blank" rel="noopener noreferrer">TrafficVision.live</a> — a conceptual art project built as a fully functional global camera aggregator.</div>';
+    // html += '</div>';
+
+    // CTA
+    html += '<div style="text-align:center; padding:16px 0;">';
+    html += '<a href="#what-is-vibe-coding" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'what-is-vibe-coding\');">What is Vibe Coding? &rarr;</a>';
+    html += '</div>';
+
+    html += '</div>';
+    contentDiv.innerHTML = html;
+}
 
 // ── What is Vibe Coding ────────────────────────────────────
 function renderWhatIsVibeCoding() {
@@ -192,10 +251,8 @@ function renderWhyVibeCoding() {
     html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:32px; border:2px solid var(--accent-color);">';
     html += '<div class="path-card-name" style="font-size:1.2em; margin-bottom:12px;">The Most Important Professional Skill</div>';
     html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
-    html += 'It won\'t be AI that takes most jobs — it\'ll be <strong>people who use AI</strong> taking those jobs. Learning to build with AI is the most important professional skill moving forward. ';
-    html += 'Custom tools can now be built faster than it takes to choose, sign up with, and learn a SaaS provider. ';
-    html += 'Software as we knew it is giving way to something new — <strong>generative, on-demand, and personalized</strong>. ';
-    html += 'Vibe coding is how you stay on the right side of that shift.';
+    html += 'The advantage won\'t go to AI itself — it\'ll go to the <strong>people who learn to use it</strong>. ';
+    html += 'Vibe coding is how you stay ahead.';
     html += '</div>';
     html += '</div>';
 
@@ -236,9 +293,44 @@ function renderWhoIsVibeCodingFor() {
     html += '<div class="path-card-desc">Build landing pages, dashboards, and tools tailored to your exact needs — no dev team required</div>';
     html += '</div>';
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
-    html += '<div class="path-card-icon">🌱</div>';
-    html += '<div class="path-card-name">Complete Beginners</div>';
-    html += '<div class="path-card-desc">No experience needed — just curiosity and a willingness to experiment</div>';
+    html += '<div class="path-card-icon">🚀</div>';
+    html += '<div class="path-card-name">Entrepreneurs & Founders</div>';
+    html += '<div class="path-card-desc">Validate ideas and build MVPs without hiring a dev team</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">📚</div>';
+    html += '<div class="path-card-name">Teachers & Educators</div>';
+    html += '<div class="path-card-desc">Create custom tools and resources for your classroom</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🔬</div>';
+    html += '<div class="path-card-name">Researchers & Academics</div>';
+    html += '<div class="path-card-desc">Build data tools, automate analysis, and visualize findings</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🤝</div>';
+    html += '<div class="path-card-name">Nonprofit & Community</div>';
+    html += '<div class="path-card-desc">Build what you need without the budget for custom development</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🎵</div>';
+    html += '<div class="path-card-name">Musicians & Performers</div>';
+    html += '<div class="path-card-desc">Build setlist tools, booking sites, and fan experiences</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">⚖️</div>';
+    html += '<div class="path-card-name">Lawyers & Legal</div>';
+    html += '<div class="path-card-desc">Automate document workflows and build client intake tools</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">💼</div>';
+    html += '<div class="path-card-name">Freelancers & Consultants</div>';
+    html += '<div class="path-card-desc">Build invoicing, proposals, and client-facing tools</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🎓</div>';
+    html += '<div class="path-card-name">Students</div>';
+    html += '<div class="path-card-desc">Build projects, study tools, and portfolio sites</div>';
     html += '</div>';
     html += '</div>';
 
@@ -280,6 +372,28 @@ function renderWhatYoullLearn() {
     html += '<div class="step-callout-body">The core workflow is <strong>prompt → test → iterate → commit</strong>. You\'ll practice this cycle throughout the workshop.</div>';
     html += '</div>';
 
+    // Bring your skills section
+    html += '<h2 style="font-size:1.3em; font-weight:700; text-align:center; margin-bottom:6px; border:none; padding:0;">Bring What You Already Know</h2>';
+    html += '<p style="color:var(--text-muted); text-align:center; margin-bottom:20px;">Your domain expertise is what makes your projects great. The AI handles the code.</p>';
+    html += '<div class="path-picker-grid" style="margin-bottom:28px;">';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">The Teacher</div>';
+    html += '<div class="path-card-desc">Builds a custom grading tool because no existing app fits their workflow</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">The Organizer</div>';
+    html += '<div class="path-card-desc">Builds an events system tailored to their community — and avoids platform fees</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">The Business Owner</div>';
+    html += '<div class="path-card-desc">Builds an inventory tracker tailored to their exact process</div>';
+    html += '</div>';
+
+    html += '</div>';
+
     html += '<div class="step-callout note" style="margin-bottom:32px;">';
     html += '<span class="step-callout-icon">🙋</span>';
     html += '<div class="step-callout-body"><strong>Ask questions!</strong> During the workshop, ask about anything — your project, your tools, a concept you want to understand. The best way to learn vibe coding is to stay curious and explore what\'s possible.</div>';
@@ -299,6 +413,7 @@ function renderExampleProjects() {
     html += '<p class="path-picker-subtitle">Real projects built with vibe coding — from quick tools to full applications</p>';
     html += '</div>';
 
+    html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Instructor Projects</h2>';
     html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
     WELCOME_PROJECTS.forEach(p => {
         html += `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="path-card" style="text-decoration:none; cursor:pointer;">`;
@@ -315,6 +430,18 @@ function renderExampleProjects() {
     html += '<li><strong>Raspberry Pi Instant Camera</strong> — prints instant picture stickers with text and current date/time</li>';
     html += '<li><strong>Blender Addon</strong> — optimally rotates a 3D object to minimize its bounding box for manufacturing</li>';
     html += '</ul>';
+
+    // Workshop Projects
+    html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Workshop Projects</h2>';
+    html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
+    WORKSHOP_PROJECTS.forEach(p => {
+        html += '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer" class="path-card" style="text-decoration:none; cursor:pointer;">';
+        html += '<div class="path-card-name">' + p.name + '</div>';
+        html += '<div class="path-card-tools">' + p.author + ' — ' + p.type + '</div>';
+        html += '<div class="path-card-desc">' + p.desc + '</div>';
+        html += '</a>';
+    });
+    html += '</div>';
 
     html += '<div class="step-callout note" style="margin-bottom:24px;">';
     html += '<span class="step-callout-icon">💡</span>';

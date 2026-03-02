@@ -11,20 +11,33 @@ Reference guides and resources for vibe coding, project setup, and related tools
 **[Resource Viewer](https://workshop.nerktek.com/):**
 
 **Start Here:**
-- **[Welcome & Inspiration](https://workshop.nerktek.com/#Welcome.md)** — Workshop overview, example projects, pick your path
+- **[Welcome](https://workshop.nerktek.com/#welcome)** — Workshop overview and navigation
+- **[Your Instructor](https://workshop.nerktek.com/#who-am-i)** — About Noah Eisenbruch
+- **[What is Vibe Coding?](https://workshop.nerktek.com/#what-is-vibe-coding)** — How AI-assisted coding works
+- **[Why Vibe Coding?](https://workshop.nerktek.com/#why-vibe-coding)** — An essential skill for the AI era
+- **[Who Is It For?](https://workshop.nerktek.com/#who-is-vibe-coding-for)** — Bring your skills, technical or not
+- **[What You'll Learn](https://workshop.nerktek.com/#what-youll-learn)** — From idea to deployed project
+- **[Example Projects](https://workshop.nerktek.com/#example-projects)** — Real projects built with vibe coding
+- **[Beyond Coding](https://workshop.nerktek.com/#beyond-coding)** — AI agents for more than just code
 
 **Tool Setup (Pick Your Level):**
-- **[Beginner: Quick Start](https://workshop.nerktek.com/#paths/Beginner%20Quick%20Start.md)** — Try vibe coding in your browser, no setup
-- **[Intermediate: Claude Desktop](https://workshop.nerktek.com/#paths/Intermediate%20Setup%20-%20Claude%20Desktop.md)** — Desktop AI assistant setup
-- **[Beginner: Google AI Studio](https://workshop.nerktek.com/#paths/Beginner%20Setup%20-%20Google%20AI%20Studio.md)** — Free browser-based AI workspace
-- **[Advanced: Claude Code](https://workshop.nerktek.com/#paths/Advanced%20Setup%20-%20Claude%20Code.md)** — VS Code + AI agent setup
-- **[Advanced: Gemini CLI](https://workshop.nerktek.com/#paths/Advanced%20Setup%20-%20Gemini%20CLI.md)** — Free VS Code + AI agent setup
+- **[Pick Your Path](https://workshop.nerktek.com/#pick-your-path)** — Choose your setup based on comfort level
+- **[Beginner: Quick Start](https://workshop.nerktek.com/#setup-beginner)** — Try vibe coding in your browser, no setup
+- **[Beginner: Google AI Studio](https://workshop.nerktek.com/#setup-google-ai-studio)** — Free browser-based AI workspace
+- **[Intermediate: Claude Desktop](https://workshop.nerktek.com/#setup-claude-desktop)** — Desktop AI assistant setup
+- **[Intermediate: Antigravity + Gemini](https://workshop.nerktek.com/#setup-antigravity)** — Free AI-powered IDE
+- **[Advanced: Antigravity + Claude](https://workshop.nerktek.com/#setup-antigravity-claude)** — Claude agent in Antigravity
+- **[Advanced: Antigravity + Gemini](https://workshop.nerktek.com/#setup-antigravity-gemini)** — Gemini agent in Antigravity
+- **[Advanced: VS Code + Claude](https://workshop.nerktek.com/#setup-claude-code)** — VS Code + AI agent setup
+- **[Advanced: VS Code + Gemini](https://workshop.nerktek.com/#setup-gemini-cli)** — Free VS Code + AI agent setup
 
 **Build Together:**
-- **[Group Project](https://workshop.nerktek.com/#Group%20Project.md)** — Guided group project everyone builds together
+- **[Group Project](https://workshop.nerktek.com/#group-project)** — Guided group project everyone builds together
 
 **Level Up:**
-- **[Vibe Coding Techniques](https://workshop.nerktek.com/#Vibe%20Coding%20Techniques.md)** — Core approaches, prompting, essential techniques
+- **[Prompting & AI Mastery](https://workshop.nerktek.com/#prompting-guide)** — Core prompting techniques and strategies
+- **[Product Guidance](https://workshop.nerktek.com/#product-guidance)** — Planning and managing your project
+- **[Vibe Coding Techniques](https://workshop.nerktek.com/#Vibe%20Coding%20Techniques.md)** — Approaches and essential techniques
 - **[Solo Project Guide](https://workshop.nerktek.com/#Solo%20Project%20Guide.md)** — Project ideas, setup, build cycle, deployment
 
 **Deployment & Beyond:**

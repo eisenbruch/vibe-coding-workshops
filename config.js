@@ -9,6 +9,7 @@ const FILE_GROUPS = [
         label: "Start Here",
         files: [
             { name: "Welcome", path: "welcome" },
+            { name: "Your Instructor", path: "who-am-i" },
             { name: "What is Vibe Coding?", path: "what-is-vibe-coding" },
             { name: "Why Vibe Coding?", path: "why-vibe-coding" },
             { name: "Who Is It For?", path: "who-is-vibe-coding-for" },
