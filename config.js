@@ -42,6 +42,7 @@ const FILE_GROUPS = [
         files: [
             { name: "Prompting & AI Mastery", path: "prompting-guide" },
             { name: "Product Guidance", path: "product-guidance" },
+            { name: "Vibe Coding Techniques (old)", path: "Vibe Coding Techniques.md" },
             { name: "Solo Project Guide", path: "Solo Project Guide.md" },
         ]
     },

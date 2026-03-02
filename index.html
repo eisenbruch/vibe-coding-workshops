@@ -230,6 +230,9 @@
                 'setup-antigravity-claude': function(step) { renderSetupGuide('setup-antigravity-claude', step); },
                 'setup-antigravity-gemini': function(step) { renderSetupGuide('setup-antigravity-gemini', step); },
                 'group-project': function(step) { renderGroupProject(step); },
+                'prompting-guide': function(step) { renderPromptingGuide(step); },
+                'product-guidance': function(step) { renderProductGuide(step); },
+                'beyond-coding': renderBeyondCoding,
             };
 
             // Parse step number from paths like "setup-beginner/2"
@@ -469,8 +472,8 @@
 
                 if (sectionContent.children.length > 0) {
                     const id = header.id;
-                    // Default: first H2 open, plus table-of-contents and welcome
-                    let defaultOpen = true;
+                    // MD files load collapsed; custom routes load expanded
+                    let defaultOpen = !currentFile.endsWith('.md');
                     const isOpen = saved ? (saved[id] !== undefined ? saved[id] : defaultOpen) : defaultOpen;
                     if (!isOpen) {
                         header.classList.add('collapsible-header', 'collapsed');
@@ -527,6 +530,8 @@
         function getGuideForRoute(route) {
             if (route === 'setup-beginner') return BEGINNER_GUIDE;
             if (route === 'group-project') return GROUP_PROJECT_GUIDE;
+            if (route === 'prompting-guide') return PROMPTING_GUIDE;
+            if (route === 'product-guidance') return PRODUCT_GUIDE;
             if (SETUP_GUIDES[route]) return SETUP_GUIDES[route];
             return null;
         }
@@ -575,7 +580,7 @@
                                 var sli = document.createElement('li');
                                 var sa = document.createElement('a');
                                 sa.href = '#' + encodeURIComponent(file.path + (i > 0 ? '/' + i : ''));
-                                sa.textContent = step.title;
+                                sa.textContent = (i + 1) + '. ' + step.title;
                                 sa.dataset.step = i;
                                 sa.dataset.parentPath = file.path;
                                 if (i === activeStep) sa.classList.add('active');

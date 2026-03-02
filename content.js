@@ -962,3 +962,332 @@ const GROUP_PROJECT_GUIDE = {
     ]
 };
 
+// ── Prompting & AI Mastery Guide ───────────────────────────
+const PROMPTING_GUIDE = {
+    name: 'Prompting & AI Mastery',
+    subtitle: 'How to communicate with AI effectively — prompting, context management, and debugging.',
+    lastStepCards: [
+        { icon: '🎯', name: 'Product Guidance', desc: 'Think like a product manager before you build', route: 'product-guidance' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+    ],
+    steps: [
+        {
+            title: 'The Vibe Coding Spectrum',
+            nextLabel: 'Writing Good Prompts',
+            content: '<h2>The Vibe Coding Spectrum — Two Approaches to Building</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">All projects exist somewhere on a spectrum. Neither end is "right" — most projects use a mix.</p>'
+                // ── Visual spectrum bar ──
+                + '<div style="margin:0 0 32px; padding:24px 20px 16px; border-radius:12px; background:var(--surface-color); border:1px solid var(--border-color);">'
+                + '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">'
+                + '<span style="font-weight:700; font-size:0.95em;">Explore &amp; Iterate</span>'
+                + '<span style="font-weight:700; font-size:0.95em;">Plan &amp; Execute</span>'
+                + '</div>'
+                + '<div style="height:8px; border-radius:4px; background:linear-gradient(to right, #60a5fa, #a78bfa, #f472b6); margin-bottom:10px;"></div>'
+                + '<div style="display:flex; justify-content:space-between; font-size:0.85em; color:var(--text-muted);">'
+                + '<span><a href="https://nerktendo.com/" target="_blank" style="color:var(--text-muted);">Nerktendo</a></span>'
+                + '<span><a href="https://nerktendo.com/weather-worsener" target="_blank" style="color:var(--text-muted);">Weather Worsener</a> · <a href="https://linkp.ee" target="_blank" style="color:var(--text-muted);">LinkPee</a></span>'
+                + '<span><a href="https://nerktendo.com/domainflip" target="_blank" style="color:var(--text-muted);">DomainFlip</a></span>'
+                + '</div>'
+                + '</div>'
+                // ── Two approach cards side-by-side ──
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:32px;">'
+                // Card 1: Iterative
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-size:1.5em; margin-bottom:8px;">🌊</div>'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">Iterative Refinement</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Start broad, refine through conversation</div>'
+                + '<div style="font-size:0.92em; line-height:1.7;">'
+                + '<div style="margin-bottom:8px;"><span style="color:#22c55e;">✓</span> Explore possibilities &amp; spark creativity<br><span style="color:#22c55e;">✓</span> No planning required<br><span style="color:#22c55e;">✓</span> Perfect for learning &amp; prototyping</div>'
+                + '<div><span style="color:var(--text-muted);">✗</span> More back-and-forth needed<br><span style="color:var(--text-muted);">✗</span> May drift from your vision<br><span style="color:var(--text-muted);">✗</span> Long context can slow things down</div>'
+                + '</div>'
+                + '</div>'
+                // Card 2: Comprehensive
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-size:1.5em; margin-bottom:8px;">📋</div>'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">Comprehensive Brief</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Define everything upfront, then execute</div>'
+                + '<div style="font-size:0.92em; line-height:1.7;">'
+                + '<div style="margin-bottom:8px;"><span style="color:#22c55e;">✓</span> Faster to a polished result<br><span style="color:#22c55e;">✓</span> Stays true to your vision<br><span style="color:#22c55e;">✓</span> Better for complex requirements</div>'
+                + '<div><span style="color:var(--text-muted);">✗</span> Requires knowing what you want<br><span style="color:var(--text-muted);">✗</span> Less room for discovery<br><span style="color:var(--text-muted);">✗</span> Harder for beginners to brief well</div>'
+                + '</div>'
+                + '</div>'
+                + '</div>'
+                // ── DomainFlip workflow pipeline ──
+                + '<h3>Real Example: The DomainFlip Workflow</h3>'
+                + '<p style="margin-bottom:16px;"><a href="https://nerktendo.com/domainflip" target="_blank">DomainFlip</a> was built using the comprehensive brief approach — here\'s the pipeline:</p>'
+                + _cards([
+                    { icon: '💬', name: '1. Plan', desc: 'Used AI to define the product vision, revenue model, and marketing strategy' },
+                    { icon: '📄', name: '2. Documents', desc: 'AI produced 8 build docs: architecture, UI components, mock data, and page specs' },
+                    { icon: '⚡', name: '3. Execute', desc: 'Fed all documents to Claude Code in a single prompt' },
+                    { icon: '✅', name: '4. Result', desc: 'Complete site built exactly to spec in one hour' },
+                ], { style: 'margin-bottom:16px;' })
+                + _tip('Use AI to plan your project in detail, then feed that plan to an AI coding agent. Read the <a href="#docs/domainflip/domainflip_summary.md" onclick="event.preventDefault(); loadRoute(\'docs/domainflip/domainflip_summary.md\');">DomainFlip build documents</a> for a real example.')
+        },
+        {
+            title: 'Writing Good Prompts',
+            nextLabel: 'Steering the AI',
+            content: '<h2>Good Prompts vs Better Prompts</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The quality of your prompts directly determines the quality of the AI\'s output.</p>'
+                + '<h3>Key Principles</h3>'
+                + _cards([
+                    { icon: '🎯', name: 'Be Specific', desc: 'Dimensions, colors, behaviors, structure — the more detail, the better the result' },
+                    { icon: '📎', name: 'Include Context', desc: 'Tech stack, constraints, goals, what you\'ve already tried' },
+                    { icon: '✅', name: 'Describe Outcomes', desc: 'What should happen, not just what to do' },
+                    { icon: '🐛', name: 'Report Bugs Clearly', desc: 'Expected vs actual behavior + error messages' },
+                ], { style: 'margin-bottom:28px;' })
+                // ── Scenario cards ──
+                + '<h3>Examples</h3>'
+                + (function() {
+                    var scenarios = [
+                        { icon: '🏗️', label: 'Building', bad: 'Make me a website', good: 'Create a single-page portfolio site with a hero section, 3 project cards, and a contact form. Use a dark theme with blue accents.' },
+                        { icon: '🐛', label: 'Debugging', bad: 'Fix it', good: 'The submit button doesn\'t work. When I click it, nothing happens but I expected [X]. Here\'s the error from the console: [paste error]' },
+                        { icon: '🧩', label: 'Features', bad: 'Add a database', good: 'I think we need a database. Users should be able to save tasks with a title, description, and due date. Tasks should persist between sessions and each user should only see their own.' },
+                        { icon: '🎨', label: 'Design', bad: 'Make it look better', good: 'Improve the card component: add subtle shadows, rounded corners, and a hover effect that slightly lifts the card.' },
+                    ];
+                    var h = '<div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-bottom:8px;">';
+                    scenarios.forEach(function(s) {
+                        h += '<div style="border-radius:10px; border:1px solid var(--border-color); overflow:hidden; background:var(--surface-color); padding:16px 20px;">';
+                        h += '<div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;"><span style="font-size:1.1em;">' + s.icon + '</span><span style="font-weight:700; font-size:0.85em; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">' + s.label + '</span></div>';
+                        h += '<div style="padding:8px 12px; border-radius:6px; border:1px dashed var(--border-color); margin-bottom:8px; font-size:0.92em; opacity:0.7;"><span style="color:var(--text-muted);">✗</span> "' + s.bad + '"</div>';
+                        h += '<div style="padding:8px 12px; border-radius:6px; background:color-mix(in srgb, #22c55e 8%, var(--surface-color)); border:1px solid color-mix(in srgb, #22c55e 25%, var(--border-color)); font-size:0.95em;"><span style="color:#22c55e;">✓</span> "' + s.good + '"</div>';
+                        h += '</div>';
+                    });
+                    h += '</div>';
+                    return h;
+                })()
+        },
+        {
+            title: 'Steering the AI',
+            nextLabel: 'Plan Before You Build',
+            content: '<h2>Stay in Control</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Sometimes AI goes off the rails. Know when to interrupt and how to course-correct.</p>'
+                + '<h3>When to Interrupt</h3>'
+                + _cards([
+                    { icon: '📂', name: 'Wrong Files', desc: 'Editing the wrong file or creating unnecessary files' },
+                    { icon: '🚫', name: 'Wrong Approach', desc: 'Taking a completely wrong approach to the problem' },
+                    { icon: '🔧', name: 'Over-Engineering', desc: 'Making excessive changes beyond what you asked' },
+                    { icon: '🔄', name: 'Going in Circles', desc: 'Trying the same failed fix repeatedly' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>How to Interrupt & Recover</h3>'
+                + '<ol class="step-num-list">'
+                + '<li><strong>Stop it</strong> — press the stop button or <code>esc</code> in command line tools</li>'
+                + '<li><strong>Undo changes</strong> — go back in the conversation or reset files using Git</li>'
+                + '<li><strong>Give clearer instructions</strong> — be more specific about what you want</li>'
+                + '<li><strong>Add constraints</strong> — "only modify this file", "don\'t change the database schema"</li>'
+                + '</ol>'
+                + _warn('Mistakes compound. The longer AI goes down the wrong path, the more context gets polluted with bad code and failed attempts.')
+        },
+        {
+            title: 'Plan Before You Build',
+            nextLabel: 'How AI Context Works',
+            content: '<h2>Use Plan Mode</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">For features and major changes, use <strong>plan mode</strong> to build out a detailed plan before the AI starts coding.</p>'
+                + '<h3>Why It Matters</h3>'
+                + _cards([
+                    { icon: '🎯', name: 'Catch Misunderstandings', desc: 'Before code is written, not after' },
+                    { icon: '🏗️', name: 'Control Architecture', desc: 'You decide the structure, not the AI' },
+                    { icon: '⏱️', name: 'Save Time', desc: 'Prevents wasted effort from going down the wrong path' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>How to Use Plan Mode</h3>'
+                + '<ol class="step-num-list">'
+                + '<li>Describe the feature or change you want</li>'
+                + '<li>Ask the AI to create a plan (or use the tool\'s built-in plan mode)</li>'
+                + '<li>Review the proposed approach — files to create/modify, dependencies, structure</li>'
+                + '<li>Request changes to the plan if needed</li>'
+                + '<li>Approve and let the AI execute</li>'
+                + '</ol>'
+                + _tip('The bigger the change, the more valuable planning becomes. For small tweaks, just ask. For new features or refactors, plan first.')
+        },
+        {
+            title: 'AI Context & Management',
+            nextLabel: 'Debugging & Stubborn Bugs',
+            content: '<h2>How AI Context Works</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Everything the AI knows fits inside a <strong>context window</strong> — a fixed-size memory. As conversations get long, older content gets compressed or dropped.</p>'
+                + _cards([
+                    { icon: '💬', name: 'Your Messages', desc: 'Every prompt, piece of feedback, and error you paste in' },
+                    { icon: '📁', name: 'Project Files', desc: 'CLAUDE.md and any files the AI reads' },
+                    { icon: '🕐', name: 'Conversation History', desc: 'All previous messages and code the AI has generated this session' },
+                    { icon: '🌐', name: 'External Sources', desc: 'Web documentation, API responses, MCP server data' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>When to Start Fresh</h3>'
+                + _cards([
+                    { icon: '🔀', name: 'Switching Tasks', desc: 'Moving to an unrelated task or different part of the codebase' },
+                    { icon: '🐌', name: 'Feeling Sluggish', desc: 'The conversation feels slow, repetitive, or confused' },
+                    { icon: '🔄', name: 'Going in Circles', desc: 'AI keeps forgetting things you told it earlier' },
+                    { icon: '🧹', name: 'Clean Slate', desc: 'You\'ve been through many iterations and want to reset' },
+                ], { style: 'margin:16px 0 24px;' })
+                + _note('Use the <code>/init</code> command to automatically generate and update your project documentation (CLAUDE.md). The AI scans your project and creates a context file it reads at the start of every conversation.')
+        },
+        {
+            title: 'Debugging & Stubborn Bugs',
+            content: '<h2>When Things Go Wrong</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">AI agents fix issues best when given complete information. Here\'s the workflow.</p>'
+                + '<h3>The Debugging Workflow</h3>'
+                + '<ol class="step-num-list">'
+                + '<li><strong>Capture errors from DevTools</strong></li>'
+                + '</ol>'
+                + '<p>Open with <code>Cmd + Option + I</code> (Mac) or <code>F12</code> (Windows). Check the Console tab for red errors and the Network tab for failed requests.</p>'
+                + '<ol class="step-num-list" start="2">'
+                + '<li><strong>Describe the problem clearly</strong></li>'
+                + '</ol>'
+                + '<p>What you expected, what actually happened, steps to reproduce, and any recent changes.</p>'
+                + '<ol class="step-num-list" start="3">'
+                + '<li><strong>Provide context</strong></li>'
+                + '</ol>'
+                + '<p>Paste the full error message, include relevant code, and take a screenshot for visual bugs.</p>'
+                + _tip('More context is better. AI can ignore what\'s irrelevant, but it can\'t guess what you didn\'t share.')
+                + '<h3>Working Through Stubborn Bugs</h3>'
+                + '<p>When the AI can\'t solve a bug after multiple attempts:</p>'
+                + _cards([
+                    { icon: '🔄', name: 'Try a Different AI', desc: 'Different models have different strengths. If Claude is stuck, try Gemini or vice versa.' },
+                    { icon: '🤼', name: 'AI Debate Technique', desc: 'Ask two AIs the same question, then share each response with the other for critique.' },
+                    { icon: '🧹', name: 'Fresh Context', desc: 'Start a new conversation with just the problem. Old failed attempts can mislead.' },
+                    { icon: '🔬', name: 'Simplify & Isolate', desc: 'Ask the AI to create a minimal reproduction. Stripping away unrelated code reveals root causes.' },
+                ], { style: 'margin-bottom:8px;' })
+        }
+    ]
+};
+
+// ── Product Guidance ───────────────────────────────────────
+const PRODUCT_GUIDE = {
+    name: 'Product Guidance',
+    subtitle: 'Think like a product manager and designer before you start building.',
+    lastStepCards: [
+        { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+    ],
+    steps: [
+        {
+            title: 'Why Product Thinking Matters',
+            nextLabel: 'Define Your User & Problem',
+            content: '<h2>Think Products, Not Code</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The best vibe coders don\'t just describe code — they describe <strong>products</strong>. The more clearly you think about what you\'re building and who it\'s for, the better your prompts and results will be.</p>'
+                + _cards([
+                    { icon: '🧑‍💼', name: 'Product Manager', desc: 'What should we build and why? Who is it for? What problem does it solve?' },
+                    { icon: '🎨', name: 'Designer', desc: 'How should it feel to use? What does the user see, click, and experience?' },
+                    { icon: '🏗️', name: 'Architect', desc: 'What technology do we need? How should it be structured?' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<p>You don\'t need to be an expert in any of these roles. But spending even a few minutes thinking from each perspective before you start prompting leads to dramatically better results.</p>'
+                + _tip('The next few steps walk you through a lightweight version of each role. Use as much or as little as fits your project.')
+        },
+        {
+            title: 'Define Your User & Problem',
+            nextLabel: 'Design the Experience',
+            content: '<h2>Start with Who and Why</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Before you start prompting, answer three questions:</p>'
+                + _cards([
+                    { icon: '👤', name: 'Who is this for?', desc: 'Yourself, friends, a specific audience, a business?' },
+                    { icon: '🎯', name: 'What problem does it solve?', desc: 'What need or desire does this address?' },
+                    { icon: '🔍', name: 'What exists today?', desc: 'What do people currently use? What\'s wrong with it?' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<p>Even simple answers help. Compare these prompts:</p>'
+                + '<div style="display:flex; gap:16px; flex-wrap:wrap; margin:16px 0;">'
+                + '<div style="flex:1; min-width:200px; padding:16px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color);"><strong style="color:var(--text-muted);">Without context:</strong><br>"Make me a recipe app"</div>'
+                + '<div style="flex:1; min-width:200px; padding:16px; border-radius:8px; border:1px solid var(--accent-color); background:var(--surface-color);"><strong>With context:</strong><br>"I\'m a home cook who meal preps on Sundays. I need a recipe organizer that lets me filter by dietary restrictions and generates a grocery list from selected recipes."</div>'
+                + '</div>'
+                + _tip('You don\'t need a formal document. Just a sentence or two about who, what, and why gives the AI enormously better direction.')
+        },
+        {
+            title: 'Design the Experience',
+            nextLabel: 'Write User Stories',
+            content: '<h2>Describe How It Should Feel</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Go beyond features. Describe the <em>experience</em> you want your product to create.</p>'
+                + '<h3>Set the Tone</h3>'
+                + '<p>These kinds of descriptions give the AI better design direction than a list of features alone:</p>'
+                + '<ul style="margin:8px 0 20px 20px; line-height:1.8;">'
+                + '<li><em>"Fast and minimal — no clutter, just the essentials"</em></li>'
+                + '<li><em>"Playful and colorful — makes a boring task fun"</em></li>'
+                + '<li><em>"Professional and trustworthy — someone would pay for this"</em></li>'
+                + '</ul>'
+                + '<h3>Sketch the User Flow</h3>'
+                + '<p>Before prompting the AI, describe the user journey:</p>'
+                + '<ol class="step-num-list">'
+                + '<li><strong>User arrives</strong> — what do they see first?</li>'
+                + '<li><strong>They take an action</strong> — what happens?</li>'
+                + '<li><strong>Something goes wrong</strong> — how does the app respond?</li>'
+                + '<li><strong>They complete their goal</strong> — what\'s the confirmation?</li>'
+                + '</ol>'
+                + '<h3>Think About Empty & Error States</h3>'
+                + _cards([
+                    { icon: '📭', name: 'No Data', desc: 'What does the app look like with no content yet?' },
+                    { icon: '⚠️', name: 'Invalid Input', desc: 'What happens when the user enters something wrong?' },
+                    { icon: '🔌', name: 'Service Down', desc: 'What if the API is slow or unavailable?' },
+                    { icon: '📱', name: 'Small Screens', desc: 'What happens on mobile or a narrow window?' },
+                ], { style: 'margin-bottom:8px;' })
+        },
+        {
+            title: 'Write User Stories',
+            nextLabel: 'Choose Your Tech Stack',
+            content: '<h2>Frame Features from the User\'s Perspective</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">User stories help you think about <em>why</em> a feature matters, not just what it does. They follow a simple format:</p>'
+                + '<div style="padding:16px 20px; border-radius:8px; background:var(--surface-color); border:1px solid var(--border-color); margin-bottom:20px; font-style:italic; font-size:1.05em;">"As a <strong>[type of user]</strong>, I want to <strong>[do something]</strong> so that <strong>[benefit/reason]</strong>"</div>'
+                + '<h3>Examples</h3>'
+                + '<ul style="margin:8px 0 24px 20px; line-height:1.8;">'
+                + '<li>"As a <strong>student</strong>, I want to set custom timer durations so that I can match my study technique"</li>'
+                + '<li>"As a <strong>home cook</strong>, I want to filter recipes by dietary restrictions so that I can find meals that work for my family"</li>'
+                + '<li>"As a <strong>manager</strong>, I want to see a fairness dashboard so that I know shifts are distributed evenly"</li>'
+                + '</ul>'
+                + '<h3>Think About Edge Cases</h3>'
+                + '<p>What happens when things go wrong or are empty?</p>'
+                + _cards([
+                    { icon: '📭', name: 'Empty States', desc: 'What does the app look like with no data?' },
+                    { icon: '🚫', name: 'Invalid Input', desc: 'What happens if the user enters something wrong?' },
+                    { icon: '🐌', name: 'Slow Connections', desc: 'What if the API is slow or unavailable?' },
+                    { icon: '🔙', name: 'Undo & Recovery', desc: 'Can users reverse their actions?' },
+                ], { style: 'margin-bottom:8px;' })
+                + _tip('You don\'t need to cover every edge case upfront. But thinking about a few common ones before you start leads to much more robust results.')
+        },
+        {
+            title: 'Choose Your Tech Stack',
+            nextLabel: 'Plan Your Architecture',
+            content: '<h2>Pick the Right Tools for Your Project</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">As your projects get more ambitious, you\'ll face decisions about technology. Let the project requirements guide you, not the hype.</p>'
+                + _cards([
+                    { icon: '📄', name: 'Static HTML/CSS/JS', desc: 'Perfect for most workshop projects. No build step, opens in any browser, easy to deploy anywhere. <strong>Start here unless you have a reason not to.</strong>' },
+                    { icon: '⚛️', name: 'React / Vue / Svelte', desc: 'When you need complex UI interactions, reusable components, or state management. More setup, better for larger apps.' },
+                    { icon: '🖥️', name: 'Full-Stack', desc: 'When you need server-side logic, databases, authentication, or secret API keys. Node.js, Python, etc.' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>When You Need a Backend</h3>'
+                + '<p>You need a backend when your project requires:</p>'
+                + _cards([
+                    { icon: '👤', name: 'User Accounts', desc: 'Registration, login, profiles' },
+                    { icon: '💾', name: 'Persistent Data', desc: 'A database that stores information across sessions and users' },
+                    { icon: '📎', name: 'File Storage', desc: 'User uploads — images, documents' },
+                    { icon: '🔑', name: 'Secret API Keys', desc: 'Any key that must stay hidden from the browser (Gemini, Stripe, etc.)' },
+                ], { style: 'margin-bottom:16px;' })
+                + _note('If none of these apply, static HTML/JS with localStorage is probably enough. A simple HTML page that works is better than a React app that\'s half-finished.')
+        },
+        {
+            title: 'Plan Your Architecture',
+            content: '<h2>Hosting & Scaling</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The right platform depends on what you\'re building.</p>'
+                + '<h3>Hosting Platforms</h3>'
+                + '<table style="width:100%; border-collapse:collapse; margin-bottom:24px;">'
+                + '<thead><tr><th style="text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-color);">Need</th><th style="text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-color);">Good Options</th></tr></thead>'
+                + '<tbody>'
+                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Static site</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">GitHub Pages, Vercel, Netlify, Firebase Hosting</td></tr>'
+                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Backend + database</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Firebase, Supabase, Vercel + database</td></tr>'
+                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Full control</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Railway, Render, a VPS</td></tr>'
+                + '</tbody></table>'
+                + '<p>See <a href="#" onclick="event.preventDefault(); loadRoute(\'Backend %26 Hosting Platforms.md\');">Backend &amp; Hosting Platforms</a> for a detailed side-by-side comparison.</p>'
+                + '<h3>Planning for Scale</h3>'
+                + '<p>Start simple, add complexity when needed:</p>'
+                + '<ol class="step-num-list">'
+                + '<li>Build the simplest version that works</li>'
+                + '<li>Deploy it and get feedback</li>'
+                + '<li>Add features one at a time</li>'
+                + '<li>Refactor when the codebase gets hard to manage — not before</li>'
+                + '</ol>'
+                + _tip('The best architecture is the simplest one that solves the problem. You can always add complexity later; removing it is much harder.')
+        }
+    ]
+};
+
+// ── Beyond Coding Data ─────────────────────────────────────
+const BEYOND_CODING_CATEGORIES = [
+    { icon: '✍️', name: 'Writing & Documentation', desc: 'READMEs, code comments, API docs, emails, proposals, and presentations', examples: ['README files', 'Code comments', 'API documentation', 'Emails and proposals'] },
+    { icon: '📊', name: 'Data & Files', desc: 'Analyze CSV/JSON data, convert file formats, rename and organize files in bulk, create test data', examples: ['Analyze spreadsheets', 'Convert formats', 'Bulk rename files', 'Generate test data'] },
+    { icon: '🔍', name: 'Organization & Research', desc: 'Organize notes, research APIs and libraries, summarize long documents or codebases', examples: ['Organize Notion/Obsidian', 'Research solutions', 'Summarize documents'] },
+    { icon: '⚡', name: 'Automation', desc: 'Shell scripts for repetitive tasks, scheduled jobs and workflows, batch processing files or images', examples: ['Shell scripts', 'Scheduled jobs', 'Batch processing'] },
+];
+

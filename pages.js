@@ -83,10 +83,9 @@ function renderWelcome() {
 
     // Follow Along
     html += '<div style="text-align:center; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; padding:32px 24px; margin-bottom:40px;">';
-    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:16px; border:none; padding:0;">Follow Along</h2>';
+    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin:0 0 16px 0; border:none; padding:0;">Follow Along</h2>';
     html += '<p style="font-size:2em; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px; color:var(--text-color);">workshop.nerktek.com</p>';
-    html += '<p style="color:var(--text-muted); font-size:0.95em; margin-bottom:20px;">Type the URL above or scan the QR code to open this site on your device</p>';
-    html += '<img src="images/github-site-qr.png" alt="Workshop QR Code" style="width:180px; height:180px; border-radius:10px;">';
+    html += '<p style="color:var(--text-muted); font-size:0.95em; margin-bottom:0;">Type the URL above to open this site on your device</p>';
     html += '</div>';
 
     // Explore the Workshop
@@ -169,10 +168,8 @@ function renderWhatIsVibeCoding() {
 function renderWhyVibeCoding() {
     let html = '<div class="path-picker">';
     html += '<h1>Why Vibe Coding?</h1>';
-    html += '<p class="path-picker-subtitle">In the AI era, building things is no longer limited to people who write code.</p>';
+    html += '<p class="path-picker-subtitle">In the AI era, building digital creations is no longer limited to people who write code.</p>';
     html += '</div>';
-
-    html += '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">AI has fundamentally changed what it means to build software. Ideas that used to take weeks of development can now be prototyped in an afternoon. Vibe coding puts that power in your hands — turning the ability to create software into an essential professional and creative skill.</p>';
 
     html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
@@ -188,7 +185,17 @@ function renderWhyVibeCoding() {
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
     html += '<div class="path-card-icon">🔓</div>';
     html += '<div class="path-card-name">Unlock New Capabilities</div>';
-    html += '<div class="path-card-desc">Automate workflows, build internal tools, create data visualizations — things you couldn\'t do before</div>';
+    html += '<div class="path-card-desc">Automate workflows, build internal tools, create data visualizations — capabilities you couldn\'t access before</div>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:32px; border:2px solid var(--accent-color);">';
+    html += '<div class="path-card-name" style="font-size:1.2em; margin-bottom:12px;">The Most Important Professional Skill</div>';
+    html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
+    html += 'It won\'t be AI that takes most jobs — it\'ll be <strong>people who use AI</strong> taking those jobs. Learning to build with AI is the most important professional skill moving forward. ';
+    html += 'Custom tools can now be built faster than it takes to choose, sign up with, and learn a SaaS provider. ';
+    html += 'Software as we knew it is giving way to something new — <strong>generative, on-demand, and personalized</strong>. ';
+    html += 'Vibe coding is how you stay on the right side of that shift.';
     html += '</div>';
     html += '</div>';
 
@@ -209,7 +216,7 @@ function renderWhyVibeCoding() {
 function renderWhoIsVibeCodingFor() {
     let html = '<div class="path-picker">';
     html += '<h1>Who Is Vibe Coding For?</h1>';
-    html += '<p class="path-picker-subtitle">Anyone who\'s curious and wants to build things. Your existing skills are your superpower.</p>';
+    html += '<p class="path-picker-subtitle">Anyone who\'s curious and wants to build digital creations. Your existing skills are your superpower.</p>';
     html += '</div>';
 
     html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
@@ -419,6 +426,44 @@ function renderGroupProject(step) {
     step = step || 0;
     updateStepHash('group-project', step);
     renderStepGuide(GROUP_PROJECT_GUIDE, function (s) { return 'renderGroupProject(' + s + ')'; }, step);
+}
+
+function renderPromptingGuide(step) {
+    step = step || 0;
+    updateStepHash('prompting-guide', step);
+    renderStepGuide(PROMPTING_GUIDE, function (s) { return 'renderPromptingGuide(' + s + ')'; }, step);
+}
+
+function renderProductGuide(step) {
+    step = step || 0;
+    updateStepHash('product-guidance', step);
+    renderStepGuide(PRODUCT_GUIDE, function (s) { return 'renderProductGuide(' + s + ')'; }, step);
+}
+
+function renderBeyondCoding() {
+    var html = '<div class="path-picker">';
+    html += '<h1>Beyond Coding</h1>';
+    html += '<p class="path-picker-subtitle">AI agents can help with more than just code — especially when they have access to your files and terminal.</p>';
+    html += '</div>';
+
+    html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
+    BEYOND_CODING_CATEGORIES.forEach(function (cat) {
+        html += '<div class="path-card" style="cursor:default; text-align:center;">';
+        html += '<div class="path-card-icon">' + cat.icon + '</div>';
+        html += '<div class="path-card-name">' + cat.name + '</div>';
+        html += '<div class="path-card-desc">' + cat.desc + '</div>';
+        html += '</div>';
+    });
+    html += '</div>';
+
+    html += _tip('Don\'t limit yourself to building websites and apps. If a task involves text, data, or files, an AI agent can probably help.');
+
+    html += '<div style="text-align:center; padding:24px 0;">';
+    html += '<a href="#pick-your-path" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'pick-your-path\');">Choose Your Setup Path \u2192</a>';
+    html += '</div>';
+
+    contentDiv.innerHTML = html;
+    addCardKeyboardSupport();
 }
 
 // Update URL hash with step number without triggering hashchange
