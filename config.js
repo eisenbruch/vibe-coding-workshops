@@ -53,19 +53,19 @@ const FILE_GROUPS = [
     {
         label: "Deployment & Beyond",
         files: [
-            { name: "Firebase & Deployment", path: "Firebase & Deployment.md" },
-            { name: "Vercel & Supabase", path: "Vercel & Supabase.md" },
-            { name: "Custom Domains", path: "Custom Domains.md" },
+            { name: "Firebase & Deployment", path: "docs/Firebase & Deployment.md" },
+            { name: "Vercel & Supabase", path: "docs/Vercel & Supabase.md" },
+            { name: "Custom Domains", path: "docs/Custom Domains.md" },
         ]
     },
     {
         label: "Reference",
         files: [
-            { name: "Claude Code CLI Quick Reference", path: "Claude Code Quick Reference.md" },
-            { name: "Advanced Techniques", path: "Advanced Techniques.md" },
-            { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
-            { name: "AI Tools Directory", path: "AI Tools Directory.md" },
-            { name: "Backend & Hosting Platforms", path: "Backend & Hosting Platforms.md" },
+            { name: "Claude Code CLI Quick Reference", path: "docs/Claude Code Quick Reference.md" },
+            { name: "Advanced Techniques", path: "docs/Advanced Techniques.md" },
+            { name: "Project Idea Prompts", path: "docs/Project Idea Prompts - Extended.md" },
+            { name: "AI Tools Directory", path: "docs/AI Tools Directory.md" },
+            { name: "Backend & Hosting Platforms", path: "docs/Backend & Hosting Platforms.md" },
         ]
     },
     {
