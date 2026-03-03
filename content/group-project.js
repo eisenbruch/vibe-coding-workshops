@@ -1,8 +1,8 @@
 const GROUP_PROJECT_OPTIONS = [
-    { letter: 'A', name: 'Personality Quiz', icon: '🧠', desc: '"Would You Rather" quiz with personality types, progress bar, and animations' },
-    { letter: 'B', name: 'Portfolio Page', icon: '🎨', desc: 'Personal portfolio with hero, projects, skills, and contact sections' },
-    { letter: 'C', name: 'Browser Game', icon: '🎮', desc: 'Reaction-time game with scoreboard, difficulty levels, and visual feedback' },
-    { letter: 'D', name: 'Your Own Idea', icon: '💡', desc: 'Write your own prompt for any single-page project — a tool, game, or visualizer' },
+    { letter: 'A', name: 'Personal Dashboard', icon: '📊', desc: 'A customizable command center with widgets — clock, weather, to-do list, bookmarks, and notes' },
+    { letter: 'B', name: 'Interactive Directory', icon: '🔍', desc: 'A searchable, filterable catalog for any collection — team members, resources, recipes, products' },
+    { letter: 'C', name: 'Planning Board', icon: '📋', desc: 'A drag-and-drop kanban board or planner for tracking tasks, ideas, or projects' },
+    { letter: 'D', name: 'Your Own Idea', icon: '💡', desc: 'Write your own prompt for any single-page project — a tool, tracker, visualizer, or anything else' },
 ];
 
 // ── Group Project Guide ─────────────────────────────────────
@@ -47,14 +47,14 @@ const GROUP_PROJECT_GUIDE = {
                     h += '</div>';
                     return h;
                 })()
-                + '<h3>Option A: "Would You Rather" Personality Quiz</h3>'
-                + _term('Create a single HTML file for a "Would You Rather" personality quiz. Include:\n- A fun, colorful design with animations\n- 8 "would you rather" questions with two choices each (e.g., "Would you rather explore a deep cave or climb a tall mountain?")\n- Track the user\'s choices and calculate a personality type at the end\n- Show 4 possible personality types with fun descriptions and emoji\n- Include a progress bar showing how far through the quiz they are\n- Make it mobile-friendly')
-                + '<h3>Option B: Personal Portfolio / Landing Page</h3>'
-                + _term('Create a single HTML file for a personal portfolio page. Include:\n- A hero section with my name, a short bio, and a profile image placeholder\n- A section showcasing 3-4 projects (use placeholder content)\n- A skills or interests section with visual tags or icons\n- A contact section with links (email, GitHub, LinkedIn — use placeholder URLs)\n- Smooth scroll navigation between sections\n- A clean, modern design with good typography — make it mobile-friendly')
-                + '<h3>Option C: Simple Browser Game</h3>'
-                + _term('Create a single HTML file for a simple reaction-time game. Include:\n- A start screen with instructions\n- The game: a shape appears at a random time and position, the player clicks it as fast as they can\n- Track and display their reaction time in milliseconds\n- Keep a running scoreboard of their best 5 times\n- Add difficulty levels (easy = bigger shape and longer wait, hard = smaller and faster)\n- Fun visual feedback on click (animations, color changes)\n- Make it mobile-friendly')
+                + '<h3>Option A: Personal Dashboard</h3>'
+                + _term('Create a single HTML file for a personal dashboard — a customizable start page I can use every day. Include:\n- A greeting that changes based on time of day (good morning / afternoon / evening)\n- A live clock and current date\n- A to-do list where I can add, check off, and delete tasks (saved to localStorage)\n- A quick-links section with editable bookmarks (6-8 default ones I can customize)\n- A notes widget for jotting down quick thoughts (saved to localStorage)\n- A clean, modern design with a dark/light mode toggle — make it mobile-friendly')
+                + '<h3>Option B: Interactive Directory</h3>'
+                + _term('Create a single HTML file for an interactive, searchable directory. Pick a theme that interests you — a team roster, a recipe collection, a resource library, a product catalog, a reading list — and include:\n- At least 12 sample entries with names, descriptions, categories, and image placeholders\n- A search bar that filters results in real time as you type\n- Category filter buttons to narrow results by type\n- A toggle between grid view and list view\n- A detail modal or expanded card view when you click an entry\n- A clean, professional design — make it mobile-friendly')
+                + '<h3>Option C: Planning Board</h3>'
+                + _term('Create a single HTML file for a kanban-style planning board. Include:\n- Three columns: To Do, In Progress, and Done\n- Ability to add new cards with a title and optional description\n- Drag-and-drop to move cards between columns\n- Click a card to edit or delete it\n- Card count displayed on each column header\n- Save board state to localStorage so it persists on refresh\n- A clean, modern design with subtle animations — make it mobile-friendly')
                 + '<h3>Option D: Pick Your Own</h3>'
-                + '<p>Have a different idea? Go for it. Write your own prompt describing a single-page project — a tool, a game, a visualizer, anything. As long as it produces a single HTML file, the rest of the steps work the same.</p>'
+                + '<p>Have a different idea? Go for it. Write your own prompt describing a single-page project — a tool, a tracker, a visualizer, anything. As long as it produces a single HTML file, the rest of the steps work the same.</p>'
                 + _tip('Be specific about what the user sees and does. Include details about the design (colors, layout, animations). Ask for mobile-friendly (if it is needed for your project). Start simple — you\'ll iterate and add features in later steps.')
         },
         {

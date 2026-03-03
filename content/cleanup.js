@@ -32,13 +32,15 @@ const CLEANUP_GUIDE = {
                 + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">AI-generated code accumulates leftover experiments, duplicate functions, and commented-out blocks over time. A cleanup pass makes the codebase easier for the AI to work with in future conversations.</p>'
                 + _cards([
                     { icon: '🧹', name: 'Remove Dead Code', desc: 'Unused variables, commented-out blocks, leftover experiments' },
-                    { icon: '🔄', name: 'Simplify', desc: 'Overly complex functions that could be simpler' },
+                    { icon: '🔄', name: 'Refactor', desc: 'Simplify complex code and consolidate repeated patterns' },
                     { icon: '📝', name: 'Add Comments', desc: 'Explain what major sections do and why' },
                     { icon: '📖', name: 'Update README', desc: 'Describe what the project does and how to run it' },
                 ], { style: 'margin:16px 0 24px;' })
-                + _term('Review my entire codebase and clean it up:\n1. Remove any dead code, unused variables, and commented-out blocks\n2. Simplify any overly complex functions\n3. Remove duplicate or redundant code\n4. Add clear comments explaining what each major section does\n5. Make sure naming is consistent and descriptive')
-                + '<p style="margin-top:16px;">Then update your documentation:</p>'
-                + _term('Update my README.md and CLAUDE.md to accurately describe the current state of the project — what it does, how to run it, and the tech stack.')
+                + _note('<strong>Refactoring</strong> means restructuring your code without changing what it does — same behavior, better organization. Like rewriting a messy paragraph to say the same thing more clearly.')
+                + _term('Review my entire codebase and clean it up:\n1. Remove any dead code, unused variables, and commented-out blocks\n2. Refactor the code — simplify anything overly complex and consolidate duplicate or near-duplicate code into reusable pieces\n3. Make sure naming is consistent and descriptive throughout\n4. Add clear comments explaining what each major section does and why')
+                + '<p style="margin-top:16px;">Then update your documentation — type <code>/init</code> and hit Enter to regenerate your project context file.</p>'
+                + _tip('If your tool doesn\'t support <code>/init</code>, paste this instead:')
+                + _term('Review my entire project and update my README.md and CLAUDE.md to accurately describe the current state of the project — what it does, how to run it, and the tech stack.')
                 + _tip('Good comments explain <em>why</em>, not <em>what</em>. Your AI can add both, but the "why" comments are the ones that matter when you come back to the project later.')
         },
         // ── Step 3: Find & Fix Bugs ──
