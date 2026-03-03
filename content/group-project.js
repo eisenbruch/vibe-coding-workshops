@@ -199,7 +199,7 @@ const GROUP_PROJECT_GUIDE = {
         },
         {
             title: 'Ask AI to Explain Your App',
-            nextLabel: 'Start Fresh &amp; Generate Context',
+            nextLabel: 'Give Your AI a Memory',
             content: '<h2>Step 12: Ask AI to Explain Your App</h2>'
                 + '<p>You\'ve built something real — but do you know how it actually works? Let\'s find out.</p>'
                 + '<p style="margin-top:12px;">Ask your AI agent:</p>'
@@ -214,18 +214,19 @@ const GROUP_PROJECT_GUIDE = {
                 + _tip('You don\'t need to understand every line of code to vibe code effectively. But having a general sense of how your app is put together makes you better at describing what you want changed. The AI is always there to explain — just ask.')
         },
         {
-            title: 'Start Fresh & Generate Context',
+            title: 'Give Your AI a Memory',
             nextLabel: 'Break Something on Purpose',
-            content: '<h2>Step 13: Start Fresh &amp; Generate Context</h2>'
-                + '<p>Start a <strong>new conversation</strong> in your AI tool. This is a blank slate — the AI doesn\'t remember anything from before.</p>'
+            content: '<h2>Step 13: Give Your AI a Memory</h2>'
+                + '<p>The AI just explained your whole project — but start a new conversation and it won\'t remember any of it. Every new conversation is a blank slate.</p>'
                 + _cards([
-                    { icon: '🧹', name: 'New Conversation', desc: 'A fresh start — no stale context or old instructions carrying over' },
-                    { icon: '⚡', name: 'Run /init', desc: 'Scans your project and generates a <strong>context file</strong> the AI reads every time' },
-                    { icon: '📝', name: 'Context File', desc: 'A cheat sheet for the AI — your tech stack, preferences, and project rules' },
+                    { icon: '🧠', name: 'The Problem', desc: 'New conversation = blank slate. The AI doesn\'t remember your project.' },
+                    { icon: '📝', name: 'The Fix', desc: 'A <strong>context file</strong> the AI reads automatically every time — your project\'s cheat sheet.' },
                 ], { style: 'margin:16px 0;' })
-                + '<p>Type <code>/init</code> and hit Enter. The AI will scan your project and create a context file (like CLAUDE.md) that it reads automatically at the start of every future conversation.</p>'
-                + '<p style="margin-top:12px;">You can customize the context file with your own instructions, or just run <code>/init</code> again periodically to have it auto-update as your project evolves.</p>'
-                + _tip('Start a new conversation when you\'re switching tasks, when the AI seems confused, or when a conversation gets long. The context file ensures the AI always has the basics.')
+                + '<p>Start a <strong>new conversation</strong>, type <code>/init</code>, and hit Enter.</p>'
+                + '<p style="margin-top:12px;">The AI will scan your project and create a context file (like <code>CLAUDE.md</code> or <code>GEMINI.md</code>) with your tech stack, file structure, and key details.</p>'
+                + _tip('If your tool doesn\'t support <code>/init</code> or slash commands, paste this instead:')
+                + _term('Review my entire project and create a CLAUDE.md (or GEMINI.md) file that summarizes the tech stack, file structure, and key details so you have context in future conversations.')
+                + _note('From now on, every new conversation reads this file automatically. Run <code>/init</code> again as your project grows to keep it current.')
         },
         {
             title: 'Break Something on Purpose',
@@ -271,7 +272,7 @@ const GROUP_PROJECT_GUIDE = {
         },
         {
             title: 'Roll Back with Git',
-            nextLabel: 'Ask AI What\'s Next',
+            nextLabel: 'What\'s Next',
             content: '<h2>Step 17: Roll Back with Git</h2>'
                 + '<p>Debugging isn\'t the only way to fix a bad change. Sometimes it\'s easier to just <strong>undo the whole commit</strong> and start over.</p>'
                 + '<p style="margin-top:12px;">This is another reason git is so powerful — every commit is a checkpoint you can go back to.</p>'
@@ -282,22 +283,16 @@ const GROUP_PROJECT_GUIDE = {
                 + _tip('This is great for when the AI makes a change that breaks everything and debugging would take longer than just undoing it.')
         },
         {
-            title: 'Ask AI What\'s Next',
+            title: 'What\'s Next',
             nextLabel: null,
-            content: '<h2>Step 18: Ask AI What\'s Next</h2>'
-                + '<p>One of the most powerful things about AI tools is that they\'re not just builders — they\'re advisors. When you\'re not sure what to do next, just ask.</p>'
-                + '<p style="margin-top:12px;">Try prompts like these:</p>'
-                + _term('Look at my project and suggest 3 features or improvements that would make it more impressive. Explain why each one would be valuable.')
-                + _term('What would a professional developer do to make this project production-ready? What am I missing — security, performance, accessibility, anything?')
-                + _term('Suggest some UI/UX improvements for my project. What would make it feel more polished and professional to a user?')
-                + '<p style="margin-top:16px;">The AI will analyze your project and give you specific, actionable suggestions. Pick one that sounds interesting and try building it — same workflow as before.</p>'
-                + '<p style="margin-top:12px;">This is how you learn things you didn\'t know to ask about. The AI might suggest:</p>'
-                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
-                + '<li>Tools and techniques you\'ve never heard of</li>'
-                + '<li>Best practices that professional developers follow</li>'
-                + '<li>Features you didn\'t realize were possible</li>'
-                + '<li>Ways to prepare your project for going live on the internet</li>'
-                + '</ul>'
+            content: '<h2>Step 18: What\'s Next</h2>'
+                + '<p>You\'ve got the core workflow down — prompt, test, iterate, commit. That cycle is the foundation of everything else you\'ll build.</p>'
+                + '<p style="margin-top:12px;">From here, the best thing you can do is <strong>keep building</strong>. You already know the process. The next step is learning how to use it more effectively.</p>'
+                + '<h3>Start Here: Prompting &amp; AI Mastery</h3>'
+                + '<p>The biggest lever you have right now is <strong>how you talk to the AI</strong>. Better prompts get dramatically better results — and there are specific techniques that make a real difference. The Prompting guide covers strategies like giving context, being specific, and using the AI as a thinking partner (not just a builder).</p>'
+                + _tip('The AI is a powerful tool, but <strong>you</strong> drive the direction. Come up with your own ideas for what to build and improve — then use the AI to help you execute. The best projects come from your vision, not the AI\'s suggestions.')
+                + '<h3>Then Explore</h3>'
+                + '<p>Depending on where you want to go, pick the guide that fits:</p>'
         }
     ]
 };
