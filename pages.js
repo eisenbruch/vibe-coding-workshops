@@ -682,8 +682,8 @@ function renderCleanupGuide(step) {
 
 function renderBeyondCoding() {
     var html = '<div class="path-picker">';
-    html += '<h1>Beyond Coding</h1>';
-    html += '<p class="path-picker-subtitle">AI agents can help with more than just code — especially when they have access to your files and terminal.</p>';
+    html += '<h1>Beyond Vibe Coding</h1>';
+    html += '<p class="path-picker-subtitle">AI agents can help with way more than just building apps — here are some things you might not have thought of.</p>';
     html += '</div>';
 
     html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
@@ -696,7 +696,7 @@ function renderBeyondCoding() {
     });
     html += '</div>';
 
-    html += _tip('Don\'t limit yourself to building websites and apps. If a task involves text, data, or files, an AI agent can probably help.');
+    html += _tip('If you can describe what you need, an AI agent can probably help — whether it\'s on your computer or in the cloud.');
 
     html += '<div style="text-align:center; padding:24px 0;">';
     html += '<a href="#pick-your-path" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'pick-your-path\');">Choose Your Setup Path \u2192</a>';

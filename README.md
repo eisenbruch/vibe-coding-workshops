@@ -18,7 +18,7 @@ Reference guides and resources for vibe coding, project setup, and related tools
 - **[Who Is It For?](https://workshop.nerktek.com/#who-is-vibe-coding-for)** — Bring your skills, technical or not
 - **[What You'll Learn](https://workshop.nerktek.com/#what-youll-learn)** — From idea to deployed project
 - **[Example Projects](https://workshop.nerktek.com/#example-projects)** — Real projects built with vibe coding
-- **[Beyond Coding](https://workshop.nerktek.com/#beyond-coding)** — AI agents for more than just code
+- **[Beyond Vibe Coding](https://workshop.nerktek.com/#beyond-coding)** — AI agents for way more than just building apps
 
 **Tool Setup (Pick Your Level):**
 - **[Pick Your Path](https://workshop.nerktek.com/#pick-your-path)** — Choose your setup based on comfort level

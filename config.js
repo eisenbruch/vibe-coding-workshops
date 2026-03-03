@@ -15,7 +15,7 @@ const FILE_GROUPS = [
             { name: "Who Is It For?", path: "who-is-vibe-coding-for" },
             { name: "What You'll Learn", path: "what-youll-learn" },
             { name: "Example Projects", path: "example-projects" },
-            { name: "Beyond Coding", path: "beyond-coding" },
+            { name: "Beyond Vibe Coding", path: "beyond-coding" },
         ]
     },
     {

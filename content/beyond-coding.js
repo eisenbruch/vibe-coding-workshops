@@ -1,7 +1,10 @@
-// ── Beyond Coding Data ─────────────────────────────────────
+// ── Beyond Vibe Coding Data ─────────────────────────────────────
 const BEYOND_CODING_CATEGORIES = [
-    { icon: '📊', name: 'Data & Files', desc: 'Analyze CSV/JSON data, convert file formats, rename and organize files in bulk, create test data', examples: ['Analyze spreadsheets', 'Convert formats', 'Bulk rename files', 'Generate test data'] },
-    { icon: '🔍', name: 'Organization & Research', desc: 'Organize notes, research APIs and libraries, summarize long documents or codebases', examples: ['Organize Notion/Obsidian', 'Research solutions', 'Summarize documents'] },
-    { icon: '⚡', name: 'Automation', desc: 'Shell scripts for repetitive tasks, scheduled jobs and workflows, batch processing files or images', examples: ['Shell scripts', 'Scheduled jobs', 'Batch processing'] },
+    { icon: '🔍', name: 'Research & Learning', desc: 'Compare options side-by-side, get complex concepts explained simply, learn new skills with guided practice, plan trips, fact-check claims', examples: ['Compare products or services', 'Explain complex topics', 'Learn new skills', 'Plan a trip', 'Fact-check claims'] },
+    { icon: '📊', name: 'Data & Organization', desc: 'Analyze spreadsheets, clean up and organize files, build budgets, sort and bulk-rename files, structure your notes', examples: ['Analyze spreadsheets', 'Organize files', 'Build a budget', 'Bulk rename files', 'Structure notes'] },
+    { icon: '🎨', name: 'Creative Projects', desc: 'Brainstorm names and ideas, create mood boards, plan parties and events, generate gift ideas, outline stories and scripts', examples: ['Brainstorm ideas', 'Plan a party', 'Generate gift ideas', 'Outline a story', 'Create mood boards'] },
+    { icon: '🔧', name: 'Home & Hardware', desc: 'Troubleshoot appliances, get DIY project guidance, understand wiring diagrams, diagnose car issues, find recipe substitutions', examples: ['Fix appliances', 'DIY project help', 'Read wiring diagrams', 'Car diagnostics', 'Recipe substitutions'] },
+    { icon: '💼', name: 'Work & Productivity', desc: 'Prep for meetings, draft emails and messages, plan projects, document processes, automate repetitive tasks', examples: ['Meeting prep', 'Draft emails', 'Plan projects', 'Document processes', 'Automate tasks'] },
+    { icon: '🏃', name: 'Health & Personal', desc: 'Build workout plans, create meal plans, track and build habits, manage personal finances', examples: ['Workout plans', 'Meal planning', 'Habit tracking', 'Personal finance'] },
+    { icon: '✨', name: 'Much More...', desc: 'Review legal documents, prep your taxes, practice negotiation, plan a garden, get pet care advice, build travel itineraries — if you can describe it, AI can probably help', examples: ['Legal document review', 'Tax prep', 'Negotiation practice', 'Garden planning', 'Pet care'] },
 ];
-
