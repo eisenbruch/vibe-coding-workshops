@@ -21,11 +21,11 @@ The viewer is a client-side app split across five files (no build step required)
 
 | File | Purpose |
 |------|---------|
-| `index.html` (~1060 lines) | HTML structure + core app logic (routing, wizard, markdown rendering, DOM manipulation) |
+| `index.html` (~1070 lines) | HTML structure + core app logic (routing, wizard, markdown rendering, DOM manipulation) |
 | `styles.css` (~1610 lines) | All CSS including light/dark themes, wizard styling, print/PDF, responsive breakpoints |
-| `config.js` (~176 lines) | App configuration: `FILE_GROUPS`, `PATH_OPTIONS`, `FONT_SIZES` |
-| `content.js` (~1310 lines) | Workshop content: `SETUP_GUIDES`, `BEGINNER_GUIDE`, `GROUP_PROJECT_GUIDE`, `WELCOME_PROJECTS`, `GROUP_PROJECT_OPTIONS`, and content helpers (`_tip`, `_note`, `_warn`, `_term`, `_check`, `_cards`) |
-| `pages.js` (~600 lines) | Render functions (`renderWelcome`, `renderWhoAmI`, `renderPickYourPath`, `renderStepGuide`, etc.) |
+| `config.js` (~177 lines) | App configuration: `FILE_GROUPS`, `PATH_OPTIONS`, `FONT_SIZES` |
+| `content.js` (~2295 lines) | Workshop content: `SETUP_GUIDES`, `BEGINNER_GUIDE`, `GROUP_PROJECT_GUIDE`, `WELCOME_PROJECTS`, `GROUP_PROJECT_OPTIONS`, and content helpers (`_tip`, `_note`, `_warn`, `_term`, `_check`, `_cards`) |
+| `pages.js` (~717 lines) | Render functions (`renderWelcome`, `renderWhoAmI`, `renderPickYourPath`, `renderStepGuide`, etc.) |
 
 Scripts load in order: `config.js` → `content.js` → `pages.js` → inline `<script>` in `index.html`. Render functions in `pages.js` reference globals (`contentDiv`, `selector`, `loadMarkdown`, etc.) defined in the inline script.
 
@@ -37,7 +37,7 @@ All step-by-step guides (setup guides, beginner quick start, group project) shar
 - **Welcome/navigation:** `welcome`, `who-am-i`, `what-is-vibe-coding`, `why-vibe-coding`, `who-is-vibe-coding-for`, `what-youll-learn`, `example-projects`, `beyond-coding`, `pick-your-path`
 - **Setup guides:** `setup-beginner`, `setup-claude-desktop`, `setup-google-ai-studio`, `setup-antigravity`, `setup-antigravity-claude`, `setup-antigravity-gemini`, `setup-claude-code`, `setup-gemini-cli`
 - **Group project:** `group-project`
-- **Level up:** `prompting-guide`, `product-guidance`
+- **Level up:** `prompting-guide`, `product-guidance`, `tech-stack`, `data-apis`, `github-guide`, `solo-project`, `cleanup-guide`
 
 Custom routes are registered in the `customRoutes` object inside `loadMarkdown()` in `index.html`. Setup guides share a data-driven renderer: guide content is defined in `SETUP_GUIDES` (`config.js`) and rendered by `renderSetupGuide()` (`pages.js`).
 
@@ -80,6 +80,7 @@ Each project should be self-contained with a README.
 - Preserve HTML table structures (used for QR code layouts in headers)
 - Follow existing format patterns (Simple/Medium/Complex for projects, checkmark/X for pros/cons)
 - Maintain direct, educational voice
+- **Never use `var(--accent-color)` for borders.** Always use `var(--border-color)` for all border colors in inline styles and CSS.
 
 ## Parallel Context File
 

@@ -164,7 +164,7 @@ You now have a working project that you like. Before we change anything else, le
 
 > **Claude Code / Gemini CLI users:** Tell your AI:
 > ```
-> Initialize a git repository in this folder and create an initial commit with all my files. Use the message "Working project with polished design"
+> Initialize a git repository in this folder and create an initial commit. Use the message "Working project with polished design"
 > ```
 
 > **Claude Desktop / AI Studio users:** If your tool supports running terminal commands, ask it to initialize Git. Otherwise, skip Git steps for now — you can learn it later from the [Git for Beginners](Git%20for%20Beginners.md) guide.

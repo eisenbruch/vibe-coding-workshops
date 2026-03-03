@@ -42,11 +42,12 @@ const FILE_GROUPS = [
         label: "Level Up",
         files: [
             { name: "Prompting & AI Mastery", path: "prompting-guide" },
-            { name: "GitHub Setup & First Push", path: "github-guide" },
+            { name: "Git & GitHub", path: "github-guide" },
             { name: "Enhance with Data & APIs", path: "data-apis" },
             { name: "Product Guidance", path: "product-guidance" },
             { name: "Tech Stack & Hosting", path: "tech-stack" },
-            { name: "Solo Project Guide", path: "Solo Project Guide.md" },
+            { name: "Solo Project Guide", path: "solo-project" },
+            { name: "Clean Up & Optimize", path: "cleanup-guide" },
         ]
     },
     {

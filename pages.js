@@ -668,6 +668,18 @@ function renderGithubGuide(step) {
     renderStepGuide(GITHUB_GUIDE, function (s) { return 'renderGithubGuide(' + s + ')'; }, step);
 }
 
+function renderSoloProjectGuide(step) {
+    step = step || 0;
+    updateStepHash('solo-project', step);
+    renderStepGuide(SOLO_PROJECT_GUIDE, function (s) { return 'renderSoloProjectGuide(' + s + ')'; }, step);
+}
+
+function renderCleanupGuide(step) {
+    step = step || 0;
+    updateStepHash('cleanup-guide', step);
+    renderStepGuide(CLEANUP_GUIDE, function (s) { return 'renderCleanupGuide(' + s + ')'; }, step);
+}
+
 function renderBeyondCoding() {
     var html = '<div class="path-picker">';
     html += '<h1>Beyond Coding</h1>';

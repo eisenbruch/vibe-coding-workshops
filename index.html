@@ -229,6 +229,8 @@
                 'tech-stack': function(step) { renderTechStackGuide(step); },
                 'data-apis': renderDataApis,
                 'github-guide': function(step) { renderGithubGuide(step); },
+                'solo-project': function(step) { renderSoloProjectGuide(step); },
+                'cleanup-guide': function(step) { renderCleanupGuide(step); },
                 'beyond-coding': renderBeyondCoding,
             };
 
@@ -531,6 +533,8 @@
             if (route === 'product-guidance') return PRODUCT_GUIDE;
             if (route === 'tech-stack') return TECH_STACK_GUIDE;
             if (route === 'github-guide') return GITHUB_GUIDE;
+            if (route === 'solo-project') return SOLO_PROJECT_GUIDE;
+            if (route === 'cleanup-guide') return CLEANUP_GUIDE;
             if (SETUP_GUIDES[route]) return SETUP_GUIDES[route];
             return null;
         }

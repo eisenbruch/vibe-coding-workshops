@@ -846,7 +846,7 @@ const GROUP_PROJECT_GUIDE = {
         { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
         { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building and why', route: 'product-guidance' },
         { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
-        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
         { icon: '🔥', name: 'Firebase & Deployment', desc: 'Deploy your project to a real URL', route: 'Firebase %26 Deployment.md' },
         { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
     ],
@@ -953,7 +953,7 @@ const GROUP_PROJECT_GUIDE = {
                     { icon: '🤝', name: 'Collaboration', desc: 'Share your code on GitHub so others can see, use, or contribute to it' },
                 ], { style: 'margin:16px 0;' })
                 + '<p>Tell your agent:</p>'
-                + _term('Initialize a git repository in this folder and create an initial commit with all my files')
+                + _term('Initialize a git repository in this folder and create an initial commit')
         },
         {
             title: 'View Your History in SourceTree',
@@ -1142,7 +1142,7 @@ const PROMPTING_GUIDE = {
     lastStepCards: [
         { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building and why', route: 'product-guidance' },
         { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
-        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
     ],
     steps: [
         {
@@ -1349,7 +1349,7 @@ const PRODUCT_GUIDE = {
     lastStepCards: [
         { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
         { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform for your project', route: 'tech-stack' },
-        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
     ],
     steps: [
         {
@@ -1418,7 +1418,7 @@ const TECH_STACK_GUIDE = {
     subtitle: 'Work with your AI to choose the right tools and platform for your project.',
     lastStepCards: [
         { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building before choosing tools', route: 'product-guidance' },
-        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
         { icon: '🔥', name: 'Firebase & Deployment', desc: 'Step-by-step deployment walkthrough', route: 'Firebase %26 Deployment.md' },
     ],
     steps: [
@@ -1444,7 +1444,7 @@ const TECH_STACK_GUIDE = {
                 + '<div style="display:flex; gap:16px; flex-wrap:wrap; margin:16px 0 24px;">'
                 + '<div style="flex:1; min-width:260px; padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
                 + '<div style="font-weight:700; font-size:1.1em; margin-bottom:8px;">Browser Only (Static)</div>'
-                + '<div style="color:var(--text-muted); font-size:0.95em; line-height:1.7;">HTML, CSS, JavaScript. No server needed. Free to host almost everywhere. <strong>Start here unless you have a reason not to.</strong></div>'
+                + '<div style="color:var(--text-muted); font-size:0.95em; line-height:1.7;">HTML, CSS, JavaScript. No server needed. Free to host almost everywhere.</div>'
                 + '<ul style="margin:12px 0 0 16px; font-size:0.95em; line-height:1.8;">'
                 + '<li>Tools, calculators, basic games</li>'
                 + '<li>Portfolios and landing pages</li>'
@@ -1462,7 +1462,7 @@ const TECH_STACK_GUIDE = {
                 + '</ul>'
                 + '</div>'
                 + '</div>'
-                + _note('If none of the backend requirements apply, static HTML/JS is probably enough. A simple page that works is better than a complex app that\'s half-finished.')
+                + _note('Think about what your project needs <em>now and in the near future</em>. If you know you\'ll need user accounts or shared data, plan for a backend from the start — retrofitting one later is a major rewrite.')
         },
         {
             title: 'Hosting & Cost',
@@ -1495,40 +1495,64 @@ const TECH_STACK_GUIDE = {
         },
         {
             title: 'Start Simple, Scale Later',
-            content: '<h2>Don\'t Over-Engineer</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The biggest mistake is building for scale before you have users. Start with the simplest thing that works.</p>'
+            content: '<h2>Plan the Foundation, Not the Features</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Get the big decisions right upfront — things like whether you need a database, a backend, or user accounts are hard to add later. But don\'t build out every feature before you\'ve validated the core idea.</p>'
                 + '<ol class="step-num-list">'
-                + '<li><strong>Build the simplest version</strong> — get the core idea working, nothing more</li>'
-                + '<li><strong>Deploy it</strong> — put it online so people can actually use it</li>'
-                + '<li><strong>Get feedback</strong> — real usage tells you what to build next</li>'
-                + '<li><strong>Add complexity when needed</strong> — add a database when localStorage isn\'t enough, add auth when you have real users, add a framework when plain HTML gets unwieldy</li>'
+                + '<li><strong>Plan your foundation</strong> — decide on your stack, database, and hosting before you start. Swapping these later is painful.</li>'
+                + '<li><strong>Build the core experience</strong> — get the one thing your project does working well. Skip the extras.</li>'
+                + '<li><strong>Deploy it</strong> — put it online so people can actually use it.</li>'
+                + '<li><strong>Iterate based on real usage</strong> — let feedback tell you what to build next, not your imagination.</li>'
                 + '</ol>'
                 + '<h3>Let Your AI Help You Scale</h3>'
-                + '<p>When you hit a wall, describe the problem to your AI:</p>'
+                + '<p>When you\'re ready to grow, describe the problem to your AI:</p>'
                 + '<div style="display:flex; flex-direction:column; gap:12px; margin:16px 0 24px;">'
-                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"My app saves data to localStorage but I need multiple people to see the same data. What\'s the easiest way to add a shared database?"</div>'
                 + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"This is getting slow with lots of items on screen. How can I optimize it?"</div>'
+                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"Users are asking for [feature]. What\'s the simplest way to add it without overcomplicating the codebase?"</div>'
                 + '</div>'
-                + _tip('The best architecture is the simplest one that solves the problem. You can always add complexity later — removing it is much harder.')
+                + _tip('Plan your infrastructure, iterate on your features. The foundation is hard to change — everything built on top of it is not.')
         }
     ]
 };
 
 // ── GitHub Guide ──────────────────────────────────────────
 const GITHUB_GUIDE = {
-    name: 'GitHub Setup & First Push',
-    subtitle: 'Create a GitHub account, connect your tools, and publish your first project.',
+    name: 'Git & GitHub',
+    subtitle: 'Understand version control, create a GitHub account, and publish your first project.',
     lastStepCards: [
-        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
         { icon: '🌐', name: 'Firebase & Deployment', desc: 'Deploy your project live on the web', route: 'Firebase & Deployment.md' },
     ],
     steps: [
-        // ── Step 1: What is GitHub? ──
+        // ── Step 1: What is Git? ──
+        {
+            title: 'What is Git?',
+            nextLabel: 'What is GitHub?',
+            content: '<h2>Your Project\'s Save System</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;"><strong>Git</strong> is a tool that runs on your computer and tracks every change you make to your files. Think of it as a super-powered save system — instead of just one "undo," you get an unlimited history of save points you can jump back to at any time.</p>'
+                + '<h3>Why It Matters</h3>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:16px;">Without Git, if you break something, you\'re stuck. With Git, you can always go back to a version that worked.</p>'
+                + _cards([
+                    { icon: '💾', name: 'Save Points', desc: 'Every time you "commit," Git saves a snapshot of your entire project. You can return to any snapshot at any time.' },
+                    { icon: '🔄', name: 'Undo Anything', desc: 'Made a mistake? Rolled something out too early? Go back to any previous save point with a single command.' },
+                    { icon: '🌿', name: 'Branches', desc: 'Work on a new feature in a separate branch without touching your main code. Merge it in when it\'s ready.' },
+                    { icon: '📋', name: 'Change History', desc: 'See exactly what changed, when, and why. Great for understanding how your project evolved.' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>How It Works (The Simple Version)</h3>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:16px;">You don\'t need to understand Git deeply — your AI agent handles the commands. But here\'s the basic idea:</p>'
+                + '<ol class="step-num-list">'
+                + '<li>You make changes to your project files</li>'
+                + '<li>You tell Git to <strong>save a snapshot</strong> (called a "commit") with a short description of what changed</li>'
+                + '<li>Git remembers that snapshot forever — you can always come back to it</li>'
+                + '</ol>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-top:16px;">That\'s it. Each commit is a checkpoint. The more often you commit, the more save points you have if something goes wrong.</p>'
+                + _tip('You\'ve likely already been using Git if you followed any of the setup guides — your AI agent runs Git commands behind the scenes every time it saves progress.')
+        },
+        // ── Step 2: What is GitHub? ──
         {
             title: 'What is GitHub?',
             nextLabel: 'Create Your Account',
             content: '<h2>Your Project\'s Home on the Internet</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">GitHub is a website that stores your code online. Think of it as a cloud backup for your projects — but one that also lets you share your work, collaborate with others, and build a portfolio.</p>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Git saves your work locally. <strong>GitHub</strong> is a website that stores your Git projects online — so you have a backup in the cloud, a way to share your work, and a portfolio of everything you\'ve built.</p>'
                 + _cards([
                     { icon: '☁️', name: 'Backup', desc: 'Your code is safely stored online. If your computer dies, your projects survive.' },
                     { icon: '🤝', name: 'Collaboration', desc: 'Work on the same project with others without overwriting each other\'s changes.' },
@@ -1548,9 +1572,9 @@ const GITHUB_GUIDE = {
                 + '<div style="color:var(--text-muted); font-size:0.95em;">A <strong>website</strong> that stores your Git projects online so you can share, collaborate, and back up your work.</div>'
                 + '</div>'
                 + '</div>'
-                + _tip('You\'ve already been using Git if you followed any of the setup guides. GitHub is where you put that work online.')
+                + '<p style="font-size:1.05em; line-height:1.7;">Git handles the saving. GitHub handles the sharing. You\'ll use both together.</p>'
         },
-        // ── Step 2: Create Your Account ──
+        // ── Step 3: Create Your GitHub Account ──
         {
             title: 'Create Your Account',
             nextLabel: 'Install Your Tools',
@@ -1559,7 +1583,7 @@ const GITHUB_GUIDE = {
                 + '<p style="font-size:1.1em; text-align:center; margin:24px 0;"><a href="https://github.com" target="_blank" rel="noopener noreferrer" style="font-weight:700;">Go to github.com</a> and click <strong>Sign up</strong>. Follow the on-screen steps to create your account.</p>'
                 + _tip('Your username becomes part of your profile URL (github.com/your-name) and shows up on every project. Pick something you\'d be comfortable sharing professionally.')
         },
-        // ── Step 3: Install Your Tools ──
+        // ── Step 4: Install Your Tools ──
         {
             title: 'Install Your Tools',
             nextLabel: 'Log In with Sourcetree',
@@ -1595,7 +1619,7 @@ const GITHUB_GUIDE = {
                 + '</div>'
                 + _note('Already installed these? Run <code>gh --version</code> in your terminal to check. If you see a version number, you\'re good — skip ahead.')
         },
-        // ── Step 4: Log In with Sourcetree ──
+        // ── Step 5: Log In with Sourcetree ──
         {
             title: 'Log In with Sourcetree',
             nextLabel: 'Log In with gh CLI',
@@ -1637,7 +1661,7 @@ const GITHUB_GUIDE = {
                 + '</ol>'
                 + '</div></details>'
         },
-        // ── Step 5: Log In with gh CLI ──
+        // ── Step 6: Log In with gh CLI ──
         {
             title: 'Log In with gh CLI',
             nextLabel: 'Create a Repository',
@@ -1673,7 +1697,7 @@ const GITHUB_GUIDE = {
                 + 'The AI will walk you through each prompt in real time.</div>'
                 + '</div>'
         },
-        // ── Step 6: Create a Repository ──
+        // ── Step 7: Create a Repository ──
         {
             title: 'Create a Repository',
             nextLabel: 'Push Your Project',
@@ -1703,7 +1727,7 @@ const GITHUB_GUIDE = {
                 + '<div style="margin-top:16px;"></div>'
                 + _note('If you used Option B on the website, GitHub will show you a page with setup commands. Keep that page open — you\'ll use it in the next step.')
         },
-        // ── Step 7: Push Your Project ──
+        // ── Step 8: Push Your Project ──
         {
             title: 'Push Your Project',
             nextLabel: 'Add a README',
@@ -1737,9 +1761,10 @@ const GITHUB_GUIDE = {
                 + '<div style="margin-top:16px;"></div>'
                 + _warn('<strong>Push rejected?</strong> If you get an error about "updates were rejected," it usually means the remote has files you don\'t (like an auto-generated README). Ask your AI: <em>"My git push was rejected, help me fix it."</em>')
         },
-        // ── Step 8: Add a README ──
+        // ── Step 9: Add a README ──
         {
             title: 'Add a README',
+            nextLabel: 'Work Safely with Branches',
             content: '<h2>Your Project\'s Front Page</h2>'
                 + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">A <strong>README.md</strong> file is displayed automatically on your repo\'s GitHub page. It\'s the first thing anyone sees when they visit your project.</p>'
                 + '<h3>The Essentials</h3>'
@@ -1776,24 +1801,105 @@ const GITHUB_GUIDE = {
                 + '<div style="color:var(--text-muted); font-size:0.95em;">You now have a public portfolio piece. Share the link with anyone: <code>github.com/YOUR-USERNAME/my-project</code></div>'
                 + '</div>'
         },
-        // ── Step 9: Learn More ──
+        // ── Step 10: Work Safely with Branches ──
+        {
+            title: 'Work Safely with Branches',
+            nextLabel: 'Learn More',
+            content: '<h2>Why Branches Matter</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Right now, all your work is on the <strong>main</strong> branch (sometimes called <strong>master</strong>). That\'s fine for getting started — but it becomes a problem once your site is live.</p>'
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); margin-bottom:24px;">'
+                + '<div style="font-weight:700; font-size:1.05em; margin-bottom:12px;">The Problem</div>'
+                + '<div style="font-size:0.95em; line-height:1.7; color:var(--text-muted);">Many people set up their hosting (GitHub Pages, Vercel, Netlify, Firebase) to <strong>automatically deploy from the main branch</strong>. If that\'s your setup, every time you push to main, your live site updates almost instantly.</div>'
+                + '<div style="margin-top:12px; font-size:0.95em; line-height:1.7;">That means if you push a half-finished feature to main → <strong>your users see the half-finished feature</strong>.</div>'
+                + '</div>'
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); margin-bottom:24px;">'
+                + '<div style="font-weight:700; font-size:1.05em; margin-bottom:12px;">The Solution: Branches</div>'
+                + '<div style="font-size:0.95em; line-height:1.7; color:var(--text-muted);">A <strong>branch</strong> is like a parallel version of your project. You can create a branch, make changes on it, and your main branch stays exactly as it was. When you switch branches, the files on your computer actually change to match that branch\'s version.</div>'
+                + '<div style="margin-top:12px; font-size:0.95em; line-height:1.7; color:var(--text-muted);">This means you can work on a new feature on its own branch, switch back to main to see the current live version, then switch back to your feature branch to keep building. When the feature is done and tested, you <strong>merge</strong> it into main — and <em>then</em> it goes live.</div>'
+                + '</div>'
+                // ── The workflow ──
+                + '<h2>The Branch Workflow</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:20px;">Here\'s the cycle professional developers use for every feature:</p>'
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:24px;">'
+                + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); text-align:center;">'
+                + '<div style="font-size:1.5em; margin-bottom:6px;">1</div>'
+                + '<div style="font-weight:700; margin-bottom:4px;">Create a branch</div>'
+                + '<div style="font-size:0.9em; color:var(--text-muted);">Branch off from main</div>'
+                + '</div>'
+                + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); text-align:center;">'
+                + '<div style="font-size:1.5em; margin-bottom:6px;">2</div>'
+                + '<div style="font-weight:700; margin-bottom:4px;">Build the feature</div>'
+                + '<div style="font-size:0.9em; color:var(--text-muted);">Commit as you go</div>'
+                + '</div>'
+                + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); text-align:center;">'
+                + '<div style="font-size:1.5em; margin-bottom:6px;">3</div>'
+                + '<div style="font-weight:700; margin-bottom:4px;">Test it</div>'
+                + '<div style="font-size:0.9em; color:var(--text-muted);">Make sure it works</div>'
+                + '</div>'
+                + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); text-align:center;">'
+                + '<div style="font-size:1.5em; margin-bottom:6px;">4</div>'
+                + '<div style="font-weight:700; margin-bottom:4px;">Merge to main</div>'
+                + '<div style="font-size:0.9em; color:var(--text-muted);">Now it goes live</div>'
+                + '</div>'
+                + '</div>'
+                // ── How to do it ──
+                + '<h3>Ask Your AI</h3>'
+                + '<p>The easiest way — just tell your AI agent what you want:</p>'
+                + _term('Create a new branch called "add-dark-mode" and switch to it')
+                + '<p style="margin-top:12px;">When the feature is done:</p>'
+                + _term('Merge my add-dark-mode branch into main')
+                + '<h3>Do It Yourself</h3>'
+                + '<div style="margin:16px 0 24px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); overflow:hidden;">'
+                + '<div style="display:grid; grid-template-columns:auto 1fr; font-size:0.95em;">'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color); font-weight:600;">Command</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color); font-weight:600;">What It Does</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git checkout -b add-dark-mode</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Create a new branch and switch to it</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git add . && git commit -m "Add dark mode toggle"</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Save your progress on the branch</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git checkout main</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Switch back to main</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git merge add-dark-mode</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Bring the feature into main</div>'
+                + '<div style="padding:10px 16px;"><code>git push</code></div>'
+                + '<div style="padding:10px 16px;">Push to GitHub (and deploy)</div>'
+                + '</div>'
+                + '</div>'
+                + '<p>Or use Sourcetree — click <strong>Branch</strong> in the toolbar, name it, and Sourcetree will switch you to it automatically. When you\'re done, right-click the branch and choose <strong>Merge</strong>.</p>'
+                // ── Best practices ──
+                + '<h2>Best Practices Your AI May Not Do Automatically</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:20px;">AI coding agents are great at writing code, but they may not always follow the habits that keep projects healthy. Here\'s what to watch for:</p>'
+                + _cards([
+                    { icon: '🌿', name: 'Use branches for features', desc: 'AI agents work on whatever branch you\'re on — usually main. Tell them to create a branch before starting new work.' },
+                    { icon: '💾', name: 'Commit often', desc: 'AI agents can make huge changes in one go. Ask them to commit after each meaningful milestone so you have save points to roll back to.' },
+                    { icon: '🧪', name: 'Test before merging', desc: 'Thoroughly test your project before merging a branch into main. AI-generated code can look right but break in unexpected ways.' },
+                ], { style: 'margin:16px 0 16px;' })
+                + _cards([
+                    { icon: '🚫', name: 'Keep main deployable', desc: 'Main should always be in a working state. If something is broken, fix it before pushing — or fix it on a branch.' },
+                    { icon: '🔑', name: 'Never commit secrets', desc: 'API keys, passwords, and .env files should never go to GitHub. AI agents sometimes miss this. Use .gitignore.' },
+                    { icon: '📦', name: 'One feature per branch', desc: 'Don\'t pile unrelated changes together. A branch called "add-search" should only contain search-related code.' },
+                ], { style: 'margin:0 0 24px;' })
+                + _warn('<strong>Already deployed on main?</strong> If your site is live and you\'ve been pushing everything to main, that\'s fine — just start using branches from now on. Create a branch before your next feature and you\'re following best practices.')
+                + '<div style="margin-top:16px;"></div>'
+                + _tip('Tell your AI agent upfront: <em>"Always create a new branch before starting a new feature. Never push directly to main without asking me first."</em> Most AI agents will remember this for the rest of the session. You can also add this to your project\'s <code>CLAUDE.md</code> or context file so the AI follows this rule every time.')
+        },
+        // ── Step 11: Learn More ──
         {
             title: 'Learn More',
             content: '<h2>What Else Can You Do with Git & GitHub?</h2>'
                 + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">You\'ve covered the basics — but Git and GitHub can do a lot more. Here\'s what to explore next as your projects grow.</p>'
                 + _cards([
-                    { icon: '🌿', name: 'Branches', desc: 'Work on new features without affecting your main code. Merge them in when they\'re ready.' },
                     { icon: '🔀', name: 'Pull Requests', desc: 'Propose changes and review code before merging. The standard way teams collaborate on GitHub.' },
                     { icon: '🌐', name: 'GitHub Pages', desc: 'Host a static website directly from your repo for free. Great for portfolios and project demos.' },
                     { icon: '⚙️', name: 'GitHub Actions', desc: 'Automate tasks like testing, building, and deploying your code every time you push.' },
+                    { icon: '🐛', name: 'Issues', desc: 'Track bugs, feature requests, and to-dos right inside your repo. Useful even for solo projects.' },
                 ], { style: 'margin:16px 0 16px;' })
                 + _cards([
-                    { icon: '🐛', name: 'Issues', desc: 'Track bugs, feature requests, and to-dos right inside your repo. Useful even for solo projects.' },
                     { icon: '🔖', name: 'Releases & Tags', desc: 'Mark specific versions of your project so you can always go back to a known-good state.' },
                     { icon: '👥', name: 'Forking', desc: 'Copy someone else\'s repo to your account, make changes, and submit them back as a pull request.' },
                     { icon: '🔒', name: '.gitignore', desc: 'Tell Git which files to skip — API keys, node_modules, build artifacts, and other junk.' },
                 ], { style: 'margin:0 0 24px;' })
-                + _tip('You don\'t need to learn all of this at once. Branches and GitHub Pages are the most useful next steps for most people.')
+                + _tip('You don\'t need to learn all of this at once. GitHub Pages and Pull Requests are the most useful next steps for most people.')
                 // ── Essential Git Commands ──
                 + '<h3>Essential Git Commands</h3>'
                 + '<p>You only need a handful of commands to use Git effectively. Your AI can run these for you, but it\'s good to know what\'s happening.</p>'
@@ -1846,6 +1952,336 @@ const GITHUB_GUIDE = {
                 + '<li><strong>Build folders</strong> — generated files that can be recreated</li>'
                 + '</ul>'
                 + _term('Create a .gitignore file for my project')
+        }
+    ]
+};
+
+// ── Solo Project Guide ─────────────────────────────────────
+const SOLO_PROJECT_GUIDE = {
+    name: 'Solo Project Guide',
+    subtitle: 'A step-by-step checklist from idea to deployed project — works with any tool, stack, or hosting platform.',
+    lastStepCards: [
+        { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
+        { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building and why', route: 'product-guidance' },
+        { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
+        { icon: '✨', name: 'Clean Up & Optimize', desc: 'Polish your code, fix bugs, and improve performance', route: 'cleanup-guide' },
+        { icon: '🔥', name: 'Firebase & Deployment', desc: 'Deploy your project to a real URL', route: 'Firebase %26 Deployment.md' },
+        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
+    ],
+    steps: [
+        // ── Step 1: Set Up Your Workspace ──
+        {
+            title: 'Set Up Your Workspace',
+            nextLabel: 'Plan It Out',
+            content: '<h2>Step 1: Set Up Your Workspace</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Create a home for your project and point your AI tool at it.</p>'
+                + '<ol class="step-num-list">'
+                + '<li><strong>Create a project folder</strong> — name it something relevant (e.g., <code>habit-tracker</code>). Use hyphens instead of spaces.</li>'
+                + '<li><strong>Open your AI tool</strong> — Claude Desktop, Antigravity, VS Code, or whatever you set up.</li>'
+                + '<li><strong>Point it at your folder</strong> — make sure the AI knows where to create files.</li>'
+                + '</ol>'
+                + _cards([
+                    { icon: '<img src="images/icons/claude.svg" alt="Claude">', name: 'Claude Desktop', desc: 'Open the app, switch to Code mode, point it at your project folder' },
+                    { icon: '<img src="images/icons/antigravity.png" alt="Antigravity">', name: 'Antigravity', desc: 'Open the Agent Chat panel or a CLI AI agent in the terminal' },
+                    { icon: '<img src="images/icons/vscode.svg" alt="VS Code">', name: 'VS Code', desc: 'Open your folder, then use your AI extension or CLI agent' },
+                ], { style: 'margin:16px 0 16px;' })
+                + _note('Haven\'t set up a tool yet? Go back to <a href="#" onclick="event.preventDefault(); loadRoute(\'pick-your-path\');">Pick Your Path</a> and choose one.')
+        },
+        // ── Step 2: Plan It Out ──
+        {
+            title: 'Plan It Out',
+            nextLabel: 'Build Your First Version',
+            content: '<h2>Step 2: Plan Before You Build</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">How much you plan is up to you. You can jump straight to building with just a sentence describing your idea, or you can spend time writing out a detailed brief. Both work — it depends on where you are on the <a href="#" onclick="event.preventDefault(); loadRoute(\'prompting-guide\');">vibe coding spectrum</a>.</p>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">That said, the more detail you give the AI upfront, the better your first version will be and the less time you\'ll spend going back and forth. If you want to be on the comprehensive side, here\'s how to do it well.</p>'
+                // ── Part 1: Write it down ──
+                + '<h3>Write Down Everything You Know</h3>'
+                + '<p>Open a document, a notes app, or even grab a piece of paper. Write out your idea in as much detail as you can — the more you put down now, the better everything that follows will be.</p>'
+                + _cards([
+                    { icon: '🎯', name: 'What does it do?', desc: 'Describe the core idea. What is the main thing a user can do with this?' },
+                    { icon: '👤', name: 'Who is it for?', desc: 'Who would use this? What problem does it solve for them?' },
+                    { icon: '🖥️', name: 'What do they see?', desc: 'Walk through the screens. What\'s on the main page? What happens when they click things?' },
+                    { icon: '✅', name: 'What does "done" look like?', desc: 'If it worked perfectly, what would someone be able to do with it?' },
+                ], { style: 'margin:16px 0 24px;' })
+                // ── Part 2: Gather inspiration ──
+                + '<h3>Gather Inspiration & References</h3>'
+                + '<p>This is where most people skip ahead — don\'t. Spend time looking at similar tools, sites, and apps. Collect everything that\'s relevant and include it in what you give the AI.</p>'
+                + '<ul style="margin:8px 0 20px 20px; line-height:1.8;">'
+                + '<li><strong>Links to similar products</strong> — "I want something like [this site] but with [these differences]"</li>'
+                + '<li><strong>Screenshots</strong> — capture layouts, color schemes, or UI patterns you like</li>'
+                + '<li><strong>Specific design details</strong> — "I like how Notion does their sidebar" or "I want the card style from Airbnb"</li>'
+                + '<li><strong>What you\'d change</strong> — what\'s missing or annoying about what already exists?</li>'
+                + '</ul>'
+                // ── Part 3: Feature list ──
+                + '<h3>Write Out Your Features</h3>'
+                + '<p>List everything you want your project to do. Don\'t hold back — write the full vision, then mark what\'s essential for version 1 vs. what can come later.</p>'
+                + '<div style="display:flex; gap:16px; flex-wrap:wrap; margin:16px 0 24px;">'
+                + '<div style="flex:1; min-width:240px; padding:16px; border-radius:10px; border:1px solid var(--border-color); background:var(--surface-color);"><strong>Version 1 (Must Have)</strong><br><span style="color:var(--text-muted); font-size:0.92em;">The simplest version that actually works. What\'s the one thing it absolutely needs to do?</span></div>'
+                + '<div style="flex:1; min-width:240px; padding:16px; border-radius:10px; border:1px solid var(--border-color); background:var(--surface-color);"><strong>Version 2 (Nice to Have)</strong><br><span style="color:var(--text-muted); font-size:0.92em;">Features that make it better but aren\'t critical. Add these after version 1 works.</span></div>'
+                + '</div>'
+                // ── Part 4: Collaborate with AI ──
+                + '<h3>Give It All to Your AI & Build Out the Plan Together</h3>'
+                + '<p>Paste everything you\'ve written — your description, feature list, links, screenshots, all of it — into your AI tool. Then <strong>don\'t start building yet</strong>. Work with the AI to refine and expand your plan:</p>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li><strong>Pages & layout</strong> — what are the key screens? How does a user move through them?</li>'
+                + '<li><strong>Features & interactions</strong> — walk through each feature in detail. What does the user see, click, and get back?</li>'
+                + '<li><strong>Style & design direction</strong> — share your references and describe the vibe. Modern and clean? Playful and colorful? Dark and minimal?</li>'
+                + '</ul>'
+                + _term('Here\'s my project idea, feature list, and some references for inspiration. Before we start building, help me flesh this out:\n1. What pages or screens do I need?\n2. Walk me through the user experience step by step\n3. What features should be in version 1 vs later?\n4. What design direction fits this project?\n\n[paste everything you wrote]')
+                // ── Part 5: Plan the infrastructure ──
+                + '<h3>Plan Your Infrastructure</h3>'
+                + '<p>Before writing a single line of code, figure out the technical foundation with your AI. Getting these decisions right now means you won\'t have to tear things apart and rebuild later.</p>'
+                + _term('Based on the plan we just created, help me decide:\n1. What tech stack should I use? (HTML/CSS/JS, React, Next.js, etc.)\n2. Do I need a backend or database? If so, what\'s the best option?\n3. Where should I host this?\n4. Will I need any APIs or external services?\n5. Is there anything about this architecture I\'d regret later if I don\'t set it up now?')
+                + _note('You don\'t need to understand the technical details yourself — that\'s what the AI is for. But making these decisions <em>before</em> you start building means the AI will set up the right foundation from the beginning, instead of you having to migrate to a different stack halfway through.')
+                + '<p style="margin-top:16px;">For deeper guidance on product planning, see <a href="#" onclick="event.preventDefault(); loadRoute(\'product-guidance\');">Product Guidance</a>. For help choosing a tech stack and hosting platform, see <a href="#" onclick="event.preventDefault(); loadRoute(\'tech-stack\');">Tech Stack & Hosting</a>.</p>'
+                + _tip('The difference between a frustrating project and a smooth one is almost always the planning. AI can\'t read your mind — but it can read a detailed brief, and it can help you think through decisions you didn\'t know you needed to make.')
+        },
+        // ── Step 3: Build Your First Version ──
+        {
+            title: 'Build Your First Version',
+            nextLabel: 'The Build Cycle',
+            content: '<h2>Step 3: Build Your First Version</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">You have a plan. Now it\'s time to hand it to the AI and let it build.</p>'
+                + '<h3>Start a Fresh Conversation</h3>'
+                + '<p>If you used the same AI conversation for planning, start a new one before building. The planning conversation is full of back-and-forth that can muddy the AI\'s focus. A fresh conversation with just your finalized plan gives the AI a clean, clear brief to work from.</p>'
+                + '<h3>Feed It Your Plan</h3>'
+                + '<p>Paste in everything you produced in the previous step — your project description, feature list, design direction, tech stack decisions, infrastructure plan, links, screenshots, all of it. Then tell the AI to start building:</p>'
+                + _term('Here\'s the full plan for my project. Read through everything and ask me any questions before you start building. Once you\'re clear on what I want, go ahead and build version 1.\n\n[paste your planning documents here]')
+                + _tip('Telling the AI to ask questions first is important. It might catch gaps in your plan, suggest a better approach, or clarify something ambiguous — all before writing a single line of code.')
+                + '<h3>Let It Work</h3>'
+                + '<p>Once the AI starts building, let it run. If it asks questions or requests permission along the way, answer and grant it. When it\'s done, preview your project in the browser:</p>'
+                + _cards([
+                    { icon: '🌐', name: 'Ask Your AI', desc: '"Start a local server so I can preview my project in the browser"' },
+                    { icon: '📂', name: 'Open the File', desc: 'Find <code>index.html</code> in your project folder and double-click it' },
+                ], { style: 'margin:16px 0 0;' })
+        },
+        // ── Step 4: Save Your Progress with Git ──
+        {
+            title: 'Save Your Progress with Git',
+            nextLabel: 'The Build Cycle',
+            content: '<h2>Step 4: Initialize Git & Start Committing</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Git saves snapshots of your project so you can undo mistakes, track changes, and eventually share your code. Set it up early.</p>'
+                + '<h3>Initialize Your Repository</h3>'
+                + '<p>Tell your AI agent:</p>'
+                + _term('Initialize a git repository in this folder and create an initial commit')
+                + '<h3>The Commit Habit</h3>'
+                + '<p>After every meaningful change that works, commit it:</p>'
+                + _term('Commit my changes with a message describing what we added')
+                + _cards([
+                    { icon: '💾', name: 'Commit Often', desc: 'Every working feature, fix, or improvement gets its own commit' },
+                    { icon: '⏪', name: 'Revert Easily', desc: 'Broke something? Go back to any previous commit instantly' },
+                    { icon: '📜', name: 'Track History', desc: 'See exactly what changed and when — useful for debugging' },
+                ], { style: 'margin:16px 0 16px;' })
+                + _tip('Use <a href="https://www.sourcetreeapp.com/" target="_blank">SourceTree</a> (free) to visualize your commit history. It makes Git much more approachable than the command line.')
+                + '<p style="margin-top:16px;">For a detailed Git walkthrough, see <a href="#" onclick="event.preventDefault(); loadRoute(\'github-guide\');">Git & GitHub</a>.</p>'
+        },
+        // ── Step 5: The Build Cycle ──
+        {
+            title: 'The Build Cycle',
+            nextLabel: 'Protect Your API Keys',
+            content: '<h2>Step 5: Prompt → Test → Fix → Repeat</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Building with AI follows a repeating loop. Don\'t try to build everything at once — work in small increments and verify as you go.</p>'
+                + _cards([
+                    { icon: '💬', name: '1. Prompt', desc: 'Describe what you want to build, change, or fix. Be specific.' },
+                    { icon: '🧪', name: '2. Test', desc: 'Open it in your browser. Does it work? Does it look right?' },
+                    { icon: '🔄', name: '3. Fix', desc: 'Tell the AI what\'s wrong. Paste errors, describe bugs, request changes.' },
+                    { icon: '💾', name: '4. Commit', desc: 'When you\'ve made significant progress, save a checkpoint with Git.' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<p>This is the entire vibe coding workflow. It works for a single-page toy and it works for a full web application. The projects get bigger, but the cycle stays the same.</p>'
+                + '<h3>Tips for Each Round</h3>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li><strong>One thing at a time.</strong> Focus on one feature or task per conversation. When you\'re moving on to something new, start a fresh conversation so the AI isn\'t carrying stale context from the last thing you worked on.</li>'
+                + '<li><strong>Be specific when giving feedback.</strong> "Make the header font bigger and add more space between the cards" beats "make it better."</li>'
+                + '<li><strong>Paste error messages.</strong> Open DevTools (<code>Cmd+Option+I</code> / <code>F12</code>), check the Console tab, and copy any red errors directly to your AI.</li>'
+                + '</ul>'
+                + _tip('You don\'t need to commit after every single change — commit whenever you want. But it\'s good practice to commit after significant changes so you have a checkpoint to go back to if something breaks later.')
+        },
+        // ── Step 6: Protect Your API Keys ──
+        {
+            title: 'Protect Your API Keys',
+            nextLabel: 'Push to GitHub',
+            content: '<h2>Step 6: Secure Your Secrets</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">If your project uses any external services (AI APIs, payment processing, databases), you\'ll have API keys that must be kept secret. Never hardcode them in your source code.</p>'
+                + _warn('Bots actively scan GitHub for exposed API keys. A leaked key can be found and exploited within minutes.')
+                + '<h3>The Easy Way: Ask Your AI</h3>'
+                + _term('Review my codebase for any exposed API keys or secrets. Move them into a .env file, add .env to .gitignore, and tell me if anything else needs to be secured.')
+                + '<h3>The Core Rules</h3>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li>Store keys in a <strong><code>.env</code></strong> file — never in your source code</li>'
+                + '<li>Add <strong><code>.env</code></strong> to your <strong><code>.gitignore</code></strong> so it\'s never pushed to GitHub</li>'
+                + '<li>If your frontend calls a paid API, you need a <strong>backend proxy</strong> — keys in browser JavaScript are visible to anyone</li>'
+                + '<li>When you deploy, set keys as <strong>environment variables</strong> in your hosting platform\'s dashboard</li>'
+                + '</ul>'
+                + '<h3>Quick Safety Checklist</h3>'
+                + _check([
+                    '<code>.env</code> is listed in <code>.gitignore</code>',
+                    'No API keys are hardcoded in source files',
+                    'Secret keys for paid APIs are routed through a backend',
+                    'API keys are restricted by domain or scope where possible',
+                ])
+                + _note('<strong>Firebase config values</strong> (<code>apiKey</code>, <code>projectId</code>, etc.) are designed to be public — security comes from Firebase Security Rules, not from hiding the config. This is an exception; most other API keys should be kept secret.')
+        },
+        // ── Step 7: Push to GitHub ──
+        {
+            title: 'Push to GitHub',
+            nextLabel: 'Deploy & Go Live',
+            content: '<h2>Step 7: Put Your Code Online</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">This step is optional, but worth doing. GitHub gives you a cloud backup of your code, makes it easy to connect to hosting platforms, and builds a portfolio of your work over time. You can keep your repository private if you just want a personal backup.</p>'
+                + '<ol class="step-num-list">'
+                + '<li><strong>Create a GitHub account</strong> at <a href="https://github.com" target="_blank">github.com</a> (free)</li>'
+                + '<li><strong>Create a new repository</strong> — click <strong>+</strong> → <strong>New repository</strong>, name it to match your folder</li>'
+                + '<li><strong>Don\'t</strong> check "Add README", ".gitignore", or "license" (you already have a local project)</li>'
+                + '<li><strong>Connect and push</strong> — GitHub shows setup commands. Copy the ones under <em>"push an existing repository"</em>:</li>'
+                + '</ol>'
+                + _term('git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git\ngit branch -M main\ngit push -u origin main')
+                + '<p style="margin-top:16px;">Or just ask your AI:</p>'
+                + _term('I created a GitHub repository at [paste your repo URL]. Connect my local project to it and push my code.')
+                + _tip('For a more detailed walkthrough with SourceTree, SSH keys, and troubleshooting, see <a href="#" onclick="event.preventDefault(); loadRoute(\'github-guide\');">Git & GitHub</a>.')
+        },
+        // ── Step 8: Deploy & Go Live ──
+        {
+            title: 'Deploy & Go Live',
+            nextLabel: 'Keep Building',
+            content: '<h2>Step 8: Deploy & Go Live</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">If you planned your infrastructure in Step 2, you already know where you\'re hosting. Now it\'s time to deploy and start testing at the URL your hosting platform gives you.</p>'
+                + '<h3>Deploy with Your AI</h3>'
+                + '<p>Tell your AI what platform you chose and let it walk you through the deployment:</p>'
+                + _term('I want to deploy my project to [your hosting platform]. Walk me through the full deployment process step by step.')
+                + '<p style="margin-top:16px;">Most platforms give you a free URL (like <code>yourproject.vercel.app</code> or <code>yourproject.web.app</code>) as soon as you deploy. Use that to test your project in a real environment — things can behave differently online than they do locally.</p>'
+                + '<h3>Test at Your Live URL</h3>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li>Open the URL on your phone — does it look right on mobile?</li>'
+                + '<li>Try all the features — do they work the same as they did locally?</li>'
+                + '<li>Share the link with someone else — can they use it without issues?</li>'
+                + '</ul>'
+                + '<p>For step-by-step deployment walkthroughs, see <a href="#" onclick="event.preventDefault(); loadRoute(\'Firebase %26 Deployment.md\');">Firebase & Deployment</a> or <a href="#" onclick="event.preventDefault(); loadRoute(\'Vercel %26 Supabase.md\');">Vercel & Supabase</a>. For help choosing a platform, see <a href="#" onclick="event.preventDefault(); loadRoute(\'tech-stack\');">Tech Stack & Hosting</a>.</p>'
+                + _tip('Most hosting platforms have generous free tiers. You can deploy a real project with a real URL for $0. If you want your own domain like <code>yourproject.com</code>, see <a href="#" onclick="event.preventDefault(); loadRoute(\'Custom Domains.md\');">Custom Domains</a> — it costs ~$10–15/year.')
+        },
+        // ── Step 9: Keep Building ──
+        {
+            title: 'Keep Building',
+            nextLabel: null,
+            content: '<h2>Step 9: What\'s Next?</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Your project is live. Now keep iterating — the build cycle doesn\'t stop at deployment.</p>'
+                + '<h3>Ask Your AI for Ideas</h3>'
+                + _term('Look at my project and suggest 3 features or improvements that would make it more impressive. Explain why each one would be valuable.')
+                + _term('What would a professional developer do to make this project production-ready? What am I missing — security, performance, accessibility?')
+                + '<h3>Level Up Your Skills</h3>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li><strong>Add a database</strong> — move from localStorage to a real backend so data persists across devices</li>'
+                + '<li><strong>Add user accounts</strong> — authentication, profiles, personalized experiences</li>'
+                + '<li><strong>Connect an API</strong> — weather, AI, payments, maps, or any external data source</li>'
+                + '<li><strong>Improve the design</strong> — polish the UI, add animations, make it feel professional</li>'
+                + '<li><strong>Buy a domain</strong> — <code>yourproject.com</code> costs ~$10/year and makes it feel real</li>'
+                + '</ul>'
+                + _tip('The best way to learn is to keep building. Every project teaches you something new — and with AI, you can attempt things that would have taken months to learn on your own.')
+        }
+    ]
+};
+
+// ── Clean Up & Optimize Guide ──────────────────────────────
+const CLEANUP_GUIDE = {
+    name: 'Clean Up & Optimize',
+    subtitle: 'A checklist for cleaning up your project — ask your AI to handle each one.',
+    lastStepCards: [
+        { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
+        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
+    ],
+    steps: [
+        // ── Step 1: Organize Your Files ──
+        {
+            title: 'Organize Your Files',
+            nextLabel: 'Clean Up Your Code',
+            content: '<h2>Step 1: Give Your Project Structure</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">AI often puts everything into one or two files when building quickly. That works for prototyping, but once your project is working, splitting things into separate files makes it easier for you and the AI to work with going forward.</p>'
+                + _cards([
+                    { icon: '📄', name: 'HTML', desc: 'Structure and content — what\'s on the page' },
+                    { icon: '🎨', name: 'CSS', desc: 'Styling and layout — how it looks' },
+                    { icon: '⚡', name: 'JavaScript', desc: 'Behavior and logic — what it does' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<p>Ask your AI to reorganize:</p>'
+                + _term('Review my project\'s file structure. Move all inline CSS into a separate stylesheet and all inline JavaScript into a separate .js file. Organize files into folders if needed (e.g., css/, js/, images/). Make sure everything still works after the changes.')
+                + _note('This is a good time to commit your current working version before the AI starts reorganizing. If something breaks, you can go back.')
+                + _tip('Ask your AI to explain the file structure it created. Understanding where things live helps you direct future prompts more effectively.')
+        },
+        // ── Step 2: Clean Up Your Code ──
+        {
+            title: 'Clean Up Your Code',
+            nextLabel: 'Find & Fix Bugs',
+            content: '<h2>Step 2: Remove the Clutter</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">AI-generated code accumulates leftover experiments, duplicate functions, and commented-out blocks over time. A cleanup pass makes the codebase easier for the AI to work with in future conversations.</p>'
+                + _cards([
+                    { icon: '🧹', name: 'Remove Dead Code', desc: 'Unused variables, commented-out blocks, leftover experiments' },
+                    { icon: '🔄', name: 'Simplify', desc: 'Overly complex functions that could be simpler' },
+                    { icon: '📝', name: 'Add Comments', desc: 'Explain what major sections do and why' },
+                    { icon: '📖', name: 'Update README', desc: 'Describe what the project does and how to run it' },
+                ], { style: 'margin:16px 0 24px;' })
+                + _term('Review my entire codebase and clean it up:\n1. Remove any dead code, unused variables, and commented-out blocks\n2. Simplify any overly complex functions\n3. Remove duplicate or redundant code\n4. Add clear comments explaining what each major section does\n5. Make sure naming is consistent and descriptive')
+                + '<p style="margin-top:16px;">Then update your documentation:</p>'
+                + _term('Update my README.md and CLAUDE.md to accurately describe the current state of the project — what it does, how to run it, and the tech stack.')
+                + _tip('Good comments explain <em>why</em>, not <em>what</em>. Your AI can add both, but the "why" comments are the ones that matter when you come back to the project later.')
+        },
+        // ── Step 3: Find & Fix Bugs ──
+        {
+            title: 'Find & Fix Bugs',
+            nextLabel: 'Make It Fast',
+            content: '<h2>Step 3: Catch What You Missed</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">You\'ve been testing the happy path — the way things are <em>supposed</em> to work. Time to ask the AI to think about what happens when things go wrong.</p>'
+                + _cards([
+                    { icon: '🔍', name: 'Edge Cases', desc: 'Empty inputs, missing data, unexpected values' },
+                    { icon: '⚠️', name: 'Error Handling', desc: 'Graceful failures with user-friendly messages' },
+                    { icon: '🔄', name: 'Loading States', desc: 'What the user sees while data is being fetched' },
+                    { icon: '🌐', name: 'Browser Compatibility', desc: 'Does it work in Chrome, Safari, Firefox?' },
+                ], { style: 'margin:16px 0 24px;' })
+                + _term('Review my project for bugs and edge cases:\n1. What happens with empty inputs, missing data, or unexpected values?\n2. Are there any error states that show a blank screen or crash the page?\n3. Add user-friendly error messages for anything that can fail\n4. Make sure loading states exist where data is being fetched\n5. Test that nothing breaks when the network is slow or offline')
+                + '<p style="margin-top:16px;">After the AI makes fixes, test each scenario yourself. Open your project and deliberately try to break it — enter nothing, enter garbage, click things twice quickly, resize the window.</p>'
+                + _warn('Don\'t skip this. The bugs your users find will always be the ones you didn\'t think to test.')
+        },
+        // ── Step 4: Make It Fast ──
+        {
+            title: 'Make It Fast',
+            nextLabel: 'Accessible & Responsive',
+            content: '<h2>Step 4: Speed Up Your Project</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Slow load times lose users. Most performance issues come from oversized images and unoptimized assets.</p>'
+                + _cards([
+                    { icon: '🖼️', name: 'Image Optimization', desc: 'Compress and resize images that are larger than they need to be' },
+                    { icon: '⏳', name: 'Lazy Loading', desc: 'Only load images and content when they scroll into view' },
+                    { icon: '📦', name: 'Reduce Bloat', desc: 'Remove unnecessary libraries, scripts, and API calls' },
+                ], { style: 'margin:16px 0 24px;' })
+                + _term('Optimize my project\'s performance:\n1. Compress and resize any images that are larger than they need to be\n2. Add lazy loading for images below the fold\n3. Minimize any render-blocking CSS or JavaScript\n4. Check for any unnecessary API calls or duplicate data fetching\n5. Tell me what the biggest performance bottlenecks are')
+                + _tip('Open DevTools (<code>Cmd+Option+I</code> / <code>F12</code>), go to the <strong>Lighthouse</strong> tab, and run a performance audit. Share the results with your AI — it can fix whatever Lighthouse flags.')
+                + _note('For static sites with just HTML/CSS/JS, images are almost always the biggest issue. If your page is slow, start there.')
+        },
+        // ── Step 5: Accessible & Responsive ──
+        {
+            title: 'Accessible & Responsive',
+            nextLabel: 'Security Review',
+            content: '<h2>Step 5: Works for Everyone, Everywhere</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Two things that share a goal: making sure your project is usable by anyone, on any device.</p>'
+                + '<h3>Accessibility</h3>'
+                + '<p>People use the web in different ways — screen readers, keyboard navigation, high-contrast modes. A few small changes make your project work for all of them.</p>'
+                + _term('Run an accessibility audit on my project:\n1. Add descriptive alt text to all images\n2. Check color contrast ratios — make sure text is readable\n3. Ensure all interactive elements are keyboard-navigable\n4. Use semantic HTML (header, main, nav, button) instead of generic divs\n5. Add ARIA labels where needed for screen readers')
+                + '<h3>Mobile Responsiveness</h3>'
+                + '<p>If your project doesn\'t work on a phone, you\'re losing most of your audience.</p>'
+                + _term('Check my project\'s mobile responsiveness:\n1. Does the layout work on phone screens (375px wide)?\n2. Are touch targets large enough (at least 44x44px)?\n3. Does text remain readable without zooming?\n4. Do any elements overflow or get cut off on small screens?\n5. Test at tablet size too (768px wide)')
+                + _tip('Test on your actual phone, not just by resizing the browser. Pinch, scroll, and tap — it often feels different on a real device.')
+        },
+        // ── Step 6: Security Review ──
+        {
+            title: 'Security Review',
+            nextLabel: null,
+            content: '<h2>Step 6: Lock the Doors</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">If your project handles user input or connects to external services, a basic security review is worth doing.</p>'
+                + _note('If your project is a static page with no forms, no user input, and no API calls, this step may not apply to you.')
+                + _term('Do a security review of my project:\n1. Is any user input being inserted into the page without sanitization?\n2. Are there any API keys or secrets exposed in the frontend code?\n3. If I have forms, is the input validated on both client and server side?\n4. Are there any open redirects or unsafe URL handling?\n5. What other security issues should I fix before sharing this publicly?')
+                + _cards([
+                    { icon: '🛡️', name: 'Input Sanitization', desc: 'Never trust user input — always clean it before displaying or storing' },
+                    { icon: '🔑', name: 'API Key Exposure', desc: 'No secrets in frontend code — use .env files and backend proxies' },
+                    { icon: '🔒', name: 'HTTPS', desc: 'Make sure your deployed site uses HTTPS (most hosting platforms handle this)' },
+                ], { style: 'margin:16px 0 16px;' })
+                + _warn('This is not a comprehensive security audit. For projects handling real user data or payments, get a professional review. But for a personal project, these basics go a long way.')
+                + _tip('You don\'t need to do every step in this guide for every project. Pick the ones that matter most for what you\'ve built. Even doing two or three of these will noticeably improve your project\'s quality.')
         }
     ]
 };

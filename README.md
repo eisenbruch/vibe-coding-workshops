@@ -38,7 +38,7 @@ Reference guides and resources for vibe coding, project setup, and related tools
 - **[Prompting & AI Mastery](https://workshop.nerktek.com/#prompting-guide)** — Core prompting techniques and strategies
 - **[Product Guidance](https://workshop.nerktek.com/#product-guidance)** — Planning and managing your project
 - **[Vibe Coding Techniques](https://workshop.nerktek.com/#Vibe%20Coding%20Techniques.md)** — Approaches and essential techniques
-- **[Solo Project Guide](https://workshop.nerktek.com/#Solo%20Project%20Guide.md)** — Project ideas, setup, build cycle, deployment
+- **[Solo Project Guide](https://workshop.nerktek.com/#solo-project)** — Project ideas, setup, build cycle, deployment
 
 **Deployment & Beyond:**
 - **[Firebase & Deployment](https://workshop.nerktek.com/#Firebase%20%26%20Deployment.md)** — Backend, database, hosting
