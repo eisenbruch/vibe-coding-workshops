@@ -138,8 +138,34 @@ const SETUP_GUIDES = {
 
             },
             {
+                title: 'Install Sourcetree & Connect GitHub',
+                content: '<h2>Step 6: Install Sourcetree & Connect GitHub</h2>'
+                    + '<p>Sourcetree is a free visual Git client. It makes it easier to see your changes, commit your work, and push to GitHub — without memorizing terminal commands.</p>'
+                    + '<h3>1. Create a GitHub Account</h3>'
+                    + '<p>If you don\'t already have one, sign up at <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/signup</a> — it\'s free.</p>'
+                    + '<h3>2. Install Sourcetree</h3>'
+                    + '<h4>Mac</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Open Terminal and run:</li>'
+                    + '</ol>'
+                    + _term('brew install --cask sourcetree')
+                    + '<h4>Windows</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Download <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">Sourcetree</a></li>'
+                    + '<li>Run the installer</li>'
+                    + '</ol>'
+                    + _tip('When Sourcetree asks you to sign in to an Atlassian account during setup, you can skip it — it\'s not required.')
+                    + '<h3>3. Connect Your GitHub Account</h3>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Launch Sourcetree</li>'
+                    + '<li>Go to <strong>Sourcetree → Settings</strong> (Mac) or <strong>Tools → Options</strong> (Windows)</li>'
+                    + '<li>Click the <strong>Accounts</strong> tab</li>'
+                    + '<li>Click <strong>Add</strong>, select <strong>GitHub</strong> as the host, and sign in</li>'
+                    + '</ol>'
+            },
+            {
                 title: 'Set Up Your Project Folder',
-                content: '<h2>Step 6: Set Up Your Project Folder</h2>'
+                content: '<h2>Step 7: Set Up Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
                     + '<li>In Claude Desktop, click the project folder dropdown below the chat input</li>'
@@ -149,9 +175,9 @@ const SETUP_GUIDES = {
             },
             {
                 title: "You're Ready!",
-                content: '<h2>Step 7: You\'re Ready!</h2>'
+                content: '<h2>Step 8: You\'re Ready!</h2>'
                     + '<p>Your setup is complete:</p>'
-                    + _check(['Claude Pro account', 'Claude Desktop installed', 'Project folder ready', 'Developer tools installed (or ready to install later)'])
+                    + _check(['Claude Pro account', 'Claude Desktop installed', 'Sourcetree installed', 'Project folder ready', 'Developer tools installed (or ready to install later)'])
             }
         ]
     },
@@ -270,8 +296,34 @@ const SETUP_GUIDES = {
                     + _note('The agent will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
             },
             {
+                title: 'Install Sourcetree & Connect GitHub',
+                content: '<h2>Step 4: Install Sourcetree & Connect GitHub</h2>'
+                    + '<p>Sourcetree is a free visual Git client. It makes it easier to see your changes, commit your work, and push to GitHub — without memorizing terminal commands.</p>'
+                    + '<h3>1. Create a GitHub Account</h3>'
+                    + '<p>If you don\'t already have one, sign up at <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/signup</a> — it\'s free.</p>'
+                    + '<h3>2. Install Sourcetree</h3>'
+                    + '<h4>Mac</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Open Terminal and run:</li>'
+                    + '</ol>'
+                    + _term('brew install --cask sourcetree')
+                    + '<h4>Windows</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Download <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">Sourcetree</a></li>'
+                    + '<li>Run the installer</li>'
+                    + '</ol>'
+                    + _tip('When Sourcetree asks you to sign in to an Atlassian account during setup, you can skip it — it\'s not required.')
+                    + '<h3>3. Connect Your GitHub Account</h3>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Launch Sourcetree</li>'
+                    + '<li>Go to <strong>Sourcetree → Settings</strong> (Mac) or <strong>Tools → Options</strong> (Windows)</li>'
+                    + '<li>Click the <strong>Accounts</strong> tab</li>'
+                    + '<li>Click <strong>Add</strong>, select <strong>GitHub</strong> as the host, and sign in</li>'
+                    + '</ol>'
+            },
+            {
                 title: 'Set Up Your Project Folder',
-                content: '<h2>Step 4: Set Up Your Project Folder</h2>'
+                content: '<h2>Step 5: Set Up Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>In the sidebar, click <strong>Open Workspace</strong></li>'
                     + '<li>Create a new folder called <code>workshop-project</code> on your Desktop and select it</li>'
@@ -280,9 +332,9 @@ const SETUP_GUIDES = {
             },
             {
                 title: "You're Ready!",
-                content: '<h2>Step 5: You\'re Ready!</h2>'
+                content: '<h2>Step 6: You\'re Ready!</h2>'
                     + '<p>Your setup is complete:</p>'
-                    + _check(['Antigravity installed', 'Agent manager open', 'Developer tools installed', 'Project folder ready'])
+                    + _check(['Antigravity installed', 'Agent manager open', 'Sourcetree installed', 'Developer tools installed', 'Project folder ready'])
                     + _tip('Antigravity is free and powered by Gemini. Don\'t hesitate to ask for big changes — regenerating is quick.')
             }
         ]
@@ -354,8 +406,34 @@ const SETUP_GUIDES = {
                     + _note('Claude will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
             },
             {
+                title: 'Install Sourcetree & Connect GitHub',
+                content: '<h2>Step 5: Install Sourcetree & Connect GitHub</h2>'
+                    + '<p>Sourcetree is a free visual Git client. It makes it easier to see your changes, commit your work, and push to GitHub — without memorizing terminal commands.</p>'
+                    + '<h3>1. Create a GitHub Account</h3>'
+                    + '<p>If you don\'t already have one, sign up at <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/signup</a> — it\'s free.</p>'
+                    + '<h3>2. Install Sourcetree</h3>'
+                    + '<h4>Mac</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Open Terminal and run:</li>'
+                    + '</ol>'
+                    + _term('brew install --cask sourcetree')
+                    + '<h4>Windows</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Download <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">Sourcetree</a></li>'
+                    + '<li>Run the installer</li>'
+                    + '</ol>'
+                    + _tip('When Sourcetree asks you to sign in to an Atlassian account during setup, you can skip it — it\'s not required.')
+                    + '<h3>3. Connect Your GitHub Account</h3>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Launch Sourcetree</li>'
+                    + '<li>Go to <strong>Sourcetree → Settings</strong> (Mac) or <strong>Tools → Options</strong> (Windows)</li>'
+                    + '<li>Click the <strong>Accounts</strong> tab</li>'
+                    + '<li>Click <strong>Add</strong>, select <strong>GitHub</strong> as the host, and sign in</li>'
+                    + '</ol>'
+            },
+            {
                 title: 'Create Your Project Folder',
-                content: '<h2>Step 5: Create Your Project Folder</h2>'
+                content: '<h2>Step 6: Create Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
                     + '<li>In VS Code: <strong>File → Open Folder</strong> → select it</li>'
@@ -365,9 +443,9 @@ const SETUP_GUIDES = {
             },
             {
                 title: "You're Ready!",
-                content: '<h2>Step 6: You\'re Ready!</h2>'
+                content: '<h2>Step 7: You\'re Ready!</h2>'
                     + '<p>Your setup is complete:</p>'
-                    + _check(['VS Code installed', 'Claude Code connected', 'Project folder ready', 'Developer tools installed'])
+                    + _check(['VS Code installed', 'Claude Code connected', 'Sourcetree installed', 'Project folder ready', 'Developer tools installed'])
                     + '<h3 style="margin-top:24px;">Quick Reference</h3>'
                     + '<div class="path-picker-grid" style="margin-top:12px;">'
                     + '<div class="path-card" style="cursor:default; text-align:center;"><div class="path-card-name" style="font-family:monospace;">claude</div><div class="path-card-desc">Start Claude in your terminal</div></div>'
@@ -445,8 +523,34 @@ const SETUP_GUIDES = {
                     + _note('Gemini will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
             },
             {
+                title: 'Install Sourcetree & Connect GitHub',
+                content: '<h2>Step 5: Install Sourcetree & Connect GitHub</h2>'
+                    + '<p>Sourcetree is a free visual Git client. It makes it easier to see your changes, commit your work, and push to GitHub — without memorizing terminal commands.</p>'
+                    + '<h3>1. Create a GitHub Account</h3>'
+                    + '<p>If you don\'t already have one, sign up at <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/signup</a> — it\'s free.</p>'
+                    + '<h3>2. Install Sourcetree</h3>'
+                    + '<h4>Mac</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Open Terminal and run:</li>'
+                    + '</ol>'
+                    + _term('brew install --cask sourcetree')
+                    + '<h4>Windows</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Download <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">Sourcetree</a></li>'
+                    + '<li>Run the installer</li>'
+                    + '</ol>'
+                    + _tip('When Sourcetree asks you to sign in to an Atlassian account during setup, you can skip it — it\'s not required.')
+                    + '<h3>3. Connect Your GitHub Account</h3>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Launch Sourcetree</li>'
+                    + '<li>Go to <strong>Sourcetree → Settings</strong> (Mac) or <strong>Tools → Options</strong> (Windows)</li>'
+                    + '<li>Click the <strong>Accounts</strong> tab</li>'
+                    + '<li>Click <strong>Add</strong>, select <strong>GitHub</strong> as the host, and sign in</li>'
+                    + '</ol>'
+            },
+            {
                 title: 'Create Your Project Folder',
-                content: '<h2>Step 5: Create Your Project Folder</h2>'
+                content: '<h2>Step 6: Create Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
                     + '<li>In VS Code: <strong>File → Open Folder</strong> → select it</li>'
@@ -456,9 +560,9 @@ const SETUP_GUIDES = {
             },
             {
                 title: "You're Ready!",
-                content: '<h2>Step 6: You\'re Ready!</h2>'
+                content: '<h2>Step 7: You\'re Ready!</h2>'
                     + '<p>Your setup is complete:</p>'
-                    + _check(['VS Code installed', 'Gemini connected', 'Project folder ready', 'Developer tools installed'])
+                    + _check(['VS Code installed', 'Gemini connected', 'Sourcetree installed', 'Project folder ready', 'Developer tools installed'])
                     + _tip('Gemini is extremely fast at generating code and completely free. Don\'t hesitate to ask for big changes — regenerating is quick.')
             }
         ]
@@ -530,8 +634,34 @@ const SETUP_GUIDES = {
                     + _note('Claude will ask permission to run commands — say yes. This may take a few minutes.')
             },
             {
+                title: 'Install Sourcetree & Connect GitHub',
+                content: '<h2>Step 5: Install Sourcetree & Connect GitHub</h2>'
+                    + '<p>Sourcetree is a free visual Git client. It makes it easier to see your changes, commit your work, and push to GitHub — without memorizing terminal commands.</p>'
+                    + '<h3>1. Create a GitHub Account</h3>'
+                    + '<p>If you don\'t already have one, sign up at <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/signup</a> — it\'s free.</p>'
+                    + '<h3>2. Install Sourcetree</h3>'
+                    + '<h4>Mac</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Open Terminal and run:</li>'
+                    + '</ol>'
+                    + _term('brew install --cask sourcetree')
+                    + '<h4>Windows</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Download <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">Sourcetree</a></li>'
+                    + '<li>Run the installer</li>'
+                    + '</ol>'
+                    + _tip('When Sourcetree asks you to sign in to an Atlassian account during setup, you can skip it — it\'s not required.')
+                    + '<h3>3. Connect Your GitHub Account</h3>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Launch Sourcetree</li>'
+                    + '<li>Go to <strong>Sourcetree → Settings</strong> (Mac) or <strong>Tools → Options</strong> (Windows)</li>'
+                    + '<li>Click the <strong>Accounts</strong> tab</li>'
+                    + '<li>Click <strong>Add</strong>, select <strong>GitHub</strong> as the host, and sign in</li>'
+                    + '</ol>'
+            },
+            {
                 title: 'Create Your Project Folder',
-                content: '<h2>Step 5: Create Your Project Folder</h2>'
+                content: '<h2>Step 6: Create Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
                     + '<li>In Antigravity: <strong>File → Open Folder</strong> → select it</li>'
@@ -540,9 +670,9 @@ const SETUP_GUIDES = {
             },
             {
                 title: "You're Ready!",
-                content: "<h2>Step 6: You're Ready!</h2>"
+                content: "<h2>Step 7: You're Ready!</h2>"
                     + '<p>Your setup is complete:</p>'
-                    + _check(['Antigravity installed', 'Claude Code connected', 'Project folder ready', 'Developer tools installed'])
+                    + _check(['Antigravity installed', 'Claude Code connected', 'Sourcetree installed', 'Project folder ready', 'Developer tools installed'])
             }
         ]
     },
@@ -602,8 +732,34 @@ const SETUP_GUIDES = {
                     + _note('The agent will ask permission to run commands — say yes. This may take a few minutes. Xcode Command Line Tools in particular can take a while to download.')
             },
             {
+                title: 'Install Sourcetree & Connect GitHub',
+                content: '<h2>Step 4: Install Sourcetree & Connect GitHub</h2>'
+                    + '<p>Sourcetree is a free visual Git client. It makes it easier to see your changes, commit your work, and push to GitHub — without memorizing terminal commands.</p>'
+                    + '<h3>1. Create a GitHub Account</h3>'
+                    + '<p>If you don\'t already have one, sign up at <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer" class="step-link-btn">github.com/signup</a> — it\'s free.</p>'
+                    + '<h3>2. Install Sourcetree</h3>'
+                    + '<h4>Mac</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Open Terminal and run:</li>'
+                    + '</ol>'
+                    + _term('brew install --cask sourcetree')
+                    + '<h4>Windows</h4>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Download <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreferrer" class="step-link-btn">Sourcetree</a></li>'
+                    + '<li>Run the installer</li>'
+                    + '</ol>'
+                    + _tip('When Sourcetree asks you to sign in to an Atlassian account during setup, you can skip it — it\'s not required.')
+                    + '<h3>3. Connect Your GitHub Account</h3>'
+                    + '<ol class="step-num-list">'
+                    + '<li>Launch Sourcetree</li>'
+                    + '<li>Go to <strong>Sourcetree → Settings</strong> (Mac) or <strong>Tools → Options</strong> (Windows)</li>'
+                    + '<li>Click the <strong>Accounts</strong> tab</li>'
+                    + '<li>Click <strong>Add</strong>, select <strong>GitHub</strong> as the host, and sign in</li>'
+                    + '</ol>'
+            },
+            {
                 title: 'Create Your Project Folder',
-                content: '<h2>Step 4: Create Your Project Folder</h2>'
+                content: '<h2>Step 5: Create Your Project Folder</h2>'
                     + '<ol class="step-num-list">'
                     + '<li>Create a folder called <code>workshop-project</code> on your Desktop</li>'
                     + '<li>In Antigravity: <strong>File → Open Folder</strong> → select it</li>'
@@ -611,9 +767,9 @@ const SETUP_GUIDES = {
             },
             {
                 title: "You're Ready!",
-                content: "<h2>Step 5: You're Ready!</h2> "
+                content: "<h2>Step 6: You're Ready!</h2> "
                     + '<p>Your setup is complete:</p>'
-                    + _check(['Antigravity installed', 'Gemini Agent open', 'Project folder ready', 'Developer tools installed'])
+                    + _check(['Antigravity installed', 'Gemini Agent open', 'Sourcetree installed', 'Project folder ready', 'Developer tools installed'])
             }
         ]
     }
@@ -688,7 +844,8 @@ const GROUP_PROJECT_GUIDE = {
     subtitle: 'Build a real project together using the vibe coding workflow: prompt, test, iterate, commit.',
     lastStepCards: [
         { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
-        { icon: '🎯', name: 'Product Guidance', desc: 'Think like a product manager before you build', route: 'product-guidance' },
+        { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building and why', route: 'product-guidance' },
+        { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
         { icon: '🔥', name: 'Firebase & Deployment', desc: 'Deploy your project to a real URL', route: 'Firebase %26 Deployment.md' },
         { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
@@ -824,6 +981,7 @@ const GROUP_PROJECT_GUIDE = {
                     { icon: '📄', name: 'More Content', desc: 'Extra pages, sections, or levels' },
                 ], { style: 'margin:16px 0;' })
                 + '<p>Describe what you want to your agent and let it build. Test in the browser, then iterate — same cycle as before.</p>'
+                + _tip('<strong>Queue your messages.</strong> You don\'t have to wait for the AI to finish before typing your next request. Most tools let you keep submitting messages and the AI will read them when it\'s ready.')
         },
         {
             title: 'Show & Tell',
@@ -982,7 +1140,8 @@ const PROMPTING_GUIDE = {
     name: 'Prompting & AI Mastery',
     subtitle: 'How to communicate with AI effectively — prompting, context management, and debugging.',
     lastStepCards: [
-        { icon: '🎯', name: 'Product Guidance', desc: 'Think like a product manager before you build', route: 'product-guidance' },
+        { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building and why', route: 'product-guidance' },
+        { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
     ],
     steps: [
@@ -1040,7 +1199,7 @@ const PROMPTING_GUIDE = {
         },
         {
             title: 'Writing Good Prompts',
-            nextLabel: 'Steering the AI',
+            nextLabel: 'Give Your AI Inspiration',
             content: '<h2>Good Prompts vs Better Prompts</h2>'
                 + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The quality of your prompts directly determines the quality of the AI\'s output.</p>'
                 + '<h3>Key Principles</h3>'
@@ -1052,7 +1211,7 @@ const PROMPTING_GUIDE = {
                 ], { style: 'margin-bottom:28px;' })
                 // ── Scenario cards ──
                 + '<h3>Examples</h3>'
-                + (function() {
+                + (function () {
                     var scenarios = [
                         { icon: '🏗️', label: 'Building', bad: 'Make me a website', good: 'Create a single-page portfolio site with a hero section, 3 project cards, and a contact form. Use a dark theme with blue accents.' },
                         { icon: '🐛', label: 'Debugging', bad: 'Fix it', good: 'The submit button doesn\'t work. When I click it, nothing happens but I expected [X]. Here\'s the error from the console: [paste error]' },
@@ -1060,7 +1219,7 @@ const PROMPTING_GUIDE = {
                         { icon: '🎨', label: 'Design', bad: 'Make it look better', good: 'Improve the card component: add subtle shadows, rounded corners, and a hover effect that slightly lifts the card.' },
                     ];
                     var h = '<div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-bottom:8px;">';
-                    scenarios.forEach(function(s) {
+                    scenarios.forEach(function (s) {
                         h += '<div style="border-radius:10px; border:1px solid var(--border-color); overflow:hidden; background:var(--surface-color); padding:16px 20px;">';
                         h += '<div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;"><span style="font-size:1.1em;">' + s.icon + '</span><span style="font-weight:700; font-size:0.85em; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">' + s.label + '</span></div>';
                         h += '<div style="padding:8px 12px; border-radius:6px; border:1px dashed var(--border-color); margin-bottom:8px; font-size:0.92em; opacity:0.7;"><span style="color:var(--text-muted);">✗</span> "' + s.bad + '"</div>';
@@ -1070,6 +1229,26 @@ const PROMPTING_GUIDE = {
                     h += '</div>';
                     return h;
                 })()
+        },
+        {
+            title: 'Give Your AI Inspiration',
+            nextLabel: 'Steering the AI',
+            content: '<h2>Show, Don\'t Just Tell</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Words are powerful, but visuals and references can communicate what\'s hard to describe. Give your AI something to work from.</p>'
+                + '<h3>What You Can Share</h3>'
+                + _cards([
+                    { icon: '📸', name: 'Screenshots', desc: 'Capture a site, app, or design you like and paste it directly into the chat' },
+                    { icon: '🔗', name: 'URLs', desc: 'Share links to sites you want to reference — many AI tools can read them' },
+                    { icon: '🖼️', name: 'Design References', desc: 'Mockups, wireframes, sketches, or photos of whiteboard drawings' },
+                    { icon: '📐', name: 'Specific Elements', desc: 'Screenshot just the nav bar, the card layout, or the color scheme you like' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>How to Use References Effectively</h3>'
+                + '<ul style="padding-left:1.5em; margin-bottom:16px; line-height:1.8;">'
+                + '<li><strong>Be specific about what you like</strong> — "I like the layout of this site, but I want different colors" is better than just pasting a link</li>'
+                + '<li><strong>Combine references</strong> — "Use the navigation from this site and the card design from this one"</li>'
+                + '<li><strong>Point out details</strong> — "Notice how the text fades in on scroll" or "I like the spacing between sections"</li>'
+                + '</ul>'
+                + _tip('You don\'t need to find the perfect reference. Even a rough sketch on paper, photographed and pasted into the chat, gives the AI more to work with than a text description alone.')
         },
         {
             title: 'Steering the AI',
@@ -1166,141 +1345,513 @@ const PROMPTING_GUIDE = {
 // ── Product Guidance ───────────────────────────────────────
 const PRODUCT_GUIDE = {
     name: 'Product Guidance',
-    subtitle: 'Think like a product manager and designer before you start building.',
+    subtitle: 'Spend a few minutes thinking about what you\'re building before you start prompting.',
     lastStepCards: [
         { icon: '🧠', name: 'Prompting & AI Mastery', desc: 'Prompting strategies and core techniques', route: 'prompting-guide' },
+        { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform for your project', route: 'tech-stack' },
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
     ],
     steps: [
         {
-            title: 'Why Product Thinking Matters',
-            nextLabel: 'Define Your User & Problem',
-            content: '<h2>Think Products, Not Code</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The best vibe coders don\'t just describe code — they describe <strong>products</strong>. The more clearly you think about what you\'re building and who it\'s for, the better your prompts and results will be.</p>'
+            title: 'What Are You Building?',
+            nextLabel: 'What Should It Feel Like?',
+            content: '<h2>Start with the Purpose</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The best vibe coders don\'t just describe code — they describe <strong>products</strong>. Before you start prompting, spend a minute thinking about what you\'re actually trying to create.</p>'
                 + _cards([
-                    { icon: '🧑‍💼', name: 'Product Manager', desc: 'What should we build and why? Who is it for? What problem does it solve?' },
-                    { icon: '🎨', name: 'Designer', desc: 'How should it feel to use? What does the user see, click, and experience?' },
-                    { icon: '🏗️', name: 'Architect', desc: 'What technology do we need? How should it be structured?' },
-                ], { style: 'margin:16px 0 24px;' })
-                + '<p>You don\'t need to be an expert in any of these roles. But spending even a few minutes thinking from each perspective before you start prompting leads to dramatically better results.</p>'
-                + _tip('The next few steps walk you through a lightweight version of each role. Use as much or as little as fits your project.')
-        },
-        {
-            title: 'Define Your User & Problem',
-            nextLabel: 'Design the Experience',
-            content: '<h2>Start with Who and Why</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Before you start prompting, answer three questions:</p>'
-                + _cards([
-                    { icon: '👤', name: 'Who is this for?', desc: 'Yourself, friends, a specific audience, a business?' },
-                    { icon: '🎯', name: 'What problem does it solve?', desc: 'What need or desire does this address?' },
-                    { icon: '🔍', name: 'What exists today?', desc: 'What do people currently use? What\'s wrong with it?' },
+                    { icon: '🎯', name: 'What problem does this solve?', desc: 'What need, frustration, or desire does this address? Even fun projects solve the problem of boredom.' },
+                    { icon: '🔍', name: 'What exists today?', desc: 'What do people currently use? What\'s wrong with it? What would make yours better or different?' },
+                    { icon: '✅', name: 'What does "done" look like?', desc: 'If this project worked perfectly, what would someone be able to do with it?' },
                 ], { style: 'margin:16px 0 24px;' })
                 + '<p>Even simple answers help. Compare these prompts:</p>'
                 + '<div style="display:flex; gap:16px; flex-wrap:wrap; margin:16px 0;">'
-                + '<div style="flex:1; min-width:200px; padding:16px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color);"><strong style="color:var(--text-muted);">Without context:</strong><br>"Make me a recipe app"</div>'
-                + '<div style="flex:1; min-width:200px; padding:16px; border-radius:8px; border:1px solid var(--accent-color); background:var(--surface-color);"><strong>With context:</strong><br>"I\'m a home cook who meal preps on Sundays. I need a recipe organizer that lets me filter by dietary restrictions and generates a grocery list from selected recipes."</div>'
+                + '<div style="flex:1; min-width:200px; padding:16px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color);"><strong style="color:var(--text-muted);">Vague:</strong><br>"Make me a recipe app"</div>'
+                + '<div style="flex:1; min-width:200px; padding:16px; border-radius:8px; border:1px solid var(--accent-color); background:var(--surface-color);"><strong>Clear purpose:</strong><br>"I meal prep on Sundays and need a recipe organizer that filters by dietary restrictions and generates a grocery list from selected recipes."</div>'
                 + '</div>'
-                + _tip('You don\'t need a formal document. Just a sentence or two about who, what, and why gives the AI enormously better direction.')
+                + _tip('The more clearly you can answer these questions, the better your prompts and your product will be. For a real project, spend real time here — it pays off throughout the entire build.')
         },
         {
-            title: 'Design the Experience',
-            nextLabel: 'Write User Stories',
-            content: '<h2>Describe How It Should Feel</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Go beyond features. Describe the <em>experience</em> you want your product to create.</p>'
+            title: 'What Should It Feel Like?',
+            nextLabel: 'What\'s the Best Approach?',
+            content: '<h2>Think About the Experience</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Describing the <em>experience</em> you want gives the AI better direction than a feature list alone.</p>'
                 + '<h3>Set the Tone</h3>'
-                + '<p>These kinds of descriptions give the AI better design direction than a list of features alone:</p>'
+                + '<p>How should it feel to use?</p>'
                 + '<ul style="margin:8px 0 20px 20px; line-height:1.8;">'
                 + '<li><em>"Fast and minimal — no clutter, just the essentials"</em></li>'
                 + '<li><em>"Playful and colorful — makes a boring task fun"</em></li>'
                 + '<li><em>"Professional and trustworthy — someone would pay for this"</em></li>'
                 + '</ul>'
-                + '<h3>Sketch the User Flow</h3>'
-                + '<p>Before prompting the AI, describe the user journey:</p>'
+                + '<h3>Walk Through a Feature</h3>'
+                + '<p>Pick one key feature and describe the experience step by step. Here\'s an example for a recipe app\'s grocery list feature:</p>'
                 + '<ol class="step-num-list">'
-                + '<li><strong>User arrives</strong> — what do they see first?</li>'
-                + '<li><strong>They take an action</strong> — what happens?</li>'
-                + '<li><strong>Something goes wrong</strong> — how does the app respond?</li>'
-                + '<li><strong>They complete their goal</strong> — what\'s the confirmation?</li>'
+                + '<li><strong>The user browses recipes</strong> — they see recipe cards with photos, and can filter by "vegetarian" or "under 30 min"</li>'
+                + '<li><strong>They select a few recipes</strong> — each selected recipe gets a checkmark, and a floating "Grocery List" button appears with a count</li>'
+                + '<li><strong>They tap the grocery list</strong> — ingredients from all selected recipes are combined and organized by store aisle, with duplicates merged</li>'
+                + '<li><strong>They go shopping</strong> — they can check off items as they shop, and the list saves so they can close the app and come back</li>'
                 + '</ol>'
-                + '<h3>Think About Empty & Error States</h3>'
-                + _cards([
-                    { icon: '📭', name: 'No Data', desc: 'What does the app look like with no content yet?' },
-                    { icon: '⚠️', name: 'Invalid Input', desc: 'What happens when the user enters something wrong?' },
-                    { icon: '🔌', name: 'Service Down', desc: 'What if the API is slow or unavailable?' },
-                    { icon: '📱', name: 'Small Screens', desc: 'What happens on mobile or a narrow window?' },
-                ], { style: 'margin-bottom:8px;' })
+                + '<p>That level of detail — describing what the user sees, does, and gets back at each step — gives the AI everything it needs to build the right thing.</p>'
+                + _tip('Do this for your project\'s most important feature. If you can walk through the experience clearly, your AI will build something much closer to what you actually want.')
         },
         {
-            title: 'Write User Stories',
-            nextLabel: 'Choose Your Tech Stack',
-            content: '<h2>Frame Features from the User\'s Perspective</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">User stories help you think about <em>why</em> a feature matters, not just what it does. They follow a simple format:</p>'
-                + '<div style="padding:16px 20px; border-radius:8px; background:var(--surface-color); border:1px solid var(--border-color); margin-bottom:20px; font-style:italic; font-size:1.05em;">"As a <strong>[type of user]</strong>, I want to <strong>[do something]</strong> so that <strong>[benefit/reason]</strong>"</div>'
-                + '<h3>Examples</h3>'
-                + '<ul style="margin:8px 0 24px 20px; line-height:1.8;">'
-                + '<li>"As a <strong>student</strong>, I want to set custom timer durations so that I can match my study technique"</li>'
-                + '<li>"As a <strong>home cook</strong>, I want to filter recipes by dietary restrictions so that I can find meals that work for my family"</li>'
-                + '<li>"As a <strong>manager</strong>, I want to see a fairness dashboard so that I know shifts are distributed evenly"</li>'
-                + '</ul>'
-                + '<h3>Think About Edge Cases</h3>'
-                + '<p>What happens when things go wrong or are empty?</p>'
+            title: 'What\'s the Best Approach?',
+            content: '<h2>Think About How It Should Work</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Before jumping into prompts, think about the <em>right way</em> to solve the problem — not the technology, but the approach.</p>'
                 + _cards([
-                    { icon: '📭', name: 'Empty States', desc: 'What does the app look like with no data?' },
-                    { icon: '🚫', name: 'Invalid Input', desc: 'What happens if the user enters something wrong?' },
-                    { icon: '🐌', name: 'Slow Connections', desc: 'What if the API is slow or unavailable?' },
-                    { icon: '🔙', name: 'Undo & Recovery', desc: 'Can users reverse their actions?' },
-                ], { style: 'margin-bottom:8px;' })
-                + _tip('You don\'t need to cover every edge case upfront. But thinking about a few common ones before you start leads to much more robust results.')
-        },
-        {
-            title: 'Choose Your Tech Stack',
-            nextLabel: 'Plan Your Architecture',
-            content: '<h2>Pick the Right Tools for Your Project</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">As your projects get more ambitious, you\'ll face decisions about technology. Let the project requirements guide you, not the hype.</p>'
-                + _cards([
-                    { icon: '📄', name: 'Static HTML/CSS/JS', desc: 'Perfect for most workshop projects. No build step, opens in any browser, easy to deploy anywhere. <strong>Start here unless you have a reason not to.</strong>' },
-                    { icon: '⚛️', name: 'React / Vue / Svelte', desc: 'When you need complex UI interactions, reusable components, or state management. More setup, better for larger apps.' },
-                    { icon: '🖥️', name: 'Full-Stack', desc: 'When you need server-side logic, databases, authentication, or secret API keys. Node.js, Python, etc.' },
+                    { icon: '🗺️', name: 'What\'s the core action?', desc: 'What\'s the one thing someone should be able to do? Start there, keep everything else secondary.' },
+                    { icon: '⚖️', name: 'Simple or powerful?', desc: 'Does this need to do one thing perfectly, or many things flexibly? Both are valid — but pick one.' },
+                    { icon: '📦', name: 'What data matters?', desc: 'What information does your app need to work with? Where does it come from — the user, an API, a file?' },
                 ], { style: 'margin:16px 0 24px;' })
-                + '<h3>When You Need a Backend</h3>'
-                + '<p>You need a backend when your project requires:</p>'
-                + _cards([
-                    { icon: '👤', name: 'User Accounts', desc: 'Registration, login, profiles' },
-                    { icon: '💾', name: 'Persistent Data', desc: 'A database that stores information across sessions and users' },
-                    { icon: '📎', name: 'File Storage', desc: 'User uploads — images, documents' },
-                    { icon: '🔑', name: 'Secret API Keys', desc: 'Any key that must stay hidden from the browser (Gemini, Stripe, etc.)' },
-                ], { style: 'margin-bottom:16px;' })
-                + _note('If none of these apply, static HTML/JS with localStorage is probably enough. A simple HTML page that works is better than a React app that\'s half-finished.')
+                + '<h3>Ask Yourself</h3>'
+                + '<ul style="margin:8px 0 24px 20px; line-height:1.8;">'
+                + '<li>Is there a simpler version of this idea that still solves the problem?</li>'
+                + '<li>What\'s the first thing I\'d show someone to prove this works?</li>'
+                + '<li>What would make someone choose this over what already exists?</li>'
+                + '</ul>'
+                + _tip('You can also ask your AI for help here. Try: <em>"I want to build [idea]. What are the different ways I could approach this? What would you recommend for someone who wants to keep it simple?"</em>')
+        }
+    ]
+};
+
+// ── Tech Stack & Hosting Guide ────────────────────────────────
+const TECH_STACK_GUIDE = {
+    name: 'Tech Stack & Hosting',
+    subtitle: 'Work with your AI to choose the right tools and platform for your project.',
+    lastStepCards: [
+        { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building before choosing tools', route: 'product-guidance' },
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+        { icon: '🔥', name: 'Firebase & Deployment', desc: 'Step-by-step deployment walkthrough', route: 'Firebase %26 Deployment.md' },
+    ],
+    steps: [
+        {
+            title: 'Ask Your AI First',
+            nextLabel: 'Static vs. Backend',
+            content: '<h2>Let Your AI Help You Decide</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Your AI knows the landscape of frameworks, hosting platforms, and databases better than most developers. Use it as a technical advisor — describe what you\'re building and have a real conversation about the trade-offs.</p>'
+                + '<h3>Questions to Ask</h3>'
+                + '<div style="display:flex; flex-direction:column; gap:12px; margin:16px 0 24px;">'
+                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"What are the most professional tech stack options for building [idea]? Walk me through the differences and why I\'d choose one over another."</div>'
+                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"If I use React with Next.js vs. plain HTML/JS, what do I gain and what does it cost me in complexity? How does that affect where I can host it?"</div>'
+                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"I want this to feel like a real product, not a side project. What stack and hosting setup would a professional team use for something like this?"</div>'
+                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"What happens when 1,000 people use this at once? What breaks first, and what would I need to change?"</div>'
+                + '</div>'
+                + _tip('Don\'t just accept the first recommendation. Ask follow-ups: <em>"What are the downsides of that?"</em> and <em>"What would you pick if I wanted to scale this later?"</em> — push the AI to give you the full picture.')
         },
         {
-            title: 'Plan Your Architecture',
-            content: '<h2>Hosting & Scaling</h2>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The right platform depends on what you\'re building.</p>'
-                + '<h3>Hosting Platforms</h3>'
+            title: 'Static vs. Backend',
+            nextLabel: 'Hosting & Cost',
+            content: '<h2>Do You Need a Server?</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The biggest architectural decision is whether your project runs entirely in the browser or needs a server behind it.</p>'
+                + '<div style="display:flex; gap:16px; flex-wrap:wrap; margin:16px 0 24px;">'
+                + '<div style="flex:1; min-width:260px; padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:8px;">Browser Only (Static)</div>'
+                + '<div style="color:var(--text-muted); font-size:0.95em; line-height:1.7;">HTML, CSS, JavaScript. No server needed. Free to host almost everywhere. <strong>Start here unless you have a reason not to.</strong></div>'
+                + '<ul style="margin:12px 0 0 16px; font-size:0.95em; line-height:1.8;">'
+                + '<li>Tools, calculators, basic games</li>'
+                + '<li>Portfolios and landing pages</li>'
+                + '<li>Apps that save data locally (localStorage)</li>'
+                + '</ul>'
+                + '</div>'
+                + '<div style="flex:1; min-width:260px; padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:8px;">Needs a Backend</div>'
+                + '<div style="color:var(--text-muted); font-size:0.95em; line-height:1.7;">A server that runs your code, stores data, and handles things the browser can\'t.</div>'
+                + '<ul style="margin:12px 0 0 16px; font-size:0.95em; line-height:1.8;">'
+                + '<li>User accounts and login</li>'
+                + '<li>Data shared across users</li>'
+                + '<li>Secret API keys that can\'t be in the browser</li>'
+                + '<li>File uploads and storage</li>'
+                + '</ul>'
+                + '</div>'
+                + '</div>'
+                + _note('If none of the backend requirements apply, static HTML/JS is probably enough. A simple page that works is better than a complex app that\'s half-finished.')
+        },
+        {
+            title: 'Hosting & Cost',
+            nextLabel: 'Start Simple, Scale Later',
+            content: '<h2>Where Should It Live?</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">Most projects can be hosted for free or nearly free. Cost only becomes a factor at scale.</p>'
+                + '<h3>Hosting Platforms at a Glance</h3>'
                 + '<table style="width:100%; border-collapse:collapse; margin-bottom:24px;">'
-                + '<thead><tr><th style="text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-color);">Need</th><th style="text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-color);">Good Options</th></tr></thead>'
+                + '<thead><tr>'
+                + '<th style="text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-color);">What You\'re Building</th>'
+                + '<th style="text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-color);">Good Options</th>'
+                + '<th style="text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-color);">Free Tier?</th>'
+                + '</tr></thead>'
                 + '<tbody>'
-                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Static site</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">GitHub Pages, Vercel, Netlify, Firebase Hosting</td></tr>'
-                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Backend + database</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Firebase, Supabase, Vercel + database</td></tr>'
-                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Full control</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Railway, Render, a VPS</td></tr>'
+                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Static site / frontend</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">GitHub Pages, Vercel, Netlify, Firebase, Cloudflare</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Yes, all free</td></tr>'
+                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Backend + database</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Firebase, Supabase, Vercel, Cloudflare</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Generous free tiers</td></tr>'
+                + '<tr><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Full control / custom server</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Railway, Render, DigitalOcean, AWS, Google Cloud, Cloudflare</td><td style="padding:10px 12px; border-bottom:1px solid var(--border-color);">Limited or trial</td></tr>'
                 + '</tbody></table>'
-                + '<p>See <a href="#" onclick="event.preventDefault(); loadRoute(\'Backend %26 Hosting Platforms.md\');">Backend &amp; Hosting Platforms</a> for a detailed side-by-side comparison.</p>'
-                + '<h3>Planning for Scale</h3>'
-                + '<p>Start simple, add complexity when needed:</p>'
+                + '<h3>What Costs Money</h3>'
+                + '<p>Most costs come from three things:</p>'
+                + _cards([
+                    { icon: '💾', name: 'Database Storage', desc: 'Storing user data beyond the free tier. Usually not a concern until thousands of users.' },
+                    { icon: '📡', name: 'API Calls', desc: 'Third-party APIs (AI, maps, payments) often charge per request. Watch your usage.' },
+                    { icon: '🌐', name: 'Bandwidth / Compute', desc: 'Serving lots of traffic or running server-side code. Free tiers cover most small projects.' },
+                    { icon: '🎬', name: 'Media Storage & Delivery', desc: 'Images, video, and audio files are much larger than database records. Storing and serving them adds up fast, especially video.' },
+                    { icon: '🔗', name: 'Custom Domains', desc: 'A domain name costs ~$10–15/year. Small, but almost every real project needs one.' },
+                ], { style: 'margin:16px 0 16px;' })
+                + '<p>See <a href="#" onclick="event.preventDefault(); loadRoute(\'Backend & Hosting Platforms.md\');">Backend &amp; Hosting Platforms</a> for a detailed side-by-side comparison.</p>'
+                + _tip('Ask your AI: <em>"What would it cost to host this project if 500 people used it daily?"</em> It can estimate based on your stack.')
+        },
+        {
+            title: 'Start Simple, Scale Later',
+            content: '<h2>Don\'t Over-Engineer</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The biggest mistake is building for scale before you have users. Start with the simplest thing that works.</p>'
                 + '<ol class="step-num-list">'
-                + '<li>Build the simplest version that works</li>'
-                + '<li>Deploy it and get feedback</li>'
-                + '<li>Add features one at a time</li>'
-                + '<li>Refactor when the codebase gets hard to manage — not before</li>'
+                + '<li><strong>Build the simplest version</strong> — get the core idea working, nothing more</li>'
+                + '<li><strong>Deploy it</strong> — put it online so people can actually use it</li>'
+                + '<li><strong>Get feedback</strong> — real usage tells you what to build next</li>'
+                + '<li><strong>Add complexity when needed</strong> — add a database when localStorage isn\'t enough, add auth when you have real users, add a framework when plain HTML gets unwieldy</li>'
                 + '</ol>'
-                + _tip('The best architecture is the simplest one that solves the problem. You can always add complexity later; removing it is much harder.')
+                + '<h3>Let Your AI Help You Scale</h3>'
+                + '<p>When you hit a wall, describe the problem to your AI:</p>'
+                + '<div style="display:flex; flex-direction:column; gap:12px; margin:16px 0 24px;">'
+                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"My app saves data to localStorage but I need multiple people to see the same data. What\'s the easiest way to add a shared database?"</div>'
+                + '<div style="padding:14px 18px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic;">"This is getting slow with lots of items on screen. How can I optimize it?"</div>'
+                + '</div>'
+                + _tip('The best architecture is the simplest one that solves the problem. You can always add complexity later — removing it is much harder.')
+        }
+    ]
+};
+
+// ── GitHub Guide ──────────────────────────────────────────
+const GITHUB_GUIDE = {
+    name: 'GitHub Setup & First Push',
+    subtitle: 'Create a GitHub account, connect your tools, and publish your first project.',
+    lastStepCards: [
+        { icon: '🚀', name: 'Solo Project Guide', desc: 'Project ideas, Git, GitHub, and the build cycle', route: 'Solo Project Guide.md' },
+        { icon: '🌐', name: 'Firebase & Deployment', desc: 'Deploy your project live on the web', route: 'Firebase & Deployment.md' },
+    ],
+    steps: [
+        // ── Step 1: What is GitHub? ──
+        {
+            title: 'What is GitHub?',
+            nextLabel: 'Create Your Account',
+            content: '<h2>Your Project\'s Home on the Internet</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">GitHub is a website that stores your code online. Think of it as a cloud backup for your projects — but one that also lets you share your work, collaborate with others, and build a portfolio.</p>'
+                + _cards([
+                    { icon: '☁️', name: 'Backup', desc: 'Your code is safely stored online. If your computer dies, your projects survive.' },
+                    { icon: '🤝', name: 'Collaboration', desc: 'Work on the same project with others without overwriting each other\'s changes.' },
+                    { icon: '🌐', name: 'Portfolio', desc: 'Show off what you\'ve built. Employers and collaborators can see your work.' },
+                    { icon: '🚀', name: 'Deployment', desc: 'Many hosting platforms deploy directly from GitHub with one click.' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>Git vs GitHub</h3>'
+                + '<div style="display:flex; gap:16px; flex-wrap:wrap; margin:16px 0 24px;">'
+                + '<div style="flex:1; min-width:220px; padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); text-align:center;">'
+                + '<div style="font-size:2em; margin-bottom:8px;">🗂️</div>'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:8px;">Git</div>'
+                + '<div style="color:var(--text-muted); font-size:0.95em;">A tool on <strong>your computer</strong> that tracks changes to your files. Like a super-powered undo history.</div>'
+                + '</div>'
+                + '<div style="flex:1; min-width:220px; padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); text-align:center;">'
+                + '<div style="font-size:2em; margin-bottom:8px;">🌐</div>'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:8px;">GitHub</div>'
+                + '<div style="color:var(--text-muted); font-size:0.95em;">A <strong>website</strong> that stores your Git projects online so you can share, collaborate, and back up your work.</div>'
+                + '</div>'
+                + '</div>'
+                + _tip('You\'ve already been using Git if you followed any of the setup guides. GitHub is where you put that work online.')
+        },
+        // ── Step 2: Create Your Account ──
+        {
+            title: 'Create Your Account',
+            nextLabel: 'Install Your Tools',
+            content: '<h2>Sign Up for GitHub</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">GitHub is free for personal projects.</p>'
+                + '<p style="font-size:1.1em; text-align:center; margin:24px 0;"><a href="https://github.com" target="_blank" rel="noopener noreferrer" style="font-weight:700;">Go to github.com</a> and click <strong>Sign up</strong>. Follow the on-screen steps to create your account.</p>'
+                + _tip('Your username becomes part of your profile URL (github.com/your-name) and shows up on every project. Pick something you\'d be comfortable sharing professionally.')
+        },
+        // ── Step 3: Install Your Tools ──
+        {
+            title: 'Install Your Tools',
+            nextLabel: 'Log In with Sourcetree',
+            content: '<h2>Sourcetree & GitHub CLI</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">You\'ll use two tools to interact with GitHub. If you already installed these during setup, skip to the next step.</p>'
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:24px;">'
+                // Sourcetree card
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-size:1.8em; margin-bottom:8px;">🌳</div>'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">Sourcetree</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Visual Git app — see your changes, commit, and push with buttons instead of commands.</div>'
+                + '<ol style="padding-left:1.3em; margin:0; font-size:0.95em; line-height:1.8;">'
+                + '<li>Download from <a href="https://www.sourcetreeapp.com" target="_blank" rel="noopener noreferrer">sourcetreeapp.com</a></li>'
+                + '<li>Open the installer and follow the prompts</li>'
+                + '<li>Skip the Bitbucket account setup if asked</li>'
+                + '</ol>'
+                + '</div>'
+                // gh CLI card
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-size:1.8em; margin-bottom:8px;">⌨️</div>'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">GitHub CLI (gh)</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Command-line tool for GitHub. <strong>Your AI coding agent needs this installed to create repos, push code, and manage GitHub for you.</strong></div>'
+                + '<div style="margin-bottom:8px; font-size:0.95em; font-weight:600;">Mac:</div>'
+                + _term('brew install gh')
+                + '<div style="margin-bottom:8px; font-size:0.95em; font-weight:600; margin-top:12px;">Windows:</div>'
+                + _term('winget install GitHub.cli')
+                + '</div>'
+                + '</div>'
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--accent-color); background:var(--surface-color); margin-bottom:16px;">'
+                + '<div style="font-weight:700; font-size:1.05em; margin-bottom:8px;">Let Your AI Install These</div>'
+                + '<div style="font-size:0.95em; line-height:1.7; color:var(--text-muted); margin-bottom:12px;">If you\'re using an AI coding agent with terminal access, just ask:</div>'
+                + '<div style="padding:12px 16px; border-radius:8px; border:1px solid var(--border-color); background:var(--surface-color); font-style:italic; font-size:0.95em;">"Install Sourcetree and the GitHub CLI (gh) for me"</div>'
+                + '</div>'
+                + _note('Already installed these? Run <code>gh --version</code> in your terminal to check. If you see a version number, you\'re good — skip ahead.')
+        },
+        // ── Step 4: Log In with Sourcetree ──
+        {
+            title: 'Log In with Sourcetree',
+            nextLabel: 'Log In with gh CLI',
+            content: '<h2>Connect Sourcetree to GitHub</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">This lets Sourcetree push and pull code from your GitHub account.</p>'
+                + '<ol class="step-num-list">'
+                + '<li>Open <strong>Sourcetree</strong></li>'
+                + '<li>Go to <strong>Sourcetree &rarr; Settings</strong> (Mac) or <strong>Tools &rarr; Options</strong> (Windows)</li>'
+                + '<li>Click the <strong>Accounts</strong> tab</li>'
+                + '<li>Click <strong>Add...</strong></li>'
+                + '<li>Set <strong>Host</strong> to <strong>GitHub</strong></li>'
+                + '<li>Set <strong>Preferred Protocol</strong> to <strong>HTTPS</strong></li>'
+                + '<li>Click <strong>Connect Account</strong> — your browser will open to authorize Sourcetree</li>'
+                + '<li>Log in to GitHub and click <strong>Authorize</strong></li>'
+                + '</ol>'
+                + _check([
+                    'Your GitHub username appears in the Accounts list',
+                    'The protocol says HTTPS',
+                ])
+                + '<div style="margin-top:24px;"></div>'
+                + _warn('<strong>Getting SSH errors?</strong> This is common. Make sure you selected <strong>HTTPS</strong> (not SSH) in step 6. If you\'re still having trouble, the gh CLI method in the next step is often easier.')
+                + '<div style="margin-top:16px;"></div>'
+                + '<details style="border:1px solid var(--border-color); border-radius:8px; padding:12px 16px; background:var(--surface-color);">'
+                + '<summary style="cursor:pointer; font-weight:600;">Troubleshooting: HTTPS Not Working?</summary>'
+                + '<div style="margin-top:12px; font-size:0.95em; line-height:1.7;">'
+                + '<p>If HTTPS authentication fails, try SSH as a fallback:</p>'
+                + '<ol style="padding-left:1.3em;">'
+                + '<li>In the Account settings, change <strong>Preferred Protocol</strong> to <strong>SSH</strong></li>'
+                + '<li>If you don\'t have an SSH key, open your terminal and run:</li>'
+                + '</ol>'
+                + _term('ssh-keygen -t ed25519 -C "your-email@example.com"')
+                + '<p>Press Enter through all the prompts (defaults are fine).</p>'
+                + '<ol start="3" style="padding-left:1.3em;">'
+                + '<li>Copy your public key:</li>'
+                + '</ol>'
+                + _term('# Mac\ncat ~/.ssh/id_ed25519.pub | pbcopy\n\n# Windows\ntype %USERPROFILE%\\.ssh\\id_ed25519.pub | clip')
+                + '<ol start="4" style="padding-left:1.3em;">'
+                + '<li>Go to <a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">github.com/settings/keys</a> &rarr; <strong>New SSH key</strong> &rarr; paste and save</li>'
+                + '</ol>'
+                + '</div></details>'
+        },
+        // ── Step 5: Log In with gh CLI ──
+        {
+            title: 'Log In with gh CLI',
+            nextLabel: 'Create a Repository',
+            content: '<h2>Authenticate the GitHub CLI</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">The <code>gh</code> CLI handles authentication automatically — no tokens or keys to manage.</p>'
+                + '<h3>Run the Login Command</h3>'
+                + _term('gh auth login')
+                + '<h3>Answer the Prompts</h3>'
+                + '<p>The CLI will ask you a few questions. Here\'s what to pick:</p>'
+                + '<div style="margin:16px 0 24px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); overflow:hidden;">'
+                + '<div style="display:grid; grid-template-columns:1fr 1fr; font-size:0.95em;">'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color); font-weight:600; background:var(--surface-color);">Question</div>'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color); font-weight:600; background:var(--surface-color);">Choose</div>'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color);">Where do you use GitHub?</div>'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color);"><strong>GitHub.com</strong></div>'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color);">Preferred protocol for Git?</div>'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color);"><strong>HTTPS</strong></div>'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color);">Authenticate Git with credentials?</div>'
+                + '<div style="padding:12px 16px; border-bottom:1px solid var(--border-color);"><strong>Yes</strong></div>'
+                + '<div style="padding:12px 16px;">How to authenticate?</div>'
+                + '<div style="padding:12px 16px;"><strong>Login with a web browser</strong></div>'
+                + '</div>'
+                + '</div>'
+                + '<p>The CLI will give you a one-time code and open your browser. Paste the code, authorize, and you\'re done.</p>'
+                + _check([
+                    'Run <code>gh auth status</code> — you should see your username and "Logged in"',
+                ])
+                + '<div style="margin-top:20px;"></div>'
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--accent-color); background:var(--surface-color);">'
+                + '<div style="font-weight:700; font-size:1.05em; margin-bottom:8px;">Let Your AI Help</div>'
+                + '<div style="font-size:0.95em; line-height:1.7; color:var(--text-muted);">If you\'re using an AI coding agent (Claude Code, Gemini CLI, etc.), you can ask it:<br>'
+                + '<em>"Help me log into GitHub using the gh CLI with HTTPS"</em><br>'
+                + 'The AI will walk you through each prompt in real time.</div>'
+                + '</div>'
+        },
+        // ── Step 6: Create a Repository ──
+        {
+            title: 'Create a Repository',
+            nextLabel: 'Push Your Project',
+            content: '<h2>Your Project\'s Online Home</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">A <strong>repository</strong> (or "repo") is a folder on GitHub that holds one project. You need one repo per project.</p>'
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:28px;">'
+                // Option A: Ask your AI
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">Option A: Ask Your AI</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Your AI agent will use the gh CLI to do it for you</div>'
+                + _term('Create a public GitHub repository for this project and connect it')
+                + '</div>'
+                // Option B: GitHub website
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">Option B: On GitHub.com</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Do it yourself on the website</div>'
+                + '<ol style="padding-left:1.3em; margin:0; font-size:0.95em; line-height:1.8;">'
+                + '<li>Go to <a href="https://github.com/new" target="_blank" rel="noopener noreferrer">github.com/new</a></li>'
+                + '<li>Enter a <strong>Repository name</strong> (e.g., <code>my-project</code>)</li>'
+                + '<li>Set to <strong>Public</strong> (so others can see it)</li>'
+                + '<li><strong>Don\'t</strong> check "Add a README" (we\'ll create one ourselves)</li>'
+                + '<li>Click <strong>Create repository</strong></li>'
+                + '</ol>'
+                + '</div>'
+                + '</div>'
+                + _tip('Name your repo after your project. Use lowercase and hyphens: <code>weather-app</code>, <code>recipe-finder</code>, <code>my-portfolio</code>.')
+                + '<div style="margin-top:16px;"></div>'
+                + _note('If you used Option B on the website, GitHub will show you a page with setup commands. Keep that page open — you\'ll use it in the next step.')
+        },
+        // ── Step 7: Push Your Project ──
+        {
+            title: 'Push Your Project',
+            nextLabel: 'Add a README',
+            content: '<h2>Upload Your Code to GitHub</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;"><strong>Pushing</strong> means sending your local Git commits up to GitHub. Your code stays on your computer too — GitHub just gets a copy.</p>'
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:28px;">'
+                // Option A: Ask your AI
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">Option A: Ask Your AI</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Your AI agent will handle the git commands for you</div>'
+                + _term('Push this project to my GitHub repository')
+                + '</div>'
+                // Option B: Sourcetree
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:700; font-size:1.1em; margin-bottom:4px;">Option B: With Sourcetree</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; margin-bottom:12px;">Visual approach</div>'
+                + '<ol style="padding-left:1.3em; margin:0; font-size:0.95em; line-height:1.8;">'
+                + '<li>Open your project in Sourcetree</li>'
+                + '<li>If you haven\'t committed yet: stage your files and click <strong>Commit</strong></li>'
+                + '<li>Click <strong>Repository &rarr; Repository Settings</strong></li>'
+                + '<li>Under <strong>Remotes</strong>, click <strong>Add</strong></li>'
+                + '<li>Name: <code>origin</code>, URL: paste the HTTPS URL from GitHub</li>'
+                + '<li>Click <strong>Push</strong> in the toolbar</li>'
+                + '<li>Check <strong>main</strong> (or <strong>master</strong>) and click <strong>OK</strong></li>'
+                + '</ol>'
+                + '</div>'
+                + '</div>'
+                + _check([
+                    'Go to <code>github.com/YOUR-USERNAME/my-project</code> — you should see your files',
+                ])
+                + '<div style="margin-top:16px;"></div>'
+                + _warn('<strong>Push rejected?</strong> If you get an error about "updates were rejected," it usually means the remote has files you don\'t (like an auto-generated README). Ask your AI: <em>"My git push was rejected, help me fix it."</em>')
+        },
+        // ── Step 8: Add a README ──
+        {
+            title: 'Add a README',
+            content: '<h2>Your Project\'s Front Page</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">A <strong>README.md</strong> file is displayed automatically on your repo\'s GitHub page. It\'s the first thing anyone sees when they visit your project.</p>'
+                + '<h3>The Essentials</h3>'
+                + '<p>A good README needs at least these four things:</p>'
+                + _cards([
+                    { icon: '📛', name: 'Project Name & Description', desc: 'What it\'s called and what it does in a sentence or two' },
+                    { icon: '🏃', name: 'How to Use It', desc: 'Link to the live site, or instructions for how to try it out' },
+                    { icon: '💻', name: 'Development Setup', desc: 'How to clone the repo, install dependencies, and run it locally' },
+                    { icon: '📸', name: 'Screenshot or Demo', desc: 'A picture or GIF of your project in action — first impressions matter' },
+                ], { style: 'margin:16px 0 24px;' })
+                + '<h3>Nice to Have</h3>'
+                + '<p>As your project grows, consider adding:</p>'
+                + '<ul style="margin:8px 0 24px 20px; line-height:1.8;">'
+                + '<li><strong>Tech stack</strong> — languages, frameworks, and key libraries</li>'
+                + '<li><strong>Project structure</strong> — overview of key files and folders</li>'
+                + '<li><strong>Contributing guide</strong> — how others can submit changes</li>'
+                + '<li><strong>License</strong> — what others can do with your code (MIT is a safe default)</li>'
+                + '</ul>'
+                + '<h3>Have Your AI Write It</h3>'
+                + '<p>Don\'t overthink it — your AI already knows your project. Just ask:</p>'
+                + _term('Create a README.md for this project')
+                + '<h3>Commit & Push the README</h3>'
+                + '<p>After the AI creates the file:</p>'
+                + _term('Commit the README and push it to GitHub')
+                + '<p>Or do it yourself in Sourcetree — stage the <code>README.md</code> file, commit with a message like "Add README", and click Push.</p>'
+                + _check([
+                    'Visit your repo on GitHub — the README renders below your file list',
+                    'It includes all the key sections: description, tech stack, usage, and development setup',
+                ])
+                + '<div style="margin-top:20px;"></div>'
+                + '<div style="padding:20px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); text-align:center;">'
+                + '<div style="font-size:1.8em; margin-bottom:8px;">🎉</div>'
+                + '<div style="font-weight:700; font-size:1.15em; margin-bottom:8px;">Your Project is on GitHub!</div>'
+                + '<div style="color:var(--text-muted); font-size:0.95em;">You now have a public portfolio piece. Share the link with anyone: <code>github.com/YOUR-USERNAME/my-project</code></div>'
+                + '</div>'
+        },
+        // ── Step 9: Learn More ──
+        {
+            title: 'Learn More',
+            content: '<h2>What Else Can You Do with Git & GitHub?</h2>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">You\'ve covered the basics — but Git and GitHub can do a lot more. Here\'s what to explore next as your projects grow.</p>'
+                + _cards([
+                    { icon: '🌿', name: 'Branches', desc: 'Work on new features without affecting your main code. Merge them in when they\'re ready.' },
+                    { icon: '🔀', name: 'Pull Requests', desc: 'Propose changes and review code before merging. The standard way teams collaborate on GitHub.' },
+                    { icon: '🌐', name: 'GitHub Pages', desc: 'Host a static website directly from your repo for free. Great for portfolios and project demos.' },
+                    { icon: '⚙️', name: 'GitHub Actions', desc: 'Automate tasks like testing, building, and deploying your code every time you push.' },
+                ], { style: 'margin:16px 0 16px;' })
+                + _cards([
+                    { icon: '🐛', name: 'Issues', desc: 'Track bugs, feature requests, and to-dos right inside your repo. Useful even for solo projects.' },
+                    { icon: '🔖', name: 'Releases & Tags', desc: 'Mark specific versions of your project so you can always go back to a known-good state.' },
+                    { icon: '👥', name: 'Forking', desc: 'Copy someone else\'s repo to your account, make changes, and submit them back as a pull request.' },
+                    { icon: '🔒', name: '.gitignore', desc: 'Tell Git which files to skip — API keys, node_modules, build artifacts, and other junk.' },
+                ], { style: 'margin:0 0 24px;' })
+                + _tip('You don\'t need to learn all of this at once. Branches and GitHub Pages are the most useful next steps for most people.')
+                // ── Essential Git Commands ──
+                + '<h3>Essential Git Commands</h3>'
+                + '<p>You only need a handful of commands to use Git effectively. Your AI can run these for you, but it\'s good to know what\'s happening.</p>'
+                + '<div style="margin:16px 0 24px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); overflow:hidden;">'
+                + '<div style="display:grid; grid-template-columns:auto 1fr 1fr; font-size:0.95em;">'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color); font-weight:600;">Command</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color); font-weight:600;">What It Does</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color); font-weight:600;">Plain English</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git init</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Create a new repository</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Start tracking this folder</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git add .</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Stage all changes</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Select everything I changed</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git commit -m "msg"</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Create a commit</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Save this checkpoint</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);"><code>git push</code></div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Upload to GitHub</div>'
+                + '<div style="padding:10px 16px; border-bottom:1px solid var(--border-color);">Back up to the cloud</div>'
+                + '<div style="padding:10px 16px;"><code>git status</code></div>'
+                + '<div style="padding:10px 16px;">See what\'s changed</div>'
+                + '<div style="padding:10px 16px;">What have I done since last save?</div>'
+                + '</div>'
+                + '</div>'
+                + '<p>The workflow is simple: make changes, <code>git add .</code>, <code>git commit -m "message"</code>, <code>git push</code>. Repeat every time you get something working.</p>'
+                // ── What If I Mess Up? ──
+                + '<h3>What If I Mess Up?</h3>'
+                + '<p>Git\'s whole point is that you can undo things. The more often you commit, the more save points you have.</p>'
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px; margin:16px 0 24px;">'
+                + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:600; margin-bottom:6px;">Undo uncommitted changes</div>'
+                + '<div style="font-size:0.95em; color:var(--text-muted); margin-bottom:8px;">Revert everything back to the last commit</div>'
+                + _term('git checkout .')
+                + '</div>'
+                + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-weight:600; margin-bottom:6px;">Undo the last commit (keep changes)</div>'
+                + '<div style="font-size:0.95em; color:var(--text-muted); margin-bottom:8px;">Removes the commit but keeps your files as they were</div>'
+                + _term('git reset --soft HEAD~1')
+                + '</div>'
+                + '</div>'
+                + '<p>Or just ask your AI: <em>"Undo my last commit"</em> or <em>"Revert my project to the commit where I added the login page."</em></p>'
+                // ── .gitignore ──
+                + '<h3>Set Up .gitignore</h3>'
+                + '<p>A <code>.gitignore</code> file tells Git which files to skip — things you don\'t want tracked or uploaded to GitHub:</p>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li><strong><code>.env</code></strong> — API keys and secrets (never commit these)</li>'
+                + '<li><strong><code>node_modules/</code></strong> — installed packages (can be reinstalled)</li>'
+                + '<li><strong><code>.DS_Store</code></strong> — macOS system files</li>'
+                + '<li><strong>Build folders</strong> — generated files that can be recreated</li>'
+                + '</ul>'
+                + _term('Create a .gitignore file for my project')
         }
     ]
 };
 
 // ── Beyond Coding Data ─────────────────────────────────────
 const BEYOND_CODING_CATEGORIES = [
-    { icon: '✍️', name: 'Writing & Documentation', desc: 'READMEs, code comments, API docs, emails, proposals, and presentations', examples: ['README files', 'Code comments', 'API documentation', 'Emails and proposals'] },
     { icon: '📊', name: 'Data & Files', desc: 'Analyze CSV/JSON data, convert file formats, rename and organize files in bulk, create test data', examples: ['Analyze spreadsheets', 'Convert formats', 'Bulk rename files', 'Generate test data'] },
     { icon: '🔍', name: 'Organization & Research', desc: 'Organize notes, research APIs and libraries, summarize long documents or codebases', examples: ['Organize Notion/Obsidian', 'Research solutions', 'Summarize documents'] },
     { icon: '⚡', name: 'Automation', desc: 'Shell scripts for repetitive tasks, scheduled jobs and workflows, batch processing files or images', examples: ['Shell scripts', 'Scheduled jobs', 'Batch processing'] },

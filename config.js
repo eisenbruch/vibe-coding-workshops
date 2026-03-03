@@ -42,8 +42,10 @@ const FILE_GROUPS = [
         label: "Level Up",
         files: [
             { name: "Prompting & AI Mastery", path: "prompting-guide" },
+            { name: "GitHub Setup & First Push", path: "github-guide" },
+            { name: "Enhance with Data & APIs", path: "data-apis" },
             { name: "Product Guidance", path: "product-guidance" },
-            { name: "Vibe Coding Techniques (old)", path: "Vibe Coding Techniques.md" },
+            { name: "Tech Stack & Hosting", path: "tech-stack" },
             { name: "Solo Project Guide", path: "Solo Project Guide.md" },
         ]
     },
@@ -58,13 +60,11 @@ const FILE_GROUPS = [
     {
         label: "Reference",
         files: [
-            { name: "Git for Beginners", path: "Git for Beginners.md" },
-            { name: "Claude Code Quick Reference", path: "Claude Code Quick Reference.md" },
+            { name: "Claude Code CLI Quick Reference", path: "Claude Code Quick Reference.md" },
             { name: "Advanced Techniques", path: "Advanced Techniques.md" },
             { name: "Project Idea Prompts", path: "Project Idea Prompts - Extended.md" },
             { name: "AI Tools Directory", path: "AI Tools Directory.md" },
             { name: "Backend & Hosting Platforms", path: "Backend & Hosting Platforms.md" },
-            { name: "Workshop Projects", path: "Workshop Projects.md" },
         ]
     },
     {

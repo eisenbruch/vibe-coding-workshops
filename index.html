@@ -30,13 +30,6 @@
                         <path d="M4 9l4 4 4-4"/>
                     </svg>
                 </button>
-                <button class="top-bar-btn" onclick="window.print()" aria-label="Print or save as PDF">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="4" y="9" width="8" height="5" rx="0.5"/>
-                        <path d="M4 11H2.5a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1V10a1 1 0 0 1-1 1H12"/>
-                        <path d="M4 5.5V2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v3"/>
-                    </svg>
-                </button>
             </div>
         </div>
         <div class="top-bar-global">
@@ -87,7 +80,7 @@
         function getPreferredTheme() {
             const stored = localStorage.getItem('theme');
             if (stored) return stored;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            return 'dark';
         }
 
         const sunIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1M8 13.5v1M1.5 8h1M13.5 8h1M3.4 3.4l.7.7M11.9 11.9l.7.7M3.4 12.6l.7-.7M11.9 4.1l.7-.7"/></svg>';
@@ -233,6 +226,9 @@
                 'group-project': function(step) { renderGroupProject(step); },
                 'prompting-guide': function(step) { renderPromptingGuide(step); },
                 'product-guidance': function(step) { renderProductGuide(step); },
+                'tech-stack': function(step) { renderTechStackGuide(step); },
+                'data-apis': renderDataApis,
+                'github-guide': function(step) { renderGithubGuide(step); },
                 'beyond-coding': renderBeyondCoding,
             };
 
@@ -533,6 +529,8 @@
             if (route === 'group-project') return GROUP_PROJECT_GUIDE;
             if (route === 'prompting-guide') return PROMPTING_GUIDE;
             if (route === 'product-guidance') return PRODUCT_GUIDE;
+            if (route === 'tech-stack') return TECH_STACK_GUIDE;
+            if (route === 'github-guide') return GITHUB_GUIDE;
             if (SETUP_GUIDES[route]) return SETUP_GUIDES[route];
             return null;
         }
@@ -545,6 +543,7 @@
 
         function buildSidebarDocs() {
             const docsList = document.getElementById('sidebar-docs');
+            var savedScroll = docsList.scrollTop;
             docsList.innerHTML = '';
             var activeStep = getCurrentStep();
 
@@ -599,6 +598,17 @@
                     }
                 });
             });
+
+            // Restore scroll position, then ensure active item is visible
+            docsList.scrollTop = savedScroll;
+            var activeLink = docsList.querySelector('a.active');
+            if (activeLink) {
+                var listRect = docsList.getBoundingClientRect();
+                var linkRect = activeLink.getBoundingClientRect();
+                if (linkRect.top < listRect.top || linkRect.bottom > listRect.bottom) {
+                    activeLink.scrollIntoView({ block: 'nearest' });
+                }
+            }
         }
 
         function updateSidebarDocsActive() {

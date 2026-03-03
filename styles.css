@@ -1412,19 +1412,20 @@ select:hover {
 }
 
 .step-num-list>li {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 10px 0;
+    position: relative;
+    padding: 10px 0 10px 44px;
     counter-increment: step-counter;
+    line-height: 1.7;
 }
 
 .step-num-list>li::before {
     content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
     width: 30px;
     height: 30px;
     border-radius: 50%;

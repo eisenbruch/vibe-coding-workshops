@@ -160,7 +160,7 @@ function renderWhoAmI() {
     html += '</div>';
 
     // Feature card — the bridge narrative
-    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:28px; border:2px solid var(--accent-color);">';
+    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:28px; border:1px solid var(--border-color);">';
     html += '<div class="path-card-name" style="font-size:1.15em; margin-bottom:10px;">Why I Teach This</div>';
     html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
     html += 'Vibe coding let me build projects I\'d only dreamed about. ';
@@ -248,7 +248,7 @@ function renderWhyVibeCoding() {
     html += '</div>';
     html += '</div>';
 
-    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:32px; border:2px solid var(--accent-color);">';
+    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:32px; border:1px solid var(--border-color);">';
     html += '<div class="path-card-name" style="font-size:1.2em; margin-bottom:12px;">The Most Important Professional Skill</div>';
     html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
     html += 'The advantage won\'t go to AI itself — it\'ll go to the <strong>people who learn to use it</strong>. ';
@@ -462,6 +462,95 @@ function renderExampleProjects() {
     addCardKeyboardSupport();
 }
 
+// ── Enhance with Data & APIs ──────────────────────────────
+function renderDataApis() {
+    var html = '<div class="path-picker">';
+    html += '<h1>Enhance with Data & APIs</h1>';
+    html += '<p class="path-picker-subtitle">Your project doesn\'t have to live in a vacuum. Connect it to real-world data and services to make it useful, dynamic, and unique.</p>';
+    html += '</div>';
+
+    // API discovery resources
+    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:28px; border:1px solid var(--border-color);">';
+    html += '<div class="path-card-name" style="font-size:1.15em; margin-bottom:10px;">Finding APIs</div>';
+    html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
+    html += 'Not sure where to start? These directories catalog thousands of free and open APIs:';
+    html += '</div>';
+    html += '<ul style="padding-left:1.5em; margin:12px 0 0; line-height:2;">';
+    html += '<li><a href="https://github.com/public-apis/public-apis" target="_blank" rel="noopener noreferrer">Public APIs</a> — massive curated list of free APIs across every category</li>';
+    html += '<li><a href="https://rapidapi.com/hub" target="_blank" rel="noopener noreferrer">RapidAPI Hub</a> — API marketplace with testing tools built in</li>';
+    html += '<li><a href="https://any-api.com" target="_blank" rel="noopener noreferrer">Any API</a> — searchable directory with documentation links</li>';
+    html += '</ul>';
+    html += '</div>';
+
+    // Category cards
+    html += '<h2 style="font-size:1.3em; font-weight:700; text-align:center; margin-bottom:6px; border:none; padding:0;">Browse by Category</h2>';
+    html += '<p style="color:var(--text-muted); text-align:center; margin-bottom:20px;">Each category includes free options. Ask your AI to help you integrate any of these.</p>';
+    html += '<div class="path-picker-grid" style="margin-bottom:28px;">';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Public & Government Data</div>';
+    html += '<div class="path-card-desc">Many cities and countries publish open data portals — transit schedules, 311 complaints, permits, demographics, and more</div>';
+
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Weather</div>';
+    html += '<div class="path-card-desc">Current conditions, forecasts, historical data, and severe weather alerts for any location</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Maps & Location</div>';
+    html += '<div class="path-card-desc">Interactive maps, geocoding, directions, and location search</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Images & Media</div>';
+    html += '<div class="path-card-desc">Stock photos, GIFs, webcam streams, and image search to make your project visual</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Music & Audio</div>';
+    html += '<div class="path-card-desc">Track metadata, artist info, album art, playlists, and audio analysis</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Finance & Stocks</div>';
+    html += '<div class="path-card-desc">Stock prices, crypto rates, currency exchange, and market data for dashboards</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Sports</div>';
+    html += '<div class="path-card-desc">Live scores, team stats, schedules, and historical records across major leagues</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">News</div>';
+    html += '<div class="path-card-desc">Headlines, article search, and topic-based feeds from sources around the world</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">Entertainment</div>';
+    html += '<div class="path-card-desc">Movie databases, TV show info, book catalogs, and game data</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-name">AI APIs</div>';
+    html += '<div class="path-card-desc">Image generation, text analysis, translation, and speech-to-text you can build into your project</div>';
+    html += '</div>';
+
+    html += '</div>';
+
+    html += _tip('You don\'t need to understand how APIs work to use them. Describe what data you want to your AI agent and it will handle the integration for you.');
+
+    // CTA
+    html += '<div style="text-align:center; padding:24px 0;">';
+    html += '<a href="#prompting-guide" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'prompting-guide\');">Prompting & AI Mastery &rarr;</a>';
+    html += '</div>';
+
+    contentDiv.innerHTML = html;
+    addCardKeyboardSupport();
+}
+
 function loadRoute(route) {
     selector.value = route;
     loadMarkdown(route);
@@ -565,6 +654,18 @@ function renderProductGuide(step) {
     step = step || 0;
     updateStepHash('product-guidance', step);
     renderStepGuide(PRODUCT_GUIDE, function (s) { return 'renderProductGuide(' + s + ')'; }, step);
+}
+
+function renderTechStackGuide(step) {
+    step = step || 0;
+    updateStepHash('tech-stack', step);
+    renderStepGuide(TECH_STACK_GUIDE, function (s) { return 'renderTechStackGuide(' + s + ')'; }, step);
+}
+
+function renderGithubGuide(step) {
+    step = step || 0;
+    updateStepHash('github-guide', step);
+    renderStepGuide(GITHUB_GUIDE, function (s) { return 'renderGithubGuide(' + s + ')'; }, step);
 }
 
 function renderBeyondCoding() {
