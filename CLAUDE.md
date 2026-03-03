@@ -17,17 +17,34 @@ No build step — all content is static HTML/Markdown rendered client-side.
 
 ## GitHub Pages Viewer Architecture
 
-The viewer is a client-side app split across five files:
+The viewer is a client-side app:
 
 | File | Purpose |
 |------|---------|
 | `index.html` | HTML structure + core app logic (routing, wizard, markdown rendering, DOM manipulation) |
 | `styles.css` | All CSS including light/dark themes, wizard styling, print/PDF, responsive breakpoints |
 | `config.js` | App configuration: `FILE_GROUPS`, `PATH_OPTIONS`, `FONT_SIZES` |
-| `content.js` | Workshop content: step-by-step guide data structures and content helper functions |
+| `content/` | Workshop content split into modules (see below) |
 | `pages.js` | Render functions for all custom route pages |
 
-Scripts load in order: `config.js` → `content.js` → `pages.js` → inline `<script>` in `index.html`. Render functions in `pages.js` reference globals (`contentDiv`, `selector`, `loadMarkdown`, etc.) defined in the inline script.
+**`content/` directory** — each guide is a separate file exporting globals:
+
+| File | Globals |
+|------|---------|
+| `helpers.js` | `_tip`, `_note`, `_warn`, `_term`, `_check`, `_cards` (must load first) |
+| `projects.js` | `WELCOME_PROJECTS`, `WORKSHOP_PROJECTS` |
+| `setup-guides.js` | `SETUP_GUIDES` (~720 lines, largest file) |
+| `beginner.js` | `BEGINNER_GUIDE` |
+| `group-project.js` | `GROUP_PROJECT_OPTIONS`, `GROUP_PROJECT_GUIDE` |
+| `prompting.js` | `PROMPTING_GUIDE` |
+| `product.js` | `PRODUCT_GUIDE` |
+| `tech-stack.js` | `TECH_STACK_GUIDE` |
+| `github.js` | `GITHUB_GUIDE` |
+| `solo-project.js` | `SOLO_PROJECT_GUIDE` |
+| `cleanup.js` | `CLEANUP_GUIDE` |
+| `beyond-coding.js` | `BEYOND_CODING_CATEGORIES` |
+
+Scripts load in order: `config.js` → `content/helpers.js` → remaining `content/*.js` → `pages.js` → inline `<script>` in `index.html`. Render functions in `pages.js` reference globals (`contentDiv`, `selector`, `loadMarkdown`, etc.) defined in the inline script.
 
 All step-by-step guides share the same data format: `{ name, subtitle, steps: [{ title, content, nextLabel? }] }`. The shared `renderStepGuide()` in `pages.js` handles navigation buttons and layout for all of them.
 
@@ -42,7 +59,7 @@ All step-by-step guides share the same data format: `{ name, subtitle, steps: [{
 ### When Adding New Docs
 
 1. **Markdown doc:** Add entry to `FILE_GROUPS` in `config.js` with `{ name: "Display Name", path: "Filename.md" }`
-2. **Custom route:** Add render function in `pages.js`, register in `customRoutes` in `index.html`, add guide data to `content.js` if step-based
+2. **Custom route:** Add render function in `pages.js`, register in `customRoutes` in `index.html`, add guide data as a new file in `content/` if step-based
 3. Update `README.md` if the doc should be featured
 
 ## Workshop Projects
