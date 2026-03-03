@@ -17,7 +17,6 @@
         <div class="logo" onclick="loadRoute('welcome')" style="cursor:pointer;">Vibe Coding Workshop</div>
         <div class="top-bar-row2">
             <div class="top-bar-doc" style="display:flex; align-items:center; gap:8px;">
-                <button class="wizard-toggle" id="wizard-toggle" onclick="toggleWizardMode()" aria-label="Toggle step-by-step mode"><span>Step-by-Step</span></button>
                 <select id="file-selector" aria-label="Select document" onchange="handleFileSelect(this.value)">
                     <!-- Populated by JS -->
                 </select>
@@ -40,13 +39,6 @@
             </a>
             <button class="top-bar-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
         </div>
-    </div>
-
-    <div class="wizard-bar" id="wizard-bar" role="navigation" aria-label="Step navigation">
-        <button class="wizard-nav-btn" id="wizard-prev" aria-label="Previous step" onclick="showWizardStep(wizardCurrentStep - 1)">← Back</button>
-        <span class="wizard-step-counter" id="wizard-step-counter" aria-live="polite"></span>
-        <div class="wizard-progress" id="wizard-progress" role="progressbar" aria-label="Step progress"></div>
-        <button class="wizard-nav-btn primary" id="wizard-next" aria-label="Next step" onclick="showWizardStep(wizardCurrentStep + 1)">Next →</button>
     </div>
 
     <div class="layout-wrapper">
@@ -203,18 +195,6 @@
         }
 
 
-        function resetWizardState() {
-            if (wizardActive) {
-                wizardActive = false;
-                document.getElementById('wizard-toggle').classList.remove('active');
-                document.getElementById('wizard-toggle').querySelector('span').textContent = 'Step-by-Step';
-                document.getElementById('wizard-bar').classList.remove('active');
-            }
-            wizardSteps = [];
-            wizardCurrentStep = 0;
-            document.getElementById('wizard-toggle').style.display = 'none';
-        }
-
         // ── Markdown Loading & Rendering ──────────────────────────────
         async function loadMarkdown(filePath, scrollToId) {
             // Special custom routes
@@ -255,23 +235,15 @@
                 currentFile = baseRoute;
                 window.location.hash = encodeURIComponent(filePath);
                 loadingDiv.style.display = 'none';
-                resetWizardState();
                 if (stepNum > 0) {
                     customRoutes[baseRoute](stepNum);
                 } else {
                     customRoutes[baseRoute]();
                 }
-                var fileEntry = AVAILABLE_FILES.find(function(f) { return f.path === baseRoute; });
-                if (fileEntry && fileEntry.autoWizard) {
-                    addCopyButtons();
-                    parseWizardSteps();
-                }
                 updateDocNav(filePath);
                 buildSidebarDocs();
                 return;
             }
-
-            resetWizardState();
 
             currentFile = filePath;
             loadingDiv.style.display = 'block';
@@ -384,7 +356,6 @@
             enhanceStepContent();
             addCopyButtons();
             updateToggleIcon();
-            parseWizardSteps();
         }
 
         // ── Post-Processor: enhance rendered content ─────────────────
@@ -666,6 +637,11 @@
         const sidebarReopen = document.getElementById('sidebar-reopen');
 
         function toggleSidebar() {
+            // On mobile, close the drawer instead of collapsing
+            if (sidebarEl.classList.contains('mobile-open')) {
+                closeMobileSidebar();
+                return;
+            }
             const collapsed = !sidebarEl.classList.contains('collapsed');
             sidebarEl.classList.toggle('collapsed', collapsed);
             localStorage.setItem('sidebar-collapsed', collapsed ? '1' : '');
@@ -769,269 +745,6 @@
             reader.readAsText(file);
         }
 
-
-        // ── Wizard / Step-by-Step Mode ─────────────────────────────
-        let wizardSteps = [];
-        let wizardCurrentStep = 0;
-        let wizardActive = false;
-
-        function parseWizardSteps() {
-            wizardSteps = [];
-            const walker = document.createTreeWalker(
-                contentDiv,
-                NodeFilter.SHOW_COMMENT,
-                null
-            );
-
-            let inWizard = false;
-            let currentStep = null;
-            let node;
-
-            while (node = walker.nextNode()) {
-                const text = node.textContent.trim();
-
-                if (text === 'wizard-start') {
-                    inWizard = true;
-                    continue;
-                }
-                if (text === 'wizard-end') {
-                    if (currentStep) wizardSteps.push(currentStep);
-                    inWizard = false;
-                    currentStep = null;
-                    continue;
-                }
-
-                if (inWizard && text.startsWith('wizard-step:')) {
-                    if (currentStep) wizardSteps.push(currentStep);
-                    const parts = text.split('|').map(p => p.trim());
-                    const num = parts[0].replace('wizard-step:', '').trim();
-                    const title = parts.find(p => p.startsWith('title:'));
-                    currentStep = {
-                        number: parseInt(num),
-                        title: title ? title.replace('title:', '').trim() : 'Step ' + num,
-                        startComment: node,
-                        elements: []
-                    };
-                    continue;
-                }
-            }
-
-            // Now collect DOM elements between each step's comment and the next
-            wizardSteps.forEach((step, i) => {
-                let el = step.startComment.nextSibling;
-                const nextComment = i < wizardSteps.length - 1
-                    ? wizardSteps[i + 1].startComment
-                    : null;
-
-                while (el) {
-                    if (nextComment && el === nextComment) break;
-                    if (el.nodeType === Node.COMMENT_NODE) {
-                        const t = el.textContent.trim();
-                        if (t === 'wizard-end') break;
-                    }
-                    if (el.nodeType === Node.ELEMENT_NODE) {
-                        step.elements.push(el);
-                    }
-                    el = el.nextSibling;
-                }
-            });
-
-            // Show/hide wizard toggle button
-            const toggleBtn = document.getElementById('wizard-toggle');
-            toggleBtn.style.display = wizardSteps.length > 0 ? 'inline-block' : 'none';
-
-            // Auto-enter wizard mode for setup/project pages, or restore saved preference
-            if (wizardSteps.length > 0) {
-                const fileEntry = AVAILABLE_FILES.find(f => f.path === currentFile);
-                const pref = localStorage.getItem('wizardMode_' + currentFile);
-                if (fileEntry && fileEntry.autoWizard && pref !== 'false') {
-                    enterWizardMode(false);
-                } else if (pref === 'true') {
-                    enterWizardMode(false);
-                }
-            }
-        }
-
-        function enterWizardMode(savePreference) {
-            if (wizardSteps.length === 0) return;
-            wizardActive = true;
-
-            document.getElementById('wizard-toggle').classList.add('active');
-            document.getElementById('wizard-toggle').querySelector('span').textContent = 'Full Doc';
-            document.getElementById('wizard-bar').classList.add('active');
-
-            if (savePreference !== false) {
-                localStorage.setItem('wizardMode_' + currentFile, 'true');
-            }
-
-            // Build progress track with dots and connectors
-            const progress = document.getElementById('wizard-progress');
-            progress.innerHTML = '';
-            const track = document.createElement('div');
-            track.className = 'wizard-progress-track';
-            wizardSteps.forEach((step, i) => {
-                const dot = document.createElement('span');
-                dot.className = 'wizard-dot';
-                dot.title = step.title;
-                dot.addEventListener('click', () => showWizardStep(i));
-                track.appendChild(dot);
-                if (i < wizardSteps.length - 1) {
-                    const conn = document.createElement('span');
-                    conn.className = 'wizard-connector';
-                    track.appendChild(conn);
-                }
-            });
-            progress.appendChild(track);
-
-            // Hide ALL elements in content, then show only current step
-            const savedStep = parseInt(localStorage.getItem('wizardStep_' + currentFile)) || 0;
-            const startStep = Math.min(savedStep, wizardSteps.length - 1);
-
-            // Collect all wizard-region elements and content before/after wizard
-            markWizardContent();
-            showWizardStep(startStep);
-        }
-
-        function markWizardContent() {
-            // Find content outside wizard regions and hide it
-            const allChildren = Array.from(contentDiv.children);
-            let inWizardRegion = false;
-
-            allChildren.forEach(el => {
-                // Check preceding comments
-                let prev = el.previousSibling;
-                while (prev && prev.nodeType === Node.COMMENT_NODE) {
-                    if (prev.textContent.trim() === 'wizard-start') inWizardRegion = true;
-                    if (prev.textContent.trim() === 'wizard-end') inWizardRegion = false;
-                    prev = prev.previousSibling;
-                }
-
-                if (!inWizardRegion) {
-                    // Content outside wizard — check if it's before or after
-                    const isWizardEl = wizardSteps.some(s => s.elements.includes(el));
-                    if (!isWizardEl) {
-                        el.dataset.wizardHidden = 'true';
-                        el.style.display = 'none';
-                    }
-                }
-            });
-        }
-
-        function exitWizardMode() {
-            wizardActive = false;
-
-            document.getElementById('wizard-toggle').classList.remove('active');
-            document.getElementById('wizard-toggle').querySelector('span').textContent = 'Step-by-Step';
-            document.getElementById('wizard-bar').classList.remove('active');
-
-            localStorage.setItem('wizardMode_' + currentFile, 'false');
-
-            // Restore all hidden elements
-            contentDiv.querySelectorAll('[data-wizard-hidden]').forEach(el => {
-                el.style.display = '';
-                delete el.dataset.wizardHidden;
-            });
-
-            // Show all wizard step elements
-            wizardSteps.forEach(step => {
-                step.elements.forEach(el => {
-                    el.style.display = '';
-                });
-            });
-        }
-
-        function showWizardStep(index) {
-            if (index < 0 || index >= wizardSteps.length) return;
-            wizardCurrentStep = index;
-
-            localStorage.setItem('wizardStep_' + currentFile, index);
-
-            // Hide all step elements, show current with entrance animation
-            wizardSteps.forEach((step, i) => {
-                step.elements.forEach(el => {
-                    if (i === index) {
-                        el.style.display = '';
-                        el.classList.remove('wizard-step-enter');
-                        void el.offsetWidth; // force reflow
-                        el.classList.add('wizard-step-enter');
-                        // Expand collapsible sections within current step
-                        el.querySelectorAll('.collapsible-header.collapsed').forEach(h => {
-                            h.classList.remove('collapsed');
-                            const sec = h.nextElementSibling;
-                            if (sec && sec.classList.contains('section-content'))
-                                sec.classList.remove('collapsed');
-                        });
-                        if (el.classList.contains('collapsible-header') && el.classList.contains('collapsed')) {
-                            el.classList.remove('collapsed');
-                            const sec = el.nextElementSibling;
-                            if (sec && sec.classList.contains('section-content'))
-                                sec.classList.remove('collapsed');
-                        }
-                    } else {
-                        el.style.display = 'none';
-                        el.classList.remove('wizard-step-enter');
-                    }
-                });
-            });
-
-            // Update counter with step title
-            const stepTitle = wizardSteps[index].title;
-            const counter = document.getElementById('wizard-step-counter');
-            counter.innerHTML = `<span class="step-number">Step ${index + 1}</span> of ${wizardSteps.length} — ${stepTitle}`;
-
-            // Update dots and connectors
-            document.querySelectorAll('#wizard-progress .wizard-dot').forEach((dot, i) => {
-                dot.className = 'wizard-dot';
-                if (i < index) dot.classList.add('completed');
-                if (i === index) dot.classList.add('current');
-            });
-            document.querySelectorAll('#wizard-progress .wizard-connector').forEach((conn, i) => {
-                conn.classList.toggle('filled', i < index);
-            });
-
-            // Update nav buttons
-            document.getElementById('wizard-prev').disabled = index === 0;
-            const nextBtn = document.getElementById('wizard-next');
-            if (index === wizardSteps.length - 1) {
-                nextBtn.textContent = 'Done ✓';
-                nextBtn.disabled = false;
-                nextBtn.onclick = () => exitWizardMode();
-            } else {
-                nextBtn.textContent = 'Next →';
-                nextBtn.disabled = false;
-                nextBtn.onclick = () => showWizardStep(wizardCurrentStep + 1);
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleWizardMode() {
-            if (wizardActive) {
-                exitWizardMode();
-            } else {
-                enterWizardMode();
-            }
-        }
-
-        // Keyboard navigation for wizard
-        document.addEventListener('keydown', (e) => {
-            if (!wizardActive) return;
-            if (document.activeElement && (document.activeElement.tagName === 'INPUT' ||
-                document.activeElement.tagName === 'TEXTAREA' ||
-                document.activeElement.tagName === 'SELECT')) return;
-
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                e.preventDefault();
-                if (wizardCurrentStep < wizardSteps.length - 1) {
-                    showWizardStep(wizardCurrentStep + 1);
-                }
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                if (wizardCurrentStep > 0) {
-                    showWizardStep(wizardCurrentStep - 1);
-                }
-            }
-        });
 
         // ── Back to Top (Feature 7) ──────────────────────────────────
         const backToTopBtn = document.getElementById('back-to-top');
