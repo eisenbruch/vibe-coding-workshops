@@ -19,7 +19,7 @@ const FILE_GROUPS = [
         ]
     },
     {
-        label: "Tool Setup (Pick Your Level)",
+        label: "Tool Setup",
         files: [
             { name: "Pick Your Path", path: "pick-your-path" },
             { name: "Beginner: Quick Start", path: "setup-beginner" },
@@ -40,6 +40,7 @@ const FILE_GROUPS = [
     },
     {
         label: "Level Up",
+        collapsedByDefault: true,
         files: [
             { name: "Prompting & AI Mastery", path: "prompting-guide" },
             { name: "Git & GitHub", path: "github-guide" },
@@ -53,6 +54,7 @@ const FILE_GROUPS = [
     },
     {
         label: "Hosting, Backends, & Domains",
+        collapsedByDefault: true,
         files: [
             { name: "Hosting & Backend Platforms", path: "hosting-platforms" },
             { name: "Custom Domains", path: "custom-domains" },
@@ -65,6 +67,7 @@ const FILE_GROUPS = [
     },
     {
         label: "Reference",
+        collapsedByDefault: true,
         files: [
             { name: "Claude Code CLI Quick Reference", path: "docs/Claude Code Quick Reference.md" },
             { name: "Project Idea Prompts", path: "docs/Project Idea Prompts - Extended.md" },
@@ -73,6 +76,7 @@ const FILE_GROUPS = [
     },
     {
         label: "DomainFlip Build Docs",
+        collapsedByDefault: true,
         files: [
             { name: "DomainFlip Summary", path: "docs/domainflip/domainflip_summary.md" },
             { name: "Part 1 - Setup & Architecture", path: "docs/domainflip/BUILD_GUIDE_PART1.md" },

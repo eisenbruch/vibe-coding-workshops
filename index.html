@@ -554,7 +554,8 @@
             FILE_GROUPS.forEach((group, gi) => {
                 var groupKey = 'g' + gi;
                 var hasActive = group.files.some(f => f.path === currentFile);
-                var isCollapsed = hasActive ? false : (collapsedState[groupKey] === true);
+                var defaultCollapsed = group.collapsedByDefault || false;
+                var isCollapsed = hasActive ? false : (groupKey in collapsedState ? collapsedState[groupKey] === true : defaultCollapsed);
 
                 // If group contains active item, ensure it's expanded in storage
                 if (hasActive && collapsedState[groupKey]) {
