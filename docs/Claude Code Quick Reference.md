@@ -11,7 +11,7 @@ A quick reference for working with Claude Code in the terminal and VS Code.
 | Command    | Purpose                                                                  |
 | ---------- | ------------------------------------------------------------------------ |
 | `claude`   | Start Claude in your terminal.                                           |
-| `shift + tab` | Change modes: planning, accept edits, ask for permission (defualt) |
+| `shift + tab` | Change modes: planning, accept edits, ask for permission (default) |
 | ` @ ` | Mention a file within your folder structure (excludes `git ignore` files)
 | `esc`      | Interrupt Claude while it's working.                                     |
 | `esc esc`  | Go back in conversation and code history.                                |

@@ -125,7 +125,7 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-> **Note:** Change `path: dist` to match your build output folder (`build` for Create React App, `out` for Next.js static export).
+> **Note:** Change `path: dist` to match your build output folder (`out` for Next.js static export).
 
 ### Step 2: Enable Pages with GitHub Actions Source
 
@@ -141,7 +141,6 @@ Most frameworks need to know they're being served from a subdirectory. Ask your 
 **Common fixes:**
 - **Vite:** Set `base: '/YOUR-REPO/'` in `vite.config.js`
 - **Next.js:** Set `basePath: '/YOUR-REPO'` and `output: 'export'` in `next.config.js`
-- **Create React App:** Set `"homepage": "https://YOUR-USERNAME.github.io/YOUR-REPO"` in `package.json`
 
 ### Step 4: Push and Deploy
 

@@ -417,7 +417,8 @@ const GITHUB_GUIDE = {
                 + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
                 + '<div style="font-weight:600; margin-bottom:6px;">Undo uncommitted changes</div>'
                 + '<div style="font-size:0.95em; color:var(--text-muted); margin-bottom:8px;">Revert everything back to the last commit</div>'
-                + _term('git checkout .')
+                + _term('git restore .')
+                + '<div style="font-size:0.9em; color:var(--text-muted); margin-top:4px; margin-bottom:8px;">Older tutorials may use <code>git checkout .</code> which also works.</div>'
                 + '</div>'
                 + '<div style="padding:16px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color);">'
                 + '<div style="font-weight:600; margin-bottom:6px;">Undo the last commit (keep changes)</div>'

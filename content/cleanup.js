@@ -12,7 +12,8 @@ const CLEANUP_GUIDE = {
         {
             title: 'Organize Your Files',
             nextLabel: 'Clean Up Your Code',
-            content: '<h2>Step 1: Give Your Project Structure</h2>'
+            content: _warn('Commit your current working version before starting this guide. AI cleanup and refactoring can break things — having a save point lets you undo if needed.')
+                + '<h2>Step 1: Give Your Project Structure</h2>'
                 + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">AI often puts everything into one or two files when building quickly. That works for prototyping, but once your project is working, splitting things into separate files makes it easier for you and the AI to work with going forward.</p>'
                 + _cards([
                     { icon: '📄', name: 'HTML', desc: 'Structure and content — what\'s on the page' },

@@ -35,7 +35,7 @@ Vercel's AI tool for generating React components and UI designs from text descri
 StackBlitz's AI web development platform that builds and deploys full-stack apps instantly
 
 **Windsurf** - [codeium.com/windsurf](https://codeium.com/windsurf)
-AI-powered IDE with Cascade flows for multi-file editing and autonomous task completion
+AI-powered IDE by Cognition AI (formerly Codeium) with Cascade flows for multi-file editing and autonomous task completion
 
 **Supermaven** - [supermaven.com](https://supermaven.com/)
 Fast AI code completion with 1 million token context window

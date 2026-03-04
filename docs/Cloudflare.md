@@ -56,8 +56,7 @@ Cloudflare auto-detects most frameworks. If not:
 | Project type | Build command | Output directory |
 |---|---|---|
 | **Static HTML** (no build) | *(leave empty)* | `/` or `.` |
-| **Vite / React (Vite)** | `npm run build` | `dist` |
-| **Create React App** | `npm run build` | `build` |
+| **Vite (React/Vue/Svelte)** | `npm run build` | `dist` |
 | **Next.js (static)** | `npx next build` | `out` |
 | **Astro** | `npm run build` | `dist` |
 | **Hugo** | `hugo` | `public` |
