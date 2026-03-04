@@ -91,6 +91,11 @@ function renderWelcome() {
     // Explore the Workshop
     html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); text-align:center; margin-bottom:16px; border:none; padding:0;">Explore the Workshop</h2>';
     html += '<div class="path-picker-grid" style="margin-bottom:40px;">';
+    html += '<div class="path-card" onclick="loadRoute(\'who-am-i\')" tabindex="0" role="button">';
+    html += '<div class="path-card-icon">👋</div>';
+    html += '<div class="path-card-name">Your Instructor</div>';
+    html += '<div class="path-card-desc">Meet Noah — artist, product manager, educator</div>';
+    html += '</div>';
     html += '<div class="path-card" onclick="loadRoute(\'what-is-vibe-coding\')" tabindex="0" role="button">';
     html += '<div class="path-card-icon">🧠</div>';
     html += '<div class="path-card-name">What is Vibe Coding?</div>';
@@ -105,6 +110,21 @@ function renderWelcome() {
     html += '<div class="path-card-icon">🎯</div>';
     html += '<div class="path-card-name">Who Is It For?</div>';
     html += '<div class="path-card-desc">Bring your skills — technical or not</div>';
+    html += '</div>';
+    html += '<div class="path-card" onclick="loadRoute(\'what-youll-learn\')" tabindex="0" role="button">';
+    html += '<div class="path-card-icon">📋</div>';
+    html += '<div class="path-card-name">What You\'ll Learn</div>';
+    html += '<div class="path-card-desc">Skills and concepts covered in the workshop</div>';
+    html += '</div>';
+    html += '<div class="path-card" onclick="loadRoute(\'example-projects\')" tabindex="0" role="button">';
+    html += '<div class="path-card-icon">🚀</div>';
+    html += '<div class="path-card-name">Example Projects</div>';
+    html += '<div class="path-card-desc">See what you can build with vibe coding</div>';
+    html += '</div>';
+    html += '<div class="path-card" onclick="loadRoute(\'beyond-coding\')" tabindex="0" role="button">';
+    html += '<div class="path-card-icon">🌐</div>';
+    html += '<div class="path-card-name">Beyond Vibe Coding</div>';
+    html += '<div class="path-card-desc">AI tools for writing, research, design, and more</div>';
     html += '</div>';
     html += '<div class="path-card" onclick="loadRoute(\'pick-your-path\')" tabindex="0" role="button">';
     html += '<div class="path-card-icon">🛤️</div>';
