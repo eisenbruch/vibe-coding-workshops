@@ -1,4 +1,4 @@
-# Firebase & Deployment
+# Firebase
 *Part of the [Vibe Coding Workshop](https://workshop.nerktek.com/) series* \
 *By Noah Eisenbruch - noaheisenbruch@gmail.com*
 

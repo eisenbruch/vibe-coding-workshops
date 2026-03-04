@@ -14,8 +14,8 @@ const GROUP_PROJECT_GUIDE = {
         { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building and why', route: 'product-guidance' },
         { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
-        { icon: '🔥', name: 'Firebase & Deployment', desc: 'Deploy your project to a real URL', route: 'Firebase %26 Deployment.md' },
-        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
+        { icon: '🔥', name: 'Firebase', desc: 'Deploy your project to a real URL', route: 'docs/Firebase.md' },
+        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'advanced-techniques' },
     ],
     steps: [
         {
@@ -47,6 +47,7 @@ const GROUP_PROJECT_GUIDE = {
                     h += '</div>';
                     return h;
                 })()
+                + _tip('Your first projects are all about experimenting and prototyping — not building a polished, professional product. Pick something fun, keep it simple, and focus on learning the workflow. You can always build something more ambitious later.')
                 + '<h3>Option A: Personal Dashboard</h3>'
                 + _term('Create a single HTML file for a personal dashboard — a customizable start page I can use every day. Include:\n- A greeting that changes based on time of day (good morning / afternoon / evening)\n- A live clock and current date\n- A to-do list where I can add, check off, and delete tasks (saved to localStorage)\n- A quick-links section with editable bookmarks (6-8 default ones I can customize)\n- A notes widget for jotting down quick thoughts (saved to localStorage)\n- A clean, modern design with a dark/light mode toggle — make it mobile-friendly')
                 + '<h3>Option B: Interactive Directory</h3>'

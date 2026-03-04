@@ -15,12 +15,10 @@
     <div class="top-bar">
         <button class="sidebar-reopen" id="sidebar-reopen" onclick="toggleSidebar()" aria-label="Show sidebar" title="Show sidebar">☰</button>
         <div class="logo" onclick="loadRoute('welcome')" style="cursor:pointer;">Vibe Coding Workshop</div>
+        <select id="file-selector" aria-label="Select document" onchange="handleFileSelect(this.value)" style="display:none">
+            <!-- Populated by JS -->
+        </select>
         <div class="top-bar-row2">
-            <div class="top-bar-doc" style="display:flex; align-items:center; gap:8px;">
-                <select id="file-selector" aria-label="Select document" onchange="handleFileSelect(this.value)">
-                    <!-- Populated by JS -->
-                </select>
-            </div>
             <div class="top-bar-doc top-bar-buttons">
                 <button class="top-bar-btn" id="font-size-toggle" onclick="cycleFontSize()" aria-label="Change font size" title="Font size">A</button>
                 <button class="top-bar-btn" id="toggle-sections" onclick="toggleAllSections()" aria-label="Expand or collapse all sections">
@@ -77,6 +75,9 @@
     <script src="content/github.js"></script>
     <script src="content/solo-project.js"></script>
     <script src="content/cleanup.js"></script>
+    <script src="content/advanced-techniques.js"></script>
+    <script src="content/custom-domains.js"></script>
+    <script src="content/hosting-platforms.js"></script>
     <script src="content/beyond-coding.js"></script>
     <script src="pages.js"></script>
     <script>
@@ -156,7 +157,7 @@
         const sectionStates = {};
 
         // Nav sequence: main workshop flow (Start Here → Build Together → Level Up → Deployment)
-        const navGroups = ['Start Here', 'Build Together', 'Level Up', 'Deployment & Beyond'];
+        const navGroups = ['Start Here', 'Build Together', 'Level Up', 'Hosting, Backends, & Domains'];
         const navSequence = FILE_GROUPS
             .filter(g => navGroups.includes(g.label))
             .flatMap(g => g.files.map(f => f.path));
@@ -223,6 +224,9 @@
                 'github-guide': function(step) { renderGithubGuide(step); },
                 'solo-project': function(step) { renderSoloProjectGuide(step); },
                 'cleanup-guide': function(step) { renderCleanupGuide(step); },
+                'advanced-techniques': function(step) { renderAdvancedTechniquesGuide(step); },
+                'custom-domains': function(step) { renderCustomDomainsGuide(step); },
+                'hosting-platforms': function(step) { renderHostingPlatformsGuide(step); },
                 'beyond-coding': renderBeyondCoding,
             };
 
@@ -235,6 +239,7 @@
                 currentFile = baseRoute;
                 window.location.hash = encodeURIComponent(filePath);
                 loadingDiv.style.display = 'none';
+                document.getElementById('toggle-sections').style.display = 'none';
                 if (stepNum > 0) {
                     customRoutes[baseRoute](stepNum);
                 } else {
@@ -263,6 +268,7 @@
                 updateDocNav(filePath);
                 buildSidebarDocs();
                 loadingDiv.style.display = 'none';
+                document.getElementById('toggle-sections').style.display = '';
 
                 if (scrollToId) {
                     expandAndScrollTo(scrollToId);
@@ -518,6 +524,9 @@
             if (route === 'github-guide') return GITHUB_GUIDE;
             if (route === 'solo-project') return SOLO_PROJECT_GUIDE;
             if (route === 'cleanup-guide') return CLEANUP_GUIDE;
+            if (route === 'advanced-techniques') return ADVANCED_TECHNIQUES_GUIDE;
+            if (route === 'custom-domains') return CUSTOM_DOMAINS_GUIDE;
+            if (route === 'hosting-platforms') return HOSTING_PLATFORMS_GUIDE;
             if (SETUP_GUIDES[route]) return SETUP_GUIDES[route];
             return null;
         }
@@ -528,17 +537,51 @@
             return match ? parseInt(match[2], 10) : 0;
         }
 
+        function getSidebarCollapsed() {
+            try { return JSON.parse(localStorage.getItem('sidebarCollapsed') || '{}'); } catch(e) { return {}; }
+        }
+        function setSidebarCollapsed(state) {
+            localStorage.setItem('sidebarCollapsed', JSON.stringify(state));
+        }
+
         function buildSidebarDocs() {
             const docsList = document.getElementById('sidebar-docs');
             var savedScroll = docsList.scrollTop;
             docsList.innerHTML = '';
             var activeStep = getCurrentStep();
+            var collapsedState = getSidebarCollapsed();
 
-            FILE_GROUPS.forEach(group => {
+            FILE_GROUPS.forEach((group, gi) => {
+                var groupKey = 'g' + gi;
+                var hasActive = group.files.some(f => f.path === currentFile);
+                var isCollapsed = hasActive ? false : (collapsedState[groupKey] === true);
+
+                // If group contains active item, ensure it's expanded in storage
+                if (hasActive && collapsedState[groupKey]) {
+                    collapsedState[groupKey] = false;
+                    setSidebarCollapsed(collapsedState);
+                }
+
                 const label = document.createElement('li');
-                label.className = 'sidebar-docs-group-label';
-                label.textContent = group.label;
+                label.className = 'sidebar-docs-group-label' + (isCollapsed ? ' collapsed' : '');
+                var labelText = document.createElement('span');
+                labelText.textContent = group.label;
+                var chevron = document.createElement('span');
+                chevron.className = 'chevron';
+                chevron.textContent = '▼';
+                label.appendChild(chevron);
+                label.appendChild(labelText);
+                label.addEventListener('click', function() {
+                    var state = getSidebarCollapsed();
+                    state[groupKey] = !state[groupKey];
+                    setSidebarCollapsed(state);
+                    label.classList.toggle('collapsed');
+                    itemsContainer.classList.toggle('collapsed');
+                });
                 docsList.appendChild(label);
+
+                var itemsContainer = document.createElement('ul');
+                itemsContainer.className = 'sidebar-docs-group-items' + (isCollapsed ? ' collapsed' : '');
 
                 group.files.forEach(file => {
                     const li = document.createElement('li');
@@ -555,7 +598,7 @@
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     });
                     li.appendChild(a);
-                    docsList.appendChild(li);
+                    itemsContainer.appendChild(li);
 
                     // Show step sub-items for the active step guide
                     if (file.path === currentFile) {
@@ -580,10 +623,11 @@
                                 sli.appendChild(sa);
                                 ul.appendChild(sli);
                             });
-                            docsList.appendChild(ul);
+                            itemsContainer.appendChild(ul);
                         }
                     }
                 });
+                docsList.appendChild(itemsContainer);
             });
 
             // Restore scroll position, then ensure active item is visible

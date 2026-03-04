@@ -48,24 +48,27 @@ const FILE_GROUPS = [
             { name: "Tech Stack & Hosting", path: "tech-stack" },
             { name: "Solo Project Guide", path: "solo-project" },
             { name: "Clean Up & Optimize", path: "cleanup-guide" },
+            { name: "Advanced Techniques", path: "advanced-techniques" },
         ]
     },
     {
-        label: "Deployment & Beyond",
+        label: "Hosting, Backends, & Domains",
         files: [
-            { name: "Firebase & Deployment", path: "docs/Firebase & Deployment.md" },
+            { name: "Hosting & Backend Platforms", path: "hosting-platforms" },
+            { name: "Custom Domains", path: "custom-domains" },
+            { name: "GitHub Pages", path: "docs/GitHub Pages.md" },
+            { name: "Firebase", path: "docs/Firebase.md" },
             { name: "Vercel & Supabase", path: "docs/Vercel & Supabase.md" },
-            { name: "Custom Domains", path: "docs/Custom Domains.md" },
+            { name: "Cloudflare", path: "docs/Cloudflare.md" },
+            { name: "Turso Database", path: "docs/Turso.md" },
         ]
     },
     {
         label: "Reference",
         files: [
             { name: "Claude Code CLI Quick Reference", path: "docs/Claude Code Quick Reference.md" },
-            { name: "Advanced Techniques", path: "docs/Advanced Techniques.md" },
             { name: "Project Idea Prompts", path: "docs/Project Idea Prompts - Extended.md" },
             { name: "AI Tools Directory", path: "docs/AI Tools Directory.md" },
-            { name: "Backend & Hosting Platforms", path: "docs/Backend & Hosting Platforms.md" },
         ]
     },
     {

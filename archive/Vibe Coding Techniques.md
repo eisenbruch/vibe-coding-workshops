@@ -355,7 +355,7 @@ The right platform depends on what you're building:
 | Backend + database | Firebase, Supabase, Vercel + database |
 | Full control | Railway, Render, a VPS |
 
-See [Backend & Hosting Platforms](Backend%20%26%20Hosting%20Platforms.md) for a detailed side-by-side comparison.
+See [Hosting & Backend Platforms](Hosting%20%26%20Backend%20Platforms.md) for a detailed side-by-side comparison.
 
 ### Planning for scale
 

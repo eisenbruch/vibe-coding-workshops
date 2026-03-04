@@ -5,7 +5,7 @@ const TECH_STACK_GUIDE = {
     lastStepCards: [
         { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building before choosing tools', route: 'product-guidance' },
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
-        { icon: '🔥', name: 'Firebase & Deployment', desc: 'Step-by-step deployment walkthrough', route: 'Firebase %26 Deployment.md' },
+        { icon: '🔥', name: 'Firebase', desc: 'Step-by-step deployment walkthrough', route: 'docs/Firebase.md' },
     ],
     steps: [
         {
@@ -76,7 +76,7 @@ const TECH_STACK_GUIDE = {
                     { icon: '🎬', name: 'Media Storage & Delivery', desc: 'Images, video, and audio files are much larger than database records. Storing and serving them adds up fast, especially video.' },
                     { icon: '🔗', name: 'Custom Domains', desc: 'A domain name costs ~$10–15/year. Small, but almost every real project needs one.' },
                 ], { style: 'margin:16px 0 16px;' })
-                + '<p>See <a href="#" onclick="event.preventDefault(); loadRoute(\'Backend & Hosting Platforms.md\');">Backend &amp; Hosting Platforms</a> for a detailed side-by-side comparison.</p>'
+                + '<p>See <a href="#" onclick="event.preventDefault(); loadRoute(\'hosting-platforms\');">Hosting &amp; Backend Platforms</a> for a detailed side-by-side comparison.</p>'
                 + _tip('Ask your AI: <em>"What would it cost to host this project if 500 people used it daily?"</em> It can estimate based on your stack.')
         },
         {

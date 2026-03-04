@@ -7,8 +7,8 @@ const SOLO_PROJECT_GUIDE = {
         { icon: '🎯', name: 'Product Guidance', desc: 'Clarify what you\'re building and why', route: 'product-guidance' },
         { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
         { icon: '✨', name: 'Clean Up & Optimize', desc: 'Polish your code, fix bugs, and improve performance', route: 'cleanup-guide' },
-        { icon: '🔥', name: 'Firebase & Deployment', desc: 'Deploy your project to a real URL', route: 'Firebase %26 Deployment.md' },
-        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'Advanced Techniques.md' },
+        { icon: '🔥', name: 'Firebase', desc: 'Deploy your project to a real URL', route: 'docs/Firebase.md' },
+        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'advanced-techniques' },
     ],
     steps: [
         // ── Step 1: Set Up Your Workspace ──
@@ -187,8 +187,8 @@ const SOLO_PROJECT_GUIDE = {
             content: '<h2>Step 8: Deploy & Go Live</h2>'
                 + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:24px;">If you planned your infrastructure in Step 2, you already know where you\'re hosting. Now it\'s time to deploy and start testing at the URL your hosting platform gives you.</p>'
                 + '<h3>Deploy with Your AI</h3>'
-                + '<p>Tell your AI what platform you chose and let it walk you through the deployment:</p>'
-                + _term('I want to deploy my project to [your hosting platform]. Walk me through the full deployment process step by step.')
+                + '<p>Tell your AI what platform you chose and let it handle the deployment:</p>'
+                + _term('Deploy my project to [your hosting platform]. Complete the deployment and walk me through each step as you do it.')
                 + '<p style="margin-top:16px;">Most platforms give you a free URL (like <code>yourproject.vercel.app</code> or <code>yourproject.web.app</code>) as soon as you deploy. Use that to test your project in a real environment — things can behave differently online than they do locally.</p>'
                 + '<h3>Test at Your Live URL</h3>'
                 + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
@@ -196,8 +196,8 @@ const SOLO_PROJECT_GUIDE = {
                 + '<li>Try all the features — do they work the same as they did locally?</li>'
                 + '<li>Share the link with someone else — can they use it without issues?</li>'
                 + '</ul>'
-                + '<p>For step-by-step deployment walkthroughs, see <a href="#" onclick="event.preventDefault(); loadRoute(\'Firebase %26 Deployment.md\');">Firebase & Deployment</a> or <a href="#" onclick="event.preventDefault(); loadRoute(\'Vercel %26 Supabase.md\');">Vercel & Supabase</a>. For help choosing a platform, see <a href="#" onclick="event.preventDefault(); loadRoute(\'tech-stack\');">Tech Stack & Hosting</a>.</p>'
-                + _tip('Most hosting platforms have generous free tiers. You can deploy a real project with a real URL for $0. If you want your own domain like <code>yourproject.com</code>, see <a href="#" onclick="event.preventDefault(); loadRoute(\'Custom Domains.md\');">Custom Domains</a> — it costs ~$10–15/year.')
+                + '<p>For step-by-step deployment walkthroughs, see <a href="#" onclick="event.preventDefault(); loadRoute(\'docs/Firebase.md\');">Firebase</a> or <a href="#" onclick="event.preventDefault(); loadRoute(\'docs/Vercel %26 Supabase.md\');">Vercel & Supabase</a>. For help choosing a platform, see <a href="#" onclick="event.preventDefault(); loadRoute(\'tech-stack\');">Tech Stack & Hosting</a>.</p>'
+                + _tip('Most hosting platforms have generous free tiers. You can deploy a real project with a real URL for $0. If you want your own domain like <code>yourproject.com</code>, see <a href="#" onclick="event.preventDefault(); loadRoute(\'custom-domains\');">Custom Domains</a> — it costs ~$10–15/year.')
         },
         // ── Step 9: Keep Building ──
         {

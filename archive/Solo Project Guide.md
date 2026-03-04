@@ -353,7 +353,7 @@ Now that you have a working project, explore these resources to go further:
 - **[Git for Beginners](Git%20for%20Beginners.md)** — Version control basics and commands
 - **[Firebase & Deployment](Firebase%20%26%20Deployment.md)** — Backend, database, and hosting with Firebase
 - **[Vercel & Supabase](Vercel%20%26%20Supabase.md)** — Alternative deployment with Vercel and Supabase
-- **[Backend & Hosting Platforms](Backend%20%26%20Hosting%20Platforms.md)** — Side-by-side platform comparison
+- **[Hosting & Backend Platforms](Hosting%20%26%20Backend%20Platforms.md)** — Side-by-side platform comparison
 - **[Custom Domains](Custom%20Domains.md)** — Buy a domain and connect it to your project
 - **[Advanced Techniques](Advanced%20Techniques.md)** — Agents, skills, MCP servers, git worktrees
 - **[AI Tools Directory](AI%20Tools%20Directory.md)** — Comprehensive list of AI coding tools

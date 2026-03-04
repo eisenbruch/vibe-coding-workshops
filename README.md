@@ -40,19 +40,19 @@ Reference guides and resources for vibe coding, project setup, and related tools
 - **[Vibe Coding Techniques](https://workshop.nerktek.com/#Vibe%20Coding%20Techniques.md)** — Approaches and essential techniques
 - **[Solo Project Guide](https://workshop.nerktek.com/#solo-project)** — Project ideas, setup, build cycle, deployment
 
-**Deployment & Beyond:**
-- **[Firebase & Deployment](https://workshop.nerktek.com/#Firebase%20%26%20Deployment.md)** — Backend, database, hosting
+**Hosting, Backends, & Domains:**
+- **[Firebase](https://workshop.nerktek.com/#Firebase.md)** — Backend, database, hosting
 - **[Vercel & Supabase](https://workshop.nerktek.com/#Vercel%20%26%20Supabase.md)** — SQL database, auth, deployment
-- **[Custom Domains](https://workshop.nerktek.com/#Custom%20Domains.md)** — Buying domains, Cloudflare, DNS setup
+- **[Custom Domains](https://workshop.nerktek.com/#custom-domains)** — Buying domains, Cloudflare, DNS setup
 
 **Reference:**
 - **[Git for Beginners](https://workshop.nerktek.com/#Git%20for%20Beginners.md)** — Simplified Git guide
 - **[Claude Code Quick Reference](https://workshop.nerktek.com/#Claude%20Code%20Quick%20Reference.md)** — CLI commands and tips
-- **[Advanced Techniques](https://workshop.nerktek.com/#Advanced%20Techniques.md)** — Agents, skills, MCP servers, git worktrees
+- **[Advanced Techniques](https://workshop.nerktek.com/#advanced-techniques)** — Agents, skills, MCP servers, git worktrees
 - **[Project Idea Prompts](https://workshop.nerktek.com/#Project%20Idea%20Prompts%20-%20Extended.md)** — Starter prompts for simple, medium, and complex projects
 - **[AI Tools Directory](https://workshop.nerktek.com/#AI%20Tools%20Directory.md)** — Comprehensive list of AI tools
-- **[Backend & Hosting Platforms](https://workshop.nerktek.com/#Backend%20%26%20Hosting%20Platforms.md)** — Firebase vs Supabase vs Vercel vs Netlify vs Cloudflare
-- **[Workshop Projects](https://workshop.nerktek.com/#Workshop%20Projects.md)** — Showcase of completed projects
+- **[Hosting & Backend Platforms](https://workshop.nerktek.com/#Hosting%20%26%20Backend%20Platforms.md)** — Firebase vs Supabase vs Vercel vs Netlify vs Cloudflare
+- **Workshop Projects** — Showcase of completed projects (in `workshop-projects/` directory)
 
 ### Workshop Projects
 

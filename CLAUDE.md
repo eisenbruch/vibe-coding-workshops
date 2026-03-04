@@ -42,6 +42,7 @@ The viewer is a client-side app:
 | `github.js` | `GITHUB_GUIDE` |
 | `solo-project.js` | `SOLO_PROJECT_GUIDE` |
 | `cleanup.js` | `CLEANUP_GUIDE` |
+| `advanced-techniques.js` | `ADVANCED_TECHNIQUES_GUIDE` |
 | `beyond-coding.js` | `BEYOND_CODING_CATEGORIES` |
 
 Scripts load in order: `config.js` → `content/helpers.js` → remaining `content/*.js` → `pages.js` → inline `<script>` in `index.html`. Render functions in `pages.js` reference globals (`contentDiv`, `selector`, `loadMarkdown`, etc.) defined in the inline script.

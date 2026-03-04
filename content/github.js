@@ -4,7 +4,7 @@ const GITHUB_GUIDE = {
     subtitle: 'Understand version control, create a GitHub account, and publish your first project.',
     lastStepCards: [
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
-        { icon: '🌐', name: 'Firebase & Deployment', desc: 'Deploy your project live on the web', route: 'Firebase & Deployment.md' },
+        { icon: '🌐', name: 'Firebase', desc: 'Deploy your project live on the web', route: 'docs/Firebase.md' },
     ],
     steps: [
         // ── Step 1: What is Git? ──
