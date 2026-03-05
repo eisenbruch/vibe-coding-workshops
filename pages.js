@@ -82,7 +82,7 @@ function renderWelcome() {
     html += '</div>';
 
     // Follow Along
-    html += '<div style="text-align:center; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; padding:32px 24px; margin-bottom:40px;">';
+    html += '<div style="text-align:center; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; padding:32px 12px; margin-bottom:40px;">';
     html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin:0 0 16px 0; border:none; padding:0;">Follow Along</h2>';
     html += '<p class="welcome-url" style="font-size:2em; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px; color:var(--text-color);">workshop.nerktek.com</p>';
     html += '<p style="color:var(--text-muted); font-size:0.95em; margin-bottom:0;">Type the URL above to open this site on your device</p>';
