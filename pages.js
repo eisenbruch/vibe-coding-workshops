@@ -503,8 +503,8 @@ function renderDataApis() {
     html += '</div>';
 
     // Category cards
-    html += '<h2 style="font-size:1.3em; font-weight:700; text-align:center; margin-bottom:6px; border:none; padding:0;">Browse by Category</h2>';
-    html += '<p style="color:var(--text-muted); text-align:center; margin-bottom:20px;">Each category includes free options. Ask your AI to help you integrate any of these.</p>';
+    html += '<h2 style="font-size:1.3em; font-weight:700; text-align:center; margin-bottom:6px; border:none; padding:0;">API Categories</h2>';
+    html += '<p style="color:var(--text-muted); text-align:center; margin-bottom:20px;">There are many types of APIs across different categories — here are some of the most common.</p>';
     html += '<div class="path-picker-grid" style="margin-bottom:28px;">';
 
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
