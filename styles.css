@@ -1108,17 +1108,7 @@ select:hover {
 }
 
 .step-terminal::before {
-    content: 'TERMINAL';
-    display: block;
-    padding: 6px 14px;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--dash-terminal-text);
-    background: rgba(255,255,255,0.03);
-    border-bottom: 1px solid var(--border-color);
-    font-family: 'JetBrains Mono', monospace;
-    opacity: 0.5;
+    display: none;
 }
 
 .step-terminal-bar {

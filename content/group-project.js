@@ -57,6 +57,8 @@ const GROUP_PROJECT_GUIDE = {
                 + '<h3>Option D: Pick Your Own</h3>'
                 + '<p>Have a different idea? Go for it. Write your own prompt describing a single-page project — a tool, a tracker, a visualizer, anything. As long as it produces a single HTML file, the rest of the steps work the same.</p>'
                 + _tip('Be specific about what the user sees and does. Include details about the design (colors, layout, animations). Ask for mobile-friendly (if it is needed for your project). Start simple — you\'ll iterate and add features in later steps.')
+                + '<h3>Option E: Fairfield Campus Third-Space Index</h3>'
+                + _term('I want to build a third-space index for Fairfield University — a tool that helps students find the best spots on campus to hang out, study alone, or work in groups.\n\nThe Layout: Make the left side of the screen a control panel with sliders and filters. Make the right side of the screen a large, interactive map.\n\nThe Data: Create a list of 15 different real or highly realistic places around the Fairfield campus in Fairfield, CT (like the Quick Center, DiMenna-Nyselius Library, Grauert Field, etc.). For each place, track a few things on a 0-10 score:\n\nNoise level\nAvailable seating\nNatural sunlight\nGeneral foot traffic\nNumber/level of electric outlets\nWiFi quality\nDrinks/snacks availability\n\nThe Details: Aside from the scores, include specific text notes for each location. The type of noise, the type of snacks, the name and password of the local WiFi network, and whether the seating is movable (so groups can pull chairs together) or fixed in place. Include any other physical factors that might attract or deter someone studying solo vs. a group hanging out.\n\nHow it should work: When I click a pin on the map, a nice pop-up or side panel should show me all the scores and notes for that location. When I adjust the sliders on the left (like asking for \'Fast WiFi\' and \'Low Noise\'), the pins on the map should instantly update to only show the spots that match my filters. I will fill in the mock data with accurate data later.')
         },
         {
             title: 'Let the Agent Build It',
@@ -76,7 +78,7 @@ const GROUP_PROJECT_GUIDE = {
         },
         {
             title: 'Test Your Project',
-            nextLabel: 'Make Some Changes',
+            nextLabel: 'Test &amp; Give Feedback',
             content: '<h2>Step 4: Test Your Project</h2>'
                 + '<h3>Open It in Your Browser</h3>'
                 + '<p>You have two options:</p>'
@@ -88,9 +90,9 @@ const GROUP_PROJECT_GUIDE = {
                 + _term('Start a local web server so I can preview my project in the browser. Give me the URL to open.')
         },
         {
-            title: 'Make Some Changes',
+            title: 'Test & Give Feedback',
             nextLabel: 'Introduce Git',
-            content: '<h2>Step 5: Make Some Changes</h2>'
+            content: '<h2>Step 5: Test &amp; Give Feedback</h2>'
                 + '<h3>Click Through Everything</h3>'
                 + _cards([
                     { icon: '👀', name: 'Layout', desc: 'Does it look right? Spacing, alignment, readability?' },
