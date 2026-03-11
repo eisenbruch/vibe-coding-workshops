@@ -430,7 +430,19 @@ function renderWhatYoullLearn() {
 function renderExampleProjects() {
     let html = '<div class="path-picker">';
     html += '<h1>Example Projects</h1>';
-    html += '<p class="path-picker-subtitle">Real projects built with vibe coding — from quick tools to full applications</p>';
+    html += '<p class="path-picker-subtitle">Real projects built with vibe coding — from quick experiments to full applications</p>';
+    html += '</div>';
+
+    // Workshop Projects
+    html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Workshop Projects</h2>';
+    html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
+    WORKSHOP_PROJECTS.forEach(p => {
+        html += '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer" class="path-card" style="text-decoration:none; cursor:pointer;">';
+        html += '<div class="path-card-name">' + p.name + '</div>';
+        html += '<div class="path-card-tools">' + p.author + ' — ' + p.type + '</div>';
+        html += '<div class="path-card-desc">' + p.desc + '</div>';
+        html += '</a>';
+    });
     html += '</div>';
 
     html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Instructor Projects</h2>';
@@ -450,18 +462,6 @@ function renderExampleProjects() {
     html += '<li><strong>Raspberry Pi Instant Camera</strong> — prints instant picture stickers with text and current date/time</li>';
     html += '<li><strong>Blender Addon</strong> — optimally rotates a 3D object to minimize its bounding box for manufacturing</li>';
     html += '</ul>';
-
-    // Workshop Projects
-    html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Workshop Projects</h2>';
-    html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
-    WORKSHOP_PROJECTS.forEach(p => {
-        html += '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer" class="path-card" style="text-decoration:none; cursor:pointer;">';
-        html += '<div class="path-card-name">' + p.name + '</div>';
-        html += '<div class="path-card-tools">' + p.author + ' — ' + p.type + '</div>';
-        html += '<div class="path-card-desc">' + p.desc + '</div>';
-        html += '</a>';
-    });
-    html += '</div>';
 
     html += '<div class="step-callout note" style="margin-bottom:24px;">';
     html += '<span class="step-callout-icon">💡</span>';
