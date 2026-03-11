@@ -952,6 +952,17 @@ select:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--primary-color), 0 0 20px var(--dash-glow);
 }
 
+.path-card-static {
+    cursor: default;
+    text-align: center;
+}
+
+.path-card-static:hover {
+    transform: none;
+    box-shadow: var(--dash-widget-shadow);
+    border-color: var(--border-color);
+}
+
 .path-card-icon {
     font-size: 1.8em;
     line-height: 1;
