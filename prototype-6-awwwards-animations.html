@@ -1,0 +1,2778 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: light dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f8fa">
+    <title>Vibe Coding Workshop - Doc Viewer</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+/* ── Animation Custom Properties ─────────────────────────── */
+:root {
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-fast: 0.15s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+    --duration-slower: 0.8s;
+}
+
+/* ── Light Theme ─────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+    --bg-color: #f0f2f5;
+    --surface-color: #ffffff;
+    --text-color: #1a1a2e;
+    --text-muted: #6b7280;
+    --border-color: #e2e8f0;
+    --primary-color: #6366f1;
+    --code-bg: #f8fafc;
+    --header-border: #e2e8f0;
+    --table-alt-bg: #f8fafc;
+    --blockquote-border: #e2e8f0;
+    --error-bg: #fef3c7;
+    --error-border: rgba(234, 179, 8, 0.4);
+    --sidebar-active-bg: rgba(99, 102, 241, 0.08);
+    --accent-gradient-start: #6366f1;
+    --accent-gradient-end: #a855f7;
+    --btn-gradient-start: #6366f1;
+    --btn-gradient-end: #8b5cf6;
+    --btn-shadow: rgba(99, 102, 241, 0.25);
+    --btn-shadow-hover: rgba(99, 102, 241, 0.4);
+    --glow-color: rgba(99, 102, 241, 0.15);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+    --card-shadow-hover: 0 20px 40px rgba(99, 102, 241, 0.15), 0 8px 16px rgba(0,0,0,0.06);
+    --gradient-bg: linear-gradient(135deg, #f0f2f5 0%, #e8eaf0 50%, #f0f2f5 100%);
+    --topbar-bg: rgba(255, 255, 255, 0.8);
+    --sidebar-bg: rgba(255, 255, 255, 0.85);
+    --shimmer-color: rgba(99, 102, 241, 0.06);
+}
+
+[data-theme="dark"] {
+    --bg-color: #0a0a1a;
+    --surface-color: #12122a;
+    --text-color: #e8eaf6;
+    --text-muted: #9ca3af;
+    --border-color: #1e1e3a;
+    --primary-color: #818cf8;
+    --code-bg: #0f0f24;
+    --header-border: #1e1e3a;
+    --table-alt-bg: #0f0f24;
+    --blockquote-border: #1e1e3a;
+    --error-bg: #2d1b00;
+    --error-border: rgba(187, 128, 9, 0.4);
+    --sidebar-active-bg: rgba(129, 140, 248, 0.1);
+    --accent-gradient-start: #818cf8;
+    --accent-gradient-end: #c084fc;
+    --btn-gradient-start: #818cf8;
+    --btn-gradient-end: #a78bfa;
+    --btn-shadow: rgba(129, 140, 248, 0.25);
+    --btn-shadow-hover: rgba(129, 140, 248, 0.45);
+    --glow-color: rgba(129, 140, 248, 0.1);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
+    --card-shadow-hover: 0 20px 40px rgba(129, 140, 248, 0.2), 0 8px 16px rgba(0,0,0,0.2);
+    --gradient-bg: linear-gradient(135deg, #0a0a1a 0%, #0f0f2a 50%, #0a0a1a 100%);
+    --topbar-bg: rgba(18, 18, 42, 0.8);
+    --sidebar-bg: rgba(18, 18, 42, 0.85);
+    --shimmer-color: rgba(129, 140, 248, 0.04);
+}
+
+/* ── Keyframe Animations ─────────────────────────────────── */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes spinIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-180deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes borderGlow {
+    0%, 100% { border-color: var(--border-color); }
+    50% { border-color: var(--primary-color); }
+}
+
+@keyframes loadingDots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+@keyframes typingCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Global Reset ────────────────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--gradient-bg);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color var(--duration-slow) var(--ease-smooth),
+                color var(--duration-slow) var(--ease-smooth);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Top Bar ─────────────────────────────────────────────── */
+.top-bar {
+    max-width: 1600px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    background: var(--topbar-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 12px 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    transition: background var(--duration-slow) var(--ease-smooth),
+                border-color var(--duration-slow) var(--ease-smooth),
+                box-shadow var(--duration-normal) var(--ease-smooth);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    animation: fadeInUp 0.6s var(--ease-out) both;
+}
+
+.top-bar:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-right: auto;
+    white-space: nowrap;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: opacity var(--duration-fast);
+    letter-spacing: -0.02em;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.top-bar-global {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.top-bar-doc {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.top-bar-buttons {
+    flex-shrink: 0;
+    order: 1;
+}
+
+.top-bar-row2 {
+    display: contents;
+}
+
+.top-bar-global {
+    order: 2;
+}
+
+select {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+    min-width: 180px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+select:hover {
+    border-color: var(--primary-color);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+/* ── Top Bar Buttons ─────────────────────────────────────── */
+.top-bar-btn {
+    padding: 8px 14px;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--duration-fast) var(--ease-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.top-bar-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    opacity: 0;
+    transition: opacity var(--duration-fast);
+    border-radius: inherit;
+}
+
+.top-bar-btn:hover {
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--glow-color);
+}
+
+.top-bar-btn:hover::before {
+    opacity: 0.06;
+}
+
+.top-bar-btn:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.top-bar-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Font size button */
+#font-size-toggle {
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 34px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+#font-size-toggle .size-indicator {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-left: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Layout Wrapper ──────────────────────────────────────── */
+.layout-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    animation: fadeIn 0.8s var(--ease-out) 0.2s both;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.sidebar {
+    display: block;
+    position: sticky;
+    top: 80px;
+    width: 240px;
+    flex-shrink: 0;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background: var(--sidebar-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 16px 0;
+    scrollbar-width: thin;
+    z-index: 50;
+    transition: background var(--duration-slow) var(--ease-smooth),
+                border-color var(--duration-slow) var(--ease-smooth),
+                box-shadow var(--duration-normal) var(--ease-smooth),
+                transform var(--duration-normal) var(--ease-smooth);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    animation: slideInLeft 0.6s var(--ease-out) 0.3s both;
+}
+
+.sidebar:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.sidebar-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    padding: 0 16px 12px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color var(--duration-fast);
+}
+
+.sidebar-collapse-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 4px;
+    line-height: 1;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.sidebar-collapse-btn:hover {
+    color: var(--text-color);
+    background: var(--sidebar-active-bg);
+    transform: rotate(90deg);
+}
+
+.sidebar.collapsed {
+    display: none;
+}
+
+.sidebar-reopen {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all var(--duration-fast) var(--ease-smooth);
+    flex-shrink: 0;
+    padding: 0;
+    margin-left: -10px;
+}
+
+.sidebar-reopen:hover {
+    color: var(--text-color);
+    transform: scale(1.1);
+}
+
+.sidebar-docs-nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-docs-group-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: 12px 12px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+    transition: color var(--duration-fast) var(--ease-smooth);
+    border-radius: 8px;
+    margin: 0 6px;
+}
+
+.sidebar-docs-group-label:hover {
+    color: var(--text-color);
+    background: var(--sidebar-active-bg);
+}
+
+.sidebar-docs-group-label .chevron {
+    font-size: 8px;
+    transition: transform var(--duration-normal) var(--ease-spring);
+    flex-shrink: 0;
+}
+
+.sidebar-docs-group-label.collapsed .chevron {
+    transform: rotate(-90deg);
+}
+
+.sidebar-docs-group-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: max-height var(--duration-slow) var(--ease-smooth),
+                opacity var(--duration-normal) var(--ease-smooth);
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.sidebar-docs-group-items.collapsed {
+    display: none;
+}
+
+.sidebar-docs-nav a {
+    display: block;
+    padding: 5px 12px 5px 24px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all var(--duration-fast) var(--ease-smooth);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 0 8px 8px 0;
+    margin-right: 6px;
+    position: relative;
+}
+
+.sidebar-docs-nav a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-gradient-start), var(--accent-gradient-end));
+    transform: scaleY(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+    border-radius: 1px;
+}
+
+.sidebar-docs-nav a:hover {
+    color: var(--text-color);
+    background: var(--sidebar-active-bg);
+    padding-left: 28px;
+}
+
+.sidebar-docs-nav a:hover::before {
+    transform: scaleY(1);
+}
+
+.sidebar-docs-nav a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    background: var(--sidebar-active-bg);
+}
+
+.sidebar-docs-nav a.active::before {
+    transform: scaleY(1);
+}
+
+.sidebar-step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-step-list a {
+    display: block;
+    padding: 3px 16px 3px 32px;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all var(--duration-fast) var(--ease-smooth);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.7;
+}
+
+.sidebar-step-list a:hover {
+    color: var(--text-color);
+    background: var(--sidebar-active-bg);
+    opacity: 1;
+}
+
+.sidebar-step-list a.active {
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    font-weight: 500;
+    opacity: 1;
+}
+
+/* ── Main Container ──────────────────────────────────────── */
+.container {
+    flex: 1;
+    min-width: 0;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 48px;
+    min-height: 80vh;
+    transition: background var(--duration-slow) var(--ease-smooth),
+                border-color var(--duration-slow) var(--ease-smooth),
+                box-shadow var(--duration-normal) var(--ease-smooth);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    animation: scaleIn 0.6s var(--ease-out) 0.4s both;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle animated gradient border effect on container */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-end), var(--accent-gradient-start));
+    background-size: 200% 100%;
+    animation: gradientShift 4s linear infinite;
+    border-radius: 20px 20px 0 0;
+    opacity: 0.7;
+}
+
+/* ── Font Size Classes ───────────────────────────────────── */
+#markdown-content.font-small { font-size: 16px; }
+#markdown-content.font-default { font-size: 18px; }
+#markdown-content.font-large { font-size: 20px; }
+#markdown-content.font-xlarge { font-size: 22px; }
+#markdown-content.font-xxlarge { font-size: 24px; }
+
+/* ── Markdown Content Styling ────────────────────────────── */
+#markdown-content h1 {
+    border-bottom: 2px solid var(--header-border);
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#markdown-content h1:first-child {
+    margin-top: 0;
+}
+
+#markdown-content h2 {
+    border-bottom: 1px solid var(--header-border);
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+    scroll-margin-top: 100px;
+    letter-spacing: -0.02em;
+}
+
+#markdown-content h3 {
+    font-size: 1.25em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+    scroll-margin-top: 100px;
+    letter-spacing: -0.01em;
+}
+
+#markdown-content h4 {
+    font-size: 1.125em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+#markdown-content p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+#markdown-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--duration-fast);
+}
+
+#markdown-content a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    transition: width var(--duration-normal) var(--ease-smooth);
+    border-radius: 1px;
+}
+
+#markdown-content a:hover::after {
+    width: 100%;
+}
+
+#markdown-content a:hover {
+    text-decoration: none;
+}
+
+#markdown-content code {
+    padding: 0.2em 0.5em;
+    margin: 0;
+    font-size: 85%;
+    background-color: var(--shimmer-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    transition: background var(--duration-fast);
+}
+
+#markdown-content pre {
+    position: relative;
+    background-color: var(--code-bg);
+    border-radius: 12px;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+    transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+#markdown-content pre:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+#markdown-content pre code {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 0;
+    border-radius: 0;
+}
+
+/* ── Code Block Copy Button ──────────────────────────────── */
+.code-copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-muted);
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all var(--duration-fast) var(--ease-smooth);
+    transform: translateY(-4px);
+}
+
+#markdown-content pre:hover .code-copy-btn {
+    opacity: 0.9;
+    transform: translateY(0);
+}
+
+.code-copy-btn:hover {
+    background: var(--bg-color);
+    color: var(--text-color);
+    opacity: 1 !important;
+    border-color: var(--primary-color);
+    transform: translateY(0) scale(1.05) !important;
+}
+
+.code-copy-btn:active {
+    transform: translateY(0) scale(0.95) !important;
+}
+
+.code-copy-btn.copied {
+    color: #22c55e;
+    border-color: #22c55e;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ── Blockquotes ─────────────────────────────────────────── */
+#markdown-content blockquote {
+    padding: 0 1em;
+    color: var(--text-muted);
+    border-left: 3px solid;
+    border-image: linear-gradient(to bottom, var(--accent-gradient-start), var(--accent-gradient-end)) 1;
+    margin: 0 0 16px 0;
+    transition: border-color var(--duration-fast);
+}
+
+/* ── Lists ───────────────────────────────────────────────── */
+#markdown-content ul,
+#markdown-content ol {
+    padding-left: 2em;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+/* ── Tables ──────────────────────────────────────────────── */
+#markdown-content table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 16px;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    border-radius: 12px;
+}
+
+#markdown-content tr {
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    transition: background-color var(--duration-fast);
+}
+
+#markdown-content tr:hover {
+    background-color: var(--shimmer-color);
+}
+
+#markdown-content tr:nth-child(2n) {
+    background-color: var(--table-alt-bg);
+}
+
+#markdown-content th,
+#markdown-content td {
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+}
+
+#markdown-content th {
+    font-weight: 700;
+}
+
+#markdown-content img {
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: var(--surface-color);
+    border-radius: 12px;
+}
+
+/* ── Two Column Layout ───────────────────────────────────── */
+.two-column {
+    column-count: 2;
+    column-gap: 32px;
+}
+
+.two-column p {
+    break-inside: avoid;
+    margin-bottom: 12px;
+}
+
+/* ── Loading State ───────────────────────────────────────── */
+.loading {
+    text-align: center;
+    padding: 80px 40px;
+    color: var(--text-muted);
+    font-size: 1.1em;
+    font-weight: 500;
+    position: relative;
+}
+
+.loading::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading::after {
+    content: '';
+    animation: loadingDots 1.5s infinite;
+}
+
+/* ── Error State ─────────────────────────────────────────── */
+.error {
+    padding: 24px;
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-border);
+    border-radius: 12px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    animation: fadeInUp 0.4s var(--ease-out);
+}
+
+.file-upload {
+    margin-top: 20px;
+    padding: 24px;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    transition: border-color var(--duration-fast);
+}
+
+.file-upload:hover {
+    border-color: var(--primary-color);
+}
+
+/* ── Collapsible Sections ────────────────────────────────── */
+#markdown-content .collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-left: 1.2em;
+    transition: color var(--duration-fast);
+    border-radius: 8px;
+}
+
+#markdown-content .collapsible-header:hover {
+    color: var(--primary-color);
+}
+
+#markdown-content .collapsible-header::before {
+    content: '';
+    display: inline-block;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+#markdown-content .collapsible-header.collapsed::before {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.section-content {
+    transition: opacity var(--duration-normal) var(--ease-smooth);
+    opacity: 1;
+}
+
+.section-content.collapsed {
+    display: none;
+    opacity: 0;
+}
+
+#markdown-content h3.collapsible-header {
+    margin-left: 1.2em;
+    padding-left: 1.4em;
+    border-left: 2px solid var(--border-color);
+}
+
+#markdown-content h3.collapsible-header::before {
+    left: 0.6em;
+}
+
+/* ── Document Navigation ─────────────────────────────────── */
+.doc-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.doc-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all var(--duration-fast) var(--ease-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.doc-nav a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    opacity: 0;
+    transition: opacity var(--duration-fast);
+}
+
+.doc-nav a:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--glow-color);
+    text-decoration: none;
+}
+
+.doc-nav a:hover::before {
+    opacity: 0.06;
+}
+
+.doc-nav .nav-prev::before {
+    content: none;
+}
+
+.doc-nav .nav-prev::after {
+    content: none;
+}
+
+/* Re-add the arrows as text */
+.doc-nav .nav-prev {
+    /* arrow handled by JS content */
+}
+
+.doc-nav .nav-next {
+    /* arrow handled by JS content */
+}
+
+/* Fix: use pseudo-elements correctly for nav arrows */
+.doc-nav a.nav-prev::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    opacity: 0;
+    transition: opacity var(--duration-fast);
+}
+
+.doc-nav a.nav-next::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    opacity: 0;
+    transition: opacity var(--duration-fast);
+}
+
+.doc-nav .nav-spacer {
+    flex: 1;
+}
+
+/* ── Back to Top Button ──────────────────────────────────── */
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--duration-normal) var(--ease-spring);
+    z-index: 90;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(20px) scale(0.8);
+    backdrop-filter: blur(10px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 24px var(--btn-shadow-hover);
+}
+
+.back-to-top:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* ── TOC FAB (mobile) ────────────────────────────────────── */
+.toc-fab {
+    display: none;
+    position: fixed;
+    bottom: 78px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: var(--surface-color);
+    color: var(--text-color);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transition: all var(--duration-fast) var(--ease-spring);
+    backdrop-filter: blur(10px);
+}
+
+.toc-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px var(--btn-shadow-hover);
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    color: #fff;
+    border-color: transparent;
+}
+
+.toc-fab svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ── Sidebar Overlay (mobile) ────────────────────────────── */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 199;
+    transition: opacity var(--duration-normal);
+}
+
+.sidebar-overlay.active {
+    display: block;
+    animation: fadeIn 0.3s var(--ease-out);
+}
+
+/* ── Path Picker ─────────────────────────────────────────── */
+.path-picker {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.path-picker h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 2.2em;
+    font-weight: 800;
+    border: none;
+    letter-spacing: -0.03em;
+}
+
+.path-picker .path-picker-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.05em;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.path-picker-level {
+    margin-bottom: 28px;
+}
+
+.path-picker-level-label {
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.path-picker-level-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.path-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.pick-your-path-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── Path Cards ──────────────────────────────────────────── */
+.path-card {
+    position: relative;
+    background: var(--surface-color);
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px 20px 20px;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+/* Animated gradient border on hover */
+.path-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end), var(--accent-gradient-start));
+    background-size: 300% 300%;
+    border-radius: 17px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--duration-normal) var(--ease-smooth);
+    animation: gradientShift 3s ease infinite;
+}
+
+/* Inner fill to show border effect */
+.path-card::after {
+    content: '';
+    position: absolute;
+    inset: 1.5px;
+    background: var(--surface-color);
+    border-radius: 14.5px;
+    z-index: -1;
+    transition: background var(--duration-slow) var(--ease-smooth);
+}
+
+.path-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--card-shadow-hover);
+    border-color: transparent;
+}
+
+.path-card:hover::before {
+    opacity: 1;
+}
+
+.path-card:active {
+    transform: translateY(-2px) scale(0.99);
+}
+
+.path-card-icon {
+    font-size: 2em;
+    line-height: 1;
+    margin-bottom: 4px;
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.path-card:hover .path-card-icon {
+    transform: scale(1.15);
+}
+
+.path-card-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.path-card-name {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: -0.01em;
+}
+
+.path-card-tools {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+.path-card-desc {
+    font-size: 0.88em;
+    color: var(--text-muted);
+    line-height: 1.5;
+    flex: 1;
+}
+
+.path-card-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.path-pill {
+    font-size: 0.72em;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    transition: transform var(--duration-fast);
+}
+
+.path-card:hover .path-pill {
+    transform: scale(1.05);
+}
+
+.path-pill.time {
+    background: rgba(100, 100, 100, 0.08);
+    color: var(--text-muted);
+}
+
+.path-pill.free {
+    background: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+}
+
+.path-pill.paid {
+    background: rgba(234, 179, 8, 0.12);
+    color: #d97706;
+}
+
+.path-card-badge {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    font-size: 0.68em;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    color: #fff;
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 8px var(--btn-shadow);
+    animation: float 3s ease-in-out infinite;
+}
+
+.path-picker-hint {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+/* ── Step Callout Boxes ──────────────────────────────────── */
+.step-callout {
+    display: flex;
+    gap: 14px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border-left: 4px solid;
+    margin: 0 0 16px 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.step-callout:hover {
+    transform: translateX(4px);
+}
+
+.step-callout-icon {
+    flex-shrink: 0;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.step-callout-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.step-callout-body p:last-child {
+    margin-bottom: 0;
+}
+
+.step-callout.tip {
+    background: rgba(99, 102, 241, 0.06);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .step-callout.tip {
+    background: rgba(129, 140, 248, 0.08);
+}
+
+.step-callout.warning {
+    background: rgba(234, 179, 8, 0.06);
+    border-color: #eab308;
+}
+
+[data-theme="dark"] .step-callout.warning {
+    background: rgba(234, 179, 8, 0.08);
+}
+
+.step-callout.note {
+    background: rgba(34, 197, 94, 0.06);
+    border-color: #22c55e;
+}
+
+[data-theme="dark"] .step-callout.note {
+    background: rgba(34, 197, 94, 0.08);
+}
+
+/* ── Terminal Code Blocks ────────────────────────────────── */
+.step-terminal {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.step-terminal:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+.step-terminal-bar {
+    display: none;
+}
+
+.step-terminal pre {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.step-terminal pre:hover {
+    box-shadow: none !important;
+}
+
+.step-terminal pre code {
+    color: var(--text-color);
+}
+
+/* ── CTA Link Buttons ────────────────────────────────────── */
+#markdown-content .step-link-btn,
+.step-link-btn {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: 8px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, var(--btn-gradient-start), var(--btn-gradient-end));
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95em;
+    text-decoration: none !important;
+    transition: all var(--duration-fast) var(--ease-spring);
+    box-shadow: 0 4px 16px var(--btn-shadow);
+    margin: 4px 0;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.01em;
+}
+
+.step-link-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity var(--duration-fast);
+}
+
+.step-link-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 24px var(--btn-shadow-hover);
+    text-decoration: none !important;
+}
+
+.step-link-btn:hover::before {
+    opacity: 1;
+}
+
+.step-link-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ── Checklist ───────────────────────────────────────────── */
+.step-checklist {
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+
+.step-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background var(--duration-fast), padding-left var(--duration-fast);
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.step-checklist li:hover {
+    background: var(--shimmer-color);
+    padding-left: 16px;
+}
+
+.step-checklist li:last-child {
+    border-bottom: none;
+}
+
+.step-checklist-icon {
+    flex-shrink: 0;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* ── Numbered Steps ──────────────────────────────────────── */
+.step-num-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    counter-reset: step-counter;
+}
+
+.step-num-list>li {
+    position: relative;
+    padding: 12px 0 12px 52px;
+    counter-increment: step-counter;
+    line-height: 1.7;
+    transition: padding-left var(--duration-fast);
+}
+
+.step-num-list>li:hover {
+    padding-left: 56px;
+}
+
+.step-num-list>li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85em;
+    line-height: 1;
+    box-shadow: 0 2px 8px var(--btn-shadow);
+    transition: transform var(--duration-fast) var(--ease-spring), box-shadow var(--duration-fast);
+}
+
+.step-num-list>li:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px var(--btn-shadow-hover);
+}
+
+/* ── Scroll Reveal Animations ────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--duration-slower) var(--ease-out),
+                transform var(--duration-slower) var(--ease-out);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered card reveal */
+.path-card.reveal:nth-child(1) { transition-delay: 0s; }
+.path-card.reveal:nth-child(2) { transition-delay: 0.08s; }
+.path-card.reveal:nth-child(3) { transition-delay: 0.16s; }
+.path-card.reveal:nth-child(4) { transition-delay: 0.24s; }
+.path-card.reveal:nth-child(5) { transition-delay: 0.32s; }
+.path-card.reveal:nth-child(6) { transition-delay: 0.4s; }
+.path-card.reveal:nth-child(7) { transition-delay: 0.48s; }
+.path-card.reveal:nth-child(8) { transition-delay: 0.56s; }
+.path-card.reveal:nth-child(9) { transition-delay: 0.64s; }
+.path-card.reveal:nth-child(10) { transition-delay: 0.72s; }
+.path-card.reveal:nth-child(11) { transition-delay: 0.80s; }
+
+/* ── Mobile Responsive ───────────────────────────────────── */
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0 20px 20px 0;
+        border: none;
+        border-right: 1px solid var(--border-color);
+        z-index: 200;
+        transition: left 0.35s var(--ease-spring);
+        padding-top: 20px;
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    .sidebar.mobile-open {
+        display: block;
+        left: 0;
+    }
+
+    .toc-fab {
+        display: flex;
+    }
+
+    .sidebar-reopen {
+        display: none;
+    }
+}
+
+@media (max-width: 980px) {
+    .logo {
+        font-size: 0.85rem;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .top-bar {
+        padding: 10px 14px;
+        gap: 6px;
+        border-radius: 12px;
+    }
+
+    .logo {
+        font-size: 0.75rem;
+    }
+
+    .welcome-url {
+        font-size: 1.3em !important;
+    }
+
+    .container {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .two-column {
+        column-count: 1;
+    }
+
+    #markdown-content td[width] {
+        display: block;
+        width: 100% !important;
+        border-top: none;
+    }
+
+    #markdown-content td[width] img {
+        display: block;
+        margin: 8px auto;
+    }
+
+    #markdown-content td[width] a {
+        word-break: break-all;
+    }
+
+    #markdown-content h1 {
+        font-size: 1.5em;
+    }
+
+    #markdown-content h2 {
+        font-size: 1.25em;
+    }
+
+    .path-card {
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .path-picker-grid,
+    .pick-your-path-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Skip Link ───────────────────────────────────────────── */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    color: #fff;
+    padding: 10px 20px;
+    z-index: 10000;
+    font-weight: 600;
+    border-radius: 0 0 12px 0;
+    text-decoration: none;
+    transition: top var(--duration-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ── Print Styles ────────────────────────────────────────── */
+@media print {
+    .step-callout {
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .step-terminal {
+        background: #f5f5f5 !important;
+    }
+
+    .step-terminal-bar {
+        display: none;
+    }
+
+    .step-terminal pre code {
+        color: #333 !important;
+    }
+
+    .step-link-btn {
+        background: none !important;
+        color: black !important;
+        border: 1px solid #999;
+        box-shadow: none;
+    }
+
+    .step-num-list>li::before {
+        background: #333 !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+        padding: 0;
+        animation: none;
+    }
+
+    .top-bar,
+    .back-to-top,
+    .toc-fab,
+    .sidebar,
+    .sidebar-overlay,
+    .file-upload,
+    .loading,
+    .error,
+    .doc-nav,
+    .code-copy-btn,
+    .code-lang-label {
+        display: none !important;
+    }
+
+    .layout-wrapper {
+        display: block;
+    }
+
+    .container {
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        animation: none;
+    }
+
+    .container::before {
+        display: none;
+    }
+
+    #markdown-content {
+        font-size: 10pt !important;
+        line-height: 1.3;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        color: black !important;
+        -webkit-text-fill-color: black !important;
+        background: none !important;
+    }
+
+    h1 {
+        font-size: 16pt;
+        border-bottom: 2px solid #000;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    h2 {
+        font-size: 14pt;
+        border-bottom: 1px solid #ccc;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    h3 {
+        font-size: 12pt;
+        margin-top: 0.8em;
+        margin-bottom: 0.4em;
+    }
+
+    p, ul, ol {
+        margin-bottom: 0.8em;
+    }
+
+    pre, code {
+        white-space: pre-wrap !important;
+        word-wrap: break-word;
+        border: 1px solid #ddd;
+        background-color: #f5f5f5 !important;
+        font-size: 9pt;
+    }
+
+    a {
+        text-decoration: none;
+        color: black !important;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        page-break-inside: auto;
+        margin-bottom: 1em;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    td, th {
+        vertical-align: top;
+        padding: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .two-column {
+        column-count: 2;
+        column-gap: 24px;
+    }
+
+    .two-column p {
+        break-inside: avoid;
+        margin-bottom: 8px;
+        font-size: 9pt;
+    }
+
+    details, summary {
+        display: block;
+    }
+
+    .collapsible-header::before {
+        display: none !important;
+    }
+
+    .collapsible-header {
+        padding-left: 0 !important;
+    }
+
+    .section-content.collapsed {
+        display: block !important;
+    }
+
+    [style*="display: none"] {
+        display: block !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <a href="#markdown-content" class="skip-link">Skip to content</a>
+
+    <div class="top-bar">
+        <button class="sidebar-reopen" id="sidebar-reopen" onclick="toggleSidebar()" aria-label="Show sidebar" title="Show sidebar">☰</button>
+        <div class="logo" onclick="loadRoute('welcome')" style="cursor:pointer;">Vibe Coding Workshop</div>
+        <select id="file-selector" aria-label="Select document" onchange="handleFileSelect(this.value)" style="display:none">
+            <!-- Populated by JS -->
+        </select>
+        <div class="top-bar-row2">
+            <div class="top-bar-doc top-bar-buttons">
+                <button class="top-bar-btn" id="font-size-toggle" onclick="cycleFontSize()" aria-label="Change font size" title="Font size">A</button>
+                <button class="top-bar-btn" id="toggle-sections" onclick="toggleAllSections()" aria-label="Expand or collapse all sections">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 5l4 4 4-4"/>
+                        <path d="M4 9l4 4 4-4"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="top-bar-global">
+            <a class="top-bar-btn" href="https://github.com/eisenbruch/vibe-coding-workshops" target="_blank" rel="noopener noreferrer" aria-label="View GitHub repository">
+                <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+            </a>
+            <button class="top-bar-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
+        </div>
+    </div>
+
+    <div class="layout-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-title"><span>Documents</span><button class="sidebar-collapse-btn" onclick="toggleSidebar()" aria-label="Hide sidebar" title="Hide sidebar">✕</button></div>
+                <ul id="sidebar-docs" class="sidebar-docs-nav"></ul>
+            </nav>
+        </aside>
+
+        <div class="container">
+            <div class="loading">Loading...</div>
+            <div id="markdown-content"></div>
+            <div id="doc-nav" class="doc-nav" style="display: none;"></div>
+        </div>
+    </div>
+
+    <button class="toc-fab" id="toc-fab" aria-label="Documents">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="12" y2="18"/>
+        </svg>
+    </button>
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Intersection Observer for scroll-triggered reveal animations -->
+    <script>
+    (function() {
+        if (!('IntersectionObserver' in window)) return;
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        // Observe cards and callouts after content loads
+        var contentDiv = document.getElementById('markdown-content');
+        var mo = new MutationObserver(function() {
+            contentDiv.querySelectorAll('.path-card, .step-callout, .step-num-list > li, .path-picker-level').forEach(function(el) {
+                if (!el.classList.contains('reveal')) {
+                    el.classList.add('reveal');
+                    observer.observe(el);
+                }
+            });
+        });
+        mo.observe(contentDiv, { childList: true, subtree: true });
+    })();
+    </script>
+
+    <script src="config.js"></script>
+    <!-- content modules (helpers must load first) -->
+    <script src="content/helpers.js"></script>
+    <script src="content/projects.js"></script>
+    <script src="content/setup-guides.js"></script>
+    <script src="content/beginner.js"></script>
+    <script src="content/group-project.js"></script>
+    <script src="content/prompting.js"></script>
+    <script src="content/product.js"></script>
+    <script src="content/tech-stack.js"></script>
+    <script src="content/github.js"></script>
+    <script src="content/solo-project.js"></script>
+    <script src="content/cleanup.js"></script>
+    <script src="content/advanced-techniques.js"></script>
+    <script src="content/custom-domains.js"></script>
+    <script src="content/hosting-platforms.js"></script>
+    <script src="content/beyond-coding.js"></script>
+    <script src="pages.js"></script>
+    <script>
+        // ── Theme toggle ──────────────────────────────────────────────
+        function getPreferredTheme() {
+            const stored = localStorage.getItem('theme');
+            if (stored) return stored;
+            return 'dark';
+        }
+
+        const sunIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1M8 13.5v1M1.5 8h1M13.5 8h1M3.4 3.4l.7.7M11.9 11.9l.7.7M3.4 12.6l.7-.7M11.9 4.1l.7-.7"/></svg>';
+        const moonIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 8.9A5.5 5.5 0 0 1 7.1 2.5a5.5 5.5 0 1 0 6.4 6.4Z"/></svg>';
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const btn = document.getElementById('theme-toggle');
+            btn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) metaTheme.content = theme === 'dark' ? '#0d1117' : '#f6f8fa';
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', next);
+            applyTheme(next);
+        }
+
+        applyTheme(getPreferredTheme());
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // ── Font Size Control ─────────────────────────────────────────
+        function getStoredFontSize() {
+            return localStorage.getItem('fontSize') || 'font-default';
+        }
+
+        function applyFontSize(size) {
+            FONT_SIZES.forEach(s => contentDiv.classList.remove(s));
+            contentDiv.classList.add(size);
+            const btn = document.getElementById('font-size-toggle');
+            btn.innerHTML = 'A<span class="size-indicator">' + FONT_LABELS[size] + '</span>';
+        }
+
+        function cycleFontSize() {
+            const current = getStoredFontSize();
+            const idx = FONT_SIZES.indexOf(current);
+            const next = FONT_SIZES[(idx + 1) % FONT_SIZES.length];
+            localStorage.setItem('fontSize', next);
+            applyFontSize(next);
+        }
+
+
+        const AVAILABLE_FILES = FILE_GROUPS.flatMap(g => g.files);
+
+        const selector = document.getElementById('file-selector');
+        const contentDiv = document.getElementById('markdown-content');
+        const loadingDiv = document.querySelector('.loading');
+
+        FILE_GROUPS.forEach(group => {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = group.label;
+            group.files.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file.path;
+                option.textContent = file.name;
+                optgroup.appendChild(option);
+            });
+            selector.appendChild(optgroup);
+        });
+
+        let currentFile = AVAILABLE_FILES[0].path;
+        const sectionStates = {};
+
+        // Nav sequence: main workshop flow (Start Here → Build Together → Level Up → Deployment)
+        const navGroups = ['Start Here', 'Build Together', 'Level Up', 'Hosting, Backends, & Domains'];
+        const navSequence = FILE_GROUPS
+            .filter(g => navGroups.includes(g.label))
+            .flatMap(g => g.files.map(f => f.path));
+
+        const docNavDiv = document.getElementById('doc-nav');
+
+        function updateDocNav(filePath) {
+            const idx = navSequence.indexOf(filePath);
+            if (idx === -1) {
+                docNavDiv.style.display = 'none';
+                return;
+            }
+            docNavDiv.style.display = 'flex';
+            const prev = idx > 0 ? AVAILABLE_FILES.find(f => f.path === navSequence[idx - 1]) : null;
+            const next = idx < navSequence.length - 1 ? AVAILABLE_FILES.find(f => f.path === navSequence[idx + 1]) : null;
+
+            let html = '';
+            if (prev) {
+                html += `<a href="#" class="nav-prev" data-path="${prev.path}">${prev.name}</a>`;
+            }
+            html += '<span class="nav-spacer"></span>';
+            if (next) {
+                html += `<a href="#" class="nav-next" data-path="${next.path}">${next.name}</a>`;
+            }
+            docNavDiv.innerHTML = html;
+
+            docNavDiv.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const path = link.dataset.path;
+                    selector.value = path;
+                    loadMarkdown(path);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+
+        // ── Markdown Loading & Rendering ──────────────────────────────
+        async function loadMarkdown(filePath, scrollToId) {
+            // Special custom routes
+            const customRoutes = {
+                'welcome': renderWelcome,
+                'who-am-i': renderWhoAmI,
+                'what-is-vibe-coding': renderWhatIsVibeCoding,
+                'why-vibe-coding': renderWhyVibeCoding,
+                'who-is-vibe-coding-for': renderWhoIsVibeCodingFor,
+                'what-youll-learn': renderWhatYoullLearn,
+                'example-projects': renderExampleProjects,
+                'pick-your-path': renderPickYourPath,
+                'setup-beginner': function(step) { renderBeginnerQuickStart(step); },
+                'setup-claude-desktop': function(step) { renderSetupGuide('setup-claude-desktop', step); },
+                'setup-google-ai-studio': function(step) { renderSetupGuide('setup-google-ai-studio', step); },
+                'setup-antigravity': function(step) { renderSetupGuide('setup-antigravity', step); },
+                'setup-claude-code': function(step) { renderSetupGuide('setup-claude-code', step); },
+                'setup-gemini-cli': function(step) { renderSetupGuide('setup-gemini-cli', step); },
+                'setup-antigravity-claude': function(step) { renderSetupGuide('setup-antigravity-claude', step); },
+                'setup-antigravity-gemini': function(step) { renderSetupGuide('setup-antigravity-gemini', step); },
+                'group-project': function(step) { renderGroupProject(step); },
+                'prompting-guide': function(step) { renderPromptingGuide(step); },
+                'product-guidance': function(step) { renderProductGuide(step); },
+                'tech-stack': function(step) { renderTechStackGuide(step); },
+                'data-apis': renderDataApis,
+                'github-guide': function(step) { renderGithubGuide(step); },
+                'solo-project': function(step) { renderSoloProjectGuide(step); },
+                'cleanup-guide': function(step) { renderCleanupGuide(step); },
+                'advanced-techniques': function(step) { renderAdvancedTechniquesGuide(step); },
+                'custom-domains': function(step) { renderCustomDomainsGuide(step); },
+                'hosting-platforms': function(step) { renderHostingPlatformsGuide(step); },
+                'beyond-coding': renderBeyondCoding,
+            };
+
+            // Parse step number from paths like "setup-beginner/2"
+            var stepMatch = filePath.match(/^(.+?)\/(\d+)$/);
+            var baseRoute = stepMatch ? stepMatch[1] : filePath;
+            var stepNum = stepMatch ? parseInt(stepMatch[2], 10) : 0;
+
+            if (customRoutes[baseRoute]) {
+                currentFile = baseRoute;
+                window.location.hash = encodeURIComponent(filePath);
+                loadingDiv.style.display = 'none';
+                document.getElementById('toggle-sections').style.display = 'none';
+                if (stepNum > 0) {
+                    customRoutes[baseRoute](stepNum);
+                } else {
+                    customRoutes[baseRoute]();
+                }
+                updateDocNav(filePath);
+                buildSidebarDocs();
+                return;
+            }
+
+            currentFile = filePath;
+            loadingDiv.style.display = 'block';
+            contentDiv.innerHTML = '';
+
+            window.location.hash = encodeURIComponent(filePath);
+
+            try {
+                const response = await fetch(filePath);
+
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath} (${response.status})`);
+                }
+
+                const text = await response.text();
+                renderMarkdown(text);
+                updateDocNav(filePath);
+                buildSidebarDocs();
+                loadingDiv.style.display = 'none';
+                document.getElementById('toggle-sections').style.display = '';
+
+                if (scrollToId) {
+                    expandAndScrollTo(scrollToId);
+                }
+
+            } catch (error) {
+                console.error(error);
+                showError(error.message);
+                loadingDiv.style.display = 'none';
+            }
+        }
+
+        function renderMarkdown(markdown) {
+            const renderer = {
+                heading(text, level, raw, slugger) {
+                    if (typeof text === 'object' && text !== null) {
+                        const options = text;
+                        raw = options.raw;
+                        level = options.depth;
+                        text = options.text;
+                    }
+
+                    const safeText = (raw || text || '').toString();
+                    const safeLevel = level || 1;
+                    const id = generateHeadingId(safeText);
+                    return `<h${safeLevel} id="${id}">${text}</h${safeLevel}>`;
+                }
+            };
+
+            marked.use({ renderer });
+            marked.setOptions({
+                gfm: true,
+                breaks: true
+            });
+
+            contentDiv.innerHTML = marked.parse(markdown);
+
+            // Handle links
+            contentDiv.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href) return;
+
+                const hrefLower = href.toLowerCase();
+                const isMarkdownFile = hrefLower.endsWith('.md') || hrefLower.endsWith('.markdown');
+                const hasMarkdownHash = href.includes('#') && (href.split('#')[1].toLowerCase().endsWith('.md') || href.split('#')[1].toLowerCase().endsWith('.markdown'));
+                const mdAnchorMatch = href.match(/^(.+\.md)#(.+)$/i);
+
+                // Check if href matches a known viewer route (non-md paths in FILE_GROUPS)
+                const isViewerRoute = AVAILABLE_FILES.some(f => f.path === href);
+
+                const isInternalViewerLink = isViewerRoute || ((isMarkdownFile || hasMarkdownHash || mdAnchorMatch) &&
+                    (!href.startsWith('http') || href.includes('workshop.nerktek.com/')));
+
+                if (isInternalViewerLink) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        let targetPath = href;
+                        let scrollToId = null;
+
+                        if (mdAnchorMatch) {
+                            targetPath = mdAnchorMatch[1];
+                            scrollToId = mdAnchorMatch[2];
+                        } else if (href.includes('#')) {
+                            targetPath = href.split('#')[1];
+                        }
+
+                        const decodedPath = decodeURIComponent(targetPath);
+                        loadMarkdown(decodedPath, scrollToId);
+                        selector.value = decodedPath;
+                    });
+                    return;
+                }
+
+                if (href.startsWith('http') || href.startsWith('https')) {
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+
+                if (href.startsWith('#')) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        if (!expandAndScrollTo(targetId)) {
+                            console.warn('Target not found:', targetId);
+                        }
+                    });
+                }
+            });
+
+            makeCollapsible();
+            enhanceStepContent();
+            addCopyButtons();
+            updateToggleIcon();
+        }
+
+        // ── Post-Processor: enhance rendered content ─────────────────
+        function enhanceStepContent() {
+            // 1. Blockquotes → callout boxes
+            contentDiv.querySelectorAll('blockquote').forEach(bq => {
+                const inner = bq.innerHTML.trim();
+                let variant = null, icon = null;
+
+                if (/^<p>\s*<strong>\s*(Tip|💡)/i.test(inner)) { variant = 'tip'; icon = '💡'; }
+                else if (/^<p>\s*<strong>\s*(⚠️|Warning)/i.test(inner)) { variant = 'warning'; icon = '⚠️'; }
+                else if (/^<p>\s*<strong>\s*(Note|📝)/i.test(inner)) { variant = 'note'; icon = '📝'; }
+
+                if (variant) {
+                    const callout = document.createElement('div');
+                    callout.className = 'step-callout ' + variant;
+                    // Strip the label from the first <p><strong>Label:</strong>
+                    const body = inner.replace(/<p>\s*<strong>\s*(?:Tip|💡|⚠️|Warning|Note|📝)\s*:?\s*<\/strong>\s*/i, '<p>');
+                    callout.innerHTML = `<span class="step-callout-icon">${icon}</span><div class="step-callout-body">${body}</div>`;
+                    bq.replaceWith(callout);
+                }
+            });
+
+            // 2. Code blocks → terminal chrome
+            contentDiv.querySelectorAll('pre').forEach(pre => {
+                // Skip if already wrapped
+                if (pre.parentElement && pre.parentElement.classList.contains('step-terminal')) return;
+                const code = pre.querySelector('code');
+                const langClass = code ? code.className : '';
+                const langMatch = langClass.match(/language-(\w+)/);
+                const lang = langMatch ? langMatch[1] : 'terminal';
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'step-terminal';
+                wrapper.innerHTML = '';
+                pre.parentNode.insertBefore(wrapper, pre);
+                wrapper.appendChild(pre);
+            });
+
+            // 3. Short ordered lists → numbered step lists
+            contentDiv.querySelectorAll('ol').forEach(ol => {
+                const items = ol.querySelectorAll(':scope > li');
+                if (items.length >= 2 && items.length <= 8) {
+                    ol.classList.add('step-num-list');
+                }
+            });
+
+            // 4. CTA links (download, sign up, install)
+            const ctaPattern = /\b(download|sign\s*up|install|create\s*account|get\s*started)\b/i;
+            contentDiv.querySelectorAll('a[href]').forEach(link => {
+                if (link.closest('.step-callout, .step-terminal, .path-picker, .path-card, nav, .top-bar, .doc-nav')) return;
+                const text = link.textContent.trim();
+                const href = link.getAttribute('href') || '';
+                if (ctaPattern.test(text) && href.startsWith('http') && !link.classList.contains('step-link-btn')) {
+                    link.classList.add('step-link-btn');
+                }
+            });
+
+            // 5. Checklist items (✅/❌ markers)
+            contentDiv.querySelectorAll('ul').forEach(ul => {
+                const items = Array.from(ul.querySelectorAll(':scope > li'));
+                const checkItems = items.filter(li => /^[✅❌✓✗]/.test(li.textContent.trim()));
+                if (checkItems.length >= items.length * 0.5 && checkItems.length >= 2) {
+                    ul.classList.add('step-checklist');
+                    items.forEach(li => {
+                        const text = li.innerHTML.trim();
+                        const match = text.match(/^([✅❌✓✗])\s*/);
+                        if (match) {
+                            const icon = match[1];
+                            const rest = text.slice(match[0].length);
+                            li.innerHTML = `<span class="step-checklist-icon">${icon}</span><span>${rest}</span>`;
+                        }
+                    });
+                }
+            });
+        }
+
+        // ── Collapsible Sections (Feature 2: first H2 open) ──────────
+        function makeCollapsible() {
+            const headers = contentDiv.querySelectorAll('h2, h3');
+            const saved = sectionStates[currentFile];
+            let firstH2Found = false;
+
+            headers.forEach(header => {
+                const level = parseInt(header.tagName[1]);
+                const sectionContent = document.createElement('div');
+                sectionContent.className = 'section-content';
+
+                let sibling = header.nextElementSibling;
+                while (sibling) {
+                    const next = sibling.nextElementSibling;
+                    if (/^H[1-6]$/.test(sibling.tagName) && parseInt(sibling.tagName[1]) <= level) break;
+                    sectionContent.appendChild(sibling);
+                    sibling = next;
+                }
+
+                if (sectionContent.children.length > 0) {
+                    const id = header.id;
+                    // MD files load collapsed; custom routes load expanded
+                    let defaultOpen = !currentFile.endsWith('.md');
+                    const isOpen = saved ? (saved[id] !== undefined ? saved[id] : defaultOpen) : defaultOpen;
+                    if (!isOpen) {
+                        header.classList.add('collapsible-header', 'collapsed');
+                        sectionContent.classList.add('collapsed');
+                    } else {
+                        header.classList.add('collapsible-header');
+                    }
+                    header.after(sectionContent);
+                    header.addEventListener('click', () => {
+                        header.classList.toggle('collapsed');
+                        sectionContent.classList.toggle('collapsed');
+                        if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
+                        sectionStates[currentFile][id] = !header.classList.contains('collapsed');
+                    });
+                }
+            });
+        }
+
+        // ── Code Block Copy Buttons (Feature 4) ──────────────────────
+        function addCopyButtons() {
+            contentDiv.querySelectorAll('pre').forEach(pre => {
+                const btn = document.createElement('button');
+                btn.className = 'code-copy-btn';
+                btn.textContent = 'Copy';
+                btn.addEventListener('click', async () => {
+                    const code = pre.querySelector('code');
+                    const text = code ? code.textContent : pre.textContent;
+                    try {
+                        await navigator.clipboard.writeText(text);
+                    } catch {
+                        // Fallback for file:// protocol
+                        const textarea = document.createElement('textarea');
+                        textarea.value = text;
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                    }
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'Copy';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+                pre.appendChild(btn);
+            });
+        }
+
+
+        // ── Sidebar Document Navigation ───────────────────────────────
+        function getGuideForRoute(route) {
+            if (route === 'setup-beginner') return BEGINNER_GUIDE;
+            if (route === 'group-project') return GROUP_PROJECT_GUIDE;
+            if (route === 'prompting-guide') return PROMPTING_GUIDE;
+            if (route === 'product-guidance') return PRODUCT_GUIDE;
+            if (route === 'tech-stack') return TECH_STACK_GUIDE;
+            if (route === 'github-guide') return GITHUB_GUIDE;
+            if (route === 'solo-project') return SOLO_PROJECT_GUIDE;
+            if (route === 'cleanup-guide') return CLEANUP_GUIDE;
+            if (route === 'advanced-techniques') return ADVANCED_TECHNIQUES_GUIDE;
+            if (route === 'custom-domains') return CUSTOM_DOMAINS_GUIDE;
+            if (route === 'hosting-platforms') return HOSTING_PLATFORMS_GUIDE;
+            if (SETUP_GUIDES[route]) return SETUP_GUIDES[route];
+            return null;
+        }
+
+        function getCurrentStep() {
+            var hash = decodeURIComponent(window.location.hash.slice(1));
+            var match = hash.match(/^(.+?)\/(\d+)$/);
+            return match ? parseInt(match[2], 10) : 0;
+        }
+
+        function getSidebarCollapsed() {
+            try { return JSON.parse(localStorage.getItem('sidebarCollapsed') || '{}'); } catch(e) { return {}; }
+        }
+        function setSidebarCollapsed(state) {
+            localStorage.setItem('sidebarCollapsed', JSON.stringify(state));
+        }
+
+        function buildSidebarDocs() {
+            const docsList = document.getElementById('sidebar-docs');
+            var savedScroll = docsList.scrollTop;
+            docsList.innerHTML = '';
+            var activeStep = getCurrentStep();
+            var collapsedState = getSidebarCollapsed();
+
+            FILE_GROUPS.forEach((group, gi) => {
+                var groupKey = 'g' + gi;
+                var hasActive = group.files.some(f => f.path === currentFile);
+                var defaultCollapsed = group.collapsedByDefault || false;
+                var isCollapsed = hasActive ? false : (groupKey in collapsedState ? collapsedState[groupKey] === true : defaultCollapsed);
+
+                // If group contains active item, ensure it's expanded in storage
+                if (hasActive && collapsedState[groupKey]) {
+                    collapsedState[groupKey] = false;
+                    setSidebarCollapsed(collapsedState);
+                }
+
+                const label = document.createElement('li');
+                label.className = 'sidebar-docs-group-label' + (isCollapsed ? ' collapsed' : '');
+                var labelText = document.createElement('span');
+                labelText.textContent = group.label;
+                var chevron = document.createElement('span');
+                chevron.className = 'chevron';
+                chevron.textContent = '▼';
+                label.appendChild(chevron);
+                label.appendChild(labelText);
+                label.addEventListener('click', function() {
+                    var state = getSidebarCollapsed();
+                    state[groupKey] = !state[groupKey];
+                    setSidebarCollapsed(state);
+                    label.classList.toggle('collapsed');
+                    itemsContainer.classList.toggle('collapsed');
+                });
+                docsList.appendChild(label);
+
+                var itemsContainer = document.createElement('ul');
+                itemsContainer.className = 'sidebar-docs-group-items' + (isCollapsed ? ' collapsed' : '');
+
+                group.files.forEach(file => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#' + encodeURIComponent(file.path);
+                    a.textContent = file.name;
+                    a.dataset.path = file.path;
+                    if (file.path === currentFile) a.classList.add('active');
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        selector.value = file.path;
+                        loadMarkdown(file.path);
+                        closeMobileSidebar();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                    li.appendChild(a);
+                    itemsContainer.appendChild(li);
+
+                    // Show step sub-items for the active step guide
+                    if (file.path === currentFile) {
+                        var guide = getGuideForRoute(file.path);
+                        if (guide && guide.steps) {
+                            var ul = document.createElement('ul');
+                            ul.className = 'sidebar-step-list';
+                            guide.steps.forEach(function(step, i) {
+                                var sli = document.createElement('li');
+                                var sa = document.createElement('a');
+                                sa.href = '#' + encodeURIComponent(file.path + (i > 0 ? '/' + i : ''));
+                                sa.textContent = (i + 1) + '. ' + step.title;
+                                sa.dataset.step = i;
+                                sa.dataset.parentPath = file.path;
+                                if (i === activeStep) sa.classList.add('active');
+                                sa.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    loadMarkdown(file.path + (i > 0 ? '/' + i : ''));
+                                    closeMobileSidebar();
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                });
+                                sli.appendChild(sa);
+                                ul.appendChild(sli);
+                            });
+                            itemsContainer.appendChild(ul);
+                        }
+                    }
+                });
+                docsList.appendChild(itemsContainer);
+            });
+
+            // Restore scroll position, then ensure active item is visible
+            docsList.scrollTop = savedScroll;
+            var activeLink = docsList.querySelector('a.active');
+            if (activeLink) {
+                var listRect = docsList.getBoundingClientRect();
+                var linkRect = activeLink.getBoundingClientRect();
+                if (linkRect.top < listRect.top || linkRect.bottom > listRect.bottom) {
+                    activeLink.scrollIntoView({ block: 'nearest' });
+                }
+            }
+        }
+
+        function updateSidebarDocsActive() {
+            var activeStep = getCurrentStep();
+            document.querySelectorAll('#sidebar-docs a[data-path]').forEach(a => {
+                a.classList.toggle('active', a.dataset.path === currentFile);
+            });
+            document.querySelectorAll('#sidebar-docs a[data-step]').forEach(a => {
+                a.classList.toggle('active', a.dataset.parentPath === currentFile && parseInt(a.dataset.step) === activeStep);
+            });
+        }
+
+        // ── Mobile Sidebar Drawer ─────────────────────────────────────
+        const sidebarEl = document.getElementById('sidebar');
+        const tocFab = document.getElementById('toc-fab');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function openMobileSidebar() {
+            sidebarEl.classList.add('mobile-open');
+            sidebarOverlay.classList.add('active');
+        }
+
+        function closeMobileSidebar() {
+            sidebarEl.classList.remove('mobile-open');
+            sidebarOverlay.classList.remove('active');
+        }
+
+        tocFab.addEventListener('click', () => {
+            if (sidebarEl.classList.contains('mobile-open')) {
+                closeMobileSidebar();
+            } else {
+                openMobileSidebar();
+            }
+        });
+
+        sidebarOverlay.addEventListener('click', closeMobileSidebar);
+
+        // ── Sidebar Collapse/Expand ─────────────────────────────────
+        const sidebarReopen = document.getElementById('sidebar-reopen');
+
+        function toggleSidebar() {
+            // On mobile, close the drawer instead of collapsing
+            if (sidebarEl.classList.contains('mobile-open')) {
+                closeMobileSidebar();
+                return;
+            }
+            const collapsed = !sidebarEl.classList.contains('collapsed');
+            sidebarEl.classList.toggle('collapsed', collapsed);
+            localStorage.setItem('sidebar-collapsed', collapsed ? '1' : '');
+        }
+
+        // Restore saved state
+        if (localStorage.getItem('sidebar-collapsed') === '1') {
+            sidebarEl.classList.add('collapsed');
+        }
+
+        // ── Expand & Scroll ───────────────────────────────────────────
+        function expandAndScrollTo(targetId) {
+            const target = document.getElementById(targetId);
+            if (!target) return false;
+
+            let el = target;
+            while (el && el !== contentDiv) {
+                if (el.classList.contains('section-content') && el.classList.contains('collapsed')) {
+                    el.classList.remove('collapsed');
+                    const header = el.previousElementSibling;
+                    if (header && header.classList.contains('collapsible-header')) {
+                        header.classList.remove('collapsed');
+                        if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
+                        sectionStates[currentFile][header.id] = true;
+                    }
+                }
+                el = el.parentElement;
+            }
+
+            if (target.classList.contains('collapsible-header') && target.classList.contains('collapsed')) {
+                target.classList.remove('collapsed');
+                const sectionContent = target.nextElementSibling;
+                if (sectionContent && sectionContent.classList.contains('section-content')) {
+                    sectionContent.classList.remove('collapsed');
+                }
+                if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
+                sectionStates[currentFile][targetId] = true;
+            }
+
+            target.scrollIntoView({ behavior: 'smooth' });
+            return true;
+        }
+
+        // ── Toggle All Sections ───────────────────────────────────────
+        const expandIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5l4 4 4-4"/><path d="M4 9l4 4 4-4"/></svg>';
+        const collapseIcon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l4-4 4 4"/><path d="M4 7l4-4 4 4"/></svg>';
+
+        function toggleAllSections() {
+            const allHeaders = contentDiv.querySelectorAll('.collapsible-header');
+            const collapsed = contentDiv.querySelectorAll('.collapsible-header.collapsed');
+            const shouldExpand = collapsed.length >= allHeaders.length / 2;
+
+            allHeaders.forEach(header => {
+                const section = header.nextElementSibling;
+                if (shouldExpand) {
+                    header.classList.remove('collapsed');
+                    if (section && section.classList.contains('section-content')) section.classList.remove('collapsed');
+                } else {
+                    header.classList.add('collapsed');
+                    if (section && section.classList.contains('section-content')) section.classList.add('collapsed');
+                }
+                if (!sectionStates[currentFile]) sectionStates[currentFile] = {};
+                sectionStates[currentFile][header.id] = shouldExpand;
+            });
+
+            updateToggleIcon();
+        }
+
+        function updateToggleIcon() {
+            const btn = document.getElementById('toggle-sections');
+            const allHeaders = contentDiv.querySelectorAll('.collapsible-header');
+            const collapsed = contentDiv.querySelectorAll('.collapsible-header.collapsed');
+            btn.innerHTML = collapsed.length >= allHeaders.length / 2 ? expandIcon : collapseIcon;
+        }
+
+        function handleFileSelect(filePath) {
+            loadMarkdown(filePath);
+        }
+
+        function showError(msg) {
+            contentDiv.innerHTML = `
+                <div class="error">
+                    <h3>Unable to load file</h3>
+                    <p>${msg}</p>
+                    <p>If you are opening this file directly in a browser (file://), you may need to use a local server or manually upload the file below.</p>
+                </div>
+                <div class="file-upload">
+                    <p>Select <strong>${currentFile}</strong> manually:</p>
+                    <input type="file" onchange="handleManualUpload(event)">
+                </div>
+            `;
+        }
+
+        function handleManualUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                renderMarkdown(e.target.result);
+            };
+            reader.readAsText(file);
+        }
+
+
+        // ── Back to Top (Feature 7) ──────────────────────────────────
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        function initBackToTop() {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }, { passive: true });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // ── Hash Navigation ───────────────────────────────────────────
+        window.addEventListener('hashchange', () => {
+            const newHash = decodeURIComponent(window.location.hash.slice(1));
+            const baseHash = newHash.replace(/\/\d+$/, '');
+            if (newHash && baseHash !== currentFile) {
+                currentFile = baseHash;
+                selector.value = baseHash;
+                loadMarkdown(newHash);
+            }
+        });
+
+        // ── Initialize ───────────────────────────────────────────────
+        applyFontSize(getStoredFontSize());
+
+        const hash = window.location.hash.slice(1);
+        var initPath = currentFile;
+        if (hash) {
+            const decodedPath = decodeURIComponent(hash);
+            const basePath = decodedPath.replace(/\/\d+$/, '');
+            currentFile = basePath;
+            selector.value = basePath;
+            initPath = decodedPath;
+        }
+
+        buildSidebarDocs();
+        loadMarkdown(initPath);
+        initBackToTop();
+
+    </script>
+</body>
+</html>

@@ -133,15 +133,109 @@ function renderWelcome() {
     html += '</div>';
     html += '</div>';
 
-    // Feedback
+    // Next page CTA
     html += '<div style="text-align:center; border-top:1px solid var(--border-color); padding-top:28px;">';
-    html += '<p style="color:var(--text-muted); font-size:0.95em; margin-bottom:12px;">Your feedback helps shape future workshops</p>';
-    html += '<a href="https://forms.gle/3iVRWgUS6o8U51Ut5" target="_blank" rel="noopener noreferrer" class="step-link-btn" style="font-size:0.95em;">Leave Feedback</a>';
+    html += '<a href="#who-am-i" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'who-am-i\');">Let\'s Get Started &rarr;</a>';
     html += '</div>';
 
     html += '</div>';
     contentDiv.innerHTML = html;
     addCardKeyboardSupport();
+}
+
+
+// ── Workshop Kickoff ───────────────────────────────────────
+function renderWorkshopKickoff() {
+    let html = '<div class="path-picker">';
+    html += '<h1>Workshop Kickoff</h1>';
+    html += '<p class="path-picker-subtitle">Let\'s get to know the room before we dive in</p>';
+    html += '</div>';
+
+    // Room Check
+    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:16px; border:none; padding:0;">Room Check — Show of Hands</h2>';
+    html += '<div class="path-picker-grid" style="margin-bottom:36px;">';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">💡</div>';
+    html += '<div class="path-card-name">Had an Idea for an App, Game, Website, or Business?</div>';
+    html += '<div class="path-card-desc">Even if it never left your head — that counts</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🤖</div>';
+    html += '<div class="path-card-name">Used AI?</div>';
+    html += '<div class="path-card-desc">ChatGPT, image generators, voice assistants — anything counts</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">💻</div>';
+    html += '<div class="path-card-name">Written Any Code?</div>';
+    html += '<div class="path-card-desc">HTML, Python, spreadsheet formulas — even a little bit</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">▶️</div>';
+    html += '<div class="path-card-name">Used a Terminal?</div>';
+    html += '<div class="path-card-desc">Command line, shell, or terminal — the text-based interface</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon">🚀</div>';
+    html += '<div class="path-card-name">Launched Your Own Site or App?</div>';
+    html += '<div class="path-card-desc">Something live on the internet that people can actually use</div>';
+    html += '</div>';
+
+    html += '</div>';
+
+    // Quick Intros
+    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:16px; border:none; padding:0;">Quick Intros</h2>';
+    html += '<div class="path-picker-grid" style="margin-bottom:36px;">';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">01</div>';
+    html += '<div class="path-card-name">Your Name</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">02</div>';
+    html += '<div class="path-card-name">Skills or Interests You\'re Bringing</div>';
+    html += '<div class="path-card-desc">Doesn\'t have to be technical</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">03</div>';
+    html += '<div class="path-card-name">What You Want to Build or Learn</div>';
+    html += '</div>';
+
+    html += '</div>';
+
+    // CTA
+    html += '<div style="text-align:center; padding:16px 0;">';
+    html += '<a href="#what-is-vibe-coding" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'what-is-vibe-coding\');">What is Vibe Coding? &rarr;</a>';
+    html += '</div>';
+
+    contentDiv.innerHTML = html;
+}
+
+
+// ── Feedback ───────────────────────────────────────────────
+function renderFeedback() {
+    let html = '<div class="path-picker">';
+    html += '<h1>Feedback</h1>';
+    html += '<p class="path-picker-subtitle">Your feedback helps shape future workshops</p>';
+    html += '</div>';
+
+    html += '<div style="text-align:center; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; padding:40px 20px; margin-bottom:32px;">';
+    html += '<p style="font-size:1.1em; color:var(--text-color); margin-bottom:20px;">Let me know what worked, what didn\'t, and what you\'d like to see next.</p>';
+    html += '<a href="https://forms.gle/3iVRWgUS6o8U51Ut5" target="_blank" rel="noopener noreferrer" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;">Leave Feedback &rarr;</a>';
+    html += '</div>';
+
+    // CTA
+    html += '<div style="text-align:center; padding:16px 0;">';
+    html += '<a href="#pick-your-path" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'pick-your-path\');">Pick Your Path &rarr;</a>';
+    html += '</div>';
+
+    contentDiv.innerHTML = html;
 }
 
 
@@ -153,7 +247,7 @@ function renderWhoAmI() {
     html += '<div style="text-align:center; margin-bottom:36px;">';
     html += '<div style="height:80px; border-radius:50%; background:var(--accent-color); color:#fff; font-size:2em; font-weight:800; display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px; letter-spacing:-0.02em;">About Me</div>';
     html += '<h1 style="font-size:2.2em; font-weight:800; border:none; margin:0 0 6px 0;">Noah Eisenbruch</h1>';
-    html += '<p style="color:var(--text-muted); font-size:1.1em; margin:0;">Artist &middot; Product Manager &middot; Creative Technologist &middot; Educator</p>';
+    html += '<p style="color:var(--text-muted); font-size:1.1em; margin:0;">Artist &middot; Tech Founder &middot; Product Manager &middot; Creative Technologist &middot; Educator</p>';
     html += '</div>';
 
     // Three identity cards
@@ -162,13 +256,13 @@ function renderWhoAmI() {
     html += '<div class="path-card" style="cursor:default; text-align:left;">';
     html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">01</div>';
     html += '<div class="path-card-name">Background</div>';
-    html += '<div class="path-card-desc">Studied experimental video, sculpture, and film. Spent 15+ years in tech as a founder, product manager, and consultant.</div>';
+    html += '<div class="path-card-desc">Studied experimental video, sculpture, and film. Spent 15 years in tech as a founder, product manager, and consultant.</div>';
     html += '</div>';
 
     html += '<div class="path-card" style="cursor:default; text-align:left;">';
     html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">02</div>';
     html += '<div class="path-card-name">Art Practice</div>';
-    html += '<div class="path-card-desc">Video art, interactive installations, and conceptual web projects. Work that often takes the shape of fully functional "fake" products and services.</div>';
+    html += '<div class="path-card-desc">Art that blurs the line between real and fake — fully functional products, services, and websites built as conceptual pieces. Also spans video art, interactive installations, and jewelry design.</div>';
     html += '</div>';
 
     html += '<div class="path-card" style="cursor:default; text-align:left;">';
@@ -183,21 +277,113 @@ function renderWhoAmI() {
     html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:28px; border:1px solid var(--border-color);">';
     html += '<div class="path-card-name" style="font-size:1.15em; margin-bottom:10px;">Why I Teach This</div>';
     html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
-    html += 'Vibe coding let me build projects I\'d only dreamed about. ';
-    html += 'Now I teach workshops and private lessons to help others do the same — ';
-    html += 'bypass technical roadblocks and bring their ideas to life independently.';
+    html += 'Vibe coding empowers me to build projects I\'d only dreamed about. ';
+    html += 'I believe everyone deserves to bring their ideas to life without technical gatekeeping. ';
+    html += 'That\'s why I teach workshops and private lessons — to help others bypass the same roadblocks I faced.';
     html += '</div>';
     html += '</div>';
 
-    // // Example project callout
-    // html += '<div class="step-callout note" style="margin-bottom:32px;">';
-    // html += '<span class="step-callout-icon" style="font-family:var(--font-mono,monospace); font-weight:700;">&gt;_</span>';
-    // html += '<div class="step-callout-body">See examples of what vibe coding can produce on the <a href="#example-projects" onclick="event.preventDefault(); loadRoute(\'example-projects\');">Example Projects</a> page, including <a href="https://trafficvision.live" target="_blank" rel="noopener noreferrer">TrafficVision.live</a> — a conceptual art project built as a fully functional global camera aggregator.</div>';
-    // html += '</div>';
+    // Gantt Timeline
+    // Range: 2008–2026 = 18 years. left% = (start-2008)/18*100, width% = (end-start)/18*100
+    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:16px; border:none; padding:0;">The Journey</h2>';
+    html += '<div class="gantt-timeline">';
+    html += '<div class="gantt-inner">';
+
+    // Year axis labels
+    html += '<div class="gantt-axis" style="height:20px; position:relative;">';
+    var ganttYears = [2008,2010,2012,2014,2016,2018,2020,2022,2024,2026];
+    for (var i = 0; i < ganttYears.length; i++) {
+        var pct = ((ganttYears[i] - 2008) / 18 * 100).toFixed(1);
+        html += '<div class="gantt-axis-label" style="left:' + pct + '%;">' + ganttYears[i] + '</div>';
+    }
+    html += '</div>';
+
+    // Grid lines
+    html += '<div class="gantt-grid">';
+    for (var i = 0; i < ganttYears.length; i++) {
+        var pct = ((ganttYears[i] - 2008) / 18 * 100).toFixed(1);
+        html += '<div class="gantt-grid-line" style="left:' + pct + '%;"></div>';
+    }
+    html += '</div>';
+
+    // Bars — each row is one role
+    html += '<div class="gantt-rows">';
+
+    var ganttData = [
+        { start: 2012, end: 2022, name: 'IT Firm', desc: 'IT Technician \u2192 Product &amp; Tech Consultant \u2192 General Manager. Managed client accounts, development teams, and web solutions over nearly a decade.' },
+        { start: 2008, end: 2012, name: 'Hampshire College', desc: 'Studied experimental film, video, sculpture, and digital art' },
+        { start: 2012, end: 2018, name: 'Freelance Creative &amp; Tech', desc: 'Built websites and edited video for visual artists and musicians. Consulted on technical aspects of physical and digital work.' },
+        { start: 2017, end: 2022, name: 'Automated Reminders SaaS Startup', desc: 'Customer Success, Support, &amp; Project Manager. Built onboarding flows, managed product updates, ran SEO and A/B experiments.' },
+        { start: 2018, end: 2020, name: 'Augmented Reality SaaS Startup', desc: 'Founder &amp; CTO. Built web and mobile apps for collaborative 3D design reviews in augmented reality. Founders Institute and Newark Venture Partners Labs accelerator programs.' },
+        { start: 2018, end: 2019, name: 'Street Art Database Startup', desc: 'AR Lead. Designed and developed immersive street art AR experiences in native Swift for iOS.' },
+        { start: 2022, end: 2024, name: 'Web3 Startup', desc: 'Product Manager &amp; Event Organizer. Managed product at a web3 platform and organized one of the largest web3 conferences.' },
+        { start: 2024, end: 2026, name: 'Independent', desc: 'Building creative projects and businesses while teaching others to do the same through workshops and private lessons.' }
+    ];
+
+    // Pack bars into lanes (first-fit: place each bar on the first lane where it won't overlap)
+    var lanes = []; // each lane is an array of { start, end }
+    var laneAssignments = [];
+    for (var i = 0; i < ganttData.length; i++) {
+        var d = ganttData[i];
+        var placed = false;
+        for (var l = 0; l < lanes.length; l++) {
+            var fits = true;
+            for (var j = 0; j < lanes[l].length; j++) {
+                if (d.start < lanes[l][j].end && d.end > lanes[l][j].start) {
+                    fits = false;
+                    break;
+                }
+            }
+            if (fits) {
+                lanes[l].push({ start: d.start, end: d.end });
+                laneAssignments.push(l);
+                placed = true;
+                break;
+            }
+        }
+        if (!placed) {
+            lanes.push([{ start: d.start, end: d.end }]);
+            laneAssignments.push(lanes.length - 1);
+        }
+    }
+
+    // Render one gantt-row per lane, with multiple bars per row
+    for (var l = 0; l < lanes.length; l++) {
+        html += '<div class="gantt-row">';
+        for (var i = 0; i < ganttData.length; i++) {
+            if (laneAssignments[i] !== l) continue;
+            var d = ganttData[i];
+            var left = ((d.start - 2008) / 18 * 100 + 0.3).toFixed(1);
+            var width = ((d.end - d.start) / 18 * 100 - 0.6).toFixed(1);
+            html += '<div class="gantt-bar" style="left:' + left + '%; width:' + width + '%;">';
+            html += '<span class="gantt-bar-label">' + d.name + '</span>';
+            html += '</div>';
+        }
+        html += '</div>';
+    }
+
+    html += '</div>';
+    html += '</div>';
+
+    // Detail cards below the chart (sorted chronologically)
+    var ganttSorted = ganttData.slice().sort(function(a, b) { return a.start - b.start || a.end - b.end; });
+    html += '<div class="gantt-details">';
+    for (var i = 0; i < ganttSorted.length; i++) {
+        var d = ganttSorted[i];
+        var endLabel = d.end === 2026 ? 'Now' : d.end;
+        html += '<div class="gantt-detail">';
+        html += '<div style="flex-shrink:0;"><div class="gantt-detail-years">' + d.start + '\u2013' + endLabel + '</div></div>';
+        html += '<div><div class="gantt-detail-name">' + d.name + '</div>';
+        html += '<div class="gantt-detail-desc">' + d.desc + '</div></div>';
+        html += '</div>';
+    }
+    html += '</div>';
+
+    html += '</div>';
 
     // CTA
     html += '<div style="text-align:center; padding:16px 0;">';
-    html += '<a href="#what-is-vibe-coding" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'what-is-vibe-coding\');">What is Vibe Coding? &rarr;</a>';
+    html += '<a href="#workshop-kickoff" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'workshop-kickoff\');">Workshop Kickoff &rarr;</a>';
     html += '</div>';
 
     html += '</div>';
@@ -208,11 +394,18 @@ function renderWhoAmI() {
 function renderWhatIsVibeCoding() {
     let html = '<div class="path-picker">';
     html += '<h1>What is Vibe Coding?</h1>';
-    html += '<p class="path-picker-subtitle">Describe what you want. AI writes the code. You guide the result.</p>';
+    html += '<p class="path-picker-subtitle">A feedback loop between you and AI — describe, test, refine, repeat.</p>';
+    html += '</div>';
+
+    // Origin
+    html += '<div class="step-callout note" style="margin-bottom:32px;">';
+    html += '<span class="step-callout-icon">📖</span>';
+    html += '<div class="step-callout-body">The term "vibe coding" was coined by Andrej Karpathy, co-founder of OpenAI and former head of AI at Tesla: "Fully give in to the vibes ... and forget that the code even exists."</div>';
     html += '</div>';
 
     // How it works — three visual columns
-    html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
+    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); text-align:center; margin-bottom:16px; border:none; padding:0;">How It Works</h2>';
+    html += '<div class="path-picker-grid" style="margin-bottom:12px;">';
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
     html += '<div class="path-card-icon">💬</div>';
     html += '<div class="path-card-name">You Describe</div>';
@@ -229,10 +422,23 @@ function renderWhatIsVibeCoding() {
     html += '<div class="path-card-desc">Test it, tell the AI what to change, and refine until it\'s exactly what you want</div>';
     html += '</div>';
     html += '</div>';
+    html += '<p style="text-align:center; color:var(--text-muted); font-size:0.9em; margin-bottom:32px;">This cycle repeats — each round gets you closer to what you envisioned.</p>';
 
-    html += '<div class="step-callout note" style="margin-bottom:32px;">';
-    html += '<span class="step-callout-icon">💡</span>';
-    html += '<div class="step-callout-body">No coding experience required to start. As you build more complex projects, understanding your tools becomes important — and your AI can teach you along the way.</div>';
+    // Key concepts
+    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); text-align:center; margin-bottom:16px; border:none; padding:0;">Key Concepts</h2>';
+    html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
+    html += '<div class="path-card" style="cursor:default; text-align:left;">';
+    html += '<div class="path-card-name">It\'s a Conversation</div>';
+    html += '<div class="path-card-desc">You\'re collaborating with AI, not just pressing a generate button. The better you communicate, the better the results.</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:left;">';
+    html += '<div class="path-card-name">You Don\'t Need to Understand the Code</div>';
+    html += '<div class="path-card-desc">The AI handles the technical implementation. You focus on what you want it to do, look like, and feel like.</div>';
+    html += '</div>';
+    html += '<div class="path-card" style="cursor:default; text-align:left;">';
+    html += '<div class="path-card-name">It\'s Not Magic</div>';
+    html += '<div class="path-card-desc">Good results come from clear communication and iteration — just like working with a human developer.</div>';
+    html += '</div>';
     html += '</div>';
 
     // CTA
@@ -247,8 +453,15 @@ function renderWhatIsVibeCoding() {
 function renderWhyVibeCoding() {
     let html = '<div class="path-picker">';
     html += '<h1>Why Vibe Coding?</h1>';
-    html += '<p class="path-picker-subtitle">In the AI era, building digital creations is no longer limited to people who write code.</p>';
+    html += '<p class="path-picker-subtitle">Software development is dead. Long live software development.</p>';
     html += '</div>';
+
+    html += '<p style="font-size:1.05em; line-height:1.7; color:var(--text-color); margin-bottom:32px;">';
+    html += 'Traditional software development — hiring developers, learning to code, waiting months for results — is being replaced. ';
+    html += 'In 2025, Anthropic CEO Dario Amodei predicted AI would write 90% of all code within a year. ';
+    html += 'But building software isn\'t going away. It\'s becoming something <strong>anyone</strong> can do. ';
+    html += 'The tools have changed. The gatekeepers are gone. What remains is the most important part: <strong>your ideas</strong>.';
+    html += '</p>';
 
     html += '<div class="path-picker-grid" style="margin-bottom:32px;">';
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
@@ -392,28 +605,6 @@ function renderWhatYoullLearn() {
     html += '<div class="step-callout-body">The core workflow is <strong>prompt → test → iterate → commit</strong>. You\'ll practice this cycle throughout the workshop.</div>';
     html += '</div>';
 
-    // Bring your skills section
-    html += '<h2 style="font-size:1.3em; font-weight:700; text-align:center; margin-bottom:6px; border:none; padding:0;">Bring What You Already Know</h2>';
-    html += '<p style="color:var(--text-muted); text-align:center; margin-bottom:20px;">Your domain expertise is what makes your projects great. The AI handles the code.</p>';
-    html += '<div class="path-picker-grid" style="margin-bottom:28px;">';
-
-    html += '<div class="path-card" style="cursor:default; text-align:center;">';
-    html += '<div class="path-card-name">The Teacher</div>';
-    html += '<div class="path-card-desc">Builds a custom grading tool because no existing app fits their workflow</div>';
-    html += '</div>';
-
-    html += '<div class="path-card" style="cursor:default; text-align:center;">';
-    html += '<div class="path-card-name">The Organizer</div>';
-    html += '<div class="path-card-desc">Builds an events system tailored to their community — and avoids platform fees</div>';
-    html += '</div>';
-
-    html += '<div class="path-card" style="cursor:default; text-align:center;">';
-    html += '<div class="path-card-name">The Business Owner</div>';
-    html += '<div class="path-card-desc">Builds an inventory tracker tailored to their exact process</div>';
-    html += '</div>';
-
-    html += '</div>';
-
     html += '<div class="step-callout note" style="margin-bottom:32px;">';
     html += '<span class="step-callout-icon">🙋</span>';
     html += '<div class="step-callout-body"><strong>Ask questions!</strong> During the workshop, ask about anything — your project, your tools, a concept you want to understand. The best way to learn vibe coding is to stay curious and explore what\'s possible.</div>';
@@ -475,7 +666,7 @@ function renderExampleProjects() {
 
     // CTA
     html += '<div style="text-align:center; padding:24px 0;">';
-    html += '<a href="#pick-your-path" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'pick-your-path\');">Choose Your Setup Path →</a>';
+    html += '<a href="#beyond-coding" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'beyond-coding\');">Beyond Vibe Coding →</a>';
     html += '</div>';
 
     contentDiv.innerHTML = html;
@@ -737,7 +928,7 @@ function renderBeyondCoding() {
     html += _tip('If you can describe what you need, an AI agent can probably help — whether it\'s on your computer or in the cloud.');
 
     html += '<div style="text-align:center; padding:24px 0;">';
-    html += '<a href="#pick-your-path" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'pick-your-path\');">Choose Your Setup Path \u2192</a>';
+    html += '<a href="#feedback" class="step-link-btn" style="font-size:1.05em; padding:10px 28px;" onclick="event.preventDefault(); loadRoute(\'feedback\');">Leave Feedback \u2192</a>';
     html += '</div>';
 
     contentDiv.innerHTML = html;
