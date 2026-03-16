@@ -14,7 +14,7 @@ function _cards(items, opts) {
         } else if (item.route) {
             html += '<div class="path-card" onclick="loadRoute(\'' + item.route + '\')" tabindex="0" role="button">';
         } else {
-            html += '<div class="path-card" style="cursor:default; text-align:center;">';
+            html += '<div class="path-card path-card-static">';
         }
         html += '<div class="path-card-icon">' + item.icon + '</div>';
         html += '<div class="path-card-name">' + item.name + '</div>';
