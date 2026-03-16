@@ -957,12 +957,6 @@ select:hover {
     text-align: center;
 }
 
-.path-card-static:hover {
-    transform: none;
-    box-shadow: var(--dash-widget-shadow);
-    border-color: var(--border-color);
-}
-
 .path-card-icon {
     font-size: 1.8em;
     line-height: 1;
