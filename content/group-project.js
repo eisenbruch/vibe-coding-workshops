@@ -183,7 +183,7 @@ const GROUP_PROJECT_GUIDE = {
                 + '<p style="margin-top:12px;">Tell your agent:</p>'
                 + _term('Commit my changes with a message describing what we added')
                 + '<p style="margin-top:16px;">Now open SourceTree and look at your project — you\'ll see <strong>two commits</strong> in your history. Click between them to see exactly what changed.</p>'
-                + _tip('This is the power of Git. Every commit is a snapshot you can compare, revisit, or roll back to. Get in the habit of committing after every meaningful change.')
+                + _tip('If your agent isn\'t already committing automatically, tell it: <em>"From now on, automatically commit changes whenever we make progress or fix a bug."</em> Most AI coding tools can do this, and it means you\'ll always have a trail of snapshots to look back on.')
         },
         {
             title: 'Try @ Mentioning a File',
@@ -248,14 +248,14 @@ const GROUP_PROJECT_GUIDE = {
                 + '<h3>Find the Error</h3>'
                 + '<ol class="step-num-list">'
                 + '<li>Open your browser\'s <strong>Developer Tools</strong> — press <code>Cmd + Option + J</code> or <code>F12</code></li>'
-                + '<li>Click the <strong>Console</strong> tab</li>'
-                + '<li>Look for red error messages — they\'ll tell you what went wrong and which line caused it</li>'
+                + '<li>Click the <strong>Console</strong> tab — look for red error messages that tell you what went wrong and which line caused it. You\'ll also see yellow warnings and <code>console.log</code> output here, which are useful for debugging issues that don\'t produce errors.</li>'
+                + '<li>If your app makes API calls, check the <strong>Network</strong> tab — it shows every request your app makes. Look for red entries or unexpected status codes to spot failed requests.</li>'
                 + '</ol>'
                 + '<h3>Fix the Error</h3>'
                 + '<p>Copy the error message from the console and paste it to your AI agent:</p>'
                 + _term('I\'m getting an error.\n\nWhat I expected: [describe what should happen]\nWhat actually happened: [describe what you see instead]\n\nHere\'s the error from the browser console:\n[paste the error message]\n\n[paste a screenshot if helpful]')
                 + '<p style="margin-top:16px;">The AI will read the error, find the problem, and fix it. Refresh and confirm it works.</p>'
-                + _warn('This is the #1 debugging workflow in vibe coding: see a problem → open the console → copy the error → paste it to the AI. Memorize this loop — you\'ll use it constantly.')
+                + _warn('This is the #1 debugging workflow in vibe coding: see a problem → open the console → copy the error → paste it to the AI. AI agents are getting better at catching errors on their own, but they can\'t see your browser very well yet — so when something looks wrong, this loop is how you close the gap.')
         },
         {
             title: 'Verify & Commit the Fix',
