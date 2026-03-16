@@ -77,6 +77,7 @@
     <script src="content/github.js"></script>
     <script src="content/solo-project.js"></script>
     <script src="content/cleanup.js"></script>
+    <script src="content/extending-ai.js"></script>
     <script src="content/advanced-techniques.js"></script>
     <script src="content/custom-domains.js"></script>
     <script src="content/hosting-platforms.js"></script>
@@ -228,6 +229,7 @@
                 'github-guide': function(step) { renderGithubGuide(step); },
                 'solo-project': function(step) { renderSoloProjectGuide(step); },
                 'cleanup-guide': function(step) { renderCleanupGuide(step); },
+                'extending-ai': function(step) { renderExtendingAiGuide(step); },
                 'advanced-techniques': function(step) { renderAdvancedTechniquesGuide(step); },
                 'custom-domains': function(step) { renderCustomDomainsGuide(step); },
                 'hosting-platforms': function(step) { renderHostingPlatformsGuide(step); },
@@ -529,6 +531,7 @@
             if (route === 'github-guide') return GITHUB_GUIDE;
             if (route === 'solo-project') return SOLO_PROJECT_GUIDE;
             if (route === 'cleanup-guide') return CLEANUP_GUIDE;
+            if (route === 'extending-ai') return EXTENDING_AI_GUIDE;
             if (route === 'advanced-techniques') return ADVANCED_TECHNIQUES_GUIDE;
             if (route === 'custom-domains') return CUSTOM_DOMAINS_GUIDE;
             if (route === 'hosting-platforms') return HOSTING_PLATFORMS_GUIDE;

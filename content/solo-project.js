@@ -8,7 +8,7 @@ const SOLO_PROJECT_GUIDE = {
         { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
         { icon: '✨', name: 'Clean Up & Optimize', desc: 'Polish your code, fix bugs, and improve performance', route: 'cleanup-guide' },
         { icon: '🔥', name: 'Firebase', desc: 'Deploy your project to a real URL', route: 'docs/Firebase.md' },
-        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'advanced-techniques' },
+        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, worktrees, MCP servers, and more', route: 'advanced-techniques' },
     ],
     steps: [
         // ── Step 1: Set Up Your Workspace ──

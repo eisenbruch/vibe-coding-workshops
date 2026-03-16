@@ -51,6 +51,7 @@ const FILE_GROUPS = [
             { name: "Tech Stack & Hosting", path: "tech-stack" },
             { name: "Solo Project Guide", path: "solo-project" },
             { name: "Clean Up & Optimize", path: "cleanup-guide" },
+            { name: "Commands, Skills & Plugins", path: "extending-ai" },
             { name: "Advanced Techniques", path: "advanced-techniques" },
         ]
     },

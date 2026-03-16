@@ -903,6 +903,12 @@ function renderCleanupGuide(step) {
     renderStepGuide(CLEANUP_GUIDE, function (s) { return 'renderCleanupGuide(' + s + ')'; }, step);
 }
 
+function renderExtendingAiGuide(step) {
+    step = step || 0;
+    updateStepHash('extending-ai', step);
+    renderStepGuide(EXTENDING_AI_GUIDE, function (s) { return 'renderExtendingAiGuide(' + s + ')'; }, step);
+}
+
 function renderAdvancedTechniquesGuide(step) {
     step = step || 0;
     updateStepHash('advanced-techniques', step);

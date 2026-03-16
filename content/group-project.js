@@ -15,7 +15,7 @@ const GROUP_PROJECT_GUIDE = {
         { icon: '🛠️', name: 'Tech Stack & Hosting', desc: 'Choose the right tools and platform', route: 'tech-stack' },
         { icon: '🚀', name: 'Solo Project Guide', desc: 'Step-by-step checklist from idea to deployment', route: 'solo-project' },
         { icon: '🔥', name: 'Firebase', desc: 'Deploy your project to a real URL', route: 'docs/Firebase.md' },
-        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, skills, MCP servers, and more', route: 'advanced-techniques' },
+        { icon: '⚡', name: 'Advanced Techniques', desc: 'Agents, worktrees, MCP servers, and more', route: 'advanced-techniques' },
     ],
     steps: [
         {
