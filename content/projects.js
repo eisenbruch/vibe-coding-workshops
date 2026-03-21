@@ -4,7 +4,7 @@ const WELCOME_PROJECTS = [
     { name: "Nerktendo", icon: '<img src="https://nerktendo.com/apple-touch-icon.png" alt="Nerktendo">', url: "https://nerktendo.com", type: "Retro Portfolio", learning: "A playable portfolio and retro emulator with a video game aesthetic" },
     { name: "LinkPee", icon: '<img src="https://linkp.ee/apple-touch-icon.png" alt="LinkPee">', url: "https://linkp.ee", type: "Link-in-Bio Service", learning: "Free Linktree alternative for creating a single page with all your links" },
     { name: "Weather Worsener", icon: "🌧️", url: "https://nerktendo.com/weather-worsener", type: "Game", learning: "Climate awareness game where you control disasters and try to eradicate humanity" },
-    { name: "DomainFlip", icon: '<img src="images/icons/domainflip-icon.svg" alt="DomainFlip">', url: "https://nerktendo.com/domainflip", type: "Startup Demo", learning: "A polished demo platform for trading premium domains instantly" },
+    { name: "DomainFlip", icon: '<img src="images/icons/domainflip-icon.svg" alt="DomainFlip">', url: "https://domainflip.nerktek.com", type: "Startup Demo", learning: "A polished demo platform for trading premium domains instantly" },
     { name: "TrafficVision", icon: '<img src="https://trafficvision.live/android-chrome-512x512.png" alt="TrafficVision">', url: "https://trafficvision.live", type: "Map & Database", learning: "Directory of 135,000+ live traffic cameras with real-time feeds from around the globe" },
     { name: "CamGuessr", icon: '<img src="images/icons/camguessr-icon.svg" alt="CamGuessr">', url: "https://trafficvision.live/camguessr", type: "Game", learning: "GeoGuessr-style game where you guess locations from live traffic camera feeds" },
 ];

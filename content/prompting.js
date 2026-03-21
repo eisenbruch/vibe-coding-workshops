@@ -23,7 +23,7 @@ const PROMPTING_GUIDE = {
                 + '<div style="display:flex; justify-content:space-between; font-size:0.85em; color:var(--text-muted);">'
                 + '<span><a href="https://nerktendo.com/" target="_blank" style="color:var(--text-muted);">Nerktendo</a></span>'
                 + '<span><a href="https://nerktendo.com/weather-worsener" target="_blank" style="color:var(--text-muted);">Weather Worsener</a> · <a href="https://linkp.ee" target="_blank" style="color:var(--text-muted);">LinkPee</a></span>'
-                + '<span><a href="https://nerktendo.com/domainflip" target="_blank" style="color:var(--text-muted);">DomainFlip</a></span>'
+                + '<span><a href="https://domainflip.nerktek.com" target="_blank" style="color:var(--text-muted);">DomainFlip</a></span>'
                 + '</div>'
                 + '</div>'
                 // ── Two approach cards side-by-side ──
@@ -51,7 +51,7 @@ const PROMPTING_GUIDE = {
                 + '</div>'
                 // ── DomainFlip workflow pipeline ──
                 + '<h3>Real Example: The DomainFlip Workflow</h3>'
-                + '<p style="margin-bottom:16px;"><a href="https://nerktendo.com/domainflip" target="_blank">DomainFlip</a> was built using the comprehensive brief approach — here\'s the pipeline:</p>'
+                + '<p style="margin-bottom:16px;"><a href="https://domainflip.nerktek.com" target="_blank">DomainFlip</a> was built using the comprehensive brief approach — here\'s the pipeline:</p>'
                 + _cards([
                     { icon: '💬', name: '1. Plan', desc: 'Used AI to define the product vision, revenue model, and marketing strategy' },
                     { icon: '📄', name: '2. Documents', desc: 'AI produced 8 build docs: architecture, UI components, mock data, and page specs' },
