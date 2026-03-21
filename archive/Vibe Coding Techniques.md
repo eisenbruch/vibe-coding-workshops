@@ -57,7 +57,7 @@ Start broad and refine through back-and-forth conversation. You might not know e
 
 ### Approach 2: Comprehensive Brief — Execute
 
-**Example:** <a href="https://nerktendo.com/domainflip" target="_blank">DomainFlip</a>
+**Example:** <a href="https://domainflip.nerktek.com" target="_blank">DomainFlip</a>
 
 Define everything upfront — features, style, structure, functions, rules, edge cases — then hand the AI a complete brief and let it build.
 

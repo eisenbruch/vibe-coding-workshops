@@ -79,7 +79,7 @@ You'll learn:
 - **Type:** Interactive game
 - **Key Learning:** Fun iterative projects are great for experimenting
 
-**6. DomainFlip** (<a href="https://nerktendo.com/domainflip" target="_blank">nerktendo.com/domainflip</a>)
+**6. DomainFlip** (<a href="https://domainflip.nerktek.com" target="_blank">domainflip.nerktek.com</a>)
 - **Type:** Investor-ready startup demo
 - **Key Learning:** Clear vision + detailed context = polished results
 
