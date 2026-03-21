@@ -8,6 +8,8 @@ DomainFlip transforms domain name trading into a fast-paced, social, and viral e
 
 **Target Market:** Domain investors, entrepreneurs, speculators, and digital asset enthusiasts looking for fast-moving opportunities in the domain space.
 
+**Live Demo:** [domainflip.nerktek.com](https://domainflip.nerktek.com)
+
 **Revenue Model:** Transaction fees, premium subscriptions, and domain registration markups.
 
 ---
