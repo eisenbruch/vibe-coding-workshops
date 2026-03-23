@@ -12,6 +12,7 @@ const WELCOME_PROJECTS = [
 const WORKSHOP_PROJECTS = [
     { name: "The Playa Provides", author: "Alex Mizrahi", url: "https://www.theplayaprovides.com/", type: "Community Tool", desc: "A circular economy platform for the Burning Man community to gift or lend gear and reduce waste" },
     { name: "Shuffleboard Jam", author: "Jeff Ziev", url: "https://shuffleboardjam.com", type: "Multiplayer Game", desc: "Online multiplayer shuffleboard videogame inspired by the Royal Palms Shuffleboard Club league" },
+    { name: "When To Leave", author: "David Webb", url: "https://whentoleave.netlify.app", type: "Transit Tool", desc: "A tool that tells you when you need to leave to make your train" },
     { name: "ZigZag Explorer", author: "Ben Von Wong", url: "https://zigzag-explorer-vw.web.app/", type: "Interactive Dashboard", desc: "A non-linear journey through the Star Wars universe — explore characters, planets, and lore" },
     { name: "Surrender", author: "Ben Von Wong", url: "https://hope-surrender-vw.web.app/", type: "Personal", desc: "A journey back to us — an intimate, reflective experience exploring themes of reconciliation and reconnection" },
     { name: "The 3rd Door Brooklyn", author: "Ben Von Wong", url: "https://third-door-fundraiser.web.app/", type: "Fundraising", desc: "Concept site built in 15 minutes for a donation-based yoga & arts studio in DUMBO" },
@@ -20,6 +21,6 @@ const WORKSHOP_PROJECTS = [
     { name: "RHV Universe", author: "Michelle Bernabe", url: "https://rhv-universe.surge.sh/", type: "Data Visualization", desc: "Interactive archive visualizing 500+ episodes of a healthcare podcast — spiral networks, topic maps, and language evolution across 12 years" },
     { name: "Ye Olde Hobby Finder", author: "Group Project", url: "https://workshop.nerktek.com/workshop-projects/2025-12-12-resistor/group-project-hobby-finder/hobby-finder.html", type: "Interactive Tool", desc: "Medieval-themed hobby discovery with Tinder-style swiping and head-to-head duels" },
     { name: "MJPEG Glitch Stream", author: "Noah", url: "https://workshop.nerktek.com/workshop-projects/2025-11-15-resistor/noah-eisenbruch-live-mjpeg-compression/index.html", type: "Webcam Tool", desc: "Live webcam feed with compression control and glitch effects like pixel sorting" },
-    { name: "Top or Bottom?", author: "Hank", url: "https://workshop.nerktek.com/workshop-projects/2025-11-15-resistor/hank-top-or-bottom/index.html", type: "Parody Quiz", desc: "Quiz styled after early 2000s magazine flowcharts" },
+    { name: "Top or Bottom?", author: "Hank Bhatia", url: "https://workshop.nerktek.com/workshop-projects/2025-11-15-resistor/hank-top-or-bottom/index.html", type: "Parody Quiz", desc: "Quiz styled after early 2000s magazine flowcharts" },
     { name: "Band Tier Console", author: "Andy", url: "https://workshop.nerktek.com/workshop-projects/2025-11-15-resistor/andy-listing-thing/index.html", type: "Ranking Tool", desc: "Drag-and-drop ranking interface with cyberpunk aesthetic" },
 ];
