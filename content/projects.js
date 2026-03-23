@@ -10,9 +10,9 @@ const WELCOME_PROJECTS = [
 ];
 
 const WORKSHOP_PROJECTS = [
+    { name: "When To Leave", author: "David Webb", url: "https://whentoleave.netlify.app", type: "Transit Tool", desc: "A tool that tells you when you need to leave to make your train" },
     { name: "The Playa Provides", author: "Alex Mizrahi", url: "https://www.theplayaprovides.com/", type: "Community Tool", desc: "A circular economy platform for the Burning Man community to gift or lend gear and reduce waste" },
     { name: "Shuffleboard Jam", author: "Jeff Ziev", url: "https://shuffleboardjam.com", type: "Multiplayer Game", desc: "Online multiplayer shuffleboard videogame inspired by the Royal Palms Shuffleboard Club league" },
-    { name: "When To Leave", author: "David Webb", url: "https://whentoleave.netlify.app", type: "Transit Tool", desc: "A tool that tells you when you need to leave to make your train" },
     { name: "ZigZag Explorer", author: "Ben Von Wong", url: "https://zigzag-explorer-vw.web.app/", type: "Interactive Dashboard", desc: "A non-linear journey through the Star Wars universe — explore characters, planets, and lore" },
     { name: "Surrender", author: "Ben Von Wong", url: "https://hope-surrender-vw.web.app/", type: "Personal", desc: "A journey back to us — an intimate, reflective experience exploring themes of reconciliation and reconnection" },
     { name: "The 3rd Door Brooklyn", author: "Ben Von Wong", url: "https://third-door-fundraiser.web.app/", type: "Fundraising", desc: "Concept site built in 15 minutes for a donation-based yoga & arts studio in DUMBO" },
