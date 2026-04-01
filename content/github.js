@@ -21,15 +21,21 @@ const GITHUB_GUIDE = {
                     { icon: '🌿', name: 'Branches', desc: 'Work on a new feature in a separate branch without touching your main code. Merge it in when it\'s ready.' },
                     { icon: '📋', name: 'Change History', desc: 'See exactly what changed, when, and why. Great for understanding how your project evolved.' },
                 ], { style: 'margin:16px 0 24px;' })
-                + '<h3>How It Works (The Simple Version)</h3>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:16px;">You don\'t need to understand Git deeply — your AI agent handles the commands. But here\'s the basic idea:</p>'
-                + '<ol class="step-num-list">'
-                + '<li>You make changes to your project files</li>'
-                + '<li>You tell Git to <strong>save a snapshot</strong> (called a "commit") with a short description of what changed</li>'
-                + '<li>Git remembers that snapshot forever — you can always come back to it</li>'
-                + '</ol>'
-                + '<p style="font-size:1.05em; line-height:1.7; margin-top:16px;">That\'s it. Each commit is a checkpoint. The more often you commit, the more save points you have if something goes wrong.</p>'
-                + _tip('You\'ve likely already been using Git if you followed any of the setup guides — your AI agent runs Git commands behind the scenes every time it saves progress.')
+                + '<h3>How It Works</h3>'
+                + '<p style="font-size:1.05em; line-height:1.7; margin-bottom:16px;">Your AI agent handles the Git commands — but here\'s what\'s happening under the hood:</p>'
+                + '<div style="margin:24px 0; text-align:center;">'
+                + '<img src="images/git.jpg" alt="Git branch diagram showing commits on main and a feature branch merging back" style="width:100%;border-radius:12px;border:1px solid var(--border-color);" />'
+                + '</div>'
+                + '<p style="font-size:1.05em; line-height:1.7;">Each circle is a <strong>commit</strong> — a save point. The <strong>main</strong> branch is your live code. <strong>Feature branches</strong> let you work on new things without touching what\'s live. When the feature is ready, you <strong>merge</strong> it back into main.</p>'
+                + '<h3>When Should I Commit?</h3>'
+                + '<p style="font-size:1.05em; line-height:1.7;">Every time something works. Commits are free — the more you make, the more checkpoints you have. Good moments to commit:</p>'
+                + '<ul style="margin:8px 0 16px 20px; line-height:1.8;">'
+                + '<li>You just got a new feature working</li>'
+                + '<li>You fixed a bug</li>'
+                + '<li>You\'re about to try something risky</li>'
+                + '<li>You\'re done for the day</li>'
+                + '</ul>'
+                + _tip('You\'ve likely already been using Git if you followed the group project. You can ask your AI agent to commit updates as it makes progress.')
         },
         // ── Step 2: What is GitHub? ──
         {

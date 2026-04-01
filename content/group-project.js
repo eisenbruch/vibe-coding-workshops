@@ -116,6 +116,12 @@ const GROUP_PROJECT_GUIDE = {
             nextLabel: 'View Your History in SourceTree',
             content: '<h2>Step 6: Introduce Git — Save Your Progress</h2>'
                 + '<p>You have a working project. Before we change anything else, let\'s save a checkpoint.</p>'
+                + '<h3>Why Git?</h3>'
+                + '<p style="font-size:1.05em; line-height:1.7;">Many hosting platforms automatically deploy your site every time you push code to the <strong>main</strong> branch. That\'s powerful — but it means broken code on main = a broken live site. Git gives you <strong>commits</strong> (save points) and <strong>branches</strong> (safe spaces to experiment):</p>'
+                + '<div style="margin:24px 0; text-align:center;">'
+                + '<img src="images/git.jpg" alt="Git branch diagram showing main branch and feature branch" style="width:100%;border-radius:12px;border:1px solid var(--border-color);" />'
+                + '</div>'
+                + '<p style="font-size:0.95em; line-height:1.7; margin-bottom:8px;"><strong>When should I commit?</strong> Every time something works. Commits are free — the more you have, the more save points you can roll back to if something breaks.</p>'
                 + _cards([
                     { icon: '💾', name: 'Commits', desc: 'Save points in your project\'s history — like save files in a video game' },
                     { icon: '⏪', name: 'Undo Changes', desc: 'Broke something? Go back to any previous commit instantly' },
