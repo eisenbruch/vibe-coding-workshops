@@ -114,15 +114,11 @@ body {
     gap: 10px;
 }
 
-.logo::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--dash-status-green);
-    box-shadow: 0 0 6px var(--dash-status-green);
+.logo-mark {
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.45));
 }
 
 .top-bar-global {
