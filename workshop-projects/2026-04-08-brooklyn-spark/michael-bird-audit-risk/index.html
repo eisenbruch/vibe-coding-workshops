@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Risk Dashboard — Michael Bird</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --fg: #e8eaed;
+    --muted: #9aa0a6;
+    --accent: #4f9cff;
+    --card: #1a1d24;
+    --border: #2a2f3a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .container {
+    max-width: 640px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 0.25rem;
+  }
+  .author {
+    color: var(--muted);
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+  }
+  p {
+    color: var(--fg);
+    margin: 0 0 1.5rem;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: var(--fg);
+    display: block;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .card-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+    color: var(--accent);
+  }
+  .card-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .back {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+  .back:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Audit Risk Dashboard</h1>
+  <p class="author">by Michael Bird — Brooklyn Spark workshop, April 8 2026</p>
+  <p>Risk audit and assessment tool for the Department of Health. The app requires the mock dataset below — download it first, then upload it in the Streamlit app.</p>
+
+  <a class="card" href="Mock_Audit_Findings_DOHMH.xlsx" download>
+    <div class="card-title">1. Download the mock dataset ↓</div>
+    <div class="card-desc">Mock_Audit_Findings_DOHMH.xlsx — required to run the app</div>
+  </a>
+
+  <a class="card" href="https://audit-risk-dashboard.streamlit.app/" target="_blank" rel="noopener">
+    <div class="card-title">2. Open the live app →</div>
+    <div class="card-desc">audit-risk-dashboard.streamlit.app — upload the xlsx when prompted</div>
+  </a>
+
+  <a class="back" href="../../../#example-projects">← Back to example projects</a>
+</div>
+</body>
+</html>

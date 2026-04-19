@@ -11,6 +11,10 @@ const WELCOME_PROJECTS = [
 ];
 
 const WORKSHOP_PROJECTS = [
+    { name: "SubSignal", author: "Elena Weissmann", url: "https://subsignal.pages.dev/", type: "Recommendation App", desc: "Personalized EDM show recommendations" },
+    { name: "1% Better", author: "Tuhin Parhi", url: "https://1-percent-better-ozow.vercel.app/journey", type: "Habit Tracker", desc: "An app to help you build habits and reach your goals" },
+    { name: "Audit Risk Dashboard", author: "Michael Bird", url: "workshop-projects/2026-04-08-brooklyn-spark/michael-bird-audit-risk/index.html", type: "Risk Dashboard", desc: "Risk audit and assessment app for the DOH — includes link to the live Streamlit app and downloadable mock dataset" },
+    { name: "Radicool Farms", author: "James Hunt", url: "https://radicoolfarms.com", type: "Civic Tool", desc: "Submit locations for trees to be planted across NYC" },
     { name: "When To Leave", author: "David Webb", url: "https://whentoleave.netlify.app", type: "Transit Tool", desc: "A tool that tells you when you need to leave to make your train" },
     { name: "The Playa Provides", author: "Alex Mizrahi", url: "https://www.theplayaprovides.com/", type: "Community Tool", desc: "A circular economy platform for the Burning Man community to gift or lend gear and reduce waste" },
     { name: "Shuffleboard Jam", author: "Jeff Ziev", url: "https://shuffleboardjam.com", type: "Multiplayer Game", desc: "Online multiplayer shuffleboard videogame inspired by the Royal Palms Shuffleboard Club league" },
