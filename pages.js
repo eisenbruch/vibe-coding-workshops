@@ -188,7 +188,7 @@ function renderWorkshopKickoff() {
     html += '</div>';
 
     // Quick Intros
-    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:16px; border:none; padding:0;">Quick Intros</h2>';
+    html += '<h2 style="font-size:1.1em; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:16px; border:none; padding:0;">Quick Intros &mdash; 30 seconds each</h2>';
     html += '<div class="path-picker-grid" style="margin-bottom:36px;">';
 
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
@@ -198,13 +198,18 @@ function renderWorkshopKickoff() {
 
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
     html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">02</div>';
-    html += '<div class="path-card-name">Skills or Interests You\'re Bringing</div>';
-    html += '<div class="path-card-desc">Doesn\'t have to be technical</div>';
+    html += '<div class="path-card-name">Your Hobbies &amp; Expertise</div>';
+    html += '<div class="path-card-desc">Interests, skills, anything you\'re bringing &mdash; technical or not</div>';
     html += '</div>';
 
     html += '<div class="path-card" style="cursor:default; text-align:center;">';
     html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">03</div>';
-    html += '<div class="path-card-name">What You Want to Build or Learn</div>';
+    html += '<div class="path-card-name">What You Want to Build, Learn, or Take Away</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:center;">';
+    html += '<div class="path-card-icon" style="font-family:var(--font-mono,monospace); font-weight:800; font-size:1.3em; color:var(--accent-color);">04</div>';
+    html += '<div class="path-card-name">How You Heard About the Workshop</div>';
     html += '</div>';
 
     html += '</div>';
@@ -248,6 +253,7 @@ function renderWhoAmI() {
     html += '<div style="height:80px; border-radius:50%; background:var(--accent-color); color:#fff; font-size:2em; font-weight:800; display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px; letter-spacing:-0.02em;">About Me</div>';
     html += '<h1 style="font-size:2.2em; font-weight:800; border:none; margin:0 0 6px 0;">Noah Eisenbruch</h1>';
     html += '<p style="color:var(--text-muted); font-size:1.1em; margin:0;">Artist &middot; Tech Founder &middot; Product Manager &middot; Creative Technologist &middot; Educator</p>';
+    html += '<p style="color:var(--text-muted); font-size:1.1em; margin:4px 0 0 0;">Bad With Names</p>';
     html += '</div>';
 
     // Three identity cards
@@ -277,9 +283,9 @@ function renderWhoAmI() {
     html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:28px; border:1px solid var(--border-color);">';
     html += '<div class="path-card-name" style="font-size:1.15em; margin-bottom:10px;">Why I Teach This</div>';
     html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
-    html += 'Vibe coding empowers me to build projects I\'d only dreamed about. ';
+    html += 'Vibe coding empowers me to build projects I\'ve only dreamed about. ';
     html += 'I believe everyone deserves to bring their ideas to life without technical gatekeeping. ';
-    html += 'That\'s why I teach workshops and private lessons — to help others bypass the same roadblocks I faced.';
+    html += 'That\'s why I teach workshops — to help others bypass the same roadblocks I faced.';
     html += '</div>';
     html += '</div>';
 
@@ -291,7 +297,7 @@ function renderWhoAmI() {
 
     // Year axis labels
     html += '<div class="gantt-axis" style="height:20px; position:relative;">';
-    var ganttYears = [2008,2010,2012,2014,2016,2018,2020,2022,2024,2026];
+    var ganttYears = [2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026];
     for (var i = 0; i < ganttYears.length; i++) {
         var pct = ((ganttYears[i] - 2008) / 18 * 100).toFixed(1);
         html += '<div class="gantt-axis-label" style="left:' + pct + '%;">' + ganttYears[i] + '</div>';
@@ -366,7 +372,7 @@ function renderWhoAmI() {
     html += '</div>';
 
     // Detail cards below the chart (sorted chronologically)
-    var ganttSorted = ganttData.slice().sort(function(a, b) { return a.start - b.start || a.end - b.end; });
+    var ganttSorted = ganttData.slice().sort(function (a, b) { return a.start - b.start || a.end - b.end; });
     html += '<div class="gantt-details">';
     for (var i = 0; i < ganttSorted.length; i++) {
         var d = ganttSorted[i];
@@ -478,6 +484,17 @@ function renderWhyVibeCoding() {
     html += '<div class="path-card-icon">🔓</div>';
     html += '<div class="path-card-name">Unlock New Capabilities</div>';
     html += '<div class="path-card-desc">Automate workflows, build internal tools, create data visualizations — capabilities you couldn\'t access before</div>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="path-card" style="cursor:default; text-align:left; padding:28px 32px; margin-bottom:24px; border:2px solid var(--accent-color); background:var(--bg-color);">';
+    html += '<div style="font-family:var(--font-mono,monospace); font-size:0.75em; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent-color); margin-bottom:8px;">★ The Bigger Shift</div>';
+    html += '<div class="path-card-name" style="font-size:1.2em; margin-bottom:12px;">Software From New Perspectives</div>';
+    html += '<div class="path-card-desc" style="font-size:1em; line-height:1.7;">';
+    html += 'Vibe coding unlocks <strong>kinds of software the tech industry would never build</strong>. ';
+    html += 'Career developers and product managers bring one worldview to the tools they make. ';
+    html += 'When chefs, organizers, teachers, dancers, scientists, and caregivers can build their own software, ';
+    html += 'we get tools shaped by lived experience the industry has been missing — software made by the people who actually need it, for problems no one else thought to solve.';
     html += '</div>';
     html += '</div>';
 
