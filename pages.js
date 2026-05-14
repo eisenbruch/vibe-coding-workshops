@@ -643,15 +643,14 @@ function renderExampleProjects() {
 
     // Workshop Projects
     html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Workshop Projects</h2>';
-    html += '<div class="path-picker-grid" style="margin-bottom:24px;">';
+    html += '<ul style="padding-left:1.5em; margin-bottom:24px; line-height:1.7;">';
     WORKSHOP_PROJECTS.forEach(p => {
-        html += '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer" class="path-card" style="text-decoration:none; cursor:pointer;">';
-        html += '<div class="path-card-name">' + p.name + '</div>';
-        html += '<div class="path-card-tools">' + p.author + ' — ' + p.type + '</div>';
-        html += '<div class="path-card-desc">' + p.desc + '</div>';
-        html += '</a>';
+        html += '<li>';
+        html += '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer"><strong>' + p.name + '</strong></a>';
+        html += ' by ' + p.author + ' — ' + p.desc;
+        html += '</li>';
     });
-    html += '</div>';
+    html += '</ul>';
 
     html += '<h2 style="font-size:1.3em; font-weight:700; margin-bottom:12px; border-bottom:1px solid var(--header-border); padding-bottom:0.3em;">Instructor Projects</h2>';
     html += '<div class="path-picker-grid" style="margin-bottom:24px;">';

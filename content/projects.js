@@ -11,6 +11,7 @@ const WELCOME_PROJECTS = [
 ];
 
 const WORKSHOP_PROJECTS = [
+    { name: "Albeiruti Holdings", author: "A. D. Myers", url: "https://albeirutiholdings.com/", type: "Personal Site", desc: "Personal website" },
     { name: "SubSignal", author: "Elena Weissmann", url: "https://subsignal.pages.dev/", type: "Recommendation App", desc: "Personalized EDM show recommendations" },
     { name: "1% Better", author: "Tuhin Parhi", url: "https://1-percent-better-ozow.vercel.app/journey", type: "Habit Tracker", desc: "An app to help you build habits and reach your goals" },
     { name: "Audit Risk Dashboard", author: "Michael Bird", url: "workshop-projects/2026-04-08-brooklyn-spark/michael-bird-audit-risk/index.html", type: "Risk Dashboard", desc: "Risk audit and assessment app for the DOH — includes link to the live Streamlit app and downloadable mock dataset" },
