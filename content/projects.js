@@ -11,6 +11,9 @@ const WELCOME_PROJECTS = [
 ];
 
 const WORKSHOP_PROJECTS = [
+    { name: "THCleared", author: "Harley Belange", url: "https://thcleared.com", type: "Cannabis Retail Tool", desc: "Compliance-first intake and planning suite for multi-store cannabis retail." },
+    { name: "Tap Tile Keys", author: "Harley Belange", url: "https://taptilekeys.com", type: "Product Configurator", desc: "Custom mechanical keyboard board builder with live 3D preview." },
+    { name: "Care2Explain", author: "Harley Belange", url: "https://care2explain.com", type: "Healthcare Tool", desc: "Billing transparency layer for behavioral health with side-by-side patient and provider views" },
     { name: "Albeiruti Holdings", author: "A. D. Myers", url: "https://albeirutiholdings.com/", type: "Personal Site", desc: "Personal website" },
     { name: "SubSignal", author: "Elena Weissmann", url: "https://subsignal.pages.dev/", type: "Recommendation App", desc: "Personalized EDM show recommendations" },
     { name: "1% Better", author: "Tuhin Parhi", url: "https://1-percent-better-ozow.vercel.app/journey", type: "Habit Tracker", desc: "An app to help you build habits and reach your goals" },
