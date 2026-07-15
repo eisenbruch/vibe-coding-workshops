@@ -1,0 +1,1 @@
+-Update for Antigravity changes - Antigravity CLI instead of Gemini, Antigravity 2.0, Antigravity IDE

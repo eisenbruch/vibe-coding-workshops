@@ -1,6 +1,6 @@
-# CLAUDE.md
+# CLAUDE.md / GEMINI.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI coding assistants (Claude Code, Gemini, Antigravity) when working with code in this repository.
 
 ## Repository Purpose
 
@@ -33,7 +33,7 @@ The viewer is a client-side app:
 |------|---------|
 | `helpers.js` | `_tip`, `_note`, `_warn`, `_term`, `_check`, `_cards` (must load first) |
 | `projects.js` | `WELCOME_PROJECTS`, `WORKSHOP_PROJECTS` |
-| `setup-guides.js` | `SETUP_GUIDES` (~720 lines, largest file) |
+| `setup-guides.js` | `SETUP_GUIDES` (~866 lines, largest file) |
 | `beginner.js` | `BEGINNER_GUIDE` |
 | `group-project.js` | `GROUP_PROJECT_OPTIONS`, `GROUP_PROJECT_GUIDE` |
 | `prompting.js` | `PROMPTING_GUIDE` |
@@ -42,7 +42,10 @@ The viewer is a client-side app:
 | `github.js` | `GITHUB_GUIDE` |
 | `solo-project.js` | `SOLO_PROJECT_GUIDE` |
 | `cleanup.js` | `CLEANUP_GUIDE` |
+| `extending-ai.js` | `EXTENDING_AI_GUIDE` |
 | `advanced-techniques.js` | `ADVANCED_TECHNIQUES_GUIDE` |
+| `custom-domains.js` | `CUSTOM_DOMAINS_GUIDE` |
+| `hosting-platforms.js` | `HOSTING_PLATFORMS_GUIDE` |
 | `beyond-coding.js` | `BEYOND_CODING_CATEGORIES` |
 
 Scripts load in order: `config.js` → `content/helpers.js` → remaining `content/*.js` → `pages.js` → inline `<script>` in `index.html`. Render functions in `pages.js` reference globals (`contentDiv`, `selector`, `loadMarkdown`, etc.) defined in the inline script.
@@ -76,10 +79,6 @@ Each project should be self-contained with a README.
 - Maintain direct, educational voice
 - **Never use `var(--accent-color)` for borders.** Always use `var(--border-color)` for all border colors in inline styles and CSS.
 
-## Parallel Context File
-
-`GEMINI.md` is a parallel context file for Gemini — keep it in sync with this file when making structural changes.
-
 ## Commit Rules
 
-Never mention Claude or AI in commit messages.
+Never mention Claude, Gemini, or AI in commit messages.
