@@ -92,6 +92,49 @@ const PROMPTING_GUIDE = {
                     h += '</div>';
                     return h;
                 })()
+                // ── Match length to task ──
+                + '<h3>Match the Length to the Task</h3>'
+                + '<p style="margin-bottom:16px;">Short prompts aren\'t wrong — they\'re right for small asks. The bigger and fuzzier the request, the more detail pays off.</p>'
+                + '<div style="margin:0 0 28px; border-radius:12px; border:1px solid var(--border-color); background:var(--surface-color); overflow:hidden;">'
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));">'
+                + '<div style="padding:18px 20px; border-bottom:1px solid var(--border-color);">'
+                + '<div style="font-weight:700; margin-bottom:4px;">✏️ A sentence or two</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; line-height:1.7;">Quick questions · small tweaks · one-line fixes · “what does this file do?”</div>'
+                + '</div>'
+                + '<div style="padding:18px 20px; border-bottom:1px solid var(--border-color);">'
+                + '<div style="font-weight:700; margin-bottom:4px;">📝 A paragraph</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; line-height:1.7;">A new component · a bug report · a design change with a few requirements</div>'
+                + '</div>'
+                + '<div style="padding:18px 20px; border-bottom:1px solid var(--border-color);">'
+                + '<div style="font-weight:700; margin-bottom:4px;">📚 500–2,000 words</div>'
+                + '<div style="color:var(--text-muted); font-size:0.9em; line-height:1.7;">A whole feature or project · anything where your taste, audience, and constraints matter</div>'
+                + '</div>'
+                + '</div>'
+                + '<div style="padding:14px 20px; font-size:0.9em; color:var(--text-muted);">Rule of thumb: if you\'d have to explain it to a new teammate, write that explanation down and paste it.</div>'
+                + '</div>'
+                // ── Why detail works ──
+                + '<h3>Why Detail Works</h3>'
+                + '<p style="margin-bottom:16px; line-height:1.8;">The AI has read an enormous amount of writing and code. Every plausible answer to your prompt already exists somewhere in that space of possibilities — a thousand different portfolio sites, a thousand different button styles. Your prompt is what narrows the field.</p>'
+                + '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom:20px;">'
+                + '<div style="padding:18px 20px; border-radius:10px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-size:0.8em; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); margin-bottom:8px;">Vague prompt</div>'
+                + '<div style="font-size:0.95em; line-height:1.7;">Wide aperture. The AI picks the most average, most common version — the thing that looks like everything else.</div>'
+                + '</div>'
+                + '<div style="padding:18px 20px; border-radius:10px; border:1px solid var(--border-color); background:var(--surface-color);">'
+                + '<div style="font-size:0.8em; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); margin-bottom:8px;">Specific prompt</div>'
+                + '<div style="font-size:0.95em; line-height:1.7;">Narrow aperture. Details rule out the wrong paths, so what comes back is closer to the thing in your head.</div>'
+                + '</div>'
+                + '</div>'
+                + _note('Being almost annoyingly precise is a feature, not rudeness. “Three cards in a row, equal width, 16px gap, image on top” beats “a nice card layout” every time. The AI can\'t read your mind — anything you leave out, it guesses.')
+                // ── Getting the detail out ──
+                + '<h3>Getting the Detail Out of Your Head</h3>'
+                + '<p style="margin-bottom:16px;">Writing 1,000 words feels like work. These shortcuts make it fast:</p>'
+                + _cards([
+                    { icon: '🎤', name: 'Talk, Don\'t Type', desc: 'Record yourself explaining the project for 3–4 minutes, then paste the transcript in. Speaking captures detail you\'d never bother typing' },
+                    { icon: '📄', name: 'Draft It Elsewhere First', desc: 'Dump all your context into a notes doc, clean it up, then paste the whole thing as one prompt' },
+                    { icon: '🧩', name: 'Answer the Obvious Questions', desc: 'Who is it for? What must it do? What should it look like? What are you not building?' },
+                ], { style: 'margin-bottom:8px;' })
+                + _tip('Stuck on where to start? Ask the AI to interview you: “Ask me 10 questions about this project, then write the detailed prompt for me.”')
         },
         {
             title: 'Give Your AI Inspiration',

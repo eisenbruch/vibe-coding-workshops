@@ -63,7 +63,7 @@ const PRODUCT_GUIDE = {
                 + '<li>What\'s the first thing I\'d show someone to prove this works?</li>'
                 + '<li>What would make someone choose this over what already exists?</li>'
                 + '</ul>'
-                + _tip('You can also ask your AI for help here. Try: <em>"I want to build [idea]. What are the different ways I could approach this? What would you recommend for someone who wants to keep it simple?"</em>')
+                + _tip('You can also ask your AI for help here. Try: <em>"I want to build [idea]. What are the different ways this kind of product could be created in terms of approaches to solving the issue or achieving the goal? What kind options are there for the feel, functionality provided, and the UX? What would you recommend for a minimalist version, and what would you reccomend for a maximalist version? What feature are essential for a [type of person]?"</em>')
         }
     ]
 };
